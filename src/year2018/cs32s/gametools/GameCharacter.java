@@ -48,7 +48,7 @@ public abstract class GameCharacter extends GameObject
     
     public boolean isColliding(GameObject target) {
         if (isAlive && target.isAlive) {
-            return coordinate.isOverLapping(target.coordinate);
+            return coordinate.isOverlapping(target.coordinate);
         }
         else {
             return false;

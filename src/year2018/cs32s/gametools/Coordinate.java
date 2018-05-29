@@ -3,7 +3,8 @@
 package year2018.cs32s.gametools;
 
 /**
- * XXX.java - 
+ * Coordinate.java - stores data on position and movement as well as methods 
+ * to move those values
  *
  * @author Mr. Wachs
  * @since May 28, 2018 
@@ -11,129 +12,213 @@ package year2018.cs32s.gametools;
  */
 public class Coordinate 
 {
-    // properties:
-    
+
+    /** 
+     * Property data tracking an object's location and movement 
+     */
     public int x,y,width,height,
                left,right,top,bottom,
                amount,direction;
     
-    public Image hitbox;
+    private Image hitbox;                      // the Image hitbox image
     
-    // methods:
-    
-    public Coordinate(Image hitbox) {
-        this.hitbox = hitbox;
-        direction   = Directions.STOP;
-        amount      = Directions.STOP;
-        update();
+    /**
+     * Constructor for the class sets class properties
+     * 
+     * @param image the JLabel hitbox image
+     */
+    public Coordinate(Image image) {
+        hitbox    = image;                      // assign parameter to property
+        direction = Directions.STOP;            // set movement to stop
+        amount    = Directions.STOP;
+        update();                               // update coordinate data
     }
     
-    public Coordinate(Image hitbox,
-                      int direction,
-                      int amount) {
-        this.hitbox    = hitbox;
-        this.direction = direction;
-        this.amount    = amount;
-        update();
+    /**
+     * Constructor for the class sets class properties
+     * 
+     * @param image the JLabel hitbox image
+     * @param direction the starting direction of movement
+     * @param amount the starting amount of movement
+     */
+    public Coordinate(Image image, int direction, int amount) {
+        hitbox         = image;                 // assign parameter to property
+        this.direction = direction;             // assign parameter to property
+        this.amount    = amount;                // assign parameter to property
+        update();                               // update coordinate data
     }
-        
+      
+    /**
+     * Updates the current location of the coordinates box in its container
+     */
     public void update() {
-        x      = hitbox.getX();
-        y      = hitbox.getY();
-        width  = hitbox.getWidth();
-        height = hitbox.getHeight();
-        recalculate();
+        x      = hitbox.getX();             // get x coordinate from hitbox
+        y      = hitbox.getY();             // get y coordinate from hitbox
+        width  = hitbox.getWidth();         // get width coordinate from hitbox
+        height = hitbox.getHeight();        // get height coordinate from hitbox
+        recalculate();                      // recalculate other needed data
     }
 
+    /**
+     * Recalculates needed movement data
+     */
     public void recalculate() {
-        left   = x;
-        top    = y;
-        right  = left + width;
-        bottom = top  + height;
+        left   = x;                         // calculate left from x
+        top    = y;                         // calculate top from y
+        right  = left + width;              // right calculated left + width
+        bottom = top  + height;             // bottom calculated top + height
     }
-        
+    
+    /**
+     * Determines if one set of coordinate data is overlapping (colliding) 
+     * with the target coordinate data horizontally
+     * 
+     * @param target the coordinate data to check against 
+     * @return it is colliding (true) or not (false) horizontally
+     */
+    public boolean isOverlappingHorizontally(Coordinate target) {
+        if      (left         >= target.left && 
+                 left         <= target.right)      return true;
+        else if (right        >= target.left && 
+                 right        <= target.right)      return true;
+        else if (target.left  >= left        && 
+                 target.left  <= right)             return true;
+        else if (target.right >= left        && 
+                 target.right <= right)             return true;
+        else                                        return false;
+    }
+    
+    /**
+     * Determines if one set of coordinate data is overlapping (colliding) 
+     * with the target coordinate data vertically
+     * 
+     * @param target the coordinate data to check against 
+     * @return it is colliding (true) or not (false) vertically
+     */
+    public boolean isOverlappingVertically(Coordinate target) {
+        if      (top           >= target.top && 
+                 top           <= target.bottom)    return true;
+        else if (bottom        >= target.top && 
+                 bottom        <= target.bottom)    return true;
+        else if (target.top    >= top        && 
+                 target.top    <= bottom)           return true;
+        else if (target.bottom >= top        && 
+                 target.bottom <= bottom)           return true;
+        else                                        return false;
+    }
+    
+    /**
+     * Determines if one set of coordinate data is overlapping (colliding) 
+     * with the target coordinate data both vertically and horizontally
+     * 
+     * @param target the coordinate data to check against 
+     * @return it is colliding (true) or not (false) 
+     */
+    public boolean isOverlapping(Coordinate target) {
+        if (isOverlappingVertically(target) &&
+            isOverlappingHorizontally(target)) {
+            return true;                            // is colliding
+        }
+        else {
+            return false;                           // is not colliding
+        }
+    }
+    
+    /**
+     * Moves all coordinate data up
+     */    
     public void moveUp() {
-        y = y - amount;
-        recalculate();
+        y = y - amount;             // move y coordinate towards origin point
+        recalculate();              // recalculate other coordinate data
     }
     
+    /**
+     * Moves all coordinate data down
+     */
     public void moveDown() {
-        y = y + amount;
-        recalculate();
+        y = y + amount;             // move y coordinate away from origin point
+        recalculate();              // recalculate other coordinate data
     }
     
+    /**
+     * Moves all coordinate data left
+     */
     public void moveLeft() {
-        x = x - amount;
-        recalculate();
+        x = x - amount;             // move x coordinate towards origin point
+        recalculate();              // recalculate other coordinate data
     }
     
+    /**
+     * Moves all coordinate data right
+     */
     public void moveRight() {
-        x = x + amount;
-        recalculate();
+        x = x + amount;             // move x coordinate away from origin point
+        recalculate();              // recalculate other coordinate data
     }
     
+    /**
+     * Moves all coordinate data north
+     */
     public void moveNorth() {
         moveUp();
     }
     
+    /**
+     * Moves all coordinate data south
+     */
     public void moveSouth() {
         moveDown();
     }
     
+    /**
+     * Moves all coordinate data east
+     */
     public void moveEast() {
         moveRight();
     }
     
+    /**
+     * Moves all coordinate data west
+     */
     public void moveWest() {
         moveLeft();
     }
     
+    /**
+     * Moves all coordinate data north east
+     */
     public void moveNorthEast() {
         moveNorth();
         moveEast();
     }
     
+    /**
+     * Moves all coordinate data north west
+     */
     public void moveNorthWest() {
         moveNorth();
         moveWest();
     }
 
+    /**
+     * Moves all coordinate data south east
+     */
     public void moveSouthEast() {
         moveSouth();
         moveEast();
     }
     
+    /**
+     * Moves all coordinate data south west
+     */
     public void moveSouthWest() {
         moveSouth();
         moveWest();
     }
     
-    public boolean isOverlappingHorizontally(Coordinate target) {
-        if      (left         >= target.left && left         <= target.right) return true;
-        else if (right        >= target.left && right        <= target.right) return true;
-        else if (target.left  >= left        && target.left  <= right)        return true;
-        else if (target.right >= left        && target.right <= right)        return true;
-        else                                                                  return false;
-    }
-    
-    public boolean isOverlappingVertically(Coordinate target) {
-        if      (top           >= target.top && top           <= target.bottom) return true;
-        else if (bottom        >= target.top && bottom        <= target.bottom) return true;
-        else if (target.top    >= top        && target.top    <= bottom)        return true;
-        else if (target.bottom >= top        && target.bottom <= bottom)        return true;
-        else                                                                    return false;
-    }
-    
-    public boolean isOverLapping(Coordinate target) {
-        if (isOverlappingVertically(target) && 
-            isOverlappingHorizontally(target)) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-    
+    /**
+     * Moves all the coordinate data based on the direction
+     */
     public void move() {
         if      (direction == Directions.UP)         moveUp();
         else if (direction == Directions.DOWN)       moveDown();
@@ -149,19 +234,26 @@ public class Coordinate
         else if (direction == Directions.NORTH_WEST) moveNorthWest();        
     }
     
+    /**
+     * Moves a random direction based on how many directions of movement 
+     * are defined
+     * 
+     * @param numberOfDirections the number of directions defined
+     * @return the random direction generated
+     */
     public int randomDirection(int numberOfDirections) {
-        double random = (numberOfDirections) * Math.random() + 1;
-        if (numberOfDirections == 2) {
+        double random = (numberOfDirections) * Math.random() + 1d;
+        if (numberOfDirections == Directions.TWO_DIRECTIONS) {
             if      (random == 1) return Directions.LEFT;
             else if (random == 2) return Directions.RIGHT;
         }
-        else if (numberOfDirections == 4) {
+        else if (numberOfDirections == Directions.FOUR_DIRECTIONS) {
             if      (random == 1) return Directions.UP;
             else if (random == 2) return Directions.DOWN;
             else if (random == 3) return Directions.LEFT;
             else if (random == 4) return Directions.RIGHT;
         }
-        else if (numberOfDirections == 8) {
+        else if (numberOfDirections == Directions.EIGHT_DIRECTIONS) {
             if      (random == 1) return Directions.NORTH;
             else if (random == 2) return Directions.NORTH_EAST;
             else if (random == 3) return Directions.EAST;
@@ -172,6 +264,99 @@ public class Coordinate
             else if (random == 8) return Directions.NORTH_WEST;
         }
         return Directions.STOP;
+    }
+    
+    /**
+     * Positions the coordinate data correctly against (sticks to) the target
+     * coordinate data
+     * 
+     * @param target the coordinate data to stick to
+     */
+    public void stickTo(Coordinate target) {
+        if      (direction == Directions.UP)    y = target.y + target.height + 1;
+        else if (direction == Directions.DOWN)  y = target.y - height        - 1;
+        else if (direction == Directions.RIGHT) x = target.x - width         - 1;
+        else if (direction == Directions.LEFT)  x = target.x + target.width  + 1;
+        recalculate();
+    }
+    
+    /**
+     * Changes current direction and bounces off the target coordinate data
+     * 
+     * @param target the coordinate data to bounce off
+     */
+    public void bounceOff(Coordinate target) {
+        stickTo(target);
+        if      (direction == Directions.UP)    direction = Directions.DOWN;
+        else if (direction == Directions.DOWN)  direction = Directions.UP;
+        else if (direction == Directions.LEFT)  direction = Directions.RIGHT;
+        else if (direction == Directions.RIGHT) direction = Directions.LEFT;        
+    }
+
+    /**
+     * Puts this object's position in the middle both horizontally and 
+     * vertically to the target
+     * 
+     * @param target the coordinate data to land on
+     */
+    public void landOn(Coordinate target) {
+        if      (target.width  > width)          
+            x = target.x + (target.width / 2)  - (width / 2);
+        else if (width         > target.width)   
+            x = target.x - (width / 2)         + (width / 2);        
+        if      (target.height > height)         
+            y = target.y + (target.height / 2) - (height / 2);
+        else if (height        > target.height)  
+            y = target.y - (height / 2)        + (height / 2);        
+        recalculate();
+    }
+    
+    /**
+     * Centers this object's position in the center and above the top of 
+     * the target
+     * 
+     * @param target the coordinate data to center to the top of
+     */
+    public void centerOnTop(Coordinate target) {
+        landOn(target);
+        y = target.top - height - 1;  
+        recalculate();
+    }
+    
+    /**
+     * Centers this object's position in the center and below the bottom of 
+     * the target
+     * 
+     * @param target the coordinate data to center to the bottom of
+     */
+    public void centerOnBottom(Coordinate target) {
+        landOn(target);
+        y = target.bottom + 1;  
+        recalculate();
+    }
+    
+    /**
+     * Centers this object's position in the center and to the left of the 
+     * target
+     * 
+     * @param target the coordinate data to center to the left of
+     */
+    public void centerOnLeft(Coordinate target) {
+        landOn(target);
+        x = target.left - width - 1;  
+        recalculate();
+    }
+    
+    /**
+     * Centers this object's position in the center and to the right of the 
+     * target
+     * 
+     * @param target the coordinate data to center to the right of
+     */
+    public void centerOnRight(Coordinate target) {
+        landOn(target);
+        x = target.right + 1;  
+        recalculate();
     }
     
 }
