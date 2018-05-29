@@ -3,7 +3,8 @@
 package year2018.cs30s.pacman;
 
 /**
- * XXX.java - 
+ * Engine.java - the logic connected to the user interface that runs game logic
+ * for the game of Pacman
  *
  * @author Mr. Wachs
  * @since May 28, 2018 

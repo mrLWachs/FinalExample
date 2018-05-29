@@ -3,13 +3,11 @@
 package year2018.cs30s.other;
 
 /** required imports */
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.Timer;
 import year2018.cs30s.pacman.PacmanUI;
+import year2018.cs30s.tools.Security;
 
 /**
- * XXX.java - 
+ * OpeningScreen.java - the login user interface to log in
  *
  * @author Mr. Wachs
  * @since May 28, 2018 
@@ -17,30 +15,16 @@ import year2018.cs30s.pacman.PacmanUI;
  */
 public class OpeningScreen extends javax.swing.JFrame 
 {
-
-    // global property (variable)
-    
-    private Timer timer;
     
     /**
      * Default constructor for the class
      */
     public OpeningScreen() {
         initComponents();
-        setResizable(false);
-        setLocationRelativeTo(null);        
-        // set up the timer
-        timer = new Timer(1500,new ActionListener()
-        {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                tick();
-            }
-        });        
-        // start the timer
-        timer.start();        
-        tick();        
-        setVisible(true);
+        Security.init(jLabel1,jButton1);        // initialize the security
+        setResizable(false);                    // frame not resizable
+        setLocationRelativeTo(null);            // center frame on screen
+        setVisible(true);                       // make frame visible
     }
 
     /** 
@@ -108,49 +92,18 @@ public class OpeningScreen extends javax.swing.JFrame
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
-        
-        int userCode = evt.getKeyCode();
-        String text = jLabel1.getText();
-        char letter = text.charAt(0);
-        int answerCode = (int)letter;
-        
-        if (userCode == answerCode) {
-            jButton1.setEnabled(true);
-            timer.stop();
-        }
-        
+        Security.check(evt);                    // check user typed letter
     }//GEN-LAST:event_jTextField1KeyPressed
-
+   
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-        PacmanUI game = new PacmanUI();
-        this.dispose();
-        
+        PacmanUI game = new PacmanUI();         // move to Pacman interface
+        this.dispose();        
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    
-    
-    private void tick() {
-        double seed = Math.random();
-        double low  = 65.0;
-        double high = 90.0;
-        double value = (high - low + 1.0) * seed + low;
-        int number = (int)value;
-        char letter = (char)number;        
-        jLabel1.setText("" + letter);
-    }
-    
-    
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
-
-    
-    
-    
     
 }

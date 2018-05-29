@@ -3,7 +3,7 @@
 package year2018.cs30s.tools;
 
 /**
- * XXX.java - 
+ * MediaPlayer.java - various methods for playing different types of media 
  *
  * @author Mr. Wachs
  * @since May 28, 2018 

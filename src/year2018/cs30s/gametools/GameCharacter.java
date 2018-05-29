@@ -3,7 +3,7 @@
 package year2018.cs30s.gametools;
 
 /**
- * XXX.java - 
+ * GameCharacter.java - representation of a character in a game
  *
  * @author Mr. Wachs
  * @since May 28, 2018 

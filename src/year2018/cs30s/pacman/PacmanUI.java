@@ -6,7 +6,7 @@ package year2018.cs30s.pacman;
 import java.awt.Color;
 
 /**
- * XXX.java - 
+ * PacmanUI.java - the user interface for the Pacman game
  *
  * @author Mr. Wachs
  * @since May 28, 2018 

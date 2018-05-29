@@ -3,7 +3,7 @@
 package year2018.cs30s.gametools;
 
 /**
- * XXX.java - 
+ * Directions.java - directional constants for movement
  *
  * @author Mr. Wachs
  * @since May 28, 2018 

@@ -3,7 +3,7 @@
 package year2018.cs30s.tools;
 
 /**
- * XXX.java - 
+ * FileHandler.java - various methods for saving and opening files
  *
  * @author Mr. Wachs
  * @since May 28, 2018 

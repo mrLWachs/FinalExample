@@ -3,7 +3,7 @@
 package year2018.cs30s.pacman;
 
 /**
- * XXX.java - 
+ * Ghost.java - represents a dot in the Pacman game
  *
  * @author Mr. Wachs
  * @since May 28, 2018 

@@ -8,7 +8,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 
 /**
- * XXX.java - 
+ * Image.java - 
  *
  * @author Mr. Wachs
  * @since May 28, 2018 
