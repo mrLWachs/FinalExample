@@ -1,17 +1,18 @@
 
 /** required package class namespace */
-package other;
+package year2018.cs30s.other;
 
+/** required imports */
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
-import pacman.PacmanUI;
+import year2018.cs30s.pacman.PacmanUI;
 
 /**
- * OpeningScreen.java - description here...
+ * XXX.java - 
  *
- * @author lawrence.wachs 
- * @since May 22, 2018 
+ * @author Mr. Wachs
+ * @since May 28, 2018 
  * @instructor Mr. Wachs
  */
 public class OpeningScreen extends javax.swing.JFrame 
@@ -21,8 +22,9 @@ public class OpeningScreen extends javax.swing.JFrame
     
     private Timer timer;
     
-    
-    /**  Default constructor for the class, creates new form OpeningScreen */
+    /**
+     * Default constructor for the class
+     */
     public OpeningScreen() {
         initComponents();
         setResizable(false);

@@ -2,15 +2,16 @@
 /** required package class namespace */
 package year2018.cs32s.finalexample;
 
+/** required imports */
 import javax.swing.JOptionPane;
-import pacman.PacmanUI;
-import snakemonster.MainScreen;
+import year2018.cs32s.pacman.PacmanUI;
+import year2018.cs32s.snakemonster.MainScreen;
 
 /**
- * CS32SFinalExample.java - description here...
+ * CS32SFinalExample.java - the final example for Computer Science 32SIB
  *
- * @author lawrence.wachs 
- * @since May 22, 2018 
+ * @author Mr. Wachs
+ * @since May 28, 2018 
  * @instructor Mr. Wachs
  */
 public class CS32SFinalExample 
@@ -23,11 +24,9 @@ public class CS32SFinalExample
      */
     public CS32SFinalExample() {
         String[] options = {"Pacman","Snake Monster"};
-        int result = JOptionPane.showOptionDialog(null, 
-                "Choose...","Gaming Example 2018",
-                JOptionPane.DEFAULT_OPTION,
-                JOptionPane.PLAIN_MESSAGE,
-                null, options, options[0]);
+        int result = JOptionPane.showOptionDialog(null,"Choose...",
+                     "Gaming Example 2018",JOptionPane.DEFAULT_OPTION,
+                     JOptionPane.PLAIN_MESSAGE,null, options, options[0]);
         if (result == 0) {
             PacmanUI game = new PacmanUI();
         }

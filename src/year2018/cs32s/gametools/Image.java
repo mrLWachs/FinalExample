@@ -1,11 +1,19 @@
 
-package gametools;
+/** required package class namespace */
+package year2018.cs32s.gametools;
 
+/** required imports */
 import java.awt.Color;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 
-
+/**
+ * XXX.java - 
+ *
+ * @author Mr. Wachs
+ * @since May 28, 2018 
+ * @instructor Mr. Wachs
+ */
 public class Image 
 {
     // properties

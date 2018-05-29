@@ -1,13 +1,24 @@
 
+/** required package class namespace */
 package year2018.cs32s.pacman;
 
-import gametools.Image;
+/** required imports */
+import year2018.cs32s.gametools.Image;
 import java.awt.Color;
 
+/**
+ * XXX.java - 
+ *
+ * @author Mr. Wachs
+ * @since May 28, 2018 
+ * @instructor Mr. Wachs
+ */
 public class PacmanUI extends javax.swing.JFrame 
 {
 
-    /**  Default constructor for the class, creates new form PacmanUI */
+    /**
+     * Default constructor for the class
+     */
     public PacmanUI() {
         initComponents();
         

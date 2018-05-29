@@ -1,10 +1,19 @@
 
-package gametools;
+/** required package class namespace */
+package year2018.cs32s.gametools;
 
+/** required imports */
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
+/**
+ * XXX.java - 
+ *
+ * @author Mr. Wachs
+ * @since May 28, 2018 
+ * @instructor Mr. Wachs
+ */
 public abstract class GameCharacter extends GameObject
 {
     

@@ -1,20 +1,23 @@
 
 /** required package class namespace */
-package pacman;
+package year2018.cs30s.pacman;
 
+/** required imports */
 import java.awt.Color;
 
 /**
- * PacmanUI.java - description here...
+ * XXX.java - 
  *
- * @author lawrence.wachs 
- * @since May 22, 2018 
+ * @author Mr. Wachs
+ * @since May 28, 2018 
  * @instructor Mr. Wachs
  */
 public class PacmanUI extends javax.swing.JFrame 
 {
 
-    /**  Default constructor for the class, creates new form PacmanUI */
+    /**
+     * Default constructor for the class
+     */
     public PacmanUI() {
         initComponents();
         setResizable(false);
