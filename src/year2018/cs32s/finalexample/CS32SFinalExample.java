@@ -5,6 +5,7 @@ package year2018.cs32s.finalexample;
 /** required imports */
 import javax.swing.JOptionPane;
 import year2018.cs32s.findprize.FindPrizes;
+import year2018.cs32s.moregaming.MoreGaming;
 import year2018.cs32s.pacman.PacmanUI;
 
 /**
@@ -23,7 +24,7 @@ public class CS32SFinalExample
      * @param args the command line arguments
      */
     public CS32SFinalExample() {
-        String[] options = {"Pacman","Find Prizes"};
+        String[] options = {"Pacman","Find Prizes", "More Gaming"};
         int result = JOptionPane.showOptionDialog(null,"Choose...",
                      "Gaming Example 2018",JOptionPane.DEFAULT_OPTION,
                      JOptionPane.PLAIN_MESSAGE,null, options, options[0]);
@@ -32,7 +33,10 @@ public class CS32SFinalExample
         }
         else if (result == 1) {
             FindPrizes game = new FindPrizes();
-        }        
+        }  
+        else if (result == 2) {
+            MoreGaming game = new MoreGaming();
+        }    
     }
 
 }
