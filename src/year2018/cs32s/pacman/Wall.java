@@ -7,7 +7,7 @@ import year2018.cs32s.gametools.GameObject;
 import year2018.cs32s.gametools.Image;
 
 /**
- * XXX.java - 
+ * Wall.java - represents a Wall object in the game Pacman
  *
  * @author Mr. Wachs
  * @since May 28, 2018 
@@ -16,9 +16,13 @@ import year2018.cs32s.gametools.Image;
 public class Wall extends GameObject
 {
 
+    /**
+     * Constructor sets class properties
+     * 
+     * @param image the image to use for this game object
+     */
     public Wall(Image image) {
         super(image);
     }
-
     
 }

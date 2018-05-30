@@ -7,7 +7,7 @@ import year2018.cs32s.gametools.Image;
 import java.awt.Color;
 
 /**
- * XXX.java - 
+ * PacmanUI.java - the user interface for the Pacman game
  *
  * @author Mr. Wachs
  * @since May 28, 2018 
@@ -15,18 +15,20 @@ import java.awt.Color;
  */
 public class PacmanUI extends javax.swing.JFrame 
 {
-
+    
+    private Engine engine;                              // game logic engine
+    
     /**
      * Default constructor for the class
      */
     public PacmanUI() {
         initComponents();
         
-        Image pacman = new Image(jLabel36,false,"",Color.yellow);
+        Image pacman = new Image(jLabel36,false,"PACMAN",Color.yellow);
         
         Image[] ghosts = new Image[2];
-        ghosts[0] = new Image(jLabel1,false,"",Color.pink);
-        ghosts[1] = new Image(jLabel37,false,"",Color.green);
+        ghosts[0] = new Image(jLabel1,false,"INKY",Color.pink);
+        ghosts[1] = new Image(jLabel37,false,"BLINKY",Color.green);
         
         Image[] dots = new Image[20];
         dots[0] = new Image(jLabel17,false,"",Color.white);
@@ -65,7 +67,12 @@ public class PacmanUI extends javax.swing.JFrame
         walls[11]  = new Image(jLabel14,false,"",Color.blue);
         walls[12]  = new Image(jLabel15,false,"",Color.blue);
         walls[13]  = new Image(jLabel16,false,"",Color.blue);
+                
+        engine = new Engine(pacman,ghosts,dots,walls,this);
         
+        setBackground(Color.black);
+        getContentPane().setBackground(Color.black);
+        setSize(900, 700);
         setVisible(true);
         
     }
@@ -121,6 +128,11 @@ public class PacmanUI extends javax.swing.JFrame
         jLabel37 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
         jLabel1.setBackground(new java.awt.Color(255, 102, 102));
@@ -421,6 +433,10 @@ public class PacmanUI extends javax.swing.JFrame
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+        engine.keyPress(evt);
+    }//GEN-LAST:event_formKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

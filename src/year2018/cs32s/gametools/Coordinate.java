@@ -18,7 +18,7 @@ public class Coordinate
      */
     public int x,y,width,height,
                left,right,top,bottom,
-               amount,direction;
+               amount,direction, numberOfDirections;
     
     private Image hitbox;                      // the Image hitbox image
     
@@ -28,9 +28,10 @@ public class Coordinate
      * @param image the JLabel hitbox image
      */
     public Coordinate(Image image) {
-        hitbox    = image;                      // assign parameter to property
-        direction = Directions.STOP;            // set movement to stop
-        amount    = Directions.STOP;
+        hitbox             = image;             // assign parameter to property
+        direction          = Directions.STOP;   // set movement to stop
+        amount             = Directions.STOP;
+        numberOfDirections = Directions.STOP;
         update();                               // update coordinate data
     }
     
@@ -40,11 +41,14 @@ public class Coordinate
      * @param image the JLabel hitbox image
      * @param direction the starting direction of movement
      * @param amount the starting amount of movement
+     * @param numberOfDirections the number of directions defined
      */
-    public Coordinate(Image image, int direction, int amount) {
+    public Coordinate(Image image, int direction, int amount, 
+                      int numberOfDirections) {
         hitbox         = image;                 // assign parameter to property
         this.direction = direction;             // assign parameter to property
         this.amount    = amount;                // assign parameter to property
+        this.numberOfDirections = numberOfDirections;
         update();                               // update coordinate data
     }
       
@@ -237,33 +241,32 @@ public class Coordinate
     /**
      * Moves a random direction based on how many directions of movement 
      * are defined
-     * 
-     * @param numberOfDirections the number of directions defined
-     * @return the random direction generated
      */
-    public int randomDirection(int numberOfDirections) {
-        double random = (numberOfDirections) * Math.random() + 1d;
+    public void randomDirection() {
+        int random = (int)((numberOfDirections) * Math.random() + 1d);
         if (numberOfDirections == Directions.TWO_DIRECTIONS) {
-            if      (random == 1) return Directions.LEFT;
-            else if (random == 2) return Directions.RIGHT;
+            if      (random == 1) direction = Directions.LEFT;
+            else if (random == 2) direction = Directions.RIGHT;
         }
         else if (numberOfDirections == Directions.FOUR_DIRECTIONS) {
-            if      (random == 1) return Directions.UP;
-            else if (random == 2) return Directions.DOWN;
-            else if (random == 3) return Directions.LEFT;
-            else if (random == 4) return Directions.RIGHT;
+            if      (random == 1) direction = Directions.UP;
+            else if (random == 2) direction = Directions.DOWN;
+            else if (random == 3) direction = Directions.LEFT;
+            else if (random == 4) direction = Directions.RIGHT;
         }
         else if (numberOfDirections == Directions.EIGHT_DIRECTIONS) {
-            if      (random == 1) return Directions.NORTH;
-            else if (random == 2) return Directions.NORTH_EAST;
-            else if (random == 3) return Directions.EAST;
-            else if (random == 4) return Directions.SOUTH_EAST;
-            else if (random == 5) return Directions.SOUTH;
-            else if (random == 6) return Directions.SOUTH_WEST;
-            else if (random == 7) return Directions.WEST;
-            else if (random == 8) return Directions.NORTH_WEST;
+            if      (random == 1) direction = Directions.NORTH;
+            else if (random == 2) direction = Directions.NORTH_EAST;
+            else if (random == 3) direction = Directions.EAST;
+            else if (random == 4) direction = Directions.SOUTH_EAST;
+            else if (random == 5) direction = Directions.SOUTH;
+            else if (random == 6) direction = Directions.SOUTH_WEST;
+            else if (random == 7) direction = Directions.WEST;
+            else if (random == 8) direction = Directions.NORTH_WEST;
         }
-        return Directions.STOP;
+        else {
+            direction = Directions.STOP;
+        }
     }
     
     /**

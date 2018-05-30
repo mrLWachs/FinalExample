@@ -8,7 +8,7 @@ import year2018.cs32s.gametools.GameCharacter;
 import year2018.cs32s.gametools.Image;
 
 /**
- * XXX.java - 
+ * Ghost.java - represents a Ghost character in the game Pacman
  *
  * @author Mr. Wachs
  * @since May 28, 2018 
@@ -16,15 +16,54 @@ import year2018.cs32s.gametools.Image;
  */
 public class Ghost extends GameCharacter
 {
-      
-    public Ghost(Image image) {        
-        super(image, Directions.STOP, 100, 100);
+    
+    private Wall[] walls;
+    private Pacman pacman;
+    
+    /**
+     * Constructor sets class properties
+     * 
+     * @param image the image to use for this game character
+     * @param walls the Wall array representing all the game walls
+     * @param pacman the Pacman game character 
+     */
+    public Ghost(Image image, Wall[] walls, Pacman pacman) {        
+        super(image, Directions.STOP, 20, 100, 4);
+        this.walls  = walls;
+        this.pacman = pacman;
+        randomDirection();
     }
 
+    /**
+     * The action this character does in it's timer
+     */
     @Override
     public void action() {
-        
+        move();
+        checkWalls();
+        checkPacman();
+        redraw();
     }
 
+    /**
+     * Checks for collision with all the walls in the game
+     */
+    private void checkWalls() {
+        for (int i = 0; i < walls.length; i++) {
+            if (isColliding(walls[i])) {
+                bounceOff(walls[i]);
+                randomDirection();
+            }
+        }
+    }
+
+    /**
+     * Checks for collision with Pacman in the game
+     */
+    private void checkPacman() {
+        if (isColliding(pacman)) {
+            System.exit(0);
+        }
+    }
     
 }
