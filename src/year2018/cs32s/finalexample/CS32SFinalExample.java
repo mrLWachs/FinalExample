@@ -4,8 +4,8 @@ package year2018.cs32s.finalexample;
 
 /** required imports */
 import javax.swing.JOptionPane;
+import year2018.cs32s.findprize.FindPrizes;
 import year2018.cs32s.pacman.PacmanUI;
-import year2018.cs32s.snakemonster.MainScreen;
 
 /**
  * CS32SFinalExample.java - the final example for Computer Science 32SIB
@@ -23,7 +23,7 @@ public class CS32SFinalExample
      * @param args the command line arguments
      */
     public CS32SFinalExample() {
-        String[] options = {"Pacman","Snake Monster"};
+        String[] options = {"Pacman","Find Prizes"};
         int result = JOptionPane.showOptionDialog(null,"Choose...",
                      "Gaming Example 2018",JOptionPane.DEFAULT_OPTION,
                      JOptionPane.PLAIN_MESSAGE,null, options, options[0]);
@@ -31,7 +31,7 @@ public class CS32SFinalExample
             PacmanUI game = new PacmanUI();
         }
         else if (result == 1) {
-            MainScreen game = new MainScreen();
+            FindPrizes game = new FindPrizes();
         }        
     }
 
