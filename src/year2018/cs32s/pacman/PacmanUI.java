@@ -4,7 +4,6 @@ package year2018.cs32s.pacman;
 
 /** required imports */
 import year2018.cs32s.gametools.Image;
-import java.awt.Color;
 
 /**
  * PacmanUI.java - the user interface for the Pacman game
@@ -24,55 +23,55 @@ public class PacmanUI extends javax.swing.JFrame
     public PacmanUI() {
         initComponents();
         
-        Image pacman = new Image(jLabel36,false,"PACMAN",Color.yellow);
+        Image pacman = new Image(jLabel36,false,Constants.PACMAN_TEXT,Constants.PACMAN_COLOR);
         
         Image[] ghosts = new Image[2];
-        ghosts[0] = new Image(jLabel1,false,"INKY",Color.pink);
-        ghosts[1] = new Image(jLabel37,false,"BLINKY",Color.green);
+        ghosts[0] = new Image(jLabel1,false,Constants.GHOST_TEXT,Constants.GHOST_COLOR);
+        ghosts[1] = new Image(jLabel37,false,Constants.GHOST_TEXT,Constants.GHOST_COLOR);
         
         Image[] dots = new Image[20];
-        dots[0] = new Image(jLabel17,false,"",Color.white);
-        dots[1] = new Image(jLabel18,false,"",Color.white);
-        dots[2] = new Image(jLabel19,false,"",Color.white);
-        dots[3] = new Image(jLabel20,false,"",Color.white);
-        dots[4] = new Image(jLabel21,false,"",Color.white);
-        dots[5] = new Image(jLabel22,false,"",Color.white);
-        dots[6] = new Image(jLabel23,false,"",Color.white);
-        dots[7] = new Image(jLabel24,false,"",Color.white);
-        dots[8] = new Image(jLabel25,false,"",Color.white);
-        dots[9] = new Image(jLabel26,false,"",Color.white);
-        dots[10] = new Image(jLabel27,false,"",Color.white);
-        dots[11] = new Image(jLabel28,false,"",Color.white);
-        dots[12] = new Image(jLabel29,false,"",Color.white);
-        dots[13] = new Image(jLabel30,false,"",Color.white);
-        dots[14] = new Image(jLabel31,false,"",Color.white);
-        dots[15] = new Image(jLabel32,false,"",Color.white);
-        dots[16] = new Image(jLabel33,false,"",Color.white);
-        dots[17] = new Image(jLabel34,false,"",Color.white);
-        dots[18] = new Image(jLabel35,false,"",Color.white);
-        dots[19] = new Image(jLabel8,false,"",Color.white);
+        dots[0] = new Image(jLabel17,false,Constants.DOT_TEXT,Constants.DOT_COLOR);
+        dots[1] = new Image(jLabel18,false,Constants.DOT_TEXT,Constants.DOT_COLOR);
+        dots[2] = new Image(jLabel19,false,Constants.DOT_TEXT,Constants.DOT_COLOR);
+        dots[3] = new Image(jLabel20,false,Constants.DOT_TEXT,Constants.DOT_COLOR);
+        dots[4] = new Image(jLabel21,false,Constants.DOT_TEXT,Constants.DOT_COLOR);
+        dots[5] = new Image(jLabel22,false,Constants.DOT_TEXT,Constants.DOT_COLOR);
+        dots[6] = new Image(jLabel23,false,Constants.DOT_TEXT,Constants.DOT_COLOR);
+        dots[7] = new Image(jLabel24,false,Constants.DOT_TEXT,Constants.DOT_COLOR);
+        dots[8] = new Image(jLabel25,false,Constants.DOT_TEXT,Constants.DOT_COLOR);
+        dots[9] = new Image(jLabel26,false,Constants.DOT_TEXT,Constants.DOT_COLOR);
+        dots[10] = new Image(jLabel27,false,Constants.DOT_TEXT,Constants.DOT_COLOR);
+        dots[11] = new Image(jLabel28,false,Constants.DOT_TEXT,Constants.DOT_COLOR);
+        dots[12] = new Image(jLabel29,false,Constants.DOT_TEXT,Constants.DOT_COLOR);
+        dots[13] = new Image(jLabel30,false,Constants.DOT_TEXT,Constants.DOT_COLOR);
+        dots[14] = new Image(jLabel31,false,Constants.DOT_TEXT,Constants.DOT_COLOR);
+        dots[15] = new Image(jLabel32,false,Constants.DOT_TEXT,Constants.DOT_COLOR);
+        dots[16] = new Image(jLabel33,false,Constants.DOT_TEXT,Constants.DOT_COLOR);
+        dots[17] = new Image(jLabel34,false,Constants.DOT_TEXT,Constants.DOT_COLOR);
+        dots[18] = new Image(jLabel35,false,Constants.DOT_TEXT,Constants.DOT_COLOR);
+        dots[19] = new Image(jLabel8,false,Constants.DOT_TEXT,Constants.DOT_COLOR);
         
         Image[] walls = new Image[14];
-        walls[0]  = new Image(jLabel2,false,"",Color.blue);
-        walls[1]  = new Image(jLabel3,false,"",Color.blue);
-        walls[2]  = new Image(jLabel4,false,"",Color.blue);
-        walls[3]  = new Image(jLabel5,false,"",Color.blue);
-        walls[4]  = new Image(jLabel6,false,"",Color.blue);
-        walls[5]  = new Image(jLabel7,false,"",Color.blue);
-        walls[6]  = new Image(jLabel9,false,"",Color.blue);
-        walls[7]  = new Image(jLabel10,false,"",Color.blue);
-        walls[8]  = new Image(jLabel11,false,"",Color.blue);
-        walls[9]  = new Image(jLabel12,false,"",Color.blue);
-        walls[10]  = new Image(jLabel13,false,"",Color.blue);
-        walls[11]  = new Image(jLabel14,false,"",Color.blue);
-        walls[12]  = new Image(jLabel15,false,"",Color.blue);
-        walls[13]  = new Image(jLabel16,false,"",Color.blue);
+        walls[0]  = new Image(jLabel2,false,Constants.WALL_TEXT,Constants.WALL_COLOR);
+        walls[1]  = new Image(jLabel3,false,Constants.WALL_TEXT,Constants.WALL_COLOR);
+        walls[2]  = new Image(jLabel4,false,Constants.WALL_TEXT,Constants.WALL_COLOR);
+        walls[3]  = new Image(jLabel5,false,Constants.WALL_TEXT,Constants.WALL_COLOR);
+        walls[4]  = new Image(jLabel6,false,Constants.WALL_TEXT,Constants.WALL_COLOR);
+        walls[5]  = new Image(jLabel7,false,Constants.WALL_TEXT,Constants.WALL_COLOR);
+        walls[6]  = new Image(jLabel9,false,Constants.WALL_TEXT,Constants.WALL_COLOR);
+        walls[7]  = new Image(jLabel10,false,Constants.WALL_TEXT,Constants.WALL_COLOR);
+        walls[8]  = new Image(jLabel11,false,Constants.WALL_TEXT,Constants.WALL_COLOR);
+        walls[9]  = new Image(jLabel12,false,Constants.WALL_TEXT,Constants.WALL_COLOR);
+        walls[10]  = new Image(jLabel13,false,Constants.WALL_TEXT,Constants.WALL_COLOR);
+        walls[11]  = new Image(jLabel14,false,Constants.WALL_TEXT,Constants.WALL_COLOR);
+        walls[12]  = new Image(jLabel15,false,Constants.WALL_TEXT,Constants.WALL_COLOR);
+        walls[13]  = new Image(jLabel16,false,Constants.WALL_TEXT,Constants.WALL_COLOR);
                 
         engine = new Engine(pacman,ghosts,dots,walls,this);
         
-        setBackground(Color.black);
-        getContentPane().setBackground(Color.black);
-        setSize(900, 700);
+        setBackground(Constants.PACMAN_UI_BACK_COLOR);
+        getContentPane().setBackground(Constants.PACMAN_UI_BACK_COLOR);
+        setSize(Constants.PACMAN_UI_WIDTH,Constants.PACMAN_UI_HEIGHT);
         setVisible(true);
         
     }

@@ -28,7 +28,10 @@ public class Pacman extends GameCharacter
      * @param walls the Wall array representing all the game walls
      */
     public Pacman(Image image, Dot[] dots, Wall[] walls) {        
-        super(image, Directions.STOP, 10, 100, 4);
+        super(image, Directions.STOP, 
+              Constants.PACMAN_MOVE_AMOUNT,
+              Constants.PACMAN_TIMER_DELAY, 
+              Constants.PACMAN_MOVE_DIRECTIONS);
         this.walls = walls;
         this.dots  = dots;
     }

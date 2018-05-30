@@ -28,7 +28,10 @@ public class Ghost extends GameCharacter
      * @param pacman the Pacman game character 
      */
     public Ghost(Image image, Wall[] walls, Pacman pacman) {        
-        super(image, Directions.STOP, 20, 100, 4);
+        super(image, Directions.STOP, 
+              Constants.GHOST_MOVE_AMOUNT,
+              Constants.GHOST_TIMER_DELAY, 
+              Constants.GHOST_MOVE_DIRECTIONS);
         this.walls  = walls;
         this.pacman = pacman;
         randomDirection();
