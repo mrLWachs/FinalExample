@@ -4,8 +4,6 @@ package year2018.cs30s.moregaming.spaceinvaders;
 
 /** required imports */
 import year2018.cs30s.gametools.GameObject;
-import java.awt.Color;
-import javax.swing.JLabel;
 import year2018.cs30s.gametools.Image;
 
 /**
@@ -23,8 +21,9 @@ public class Background extends GameObject
      * @param image the label associated with the image
      * @param color the background color associated with the image
      */
-    public Background(Image image, Color color) {
+    public Background(Image image) {
         super(image);
+        setDebug(Constants.BACKGROUND_TEXT, Constants.BACKGROUND_COLOR);
     }
 
 }

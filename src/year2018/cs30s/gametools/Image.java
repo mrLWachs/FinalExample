@@ -111,4 +111,13 @@ public class Image
         return picture.getHeight();
     }
     
+    /**
+     * Accesses the background color of the image
+     * 
+     * @return the images background color
+     */
+    public Color getBackground() {
+        return picture.getBackground();
+    }
+    
 }

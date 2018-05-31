@@ -3,8 +3,8 @@
 package year2018.cs30s.moregaming.frogger;
 
 /** required imports */
+import java.awt.event.KeyEvent;
 import year2018.cs30s.gametools.GameCharacter;
-import java.awt.Color;
 import year2018.cs30s.gametools.Directions;
 import year2018.cs30s.gametools.Image;
 
@@ -53,8 +53,8 @@ public class Frog extends GameCharacter
         move();
         checkWalls();
         checkHome();
-        checkWater();
         checkLogs();
+        checkWater();        
         redraw();
     }
 
@@ -89,6 +89,10 @@ public class Frog extends GameCharacter
                 onLog = true;
             }
         }
+    }
+
+    public void keyRelease() {
+        stop();
     }
 
 }

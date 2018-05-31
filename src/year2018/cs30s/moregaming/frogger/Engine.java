@@ -3,9 +3,7 @@
 package year2018.cs30s.moregaming.frogger;
 
 /** required imports */
-import java.awt.Color;
 import java.awt.event.KeyEvent;
-import javax.swing.JLabel;
 import year2018.cs30s.gametools.Image;
 
 /**
@@ -27,7 +25,8 @@ public class Engine
     private Wall[]     walls;
     
     /**
-     * constructor for the class sets class data
+     * Constructor for the class sets class data
+     * 
      * @param backgroundImage the JLabel image associated with the background
      * @param frogImage the JLabel image associated with the frog
      * @param waterImage the JLabel image associated with the water
@@ -36,42 +35,23 @@ public class Engine
      * @param logImages the JLabel images associated with logs
      * @param wallImages the JLabel images associated with walls
      */
-    public Engine(JLabel   backgroundPic, 
-                      JLabel   frogPic, 
-                      JLabel   waterPic, 
-                      JLabel   homePic, 
-                      JLabel[] carPics, 
-                      JLabel[] logPics, 
-                      JLabel[] wallPics) {
-                
-        Image backgroundImage = new Image(backgroundPic);
-        Image homeImage = new Image(homePic);
-        Image waterImage = new Image(waterPic);
+    public Engine(Image backgroundImage, Image frogImage, Image waterImage, 
+                  Image homeImage, Image[] carImages, Image[] logImages, 
+                  Image[] wallImages) {    
         background = new Background(backgroundImage);
         home       = new Home(homeImage);
         water      = new Water(waterImage);   
-                
-        walls = new Wall[wallPics.length];
-        Image[] wallImages = new Image[wallPics.length];        
+        walls      = new Wall[wallImages.length];  
+        logs       = new Log[logImages.length]; 
+        cars       = new Car[carImages.length]; 
         for (int i = 0; i < walls.length; i++) {
-            wallImages[i] = new Image(wallPics[i]);
             walls[i] = new Wall(wallImages[i]);
         }       
-                
-        logs = new Log[logPics.length];
-        Image[] logImages = new Image[logPics.length];
         for (int i = 0; i < logs.length; i++) {
-            logImages[i] = new Image(logPics[i]);
             logs[i] = new Log(logImages[i],walls);
         }
-        
-        Image frogImage = new Image(frogPic);
-        frog = new Frog(frogImage,walls,home,water,logs);  
-        
-        cars = new Car[carPics.length];
-        Image[] carImages = new Image[carPics.length];
+        frog = new Frog(frogImage,walls,home,water,logs); 
         for (int i = 0; i < cars.length; i++) {
-            carImages[i] = new Image(carPics[i]);
             cars[i] = new Car(carImages[i],frog,walls);
         }        
     }
@@ -82,6 +62,14 @@ public class Engine
      */
     public void keyPress(KeyEvent event) {
         frog.keyPress(event);
+    }
+
+    /**
+     * 
+     * @param event 
+     */
+    public void keyRelease() {
+        frog.keyRelease();
     }
 
 }

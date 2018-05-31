@@ -8,7 +8,6 @@ import year2018.cs30s.gametools.GameCharacter;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JLabel;
 import javax.swing.Timer;
 import year2018.cs30s.gametools.Image;
 
@@ -37,15 +36,16 @@ public class EnemyShip extends GameCharacter
      * @param shootDelay the delay in milliseconds of the time between shots
      * @param enemyBullet the enemy bullet object associated with this object
      */
-    public EnemyShip(Image image, int amount, int delay, 
-            Wall[] walls, int shootDelay, EnemyBullet enemyBullet) {        
-        super(image, 0, amount, delay, 4);        
-        int r = (int)((255-100+1)*Math.random()+100);
-        int g = (int)((255-100+1)*Math.random()+100);
-        int b = (int)((255-100+1)*Math.random()+100);     
+    public EnemyShip(Image image, Wall[] walls, EnemyBullet enemyBullet) {        
+        super(image, 
+              Directions.STOP,
+              Constants.ENEMY_MOVE_AMOUNT,
+              Constants.ENEMY_TIMER_DELAY,
+              Constants.ENEMY_MOVE_DIRECTIONS); 
         this.walls       = walls;
         this.enemyBullet = enemyBullet;
-        shootTimer       = new Timer(shootDelay, new ActionListener() {
+        shootTimer       = new Timer(Constants.ENEMY_SHOOT_TIMER_DELAY, 
+                                     new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 shouldShoot();
@@ -53,6 +53,10 @@ public class EnemyShip extends GameCharacter
         });
         shootTimer.start();
         coordinate.direction = Directions.RIGHT;
+        int r = (int)((255-100+1)*Math.random()+100);
+        int g = (int)((255-100+1)*Math.random()+100);
+        int b = (int)((255-100+1)*Math.random()+100);  
+        setDebug(Constants.ENEMY_TEXT, new Color(r,g,b));
     }
 
     /** the movement actions that this enemy ship performs */
@@ -66,6 +70,7 @@ public class EnemyShip extends GameCharacter
     /** when this enemy ship is killed and removed from the game */
     public void kill() {
         shootTimer.stop();
+        hide();
     }
 
     /** checks for collisions with walls and reacts */

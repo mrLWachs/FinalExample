@@ -14,6 +14,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import javax.swing.border.Border;
+import year2018.cs30s.moregaming.frogger.Constants;
+import year2018.cs30s.tools.FrameTools;
 
 /**
  * SnakeUI.java - the classic snake game
@@ -69,13 +71,15 @@ public class SnakeUI extends JFrame
     /**  sets the gUI properties of the frame */
     private void setFrame() {
         this.getContentPane().setLayout(null);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(FORM_WIDTH,FORM_HEIGHT);
-        this.setResizable(false);
-        this.setLocationRelativeTo(null);
-        this.setBackground(FORM_BACKGROUND_COLOR);
-        this.getContentPane().setBackground(FORM_BACKGROUND_COLOR);
-        this.setTitle(FORM_TITLE);
+        FrameTools.init(this, 
+                FORM_TITLE, 
+                FORM_WIDTH, 
+                FORM_HEIGHT, 
+                false, 
+                true,
+                true,
+                false,
+                FORM_BACKGROUND_COLOR);
     }
 
     /** sets the keyboard to listen to events */

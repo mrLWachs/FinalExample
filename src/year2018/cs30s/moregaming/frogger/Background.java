@@ -3,7 +3,6 @@
 package year2018.cs30s.moregaming.frogger;
 
 /** required imports */
-import java.awt.Color;
 import year2018.cs30s.gametools.GameObject;
 import year2018.cs30s.gametools.Image;
 

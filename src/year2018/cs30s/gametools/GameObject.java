@@ -44,6 +44,7 @@ public class GameObject
      * Shows the game object in the user interface
      */
     public void show() {
+        isAlive = true;
         image.show();
     }
     
@@ -51,6 +52,7 @@ public class GameObject
      * hides the game object in the user interface
      */
     public void hide() {
+        isAlive = false;
         image.hide();
     }
    
@@ -63,6 +65,15 @@ public class GameObject
      */
     public void setDebug(String text, Color background) {
         image.setDebug(text, background);
+    }
+    
+    /**
+     * Accesses the background color of the game object
+     * 
+     * @return the game object's background color
+     */
+    public Color getBackground() {
+        return image.getBackground();
     }
     
 }

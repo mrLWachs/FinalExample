@@ -85,4 +85,17 @@ public class Dialogs
         else                return object.toString();        
     }
     
+    public String buttons(String text, String[] buttonTexts) {
+        int result = JOptionPane.showOptionDialog(
+                null,
+                text,
+                dialogTitle,
+                JOptionPane.DEFAULT_OPTION,
+                JOptionPane.PLAIN_MESSAGE, 
+                null, 
+                buttonTexts, 
+                buttonTexts[0]);
+        return buttonTexts[result];
+    }
+    
 }

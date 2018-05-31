@@ -20,7 +20,6 @@ public class MainScreen extends JFrame
         Globals.initFrame(Globals.MAIN_SCREEN,this);
         setControls();
         setActions();
-        setVisible(true);
     }
 
     private void setControls() {
@@ -56,7 +55,7 @@ public class MainScreen extends JFrame
             public void keyTyped(KeyEvent e) { }
             @Override
             public void keyPressed(KeyEvent e) {
-                Globals.gameEngine.keyPress(e);
+                Globals.engine.keyPress(e);
             }
             @Override
             public void keyReleased(KeyEvent e) { }

@@ -38,17 +38,20 @@ public class HeroBullet extends GameCharacter
      * @param enemyShips the enemy ship objects associated with this object
      * @param bases the base objects associated with this object
      */
-    public HeroBullet(Image image, int amount, int delay, Color color, 
-            HeroShip    heroShip, 
-            Wall[]      walls,
-            EnemyShip[] enemyShips,
-            Base[]      bases) {
-        super(image, 0, amount, delay, 4);
+    public HeroBullet(Image image, HeroShip heroShip, Wall[] walls,
+                      EnemyShip[] enemyShips, Base[] bases) {
+        super(image, 
+              Directions.STOP,
+              Constants.HERO_BULLET_MOVE_AMOUNT,
+              Constants.HERO_BULLET_TIMER_DELAY,
+              Constants.HERO_BULLET_MOVE_DIRECTIONS);
         this.heroShip   = heroShip;
         this.walls      = walls;
         this.enemyShips = enemyShips;
         this.bases      = bases;
         isFiring        = false;   
+        hide();
+        setDebug(Constants.HERO_BULLET_TEXT, Constants.HERO_BULLET_COLOR);
     }
 
     /** the movement actions that this hero bullet performs */
@@ -64,10 +67,11 @@ public class HeroBullet extends GameCharacter
     }
     
     /** starts the hero bullet in a state of firing */
-    public void fire() {
+    public void fire() {        
         centerOnTop(heroShip);
         coordinate.direction =  Directions.UP;
         isFiring = true;
+        show();
     }
 
     /** checks for collisions with bases and reacts */
@@ -76,6 +80,7 @@ public class HeroBullet extends GameCharacter
             if (isColliding(bases[i])) {
                 bases[i].kill();
                 isFiring = false;
+                hide();
             }
         }
     }
@@ -86,6 +91,7 @@ public class HeroBullet extends GameCharacter
             if (isColliding(enemyShips[i])) {
                 enemyShips[i].kill();
                 isFiring = false;
+                hide();
             }
         }
     }
@@ -95,6 +101,7 @@ public class HeroBullet extends GameCharacter
         for (int i = 0; i < walls.length; i++) {
             if (isColliding(walls[i])) {
                 isFiring = false;
+                hide();
             }
         }
     }

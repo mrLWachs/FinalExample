@@ -4,6 +4,7 @@ package year2018.cs30s.pacman;
 
 /** required imports */
 import year2018.cs30s.gametools.Image;
+import year2018.cs30s.tools.FrameTools;
 
 /**
  * PacmanUI.java - the user interface for the Pacman game
@@ -21,59 +22,60 @@ public class PacmanUI extends javax.swing.JFrame
      * Default constructor for the class
      */
     public PacmanUI() {
-        initComponents();
-        
-        Image pacman = new Image(jLabel36);
-        
-        Image[] ghosts = new Image[2];
-        ghosts[0] = new Image(jLabel1);
-        ghosts[1] = new Image(jLabel37);
-        
-        Image[] dots = new Image[20];
-        dots[0] = new Image(jLabel17);
-        dots[1] = new Image(jLabel18);
-        dots[2] = new Image(jLabel19);
-        dots[3] = new Image(jLabel20);
-        dots[4] = new Image(jLabel21);
-        dots[5] = new Image(jLabel22);
-        dots[6] = new Image(jLabel23);
-        dots[7] = new Image(jLabel24);
-        dots[8] = new Image(jLabel25);
-        dots[9] = new Image(jLabel26);
-        dots[10] = new Image(jLabel27);
-        dots[11] = new Image(jLabel28);
-        dots[12] = new Image(jLabel29);
-        dots[13] = new Image(jLabel30);
-        dots[14] = new Image(jLabel31);
-        dots[15] = new Image(jLabel32);
-        dots[16] = new Image(jLabel33);
-        dots[17] = new Image(jLabel34);
-        dots[18] = new Image(jLabel35);
-        dots[19] = new Image(jLabel8);
-        
-        Image[] walls = new Image[14];
-        walls[0]  = new Image(jLabel2);
-        walls[1]  = new Image(jLabel3);
-        walls[2]  = new Image(jLabel4);
-        walls[3]  = new Image(jLabel5);
-        walls[4]  = new Image(jLabel6);
-        walls[5]  = new Image(jLabel7);
-        walls[6]  = new Image(jLabel9);
-        walls[7]  = new Image(jLabel10);
-        walls[8]  = new Image(jLabel11);
-        walls[9]  = new Image(jLabel12);
-        walls[10]  = new Image(jLabel13);
-        walls[11]  = new Image(jLabel14);
-        walls[12]  = new Image(jLabel15);
-        walls[13]  = new Image(jLabel16);
-                
-        engine = new Engine(pacman,ghosts,dots,walls,this);
-        
-        setBackground(Constants.PACMAN_UI_BACK_COLOR);
-        getContentPane().setBackground(Constants.PACMAN_UI_BACK_COLOR);
-        setSize(Constants.PACMAN_UI_WIDTH,Constants.PACMAN_UI_HEIGHT);
-        setVisible(true);
-        
+        initComponents();        
+        Image pacman = new Image(jLabel36);        
+        Image[] ghosts = {
+            new Image(jLabel1),
+            new Image(jLabel37)
+        };
+        Image[] dots = {
+            new Image(jLabel17),
+            new Image(jLabel18),
+            new Image(jLabel19),
+            new Image(jLabel20),
+            new Image(jLabel21),
+            new Image(jLabel22),
+            new Image(jLabel23),
+            new Image(jLabel24),
+            new Image(jLabel25),
+            new Image(jLabel26),
+            new Image(jLabel27),
+            new Image(jLabel28),
+            new Image(jLabel29),
+            new Image(jLabel30),
+            new Image(jLabel31),
+            new Image(jLabel32),
+            new Image(jLabel33),
+            new Image(jLabel34),
+            new Image(jLabel35),
+            new Image(jLabel8)
+        };        
+        Image[] walls = {
+            new Image(jLabel2),
+            new Image(jLabel3),
+            new Image(jLabel4),
+            new Image(jLabel5),
+            new Image(jLabel6),
+            new Image(jLabel7),
+            new Image(jLabel9),
+            new Image(jLabel10),
+            new Image(jLabel11),
+            new Image(jLabel12),
+            new Image(jLabel13),
+            new Image(jLabel14),
+            new Image(jLabel15),
+            new Image(jLabel16)
+        };                
+        engine = new Engine(pacman,ghosts,dots,walls,this);        
+        FrameTools.init(this, 
+                Constants.PACMAN_UI_TITLE, 
+                Constants.PACMAN_UI_WIDTH, 
+                Constants.PACMAN_UI_HEIGHT, 
+                false, 
+                true,
+                true,
+                false,
+                Constants.PACMAN_UI_BACK_COLOR);
     }
 
     /** 

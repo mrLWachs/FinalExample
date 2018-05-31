@@ -5,7 +5,6 @@ package year2018.cs30s.moregaming.spaceinvaders;
 /** required imports */
 import year2018.cs30s.gametools.GameObject;
 import java.awt.Color;
-import javax.swing.JLabel;
 import year2018.cs30s.gametools.Image;
 
 /**
@@ -19,31 +18,31 @@ public class Base extends GameObject
 {
 
     private int hitCount;
-    private Color color;
     
     /**
      * constructor for the class sets class data
      * @param image the label associated with the image
      * @param color the background color associated with the image
      */
-    public Base(Image image, Color color) {
+    public Base(Image image) {
         super(image);
-        this.color = color;
         hitCount = 0;
+        setDebug(Constants.BASE_TEXT, Constants.BASE_COLOR);
     }
 
     /** represents what occurs when the base is hit with a bullet */
     public void kill() {
         hitCount++;
         if (hitCount == 5) {
-            
+            hide();
         }
         else {
+            Color color = getBackground();            
             int r = color.getRed();
             int g = color.getGreen();
             int b = color.getBlue();
             b = b - 50;
-            color = new Color(r,g,b);
+            setDebug(Constants.BASE_TEXT, new Color(r,g,b));
         }
     }
         

@@ -48,5 +48,6 @@ public class Constants
     public static final int    FROGGER_UI_WIDTH        = 920;
     public static final int    FROGGER_UI_HEIGHT       = 720;
     public static final Color  FROGGER_UI_BACK_COLOR   = Color.black;
+    public static final String FROGGER_UI_TITLE        = "Frogger";
     
 }

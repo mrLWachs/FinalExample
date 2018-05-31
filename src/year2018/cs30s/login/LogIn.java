@@ -3,6 +3,7 @@
 package year2018.cs30s.login;
 
 /** required imports */
+import year2018.cs30s.tools.FrameTools;
 import year2018.cs30s.tools.Security;
 
 /**
@@ -20,10 +21,9 @@ public class LogIn extends javax.swing.JFrame
      */
     public LogIn() {
         initComponents();
-        Security.init(jLabel1,jButton1);        // initialize the security
-        setResizable(false);                    // frame not resizable
-        setLocationRelativeTo(null);            // center frame on screen
-        setVisible(true);                       // make frame visible
+        Security.init(jLabel1,jButton1);        // initialize the security        
+        FrameTools.init(this, this.getTitle(), this.getWidth(), 
+                        this.getHeight(), false, true, true);
     }
 
     /** 

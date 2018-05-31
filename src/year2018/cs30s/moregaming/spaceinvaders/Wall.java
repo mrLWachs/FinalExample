@@ -23,8 +23,9 @@ public class Wall extends GameObject
      * @param image the label associated with the image
      * @param color the background color associated with the image
      */
-    public Wall(Image image, Color color) {
+    public Wall(Image image) {
         super(image);
+        setDebug(Constants.WALL_TEXT, Constants.WALL_COLOR);
     }
 
 }

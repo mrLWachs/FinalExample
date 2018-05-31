@@ -4,7 +4,7 @@ package year2018.cs30s.findprize;
 import java.awt.event.KeyEvent;
 import javax.swing.JLabel;
 
-public class GameEngine 
+public class Engine 
 {
 
     private JLabel[][] grid;
@@ -14,7 +14,7 @@ public class GameEngine
     private int totalPrizes;
     
     
-    public GameEngine(JLabel[][] grid) {
+    public Engine(JLabel[][] grid) {
         this.grid   = grid;  
         totalPrizes = 0;
         prizes      = new Location[ (grid.length * grid[0].length) - 2];

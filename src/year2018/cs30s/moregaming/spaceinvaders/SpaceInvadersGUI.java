@@ -4,6 +4,8 @@ package year2018.cs30s.moregaming.spaceinvaders;
 
 /** required imports */
 import javax.swing.JLabel;
+import year2018.cs30s.gametools.Image;
+import year2018.cs30s.tools.FrameTools;
 
 /**
  * SpaceInvadersGUI.java - the user interface for the space invaders game
@@ -20,13 +22,34 @@ public class SpaceInvadersGUI extends javax.swing.JFrame
     /** Creates new form SpaceInvadersGUI */
     public SpaceInvadersGUI() {
         initComponents();
-        JLabel   backgroundImage   = jLabel18;        
-        JLabel   heroShipImage     = jLabel27;
-        JLabel   heroBulletImage   = jLabel28;
-        JLabel[] baseImages        = {jLabel16,jLabel17,jLabel13};
-        JLabel[] enemyShipImages   = {jLabel23,jLabel24,jLabel25,jLabel26,jLabel15};
-        JLabel[] enemyBulletImages = {jLabel29,jLabel30,jLabel31,jLabel32,jLabel22};  
-        JLabel[] wallImages        = {jLabel21,jLabel20,jLabel14,jLabel19};          
+        Image   backgroundImage   = new Image(jLabel18);        
+        Image   heroShipImage     = new Image(jLabel27);
+        Image   heroBulletImage   = new Image(jLabel28);
+        Image[] baseImages        = {
+            new Image(jLabel16),
+            new Image(jLabel17),
+            new Image(jLabel13)
+        };
+        Image[] enemyShipImages   = {
+            new Image(jLabel23),
+            new Image(jLabel24),
+            new Image(jLabel25),
+            new Image(jLabel26),
+            new Image(jLabel15)
+        };
+        Image[] enemyBulletImages = {
+            new Image(jLabel29),
+            new Image(jLabel30),
+            new Image(jLabel31),
+            new Image(jLabel32),
+            new Image(jLabel22)
+        };  
+        Image[] wallImages        = {
+            new Image(jLabel21),
+            new Image(jLabel20),
+            new Image(jLabel14),
+            new Image(jLabel19)
+        };          
         engine = new Engine(
                 backgroundImage,
                 heroShipImage,
@@ -34,10 +57,16 @@ public class SpaceInvadersGUI extends javax.swing.JFrame
                 baseImages,
                 enemyShipImages,
                 enemyBulletImages,
-                wallImages);
-        this.setSize(1050,720);
-        this.setLocationRelativeTo(null);
-        this.setVisible(true);
+                wallImages);        
+        FrameTools.init(this, 
+                Constants.SPACE_INVADERS_UI_TITLE, 
+                Constants.SPACE_INVADERS_UI_WIDTH, 
+                Constants.SPACE_INVADERS_UI_HEIGHT, 
+                false, 
+                true,
+                true,
+                false,
+                Constants.SPACE_INVADERS_UI_BACK_COLOR);
     }
 
     // <editor-fold defaultstate="collapsed" desc="NetBeans Visual Editor Generated Code">  
@@ -84,7 +113,7 @@ public class SpaceInvadersGUI extends javax.swing.JFrame
         jLabel13.setText("base");
         jLabel13.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(jLabel13);
-        jLabel13.setBounds(700, 390, 160, 90);
+        jLabel13.setBounds(700, 340, 160, 120);
 
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel19.setText("wall");
@@ -114,49 +143,49 @@ public class SpaceInvadersGUI extends javax.swing.JFrame
         jLabel15.setText("enemy");
         jLabel15.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(jLabel15);
-        jLabel15.setBounds(720, 130, 100, 110);
+        jLabel15.setBounds(710, 50, 100, 60);
 
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setText("base");
         jLabel16.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(jLabel16);
-        jLabel16.setBounds(60, 390, 160, 90);
+        jLabel16.setBounds(60, 340, 160, 120);
 
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel17.setText("base");
         jLabel17.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(jLabel17);
-        jLabel17.setBounds(390, 390, 160, 90);
+        jLabel17.setBounds(390, 340, 160, 120);
 
         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel22.setText("enemy bullet");
         jLabel22.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(jLabel22);
-        jLabel22.setBounds(730, 250, 60, 80);
+        jLabel22.setBounds(730, 250, 20, 20);
 
         jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel23.setText("enemy");
         jLabel23.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(jLabel23);
-        jLabel23.setBounds(120, 130, 100, 110);
+        jLabel23.setBounds(110, 50, 100, 60);
 
         jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel24.setText("enemy");
         jLabel24.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(jLabel24);
-        jLabel24.setBounds(270, 130, 100, 110);
+        jLabel24.setBounds(260, 50, 100, 60);
 
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel25.setText("enemy");
         jLabel25.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(jLabel25);
-        jLabel25.setBounds(420, 130, 100, 110);
+        jLabel25.setBounds(410, 50, 100, 60);
 
         jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel26.setText("enemy");
         jLabel26.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(jLabel26);
-        jLabel26.setBounds(570, 130, 100, 110);
+        jLabel26.setBounds(560, 50, 100, 60);
 
         jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel27.setText("hero");
@@ -168,31 +197,31 @@ public class SpaceInvadersGUI extends javax.swing.JFrame
         jLabel28.setText("hero bullet");
         jLabel28.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(jLabel28);
-        jLabel28.setBounds(280, 470, 60, 80);
+        jLabel28.setBounds(280, 470, 20, 20);
 
         jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel29.setText("enemy bullet");
         jLabel29.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(jLabel29);
-        jLabel29.setBounds(140, 250, 60, 80);
+        jLabel29.setBounds(140, 250, 20, 20);
 
         jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel30.setText("enemy bullet");
         jLabel30.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(jLabel30);
-        jLabel30.setBounds(290, 250, 60, 80);
+        jLabel30.setBounds(290, 250, 20, 20);
 
         jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel31.setText("enemy bullet");
         jLabel31.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(jLabel31);
-        jLabel31.setBounds(440, 250, 60, 80);
+        jLabel31.setBounds(440, 250, 20, 20);
 
         jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel32.setText("enemy bullet");
         jLabel32.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(jLabel32);
-        jLabel32.setBounds(590, 250, 60, 80);
+        jLabel32.setBounds(590, 250, 20, 20);
 
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel18.setText("background");

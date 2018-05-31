@@ -3,9 +3,7 @@
 package year2018.cs30s.moregaming.spaceinvaders;
 
 /** required imports */
-import java.awt.Color;
 import java.awt.event.KeyEvent;
-import javax.swing.JLabel;
 import year2018.cs30s.gametools.Image;
 
 /**
@@ -37,55 +35,32 @@ public class Engine
      * @param enemyBulletImages the JLabel images associated with enemy bullets
      * @param wallImages the JLabel images associated with walls
      */
-    public Engine(JLabel   backgroundPic, 
-                      JLabel   heroShipPic, 
-                      JLabel   heroBulletPic, 
-                      JLabel[] basePics, 
-                      JLabel[] enemyShipPics, 
-                      JLabel[] enemyBulletPics, 
-                      JLabel[] wallPics) {
-        
-        
-        Image backgroundImage = new Image(backgroundPic);
-        background = new Background(backgroundImage,Color.black);        
-        
-        Image[] wallImages = new Image[wallPics.length];
-        walls = new Wall[wallImages.length];
-        for (int i = 0; i < walls.length; i++) {
-            wallImages[i] = new Image(wallPics[i]);
-            walls[i] = new Wall(wallImages[i],Color.darkGray);
-        }        
-        
-        Image heroShipImage = new Image(heroShipPic);
-        heroShip = new HeroShip(heroShipImage,1,1,Color.yellow,walls);        
-        
-        Image[] baseImages = new Image[basePics.length];
-        bases = new Base[baseImages.length];
-        for (int i = 0; i < bases.length; i++) {
-            baseImages[i] = new Image(basePics[i]);
-            bases[i] = new Base(baseImages[i],Color.blue);
-        }        
-              
-        Image[] enemyBulletImages = new Image[enemyBulletPics.length];
+    public Engine(Image backgroundImage, Image heroShipImage, 
+                  Image heroBulletImage, Image[] baseImages, 
+                  Image[] enemyShipImages, Image[] enemyBulletImages, 
+                  Image[] wallImages) {
+        background   = new Background(backgroundImage);        
+        walls        = new Wall[wallImages.length];
+        bases        = new Base[baseImages.length];
         enemyBullets = new EnemyBullet[enemyBulletImages.length];
+        enemyShips   = new EnemyShip[enemyShipImages.length];        
+        for (int i = 0; i < walls.length; i++) {
+            walls[i] = new Wall(wallImages[i]);
+        }    
+        for (int i = 0; i < bases.length; i++) {
+            bases[i] = new Base(baseImages[i]);
+        }    
+        heroShip = new HeroShip(heroShipImage,walls);
         for (int i = 0; i < enemyBullets.length; i++) {
-            enemyBulletImages[i] = new Image(enemyBulletPics[i]);
             enemyBullets[i] = new EnemyBullet(enemyBulletImages[i],
-                    1,1,Color.green,heroShip,walls,bases);
-        }           
-        
-        Image[] enemyShipImages = new Image[enemyShipPics.length];
-        enemyShips = new EnemyShip[enemyShipImages.length];
+                    heroShip,walls,bases);
+        }          
         for (int i = 0; i < enemyShips.length; i++) {
-            enemyShipImages[i] = new Image(enemyShipPics[i]);
-            enemyShips[i] = new EnemyShip(enemyShipImages[i],1,1,
-                    walls,3000,enemyBullets[i]);
-        } 
-        
-        Image heroBulletImage = new Image(heroBulletPic);
-        heroBullet = new HeroBullet(heroBulletImage,1,1,Color.white,
-                heroShip,walls,enemyShips,bases);
-        
+            enemyShips[i] = new EnemyShip(enemyShipImages[i],
+                                          walls,enemyBullets[i]);
+        }       
+        heroBullet = new HeroBullet(heroBulletImage,heroShip,walls,
+                                    enemyShips,bases);
         heroShip.connect(heroBullet);
     }
 

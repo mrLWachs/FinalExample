@@ -7,6 +7,7 @@ import year2018.cs30s.gametools.GameCharacter;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import javax.swing.JLabel;
+import year2018.cs30s.gametools.Directions;
 import year2018.cs30s.gametools.Image;
 
 /**
@@ -31,10 +32,14 @@ public class HeroShip extends GameCharacter
      * @param color the background color associated with the image
      * @param walls the wall objects associated with this object
      */
-    public HeroShip(Image image, int amount, int delay, Color color, 
-            Wall[] walls) {        
-        super(image, 0, amount, delay, 4);
+    public HeroShip(Image image, Wall[] walls) {        
+        super(image, 
+              Directions.STOP,
+              Constants.HERO_MOVE_AMOUNT,
+              Constants.HERO_TIMER_DELAY,
+              Constants.HERO_MOVE_DIRECTIONS);
         this.walls = walls;
+        setDebug(Constants.HERO_TEXT, Constants.HERO_COLOR);
     }
 
     /** the movement actions that this hero ship performs */

@@ -4,9 +4,11 @@ package year2018.cs30s.moregaming.frogger;
 
 /** required imports */
 import javax.swing.JLabel;
+import year2018.cs30s.gametools.Image;
+import year2018.cs30s.tools.FrameTools;
 
 /**
- * FroggerGUI.java - the user interface for the frogger game
+ * FroggerGUI.java - the user interface for the Frogger game
  * @author Mr. Wachs' Computer Science Student 
  * @since 18-Jan-2016
  * @version 1.0
@@ -20,13 +22,24 @@ public class FroggerGUI extends javax.swing.JFrame
     /** Creates new form FroggerGUI */
     public FroggerGUI() {
         initComponents();
-        JLabel   backgroundImage = jLabel18;        
-        JLabel   frogImage       = jLabel14;
-        JLabel   waterImage      = jLabel23;
-        JLabel   homeImage       = jLabel22;
-        JLabel[] carImages       = {jLabel15,jLabel16};
-        JLabel[] logImages       = {jLabel17,jLabel24};
-        JLabel[] wallImages      = {jLabel13,jLabel19,jLabel20,jLabel21};        
+        Image   backgroundImage = new Image(jLabel18);        
+        Image   frogImage       = new Image(jLabel14);
+        Image   waterImage      = new Image(jLabel23);
+        Image   homeImage       = new Image(jLabel22);
+        Image[] carImages       = {
+            new Image(jLabel15),
+            new Image(jLabel16)
+        };
+        Image[] logImages       = {
+             new Image(jLabel17),
+             new Image(jLabel24)
+        };
+        Image[] wallImages      = {
+            new Image(jLabel13),
+            new Image(jLabel19),
+            new Image(jLabel20),
+            new Image(jLabel21)
+        };        
         engine = new Engine(
                 backgroundImage,
                 frogImage,
@@ -35,12 +48,15 @@ public class FroggerGUI extends javax.swing.JFrame
                 carImages,
                 logImages,
                 wallImages);
-        this.getContentPane().setBackground(Constants.FROGGER_UI_BACK_COLOR);
-        this.setBackground(Constants.FROGGER_UI_BACK_COLOR);
-        this.setSize(Constants.FROGGER_UI_WIDTH,Constants.FROGGER_UI_HEIGHT);
-        this.setResizable(false);
-        this.setLocationRelativeTo(null);
-        this.setVisible(true);
+        FrameTools.init(this, 
+                Constants.FROGGER_UI_TITLE, 
+                Constants.FROGGER_UI_WIDTH, 
+                Constants.FROGGER_UI_HEIGHT, 
+                false, 
+                true,
+                true,
+                false,
+                Constants.FROGGER_UI_BACK_COLOR);
     }
 
     // <editor-fold defaultstate="collapsed" desc="NetBeans Visual Editor Generated Code">  
@@ -71,6 +87,9 @@ public class FroggerGUI extends javax.swing.JFrame
         addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 formKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                formKeyReleased(evt);
             }
         });
         getContentPane().setLayout(null);
@@ -155,6 +174,10 @@ public class FroggerGUI extends javax.swing.JFrame
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
         engine.keyPress(evt);
     }//GEN-LAST:event_formKeyPressed
+
+    private void formKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyReleased
+        engine.keyRelease();
+    }//GEN-LAST:event_formKeyReleased
 
     // <editor-fold defaultstate="collapsed" desc="NetBeans Visual Editor Generated Code">  
     

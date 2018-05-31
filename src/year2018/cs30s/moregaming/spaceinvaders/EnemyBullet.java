@@ -5,7 +5,6 @@ package year2018.cs30s.moregaming.spaceinvaders;
 /** required imports */
 import year2018.cs30s.gametools.Directions;
 import year2018.cs30s.gametools.GameCharacter;
-import java.awt.Color;
 import year2018.cs30s.gametools.Image;
 
 /**
@@ -28,22 +27,23 @@ public class EnemyBullet extends GameCharacter
     /**
      * constructor for the class sets class data
      * @param image the label associated with the image
-     * @param amount the amount the game object will move
-     * @param delay the delay in milliseconds of the character's timer
-     * @param color the background color associated with the image
      * @param heroShip the hero ship object associated with this object
      * @param walls the wall objects associated with this object
      * @param bases the base objects associated with this object
      */
-    public EnemyBullet(Image image, int amount, int delay, Color color, 
-            HeroShip    heroShip, 
-            Wall[]      walls,
-            Base[]      bases) {
-        super(image, 0, amount, delay, 4);
+    public EnemyBullet(Image image, HeroShip heroShip, Wall[] walls, 
+                       Base[] bases) {
+        super(image, 
+              Directions.STOP,
+              Constants.ENEMY_BULLET_MOVE_AMOUNT,
+              Constants.ENEMY_BULLET_TIMER_DELAY,
+              Constants.ENEMY_BULLET_MOVE_DIRECTIONS);
         this.heroShip = heroShip;
         this.walls    = walls;
         this.bases    = bases;
         isFiring      = false;   
+        hide();
+        setDebug(Constants.ENEMY_BULLET_TEXT, Constants.ENEMY_BULLET_COLOR);
     }
 
     /** the movement actions that this enemy bullet performs */
@@ -63,6 +63,7 @@ public class EnemyBullet extends GameCharacter
      * @param enemyShip the ship that this bullet fires from
      */
     public void fire(EnemyShip enemyShip) {
+        show();
         centerOnBottom(enemyShip);
         coordinate.direction = Directions.DOWN;
         move();
@@ -82,7 +83,7 @@ public class EnemyBullet extends GameCharacter
             if (isColliding(bases[i])) {
                 bases[i].kill();
                 isFiring = false;
-                
+                hide();
             }
         }
     }
@@ -92,7 +93,7 @@ public class EnemyBullet extends GameCharacter
         for (int i = 0; i < walls.length; i++) {
             if (isColliding(walls[i])) {
                 isFiring = false;
-                
+                hide();
             }
         }
     }

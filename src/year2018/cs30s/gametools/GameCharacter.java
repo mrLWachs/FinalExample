@@ -201,4 +201,8 @@ public abstract class GameCharacter extends GameObject
         }        
     }
     
+    public void stop() {
+        coordinate.direction = Directions.STOP;
+    }
+    
 }
