@@ -24,6 +24,9 @@ public class Security
     private static Timer timer;
     private static JLabel label;
     private static JButton button;
+    private static int correctCount;
+    
+    private final static int CORRECT_COUNT = 3;
 
     /**
      * Checks the user typed key to see if it matches what is in the label
@@ -36,8 +39,11 @@ public class Security
         char   letter     = text.charAt(0);         // get letter from text
         int    answerCode = (int)letter;            // convert letter to int
         if (userCode == answerCode) {               // compare int codes
-            button.setEnabled(true);                // enable button
-            timer.stop();                           // stop timer
+            correctCount++;                         // increment count
+            if (correctCount == CORRECT_COUNT) {    // matching counts
+                button.setEnabled(true);            // enable button
+                timer.stop();                       // stop timer
+            }
         }
     }    
 
@@ -59,6 +65,7 @@ public class Security
         });                                     // set up the timer
         timer.start();                          // start the timer
         tick();                                 // display first letter
+        correctCount = 0;                       // start the login count at 0
     }
 
     /**
