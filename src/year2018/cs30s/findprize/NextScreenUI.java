@@ -1,6 +1,8 @@
 
+/** required package class namespace */
 package year2018.cs30s.findprize;
 
+/** required imports */
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,19 +13,31 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import static javax.swing.SwingConstants.CENTER;
 
-
-public class NextScreen extends JFrame
+/**
+ * NextScreenUI.java - the next user interface for the find prizes game
+ *
+ * @author Mr. Wachs
+ * @since May 28, 2018 
+ * @instructor Mr. Wachs
+ */
+public class NextScreenUI extends JFrame
 {
 
     private JLabel text;
     private JButton back;
     
-    public NextScreen() {
-        Globals.initFrame(Globals.NEXT_SCREEN,this);
-        setControls();
-        setActions();
+    /**
+     * Default constructor sets class properties
+     */
+    public NextScreenUI() {
+        Globals.initFrame(Globals.NEXT_SCREEN,this);    // initiallizes frame
+        setControls();                                  // sets UI controls
+        setActions();                                   // sets user actions
     }
 
+    /**
+     * Sets all user interface controls into locations and look and feel
+     */
     private void setControls() {  
         int controlWidth = Globals.NEXT_FRAME_WIDTH - 
                 (Globals.FRAME_HORIZONTAL_SPACER * 2);
@@ -42,39 +56,40 @@ public class NextScreen extends JFrame
         back.setBounds(x, y, controlWidth, controlHeight);                
     }
 
+    /**
+     * Sets user keyboard and button click actions
+     */
     private void setActions() {
         back.addActionListener(new ActionListener()
         {
-            @Override
             public void actionPerformed(ActionEvent e) {
-                backClick();
+                goBack(null);
             }
         });
         back.addKeyListener(new KeyListener()
         {
             public void keyTyped(KeyEvent e) {    }
-            public void keyPressed(KeyEvent e) {
-                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                    backClick();
-                }
-            }
+            public void keyPressed(KeyEvent e) { goBack(e); }
             public void keyReleased(KeyEvent e) {  }
         });
         this.addKeyListener(new KeyListener()
         {
             public void keyTyped(KeyEvent e) {    }
-            public void keyPressed(KeyEvent e) {
-                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                    backClick();
-                }
-            }
+            public void keyPressed(KeyEvent e) { goBack(e); }
             public void keyReleased(KeyEvent e) {  }
         });
     }
     
-    private void backClick() {
-        Globals.main.setVisible(true);
-        Globals.next.setVisible(false);
+    /**
+     * Goes back to the main screen
+     * 
+     * @param event the keyboard user event to check
+     */
+    private void goBack(KeyEvent event) {
+        if (event == null || event.getKeyCode() == KeyEvent.VK_ENTER) {
+            Globals.main.setVisible(true);
+            Globals.next.setVisible(false);
+        }
     }
     
 }

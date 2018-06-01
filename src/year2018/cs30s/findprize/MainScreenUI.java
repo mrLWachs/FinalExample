@@ -1,8 +1,9 @@
 
+/** required package class namespace */
 package year2018.cs30s.findprize;
 
+/** required imports */
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.BorderFactory;
@@ -10,22 +11,38 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import static javax.swing.SwingConstants.CENTER;
 
-public class MainScreen extends JFrame
+/**
+ * MainScreenUI.java - the main user interface for the find prizes game
+ *
+ * @author Mr. Wachs
+ * @since May 28, 2018 
+ * @instructor Mr. Wachs
+ */
+public class MainScreenUI extends JFrame
 {
 
+    /**
+     * The two dimensional array (matrix) of JLabels
+     */
     public JLabel[][] grid;
     
     
-    public MainScreen() {
-        Globals.initFrame(Globals.MAIN_SCREEN,this);
-        setControls();
-        setActions();
+    /**
+     * Default constructor sets class properties
+     */
+    public MainScreenUI() {
+        Globals.initFrame(Globals.MAIN_SCREEN,this);    // initiallizes frame
+        setControls();                                  // sets UI controls
+        setActions();                                   // sets user actions
     }
 
+    /**
+     * Sets all user interface controls into locations and look and feel
+     */
     private void setControls() {
         int x = Globals.GRID_HORIZONTAL_SPACER;
         int y = Globals.GRID_VERTICAL_SPACER;
-        grid = new JLabel[Globals.gridRows][Globals.gridColumns];
+        grid  = new JLabel[Globals.gridRows][Globals.gridColumns];
         for (int row = 0; row < Globals.gridRows; row++) {
             for (int column = 0; column < Globals.gridColumns; column++) {
                 grid[row][column] = new JLabel();                
@@ -41,23 +58,23 @@ public class MainScreen extends JFrame
                         Globals.gridHeight);                
                 x += Globals.gridWidth;                
             }
-            x = Globals.GRID_HORIZONTAL_SPACER;
+            x  = Globals.GRID_HORIZONTAL_SPACER;
             y += Globals.gridHeight;
         }
         setBackground(Color.white);
         getContentPane().setBackground(Color.white);
     }
 
+    /**
+     * Sets user keyboard actions
+     */
     private void setActions() {
         addKeyListener(new KeyListener()
         {
-            @Override
             public void keyTyped(KeyEvent e) { }
-            @Override
             public void keyPressed(KeyEvent e) {
                 Globals.engine.keyPress(e);
             }
-            @Override
             public void keyReleased(KeyEvent e) { }
         });
     }

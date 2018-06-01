@@ -3,7 +3,6 @@
 package mainpackage;
 
 /** required imports */
-import javax.swing.JOptionPane;
 import year2018.cs30s.findprize.FindPrizes;
 import year2018.cs30s.login.LogIn;
 import year2018.cs30s.moregaming.frogger.FroggerGUI;
@@ -30,7 +29,7 @@ public class MainClass
     public static void main(String[] args) {
         Dialogs dialog = new Dialogs("Final Examples 2018");
         final String[] OPTIONS = { "Login", "Pacman", "Find Prizes", "Frogger",
-            "Space Invaders", "Snake" };
+                                   "Space Invaders", "Snake" };
         String choice = dialog.buttons("Choose an example from 2018 in "
                 + "Computer Science 30S or 32SIB to see...", OPTIONS);
         if      (choice.equals(OPTIONS[0])) new LogIn();

@@ -32,6 +32,14 @@ public class FrameTools
         }
     }
     
+    public static void setFullScreen(JFrame frame) {
+        if (frame == null) return;
+        
+        
+    }
+    
+    
+    
     /**
      * Initializes a JFrame to the set parameter values
      * 
