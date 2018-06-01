@@ -2,14 +2,15 @@
 /** required package class namespace */
 package year2018.cs30s.moregaming.frogger;
 
+/** required imports */
 import java.awt.Color;
 import year2018.cs30s.gametools.Directions;
 
 /**
- * Constants.java - description here...
+ * Constants.java - game constant values for the Frogger game
  *
- * @author Mr. Wachs (login: lawrence.wachs)
- * @since May 31, 2018 
+ * @author Mr. Wachs
+ * @since May 28, 2018 
  * @instructor Mr. Wachs
  */
 public class Constants 

@@ -1,5 +1,5 @@
 
-/** required package */
+/** required package class namespace */
 package year2018.cs30s.moregaming.frogger;
 
 /** required imports */
@@ -8,9 +8,9 @@ import year2018.cs30s.gametools.Image;
 
 /**
  * Engine.java - the logic connected to the user interface that runs game logic
- * @author Mr. Wachs' Computer Science Student
- * @since 18-Jan-2016
- * @version 1.0
+ *
+ * @author Mr. Wachs
+ * @since May 28, 2018 
  * @instructor Mr. Wachs
  */
 public class Engine 
@@ -57,7 +57,8 @@ public class Engine
     }
 
     /**
-     * sends direction value on to the frog character
+     * User key board action sends direction value on to the frog character
+     * 
      * @param event the keyboard event 
      */
     public void keyPress(KeyEvent event) {
@@ -65,8 +66,7 @@ public class Engine
     }
 
     /**
-     * 
-     * @param event 
+     * User key board action of releasing a key
      */
     public void keyRelease() {
         frog.keyRelease();

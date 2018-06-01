@@ -1,17 +1,16 @@
 
-/** required package */
+/** required package class namespace */
 package year2018.cs30s.moregaming.frogger;
 
 /** required imports */
-import javax.swing.JLabel;
 import year2018.cs30s.gametools.Image;
 import year2018.cs30s.tools.FrameTools;
 
 /**
  * FroggerGUI.java - the user interface for the Frogger game
- * @author Mr. Wachs' Computer Science Student 
- * @since 18-Jan-2016
- * @version 1.0
+ *
+ * @author Mr. Wachs
+ * @since May 28, 2018 
  * @instructor Mr. Wachs
  */
 public class FroggerGUI extends javax.swing.JFrame 
@@ -19,14 +18,16 @@ public class FroggerGUI extends javax.swing.JFrame
 
     private Engine engine;
     
-    /** Creates new form FroggerGUI */
+    /** 
+     * Constructor for the class sets class data, and creates new form
+     */
     public FroggerGUI() {
         initComponents();
         Image   backgroundImage = new Image(jLabel18);        
         Image   frogImage       = new Image(jLabel14);
         Image   waterImage      = new Image(jLabel23);
         Image   homeImage       = new Image(jLabel22);
-        Image[] carImages       = {
+        Image[] carImages       = { 
             new Image(jLabel15),
             new Image(jLabel16)
         };
@@ -52,10 +53,7 @@ public class FroggerGUI extends javax.swing.JFrame
                 Constants.FROGGER_UI_TITLE, 
                 Constants.FROGGER_UI_WIDTH, 
                 Constants.FROGGER_UI_HEIGHT, 
-                false, 
-                true,
-                true,
-                false,
+                false, true, true, false,
                 Constants.FROGGER_UI_BACK_COLOR);
     }
 

@@ -201,6 +201,9 @@ public abstract class GameCharacter extends GameObject
         }        
     }
     
+    /**
+     * Stops all movement if it is taking place
+     */
     public void stop() {
         coordinate.direction = Directions.STOP;
     }
