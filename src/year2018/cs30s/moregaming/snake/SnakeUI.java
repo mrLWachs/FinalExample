@@ -1,5 +1,5 @@
 
-/** required package */
+/** required package class namespace */
 package year2018.cs30s.moregaming.snake;
 
 /** required imports */
@@ -14,14 +14,13 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import javax.swing.border.Border;
-import year2018.cs30s.moregaming.frogger.Constants;
 import year2018.cs30s.tools.FrameTools;
 
 /**
  * SnakeUI.java - the classic snake game
- * @author Mr. Wachs' Computer Science Student (login: lwachs)
- * @since 03-June-2015
- * @version 1.0
+ *
+ * @author Mr. Wachs
+ * @since May 28, 2018 
  * @instructor Mr. Wachs
  */
 public class SnakeUI extends JFrame

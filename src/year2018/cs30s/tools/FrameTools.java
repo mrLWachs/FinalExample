@@ -3,6 +3,10 @@
 package year2018.cs30s.tools;
 
 import java.awt.Color;
+import java.io.File;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
@@ -17,13 +21,22 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 public class FrameTools 
 {
 
-    public static void setIcon(JFrame frame, String iconFileName) {
+    public void setIcon(JFrame frame, String iconFileName) {
         if (frame == null) return;
-        if (iconFileName == null) return;
-        ImageIcon icon = new ImageIcon(iconFileName);
-        frame.setIconImage(icon.getImage());
-    }
-    
+        if (iconFileName == null) return;        
+        try {
+            URL       url  = getClass().getResource(iconFileName); 
+            URI       uri  = url.toURI();
+            File      file = new File(uri);
+            String    path = file.getAbsolutePath();
+            ImageIcon icon = new ImageIcon(path);
+            frame.setIconImage(icon.getImage());
+        }
+        catch (URISyntaxException error) {
+            System.out.println("File URI error");
+        }
+    }    
+        
     public static void setBackground(JFrame frame, Color background) {
         if (frame == null) return;
         if (background != null) {
@@ -132,7 +145,7 @@ public class FrameTools
         if (closeShouldEndApp) frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         if (hasNoBorders)      frame.setUndecorated(true);
         setBackground(frame, background);
-        setIcon(frame, iconFileName);
+//        setIcon(frame, iconFileName);
         frame.setVisible(true);
     }
     

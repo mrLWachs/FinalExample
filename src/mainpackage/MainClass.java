@@ -10,6 +10,7 @@ import year2018.cs30s.moregaming.snake.SnakeUI;
 import year2018.cs30s.moregaming.spaceinvaders.SpaceInvadersGUI;
 import year2018.cs30s.pacman.PacmanUI;
 import year2018.cs30s.tools.Dialogs;
+import year2018.cs30s.tools.MediaPlayer;
 
 /**
  * MainClass.java - the main class for the project
@@ -21,12 +22,16 @@ import year2018.cs30s.tools.Dialogs;
 public class MainClass 
 {
 
+    public static final String MEDIA_PATH = "/media/";
+    
     /**
      * Main method for the project
      * 
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) {        
+        MediaPlayer mediaPlayer = new MediaPlayer();        
+        mediaPlayer.playWav(MEDIA_PATH + "Ding.wav");        
         Dialogs dialog = new Dialogs("Final Examples 2018");
         final String[] OPTIONS = { "Login", "Pacman", "Find Prizes", "Frogger",
                                    "Space Invaders", "Snake" };

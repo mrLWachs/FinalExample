@@ -95,6 +95,7 @@ public class Dialogs
                 null, 
                 buttonTexts, 
                 buttonTexts[0]);
+        if (result == -1) return "";
         return buttonTexts[result];
     }
     
