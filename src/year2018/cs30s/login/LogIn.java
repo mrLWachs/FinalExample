@@ -21,17 +21,11 @@ public class LogIn extends javax.swing.JFrame
      * Default constructor for the class
      */
     public LogIn() {
-        initComponents();
-        
-        new FrameTools().setIcon(this, MainClass.MEDIA_PATH + "config.ico");
-        
+        initComponents();        
+        new FrameTools().setIcon(this, MainClass.MEDIA_PATH + "config.ico");        
         Security.init(jLabel1,jButton1);        // initialize the security        
         FrameTools.init(this, this.getTitle(), this.getWidth(), 
-                        this.getHeight(), false, true, true);
-        
-        
-        
-        
+                        this.getHeight(), false, true, true);                
     }
 
     /** 
