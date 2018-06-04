@@ -3,8 +3,8 @@
 package year2018.cs30s.pacman;
 
 /** required imports */
+import mainpackage.Example;
 import year2018.cs30s.gametools.Image;
-import year2018.cs30s.tools.FrameTools;
 
 /**
  * PacmanUI.java - the user interface for the Pacman game
@@ -67,15 +67,16 @@ public class PacmanUI extends javax.swing.JFrame
             new Image(jLabel16)
         };                
         engine = new Engine(pacman,ghosts,dots,walls,this);        
-        FrameTools.init(this, 
+        Example.frameTool.init(this, 
                 Constants.PACMAN_UI_TITLE, 
                 Constants.PACMAN_UI_WIDTH, 
                 Constants.PACMAN_UI_HEIGHT, 
                 false, 
                 true,
-                true,
                 false,
-                Constants.PACMAN_UI_BACK_COLOR);
+                false,
+                Constants.PACMAN_UI_BACK_COLOR,
+                Example.PACMAN_ICON);
     }
 
     /** 
@@ -129,6 +130,11 @@ public class PacmanUI extends javax.swing.JFrame
         jLabel37 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
         addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 formKeyPressed(evt);
@@ -438,6 +444,12 @@ public class PacmanUI extends javax.swing.JFrame
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
         engine.keyPress(evt);
     }//GEN-LAST:event_formKeyPressed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        this.dispose();
+        Example.gamesPlayed++;
+        Example.menu();
+    }//GEN-LAST:event_formWindowClosing
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

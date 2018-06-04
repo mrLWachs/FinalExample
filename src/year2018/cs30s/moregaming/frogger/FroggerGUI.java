@@ -3,6 +3,7 @@
 package year2018.cs30s.moregaming.frogger;
 
 /** required imports */
+import mainpackage.Example;
 import year2018.cs30s.gametools.Image;
 import year2018.cs30s.tools.FrameTools;
 
@@ -49,12 +50,13 @@ public class FroggerGUI extends javax.swing.JFrame
                 carImages,
                 logImages,
                 wallImages);
-        FrameTools.init(this, 
+        Example.frameTool.init(this, 
                 Constants.FROGGER_UI_TITLE, 
                 Constants.FROGGER_UI_WIDTH, 
                 Constants.FROGGER_UI_HEIGHT, 
-                false, true, true, false,
-                Constants.FROGGER_UI_BACK_COLOR);
+                false, true, false, false,
+                Constants.FROGGER_UI_BACK_COLOR,
+                Example.FROGGER_ICON);
     }
 
     // <editor-fold defaultstate="collapsed" desc="NetBeans Visual Editor Generated Code">  
@@ -82,6 +84,11 @@ public class FroggerGUI extends javax.swing.JFrame
         jLabel18 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
         addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 formKeyPressed(evt);
@@ -176,6 +183,12 @@ public class FroggerGUI extends javax.swing.JFrame
     private void formKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyReleased
         engine.keyRelease();
     }//GEN-LAST:event_formKeyReleased
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        this.dispose();
+        Example.gamesPlayed++;
+        Example.menu();
+    }//GEN-LAST:event_formWindowClosing
 
     // <editor-fold defaultstate="collapsed" desc="NetBeans Visual Editor Generated Code">  
     

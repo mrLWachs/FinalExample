@@ -3,9 +3,8 @@
 package year2018.cs30s.moregaming.spaceinvaders;
 
 /** required imports */
-import javax.swing.JLabel;
+import mainpackage.Example;
 import year2018.cs30s.gametools.Image;
-import year2018.cs30s.tools.FrameTools;
 
 /**
  * SpaceInvadersGUI.java - the user interface for the space invaders game
@@ -58,15 +57,16 @@ public class SpaceInvadersGUI extends javax.swing.JFrame
                 enemyShipImages,
                 enemyBulletImages,
                 wallImages);        
-        FrameTools.init(this, 
+        Example.frameTool.init(this, 
                 Constants.SPACE_INVADERS_UI_TITLE, 
                 Constants.SPACE_INVADERS_UI_WIDTH, 
                 Constants.SPACE_INVADERS_UI_HEIGHT, 
                 false, 
                 true,
-                true,
                 false,
-                Constants.SPACE_INVADERS_UI_BACK_COLOR);
+                false,
+                Constants.SPACE_INVADERS_UI_BACK_COLOR,
+                Example.SPACE_INVADERS_ICON);
     }
 
     // <editor-fold defaultstate="collapsed" desc="NetBeans Visual Editor Generated Code">  
@@ -102,6 +102,11 @@ public class SpaceInvadersGUI extends javax.swing.JFrame
         jLabel18 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
         addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 formKeyPressed(evt);
@@ -237,6 +242,12 @@ public class SpaceInvadersGUI extends javax.swing.JFrame
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
         engine.keyPress(evt);
     }//GEN-LAST:event_formKeyPressed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        this.dispose();
+        Example.gamesPlayed++;
+        Example.menu();
+    }//GEN-LAST:event_formWindowClosing
 
     // <editor-fold defaultstate="collapsed" desc="NetBeans Visual Editor Generated Code">  
     

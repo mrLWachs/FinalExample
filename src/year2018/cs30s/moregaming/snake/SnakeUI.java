@@ -8,13 +8,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import javax.swing.border.Border;
-import year2018.cs30s.tools.FrameTools;
+import mainpackage.Example;
 
 /**
  * SnakeUI.java - the classic snake game
@@ -70,15 +72,24 @@ public class SnakeUI extends JFrame
     /**  sets the gUI properties of the frame */
     private void setFrame() {
         this.getContentPane().setLayout(null);
-        FrameTools.init(this, 
+        final JFrame frame = this;
+        this.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent evt) {
+                frame.dispose();
+                Example.gamesPlayed++;
+                Example.menu();
+            }
+        });
+        Example.frameTool.init(this, 
                 FORM_TITLE, 
                 FORM_WIDTH, 
                 FORM_HEIGHT, 
                 false, 
                 true,
-                true,
                 false,
-                FORM_BACKGROUND_COLOR);
+                false,
+                FORM_BACKGROUND_COLOR,
+                Example.SNAKE_ICON);
     }
 
     /** sets the keyboard to listen to events */
@@ -236,6 +247,7 @@ public class SnakeUI extends JFrame
             snake[HEAD].column == powerUp.column) {            
             growSnake();
             newPowerUp();
+            Example.totalPoints++;
             return true;
         }
         return false;
@@ -303,7 +315,7 @@ public class SnakeUI extends JFrame
         double random = (H - L + 1d) * seed + L;
         return (int)random;
     }    
-    
+        
 }
     
     

@@ -3,6 +3,7 @@
 package year2018.cs30s.moregaming.frogger;
 
 /** required imports */
+import mainpackage.Example;
 import year2018.cs30s.gametools.GameCharacter;
 import year2018.cs30s.gametools.Directions;
 import year2018.cs30s.gametools.Image;
@@ -73,6 +74,7 @@ public class Frog extends GameCharacter
      */
     private void checkHome() {
         if (isColliding(home)) {
+            Example.totalPoints++;
             landOn(home);
         }
     }
@@ -82,7 +84,7 @@ public class Frog extends GameCharacter
      */
     private void checkWater() {
         if (isColliding(water) && onLog == false) {
-            System.exit(0);
+            water.splash();
         }
     }
 

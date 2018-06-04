@@ -3,8 +3,7 @@
 package year2018.cs30s.login;
 
 /** required imports */
-import mainpackage.MainClass;
-import year2018.cs30s.tools.FrameTools;
+import mainpackage.Example;
 import year2018.cs30s.tools.Security;
 
 /**
@@ -21,11 +20,11 @@ public class LogIn extends javax.swing.JFrame
      * Default constructor for the class
      */
     public LogIn() {
-        initComponents();        
-        new FrameTools().setIcon(this, MainClass.MEDIA_PATH + "config.ico");        
-        Security.init(jLabel1,jButton1);        // initialize the security        
-        FrameTools.init(this, this.getTitle(), this.getWidth(), 
-                        this.getHeight(), false, true, true);                
+        initComponents();               
+        Security.init(jLabel1,jButton1);        // initialize the security 
+        Example.frameTool.init(this, this.getTitle(), this.getWidth(), 
+                               this.getHeight(), false, true, false, false, 
+                               this.getBackground(), Example.LOGIN_ICON);    
     }
 
     /** 
@@ -48,6 +47,11 @@ public class LogIn extends javax.swing.JFrame
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Log in...");
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -109,8 +113,17 @@ public class LogIn extends javax.swing.JFrame
     }//GEN-LAST:event_jTextField1KeyPressed
    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        System.exit(0);
+        Example.totalPoints++;
+        this.dispose();
+        Example.gamesPlayed++;
+        Example.menu();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        this.dispose();
+        Example.gamesPlayed++;
+        Example.menu();
+    }//GEN-LAST:event_formWindowClosing
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
