@@ -31,8 +31,10 @@ public class Globals
     public static final  int     GRID_SIZE               = MAIN_FRAME_WIDTH / 
                                                                             20;
     private static final String  MAIN_TITLE              = "Main Screen"; 
-    private static final String  MAIN_ICON_FILE          = Example.FIND_PRIZES_ICON; 
-    private static final String  NEXT_ICON_FILE          = Example.FIND_PRIZES_ICON;     
+    private static final String  MAIN_ICON_FILE          = 
+                                                    Example.FIND_PRIZES_ICON; 
+    private static final String  NEXT_ICON_FILE          = 
+                                                    Example.FIND_PRIZES_ICON;     
     public static final  int     NEXT_FRAME_WIDTH        = 300;
     public static final  int     NEXT_FRAME_HEIGHT       = 150;   
     private static final String  NEXT_TITLE              = "Next Screen";
@@ -72,16 +74,14 @@ public class Globals
     public static void initFrame(int screen, JFrame frame) {
         frame.getContentPane().setLayout(null);
         if (screen == MAIN_SCREEN) {    
-            Example.frameTool.init(frame, MAIN_TITLE, 
-                    MAIN_FRAME_WIDTH, MAIN_FRAME_HEIGHT, 
-                      false, true, false, false, MAIN_BACKGROUND_COLOR,
-                      MAIN_ICON_FILE); 
+            Example.frameTool.startup(frame, MAIN_TITLE, MAIN_FRAME_WIDTH, 
+                    MAIN_FRAME_HEIGHT, false, true, false, false, 
+                    MAIN_BACKGROUND_COLOR, MAIN_ICON_FILE); 
         }
         else if (screen == NEXT_SCREEN) {
-            Example.frameTool.init(frame, NEXT_TITLE, 
-                    NEXT_FRAME_WIDTH, NEXT_FRAME_HEIGHT, 
-                      false, true, false, true, NEXT_BACKGROUND_COLOR,
-                      NEXT_ICON_FILE);
+            Example.frameTool.startup(frame, NEXT_TITLE, NEXT_FRAME_WIDTH, 
+                    NEXT_FRAME_HEIGHT, false, true, false, true, 
+                    NEXT_BACKGROUND_COLOR, NEXT_ICON_FILE);
             
         }   
         frame.addWindowListener(new WindowAdapter() {
@@ -107,6 +107,11 @@ public class Globals
         next.setVisible(false);
     }
     
+    /**
+     * Closing th4 find prizes example returns to the main application menu
+     * 
+     * @param frame the current frame to close 
+     */
     private static void close(JFrame frame) {
         frame.dispose();
         Example.gamesPlayed++;

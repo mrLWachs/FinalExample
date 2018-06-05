@@ -1,5 +1,5 @@
 
-/** required package */
+/** required package class namespace */
 package year2018.cs30s.moregaming.spaceinvaders;
 
 /** required imports */
@@ -8,9 +8,9 @@ import year2018.cs30s.gametools.Image;
 
 /**
  * SpaceInvadersGUI.java - the user interface for the space invaders game
- * @author Mr. Wachs' Computer Science Student 
- * @since 18-Jan-2016
- * @version 1.0
+ *
+ * @author Mr. Wachs
+ * @since May 28, 2018 
  * @instructor Mr. Wachs
  */
 public class SpaceInvadersGUI extends javax.swing.JFrame 
@@ -18,7 +18,9 @@ public class SpaceInvadersGUI extends javax.swing.JFrame
 
     private Engine engine;
     
-    /** Creates new form SpaceInvadersGUI */
+    /** 
+     * Creates new form SpaceInvadersGUI 
+     */
     public SpaceInvadersGUI() {
         initComponents();
         Image   backgroundImage   = new Image(jLabel18);        
@@ -58,7 +60,7 @@ public class SpaceInvadersGUI extends javax.swing.JFrame
                 enemyBulletImages,
                 wallImages,
                 this);        
-        Example.frameTool.init(this, 
+        Example.frameTool.startup(this, 
                 Constants.SPACE_INVADERS_UI_TITLE, 
                 Constants.SPACE_INVADERS_UI_WIDTH, 
                 Constants.SPACE_INVADERS_UI_HEIGHT, 

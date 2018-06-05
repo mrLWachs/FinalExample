@@ -1,18 +1,17 @@
 
-/** required package */
+/** required package class namespace */
 package year2018.cs30s.moregaming.spaceinvaders;
 
 /** required imports */
 import year2018.cs30s.gametools.Directions;
 import year2018.cs30s.gametools.GameCharacter;
-import java.awt.Color;
 import year2018.cs30s.gametools.Image;
 
 /**
  * HeroBullet.java - represents the hero bullet of the space invaders game
- * @author Mr. Wachs' Computer Science Student 
- * @since 18-Jan-2016
- * @version 1.0
+ *
+ * @author Mr. Wachs
+ * @since May 28, 2018 
  * @instructor Mr. Wachs
  */
 public class HeroBullet extends GameCharacter
@@ -23,16 +22,16 @@ public class HeroBullet extends GameCharacter
     private EnemyShip[] enemyShips;
     private Base[]      bases;
     
-    /** determines if the hero ship's bullet is firing or not */
+    /** 
+     * Determines if the hero ship's bullet is firing or not 
+     */
     public  boolean isFiring;
     
     
     /**
-     * constructor for the class sets class data
-     * @param image the label associated with the image
-     * @param amount the amount the game object will move
-     * @param delay the delay in milliseconds of the character's timer
-     * @param color the background color associated with the image
+     * Constructor for the class sets class data
+     * 
+     * @param image the image associated with the game character
      * @param heroShip the hero ship object associated with this object
      * @param walls the wall objects associated with this object
      * @param enemyShips the enemy ship objects associated with this object
@@ -54,7 +53,9 @@ public class HeroBullet extends GameCharacter
         setDebug(Constants.HERO_BULLET_TEXT, Constants.HERO_BULLET_COLOR);
     }
 
-    /** the movement actions that this hero bullet performs */
+    /** 
+     * The movement actions that this hero bullet performs 
+     */
     @Override
     public void action() {
         if (isFiring) {
@@ -66,7 +67,9 @@ public class HeroBullet extends GameCharacter
         }
     }
     
-    /** starts the hero bullet in a state of firing */
+    /** 
+     * Starts the hero bullet in a state of firing 
+     */
     public void fire() {        
         centerOnTop(heroShip);
         coordinate.direction =  Directions.UP;
@@ -74,7 +77,9 @@ public class HeroBullet extends GameCharacter
         show();
     }
 
-    /** checks for collisions with bases and reacts */
+    /** 
+     * Checks for collisions with bases and reacts 
+     */
     private void checkBases() {
         for (int i = 0; i < bases.length; i++) {
             if (isColliding(bases[i])) {
@@ -85,7 +90,9 @@ public class HeroBullet extends GameCharacter
         }
     }
 
-    /** checks for collisions with enemy ships and reacts */
+    /** 
+     * Checks for collisions with enemy ships and reacts 
+     */
     private void checkEnemyShips() {
         for (int i = 0; i < enemyShips.length; i++) {
             if (isColliding(enemyShips[i])) {
@@ -96,7 +103,9 @@ public class HeroBullet extends GameCharacter
         }
     }
 
-    /** checks for collisions with walls and reacts */
+    /** 
+     * Checks for collisions with walls and reacts 
+     */
     private void checkWalls() {
         for (int i = 0; i < walls.length; i++) {
             if (isColliding(walls[i])) {

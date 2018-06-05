@@ -1,20 +1,18 @@
 
-/** required package */
+/** required package class namespace */
 package year2018.cs30s.moregaming.spaceinvaders;
 
 /** required imports */
 import year2018.cs30s.gametools.GameCharacter;
-import java.awt.Color;
 import java.awt.event.KeyEvent;
-import javax.swing.JLabel;
 import year2018.cs30s.gametools.Directions;
 import year2018.cs30s.gametools.Image;
 
 /**
  * Ship.java - represents the hero ship of the space invaders game
- * @author Mr. Wachs' Computer Science Student 
- * @since 18-Jan-2016
- * @version 1.0
+ *
+ * @author Mr. Wachs
+ * @since May 28, 2018 
  * @instructor Mr. Wachs
  */
 public class HeroShip extends GameCharacter
@@ -25,11 +23,9 @@ public class HeroShip extends GameCharacter
     
     
     /**
-     * constructor for the class sets class data
-     * @param image the label associated with the image
-     * @param amount the amount the game object will move
-     * @param delay the delay in milliseconds of the character's timer
-     * @param color the background color associated with the image
+     * Constructor for the class sets class data
+     * 
+     * @param image the image associated with the game character
      * @param walls the wall objects associated with this object
      */
     public HeroShip(Image image, Wall[] walls) {        
@@ -42,7 +38,9 @@ public class HeroShip extends GameCharacter
         setDebug(Constants.HERO_TEXT, Constants.HERO_COLOR);
     }
 
-    /** the movement actions that this hero ship performs */
+    /** 
+     * The movement actions that this hero ship performs 
+     */
     @Override
     public void action() {
         move();
@@ -50,7 +48,9 @@ public class HeroShip extends GameCharacter
         redraw();
     }
 
-    /** checks for collisions with walls and reacts */
+    /** 
+     * Checks for collisions with walls and reacts 
+     */
     private void checkWalls() {
         for (int i = 0; i < walls.length; i++) {
             if (isColliding(walls[i])) {
@@ -60,7 +60,8 @@ public class HeroShip extends GameCharacter
     }
     
     /**
-     * moves or fires based on user keyboard action
+     * Moves or fires based on user keyboard action
+     * 
      * @param event the keyboard event 
      */
     public void keyPress(KeyEvent event) {
@@ -71,7 +72,8 @@ public class HeroShip extends GameCharacter
     }
 
     /**
-     * associates this hero ship object with the passed hero bullet object
+     * Associates this hero ship object with the passed hero bullet object
+     * 
      * @param heroBullet the hero bullet object to associate with
      */
     public void connect(HeroBullet heroBullet) {

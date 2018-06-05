@@ -2,7 +2,9 @@
 /** required package class namespace */
 package year2018.cs30s.pacman;
 
+/** required imports */
 import java.awt.event.KeyEvent;
+import mainpackage.Example;
 import year2018.cs30s.gametools.Image;
 
 /**
@@ -19,7 +21,7 @@ public class Engine
     private Ghost[]  ghosts;
     private Dot[]    dots;
     private Wall[]   walls;
-    private PacmanUI screen;
+    private PacmanUI ui;
     
     /**
      * Constructor sets class properties
@@ -28,10 +30,10 @@ public class Engine
      * @param ghostImages the image array associated with all ghosts
      * @param dotImages the image array associated with all dots
      * @param wallImages the image array associated with all walls
-     * @param userInterface the frame user interface for the game
+     * @param ui the frame user interface for the game
      */
     public Engine(Image pacmanImage, Image[] ghostImages, Image[] dotImages, 
-                  Image[] wallImages, PacmanUI userInterface) {
+                  Image[] wallImages, PacmanUI ui) {
         dots = new Dot[dotImages.length];               // create object array
         for (int i = 0; i < dots.length; i++) {         // traverse array
             dots[i] = new Dot(dotImages[i]);            // instantiate object
@@ -43,9 +45,9 @@ public class Engine
         pacman = new Pacman(pacmanImage,dots,walls);    // instantiate object    
         ghosts = new Ghost[ghostImages.length];         // create object array
         for (int i = 0; i < ghosts.length; i++) {       // traverse array
-            ghosts[i] = new Ghost(ghostImages[i],walls,pacman);
+            ghosts[i] = new Ghost(ghostImages[i],walls,pacman,this);
         }        
-        screen = userInterface;                     // set parameter to property
+        this.ui = ui;                           // set parameter to property
     }
 
     /**
@@ -55,6 +57,20 @@ public class Engine
      */
     public void keyPress(KeyEvent event) {
         pacman.keyPress(event);                 // pass event to Pacman object
+    }
+    
+    /**
+     * Shut down the Pacman game and all game characters and return 
+     * to main application menu
+     */
+    public void shutDown() {
+        pacman.shutDown();
+        for (int i = 0; i < ghosts.length; i++) {
+            ghosts[i].shutDown();
+        }
+        ui.dispose();
+        Example.gamesPlayed++;
+        Example.menu();
     }
 
 }

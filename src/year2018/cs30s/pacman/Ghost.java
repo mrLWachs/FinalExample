@@ -19,6 +19,8 @@ public class Ghost extends GameCharacter
     
     private Wall[] walls;
     private Pacman pacman;
+    private Engine engine;
+    
     
     /**
      * Constructor sets class properties
@@ -26,14 +28,16 @@ public class Ghost extends GameCharacter
      * @param image the image to use for this game character
      * @param walls the Wall array representing all the game walls
      * @param pacman the Pacman game character 
+     * @param engine the logic engine for the game
      */
-    public Ghost(Image image, Wall[] walls, Pacman pacman) {        
+    public Ghost(Image image, Wall[] walls, Pacman pacman, Engine engine) {        
         super(image, Directions.STOP, 
               Constants.GHOST_MOVE_AMOUNT,
               Constants.GHOST_TIMER_DELAY, 
               Constants.GHOST_MOVE_DIRECTIONS);
         this.walls  = walls;
         this.pacman = pacman;
+        this.engine = engine;
         setDebug(Constants.GHOST_TEXT, Constants.GHOST_COLOR);
         randomDirection();
     }
@@ -66,7 +70,7 @@ public class Ghost extends GameCharacter
      */
     private void checkPacman() {
         if (isColliding(pacman)) {
-            System.exit(0);
+            engine.shutDown();
         }
     }
     

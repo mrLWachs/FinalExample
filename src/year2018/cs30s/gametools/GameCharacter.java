@@ -50,7 +50,8 @@ public abstract class GameCharacter extends GameObject
     public abstract void action();
     
     /**
-     * Re-positions the character in it's container based on game character's data
+     * Re-positions the character in it's container based on game character's 
+     * data
      */
     public void redraw() {
         if (!isAlive) return;                       // no need for this action
@@ -208,6 +209,10 @@ public abstract class GameCharacter extends GameObject
         coordinate.direction = Directions.STOP;
     }
     
+    /**
+     * Shuts this character down stops the timer, hides the character, and sets
+     * it to not alive
+     */
     public void shutDown() {
         image.hide();
         timer.stop();

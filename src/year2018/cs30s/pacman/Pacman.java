@@ -20,6 +20,7 @@ public class Pacman extends GameCharacter
     private Dot[]  dots;
     private Wall[] walls;
     
+    
     /**
      * Constructor sets class properties
      * 
@@ -32,8 +33,8 @@ public class Pacman extends GameCharacter
               Constants.PACMAN_MOVE_AMOUNT,
               Constants.PACMAN_TIMER_DELAY, 
               Constants.PACMAN_MOVE_DIRECTIONS);
-        this.walls = walls;
-        this.dots  = dots;
+        this.walls  = walls;
+        this.dots   = dots;
         setDebug(Constants.PACMAN_TEXT, Constants.PACMAN_COLOR);
     }
 

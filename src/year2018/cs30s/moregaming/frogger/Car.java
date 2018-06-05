@@ -3,7 +3,6 @@
 package year2018.cs30s.moregaming.frogger;
 
 /** required imports */
-import mainpackage.Example;
 import year2018.cs30s.gametools.GameCharacter;
 import year2018.cs30s.gametools.Directions;
 import year2018.cs30s.gametools.Image;
@@ -25,9 +24,10 @@ public class Car extends GameCharacter
     /**
      * Constructor for the class sets class data
      * 
-     * @param image the label associated with the image
+     * @param image the image associated with the game object
      * @param frog the frog object associated with this object
      * @param walls the wall objects associated with this object
+     * @param engine the logic engine for the Frogger game
      */
     public Car(Image image, Frog frog, Wall[] walls, Engine engine) {
         super(image, Directions.STOP, Constants.CAR_MOVE_AMOUNT,

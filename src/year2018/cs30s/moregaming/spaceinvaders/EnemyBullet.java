@@ -1,5 +1,5 @@
 
-/** required package */
+/** required package class namespace */
 package year2018.cs30s.moregaming.spaceinvaders;
 
 /** required imports */
@@ -9,9 +9,9 @@ import year2018.cs30s.gametools.Image;
 
 /**
  * EnemyBullet.java - represents the enemy bullet of the space invaders game
- * @author Mr. Wachs' Computer Science Student 
- * @since 18-Jan-2016
- * @version 1.0
+ *
+ * @author Mr. Wachs
+ * @since May 28, 2018 
  * @instructor Mr. Wachs
  */
 public class EnemyBullet extends GameCharacter
@@ -22,15 +22,19 @@ public class EnemyBullet extends GameCharacter
     private Base[]   bases; 
     private Engine   engine;
     
-    /** is this ship firing or not */
-    public  boolean isFiring;
+    /** 
+     * Is this ship firing or not 
+     */
+    public boolean isFiring;
     
     /**
-     * constructor for the class sets class data
-     * @param image the label associated with the image
+     * Constructor for the class sets class data
+     * 
+     * @param image the image associated with the game character
      * @param heroShip the hero ship object associated with this object
      * @param walls the wall objects associated with this object
      * @param bases the base objects associated with this object
+     * @param engine the logic engine for the game
      */
     public EnemyBullet(Image image, HeroShip heroShip, Wall[] walls, 
                        Base[] bases, Engine engine) {
@@ -48,7 +52,9 @@ public class EnemyBullet extends GameCharacter
         setDebug(Constants.ENEMY_BULLET_TEXT, Constants.ENEMY_BULLET_COLOR);
     }
 
-    /** the movement actions that this enemy bullet performs */
+    /** 
+     * The movement actions that this enemy bullet performs 
+     */
     @Override
     public void action() {
         if (isFiring) {
@@ -61,7 +67,8 @@ public class EnemyBullet extends GameCharacter
     }
         
     /**
-     * starts this bullet firing
+     * Starts this bullet firing
+     * 
      * @param enemyShip the ship that this bullet fires from
      */
     public void fire(EnemyShip enemyShip) {
@@ -72,14 +79,18 @@ public class EnemyBullet extends GameCharacter
         isFiring = true;
     }
 
-    /** checks for collision with the hero ship and reacts */
+    /** 
+     * Checks for collision with the hero ship and reacts 
+     */
     private void checkHero() {
         if (isColliding(heroShip)) {
             engine.shutDown();
         }
     }
 
-    /** checks for collision with bases and reacts */
+    /** 
+     * Checks for collision with bases and reacts 
+     */
     private void checkBases() {
         for (int i = 0; i < bases.length; i++) {
             if (isColliding(bases[i])) {
@@ -90,7 +101,9 @@ public class EnemyBullet extends GameCharacter
         }
     }
 
-    /** checks for collisions with walls and reacts */
+    /** 
+     * Checks for collisions with walls and reacts 
+     */
     private void checkWalls() {
         for (int i = 0; i < walls.length; i++) {
             if (isColliding(walls[i])) {

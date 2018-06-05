@@ -2,6 +2,7 @@
 /** required package class namespace */
 package mainpackage;
 
+/** required imports */
 import year2018.cs30s.findprize.FindPrizes;
 import year2018.cs30s.login.LogIn;
 import year2018.cs30s.moregaming.frogger.FroggerGUI;
@@ -24,12 +25,18 @@ public class Example
 {
 
     public static final String    MEDIA_PATH          = "/media/";    
-    public static final String    LOGIN_ICON          = MEDIA_PATH + "Login.png";
-    public static final String    FIND_PRIZES_ICON    = MEDIA_PATH + "FindPrizes.png";
-    public static final String    FROGGER_ICON        = MEDIA_PATH + "Frogger.png";
-    public static final String    PACMAN_ICON         = MEDIA_PATH + "Pacman.png";
-    public static final String    SPACE_INVADERS_ICON = MEDIA_PATH + "SpaceInvaders.png";
-    public static final String    SNAKE_ICON          = MEDIA_PATH + "Snake.png";
+    public static final String    LOGIN_ICON          = MEDIA_PATH + 
+                                                            "Login.png";
+    public static final String    FIND_PRIZES_ICON    = MEDIA_PATH + 
+                                                            "FindPrizes.png";
+    public static final String    FROGGER_ICON        = MEDIA_PATH + 
+                                                            "Frogger.png";
+    public static final String    PACMAN_ICON         = MEDIA_PATH + 
+                                                            "Pacman.png";
+    public static final String    SPACE_INVADERS_ICON = MEDIA_PATH + 
+                                                            "SpaceInvaders.png";
+    public static final String    SNAKE_ICON          = MEDIA_PATH + 
+                                                            "Snake.png";
     public static final String    ICON                = MEDIA_PATH + "icon.png";
     public static final String    SOUND               = MEDIA_PATH + "Ding.wav";   
     public static final String    DATA_FILE           = MEDIA_PATH + "data.txt";
@@ -50,26 +57,35 @@ public class Example
     public static FileHandler fileHandler = new FileHandler(DATA_FILE);
     
     
+    /**
+     * Starting the examples application, open saved data from the data file
+     */
     public static void start() {
-        mediaPlayer.playWav(SOUND);
-        String[] data = fileHandler.read();
-        if (data != null && data.length > 0) {
-            gamesPlayed = Integer.parseInt(data[0]);
-            totalPoints = Integer.parseInt(data[1]);        
+        mediaPlayer.playWav(SOUND);                     // play sound file
+        String[] data = fileHandler.read();             // read data from file
+        if (data != null && data.length > 0) {          // if data is valid
+            gamesPlayed = Integer.parseInt(data[0]);    // get games played
+            totalPoints = Integer.parseInt(data[1]);    // get total points
         }
-        menu();
+        menu();                                         // show main menu
     }
     
+    /**
+     * Ending the examples application, saves data to the data file
+     */
     public static void end() {     
-        String[] data = new String[3];
-        data[0] = "3";
-        data[1] = "" + gamesPlayed;
+        String[] data = new String[3];      // create data array
+        data[0] = "3";                      // size of array saved first
+        data[1] = "" + gamesPlayed;         // then all array data
         data[2] = "" + totalPoints;
-        fileHandler.write(data);
-        mediaPlayer.playWav(SOUND);
-        System.exit(0);
+        fileHandler.write(data);            // write array to data file
+        mediaPlayer.playWav(SOUND);         // play sound file
+        System.exit(0);                     // exit application
     }
 
+    /**
+     * The main application menu for the various examples
+     */
     public static void menu() {
         dialogText = "You have played " + gamesPlayed + " total games, and "
                    + "earned " + totalPoints + " total points!\n\nChoose an "
@@ -83,7 +99,6 @@ public class Example
         else if (choice.equals(OPTIONS[5])) new SnakeUI();
         else                                end(); 
     }
-    
     
     /**
      * Main method for the project

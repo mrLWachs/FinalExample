@@ -4,7 +4,6 @@ package year2018.cs30s.login;
 
 /** required imports */
 import mainpackage.Example;
-import year2018.cs30s.tools.Security;
 
 /**
  * LogIn.java - the login user interface to log in
@@ -22,7 +21,7 @@ public class LogIn extends javax.swing.JFrame
     public LogIn() {
         initComponents();               
         Security.init(jLabel1,jButton1);        // initialize the security 
-        Example.frameTool.init(this, this.getTitle(), this.getWidth(), 
+        Example.frameTool.startup(this, this.getTitle(), this.getWidth(), 
                                this.getHeight(), false, true, false, false, 
                                this.getBackground(), Example.LOGIN_ICON);    
     }

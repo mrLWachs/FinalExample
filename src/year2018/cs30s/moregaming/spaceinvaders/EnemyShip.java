@@ -1,5 +1,5 @@
 
-/** required package */
+/** required package class namespace */
 package year2018.cs30s.moregaming.spaceinvaders;
 
 /** required imports */
@@ -14,9 +14,9 @@ import year2018.cs30s.gametools.Image;
 
 /**
  * EnemyShip.java - represents the enemy ship of the space invaders game
- * @author Mr. Wachs' Computer Science Student 
- * @since 18-Jan-2016
- * @version 1.0
+ *
+ * @author Mr. Wachs
+ * @since May 28, 2018 
  * @instructor Mr. Wachs
  */
 public class EnemyShip extends GameCharacter
@@ -28,13 +28,10 @@ public class EnemyShip extends GameCharacter
     
     
     /**
-     * constructor for the class sets class data
-     * @param image the label associated with the image
-     * @param amount the amount the game object will move
-     * @param delay the delay in milliseconds of the character's timer
-     * @param color the background color associated with the image
+     * Constructor for the class sets class data
+     * 
+     * @param image the image associated with the game character
      * @param walls the wall objects associated with this object
-     * @param shootDelay the delay in milliseconds of the time between shots
      * @param enemyBullet the enemy bullet object associated with this object
      */
     public EnemyShip(Image image, Wall[] walls, EnemyBullet enemyBullet) {        
@@ -60,7 +57,9 @@ public class EnemyShip extends GameCharacter
         setDebug(Constants.ENEMY_TEXT, new Color(r,g,b));
     }
 
-    /** the movement actions that this enemy ship performs */
+    /** 
+     * The movement actions that this enemy ship performs 
+     */
     @Override
     public void action() {
         move();
@@ -68,14 +67,18 @@ public class EnemyShip extends GameCharacter
         redraw();
     }
     
-    /** when this enemy ship is killed and removed from the game */
+    /** 
+     * When this enemy ship is killed and removed from the game 
+     */
     public void kill() {
         Example.totalPoints++;
         shootTimer.stop();
         hide();
     }
 
-    /** checks for collisions with walls and reacts */
+    /** 
+     * Checks for collisions with walls and reacts 
+     */
     private void checkWalls() {
         for (int i = 0; i < walls.length; i++) {
             if (isColliding(walls[i])) {
@@ -84,7 +87,9 @@ public class EnemyShip extends GameCharacter
         }
     }
     
-    /** the action to shoot or not randomly when it's time */
+    /** 
+     * The action to shoot or not randomly when it's time 
+     */
     private void shouldShoot() {
         if (enemyBullet.isFiring == false) {
              int chance = (int)((3-1+1)*Math.random()+1);

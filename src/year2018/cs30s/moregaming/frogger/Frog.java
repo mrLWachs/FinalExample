@@ -29,11 +29,12 @@ public class Frog extends GameCharacter
     /**
      * Constructor for the class sets class data
      * 
-     * @param image the label associated with the image
+     * @param image the image associated with the game object
      * @param walls the wall objects associated with this object
      * @param home the home object associated with this object
      * @param water the water object associated with this object
      * @param logs the log objects associated with this object
+     * @param engine the logic  engine for the Frogger game
      */
     public Frog(Image image, Wall[] walls, Home home, Water water, 
                 Log[] logs, Engine engine) {

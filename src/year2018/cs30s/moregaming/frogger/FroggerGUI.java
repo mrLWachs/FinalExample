@@ -5,7 +5,6 @@ package year2018.cs30s.moregaming.frogger;
 /** required imports */
 import mainpackage.Example;
 import year2018.cs30s.gametools.Image;
-import year2018.cs30s.tools.FrameTools;
 
 /**
  * FroggerGUI.java - the user interface for the Frogger game
@@ -51,7 +50,7 @@ public class FroggerGUI extends javax.swing.JFrame
                 logImages,
                 wallImages,
                 this);
-        Example.frameTool.init(this, 
+        Example.frameTool.startup(this, 
                 Constants.FROGGER_UI_TITLE, 
                 Constants.FROGGER_UI_WIDTH, 
                 Constants.FROGGER_UI_HEIGHT, 

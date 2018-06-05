@@ -18,12 +18,14 @@ public class Constants
 
     public static final int    PACMAN_TIMER_DELAY      = 100;
     public static final int    PACMAN_MOVE_AMOUNT      = 10;
-    public static final int    PACMAN_MOVE_DIRECTIONS  = Directions.FOUR_DIRECTIONS;
+    public static final int    PACMAN_MOVE_DIRECTIONS  = 
+                                                    Directions.FOUR_DIRECTIONS;
     public static final String PACMAN_TEXT             = "PACMAN";
     public static final Color  PACMAN_COLOR            = Color.yellow;    
     public static final int    GHOST_TIMER_DELAY       = 100;
     public static final int    GHOST_MOVE_AMOUNT       = 10;
-    public static final int    GHOST_MOVE_DIRECTIONS   = Directions.FOUR_DIRECTIONS;
+    public static final int    GHOST_MOVE_DIRECTIONS   = 
+                                                    Directions.FOUR_DIRECTIONS;
     public static final String GHOST_TEXT              = "GHOST";
     public static final Color  GHOST_COLOR             = Color.pink;    
     public static final String DOT_TEXT                = "";

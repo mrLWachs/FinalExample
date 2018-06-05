@@ -67,7 +67,7 @@ public class PacmanUI extends javax.swing.JFrame
             new Image(jLabel16)
         };                
         engine = new Engine(pacman,ghosts,dots,walls,this);        
-        Example.frameTool.init(this, 
+        Example.frameTool.startup(this, 
                 Constants.PACMAN_UI_TITLE, 
                 Constants.PACMAN_UI_WIDTH, 
                 Constants.PACMAN_UI_HEIGHT, 

@@ -24,8 +24,7 @@ public class Engine
     private Car[]      cars;
     private Log[]      logs;
     private Wall[]     walls;
-    private FroggerGUI ui;
-    
+    private FroggerGUI ui;    
     
     /**
      * Constructor for the class sets class data
@@ -37,6 +36,7 @@ public class Engine
      * @param carImages the JLabel images associated with the cars
      * @param logImages the JLabel images associated with logs
      * @param wallImages the JLabel images associated with walls
+     * @param ui the user interface for the Frogger game
      */
     public Engine(Image backgroundImage, Image frogImage, Image waterImage, 
                   Image homeImage, Image[] carImages, Image[] logImages, 
@@ -76,14 +76,21 @@ public class Engine
         frog.keyRelease();
     }
     
+    /**
+     * Shut down the Frogger game and all game characters and return to main 
+     * application menu
+     */
     public void shutDown() {
-        frog.shutDown();
-        for (int i = 0; i < cars.length; i++) {
-            cars[i].shutDown();
+        frog.shutDown();                            // shut down frog
+        for (int i = 0; i < cars.length; i++) {     // traverse cars
+            cars[i].shutDown();                     // shut down car        
         }
-        ui.dispose();
-        Example.gamesPlayed++;
-        Example.menu();
+        for (int i = 0; i < logs.length; i++) {     // traverse logs
+            logs[i].shutDown();                     // shut down log        
+        }
+        ui.dispose();                               // dispose of frame
+        Example.gamesPlayed++;                      // increment games played
+        Example.menu();                             // show main app menu
     }
     
 }

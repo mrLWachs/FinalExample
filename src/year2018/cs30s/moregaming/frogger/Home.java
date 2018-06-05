@@ -19,7 +19,7 @@ public class Home extends GameObject
     /**
      * Constructor for the class sets class data
      * 
-     * @param image the label associated with the image
+     * @param image the image associated with the game object
      */
     public Home(Image image) {
         super(image);

@@ -2,42 +2,48 @@
 /** required package class namespace */
 package year2018.cs30s.tools;
 
+/** required imports */
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.io.File;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 
 /**
- * FrameTools.java - description here...
+ * FrameTools.java - tools for working with frame containers
  *
- * @author Mr. Wachs (login: lawrence.wachs)
- * @since May 31, 2018 
+ * @author Mr. Wachs
+ * @since May 28, 2018 
  * @instructor Mr. Wachs
  */
 public class FrameTools 
 {
 
+    /**
+     * Sets a icon to the frame based on the passed file name
+     * 
+     * @param frame the frame to set the icon to
+     * @param iconFileName the file name for the icon 
+     */
     public void setIcon(JFrame frame, String iconFileName) {
         if (frame == null) return;
-        if (iconFileName == null) return;        
-        try {
-            URL       url  = getClass().getResource(iconFileName); 
-            URI       uri  = url.toURI();
-            File      file = new File(uri);
-            String    path = file.getAbsolutePath();
-            ImageIcon icon = new ImageIcon(path);
-            frame.setIconImage(icon.getImage());
-        }
-        catch (URISyntaxException error) {
-            System.out.println("File URI error");
-        }
+        if (iconFileName == null) return;       
+        FileHandler tool = new FileHandler(iconFileName);
+        File        file = tool.convertToFile(iconFileName);
+        String      path = file.getAbsolutePath();
+        ImageIcon   icon = new ImageIcon(path);
+        frame.setIconImage(icon.getImage());
     }    
         
+    /**
+     * Sets a background color to the frame based on the passed color
+     * 
+     * @param frame the frame to set the icon to
+     * @param background the color for the frame's background
+     */
     public void setBackground(JFrame frame, Color background) {
         if (frame == null) return;
         if (background != null) {
@@ -46,9 +52,51 @@ public class FrameTools
         }
     }
     
+    /**
+     * Sets a frame to full screen (no decoration)
+     * 
+     * @param frame the frame to set to full screen
+     */
     public void setFullScreen(JFrame frame) {
-        if (frame == null) return;
-                
+        if (frame == null) return;        
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        int       width      = (int)screenSize.getWidth();
+        int       height     = (int)screenSize.getHeight();
+        setUndecorated(frame, true);
+        frame.setSize(width, height);
+    }
+    
+    /**
+     * Sets a frame to be undecorated
+     * 
+     * @param frame the frame to set to undecorated
+     * @param isUndecorated undecorated (true) or not (false)
+     */
+    public void setUndecorated(JFrame frame, boolean isUndecorated) {
+        if (isUndecorated) frame.setUndecorated(true);
+    }
+    
+    /**
+     * Sets the default close operation for the frame to exit the application
+     * or do nothing
+     * 
+     * @param frame the frame to set the close operation to
+     * @param closeShouldEndApp should exit app (true) or do nothing (false)
+     */
+    public void setCloseOpertion(JFrame frame, boolean closeShouldEndApp) {
+        if (closeShouldEndApp) frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        else                   frame.setDefaultCloseOperation(
+                                                        DO_NOTHING_ON_CLOSE);
+    }
+    
+    /**
+     * Sets the frame to center screen
+     * 
+     * @param frame the frame to center on the screen
+     * @param isCenterScreen should be center screen (true) or not (false)
+     */
+    public void setCenterScreen(JFrame frame, boolean isCenterScreen) {
+        if (isCenterScreen) frame.setLocationRelativeTo(null);
     }
     
     /**
@@ -59,7 +107,7 @@ public class FrameTools
      * @param width the frame's width
      * @param height the frame's height
      */
-    public void init(JFrame frame, String title, int width, int height) {
+    public void startup(JFrame frame, String title, int width, int height) {
         if (frame == null) return;
         frame.setTitle(title);
         frame.setSize(width, height);
@@ -76,26 +124,21 @@ public class FrameTools
      * @param resizable should the user resize the frame (true) or not (false)
      * @param isCenterScreen is the frame center screen (true) or not (false)
      * @param closeShouldEndApp should close end the app (true) or not (false)
-     * @param hasNoBorders should frame have control box (true) or not (false)
+     * @param isUndecorated should frame have control box (true) or not (false)
      * @param background the background color for the frame
      * @param iconFileName the file name for the frame icon
      */
-    public void init(JFrame frame, String title, int width, int height,
+    public void startup(JFrame frame, String title, int width, int height,
                      boolean resizable, boolean isCenterScreen, 
-                     boolean closeShouldEndApp, boolean hasNoBorders,
+                     boolean closeShouldEndApp, boolean isUndecorated,
                      Color background, String iconFileName) {
         if (frame == null) return;
         frame.setTitle(title);
         frame.setSize(width, height);
         frame.setResizable(resizable);
-        if (isCenterScreen)    frame.setLocationRelativeTo(null);
-        if (closeShouldEndApp) {
-            frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        }
-        else {
-            frame.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-        }
-        if (hasNoBorders)      frame.setUndecorated(true);
+        setUndecorated(frame, isUndecorated);
+        setCenterScreen(frame,isCenterScreen);
+        setCloseOpertion(frame, closeShouldEndApp);
         setBackground(frame, background);
         setIcon(frame, iconFileName);
         frame.setVisible(true);

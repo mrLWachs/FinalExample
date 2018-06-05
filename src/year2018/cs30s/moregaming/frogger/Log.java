@@ -22,7 +22,7 @@ public class Log extends GameCharacter
     /**
      * Constructor for the class sets class data
      * 
-     * @param image the label associated with the image
+     * @param image the image associated with the game object
      * @param walls the wall objects associated with this object
      */
     public Log(Image image, Wall[] walls) {

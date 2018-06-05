@@ -17,7 +17,14 @@ import javax.swing.JLabel;
 public class Location 
 {
 
+    /**
+     * The row location on the grid
+     */
     public int row;
+    
+    /**
+     * The column location on the grid
+     */
     public int column;
     
     /**

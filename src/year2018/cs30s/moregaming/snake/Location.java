@@ -1,34 +1,43 @@
 
-/** required package */
+/** required package class namespace */
 package year2018.cs30s.moregaming.snake;
 
 /**
  * Location.java - stores and adjusts an object's location
- * @author Mr. Wachs' Computer Science Student (login: lwachs)
- * @since 03-June-2015
- * @version 1.0
+ *
+ * @author Mr. Wachs
+ * @since May 28, 2018 
  * @instructor Mr. Wachs
  */
 public class Location 
 {
     
-    /** the row location */
+    /** 
+     * The row location on the grid
+     */
     public int row;
-    /** the column location */
+    
+    /** 
+     * The column location on the grid
+     */
     public int column;
-    /** the direction of travel */
+    
+    /** 
+     * The direction of travel 
+     */
     public int direction;
     
     /**
-     * class constructor, sets class properties to the parameters
+     * Class constructor, sets class properties to the parameters
+     * 
      * @param row the row location
      * @param column the column location
      * @param direction the direction of travel
      */
     public Location(int row, int column, int direction) {
-        this.row            = row;
-        this.column         = column;
-        this.direction      = direction;
+        this.row       = row;
+        this.column    = column;
+        this.direction = direction;
     }
     
 }

@@ -1,5 +1,5 @@
 
-/** required package */
+/** required package class namespace */
 package year2018.cs30s.moregaming.spaceinvaders;
 
 /** required imports */
@@ -9,9 +9,9 @@ import year2018.cs30s.gametools.Image;
 
 /**
  * Engine.java - the logic connected to the user interface that runs game logic
- * @author Mr. Wachs' Computer Science Student
- * @since 18-Jan-2016
- * @version 1.0
+ *
+ * @author Mr. Wachs
+ * @since May 28, 2018 
  * @instructor Mr. Wachs
  */
 public class Engine 
@@ -27,7 +27,8 @@ public class Engine
     private SpaceInvadersGUI ui;
     
     /**
-     * constructor for the class sets class data
+     * Constructor for the class sets class data
+     * 
      * @param backgroundImage the JLabel image associated with the background
      * @param heroShipImage the JLabel image associated with the hero ship
      * @param heroBulletImage the JLabel image associated with the hero bullet
@@ -67,13 +68,18 @@ public class Engine
     }
 
     /**
-     * sends direction value on to the hero ship character
+     * Sends direction value on to the hero ship character
+     * 
      * @param event the keyboard event 
      */
     public void keyPress(KeyEvent event) {
         heroShip.keyPress(event);
     }
 
+    /**
+     * Shut down the Space Invaders game and all game characters and return 
+     * to main application menu
+     */
     public void shutDown() {
         heroShip.shutDown();
         heroBullet.shutDown();
