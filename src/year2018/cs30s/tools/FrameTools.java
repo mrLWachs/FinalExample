@@ -10,7 +10,7 @@ import java.io.File;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
-import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
+import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 
 /**
  * FrameTools.java - tools for working with frame containers
@@ -86,7 +86,7 @@ public class FrameTools
     public void setCloseOpertion(JFrame frame, boolean closeShouldEndApp) {
         if (closeShouldEndApp) frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         else                   frame.setDefaultCloseOperation(
-                                                        DO_NOTHING_ON_CLOSE);
+                                                        DISPOSE_ON_CLOSE);
     }
     
     /**
