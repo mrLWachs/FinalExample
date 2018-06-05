@@ -13,6 +13,7 @@ import year2018.cs30s.tools.Dialogs;
 import year2018.cs30s.tools.FileHandler;
 import year2018.cs30s.tools.FrameTools;
 import year2018.cs30s.tools.MediaPlayer;
+import year2018.cs40s.pokedex.PokeDexStart;
 
 /**
  * Example.java - the main class for the project
@@ -124,7 +125,7 @@ public class Example
         String choice = dialog.buttons(dialogText, CS40S_OPTIONS);
         if      (choice.equals(CS40S_OPTIONS[0])) new LogIn();
         else if (choice.equals(CS40S_OPTIONS[1])) new FindPrizes();
-        else if (choice.equals(CS40S_OPTIONS[2])) { /* new Pokedex(); */ }
+        else if (choice.equals(CS40S_OPTIONS[2])) new PokeDexStart();
         else                                      menu(); 
     }
         
