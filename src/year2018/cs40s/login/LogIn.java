@@ -115,13 +115,13 @@ public class LogIn extends javax.swing.JFrame
         Example.totalPoints++;
         this.dispose();
         Example.gamesPlayed++;
-        Example.menu();
+        Example.menu2018();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         this.dispose();
         Example.gamesPlayed++;
-        Example.menu();
+        Example.menu2018();
     }//GEN-LAST:event_formWindowClosing
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

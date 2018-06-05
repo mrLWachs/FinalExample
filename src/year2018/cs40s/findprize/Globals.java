@@ -108,14 +108,14 @@ public class Globals
     }
     
     /**
-     * Closing th4 find prizes example returns to the main application menu
+     * Closing th4 find prizes example returns to the main application menu2018
      * 
      * @param frame the current frame to close 
      */
     private static void close(JFrame frame) {
         frame.dispose();
         Example.gamesPlayed++;
-        Example.menu();
+        Example.menu2018();
     }
         
 }

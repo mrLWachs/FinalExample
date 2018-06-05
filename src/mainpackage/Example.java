@@ -42,6 +42,11 @@ public class Example
     public static final String    SOUND               = MEDIA_PATH + "Ding.wav";   
     public static final String    DATA_FILE           = MEDIA_PATH + "data.txt";
         
+    private static final String[] YEAR_OPTIONS      = { "2017-2018",
+                                                        "2016-2017",
+                                                        "2015-2016",
+                                                        "Exit" };
+    
     private static final String[] EXAMPLE_OPTIONS   = { "Computer Science 30S",
                                                         "Computer Science 40S",
                                                         "Exit" };
@@ -74,7 +79,8 @@ public class Example
             gamesPlayed = Integer.parseInt(data[0]);    // get games played
             totalPoints = Integer.parseInt(data[1]);    // get total points
         }
-        menu();                                         // show main menu
+        //menu();                                         // show main menu2018
+        firstMenu();
     }
     
     /**
@@ -93,40 +99,52 @@ public class Example
     /**
      * The main application menu for the various examples
      */
-    public static void menu() {
+    public static void firstMenu() {
+        dialogText = "Choose a year to see examples from...";        
+        String choice = dialog.choose(dialogText, YEAR_OPTIONS);
+        if      (choice.equals(YEAR_OPTIONS[0])) menu2018();
+        else if (choice.equals(YEAR_OPTIONS[1])) menu2018();
+        else if (choice.equals(YEAR_OPTIONS[2])) menu2018();
+        else                                     end(); 
+    }
+    
+    /**
+     * The main application menu for the various examples
+     */
+    public static void menu2018() {
         dialogText = "You have played " + gamesPlayed + " total games, and "
                    + "earned " + totalPoints + " total points!\n\nChoose an "
                    + "example from 2018 in Computer Science 30S (or 32SIB) "
                    + "or 40S (or 42SIB)...";
         String choice = dialog.buttons(dialogText, EXAMPLE_OPTIONS);
-        if      (choice.equals(EXAMPLE_OPTIONS[0])) menuCS30S();
-        else if (choice.equals(EXAMPLE_OPTIONS[1])) menuCS40S();
+        if      (choice.equals(EXAMPLE_OPTIONS[0])) menuCS30S2018();
+        else if (choice.equals(EXAMPLE_OPTIONS[1])) menuCS40S2018();
         else                                        end(); 
-    }
-    
+     }
+     
     /**
      * The menu for the Computer Science 30S examples
      */
-    public static void menuCS30S() {
+    public static void menuCS30S2018() {
         dialogText = "Choose a Computer Science 30S example...";
         String choice = dialog.buttons(dialogText, CS30S_OPTIONS);
         if      (choice.equals(CS30S_OPTIONS[0])) new PacmanUI();
         else if (choice.equals(CS30S_OPTIONS[1])) new FroggerGUI();
         else if (choice.equals(CS30S_OPTIONS[2])) new SpaceInvadersGUI();
         else if (choice.equals(CS30S_OPTIONS[3])) new SnakeUI();
-        else                                      menu(); 
+        else                                      menu2018(); 
     }
     
     /**
      * The menu for the Computer Science 40S examples
      */
-    public static void menuCS40S() {
+    public static void menuCS40S2018() {
         dialogText = "Choose a Computer Science 40S example...";
         String choice = dialog.buttons(dialogText, CS40S_OPTIONS);
         if      (choice.equals(CS40S_OPTIONS[0])) new LogIn();
         else if (choice.equals(CS40S_OPTIONS[1])) new FindPrizes();
         else if (choice.equals(CS40S_OPTIONS[2])) new PokeDexStart();
-        else                                      menu(); 
+        else                                      menu2018(); 
     }
         
     /**

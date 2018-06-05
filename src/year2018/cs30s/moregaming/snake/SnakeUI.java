@@ -87,12 +87,12 @@ public class SnakeUI extends JFrame
     }
 
     /**
-     * Closes this example and returns to the main application menu
+     * Closes this example and returns to the main application menu2018
      */
     private void close() {
         this.dispose();
         Example.gamesPlayed++;
-        Example.menu();
+        Example.menu2018();
     }
     
     /** 

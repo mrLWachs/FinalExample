@@ -78,7 +78,7 @@ public class Engine
 
     /**
      * Shut down the Space Invaders game and all game characters and return 
-     * to main application menu
+ to main application menu2018
      */
     public void shutDown() {
         heroShip.shutDown();
@@ -91,7 +91,7 @@ public class Engine
         }
         ui.dispose();
         Example.gamesPlayed++;
-        Example.menu();
+        Example.menu2018();
     }
     
 }

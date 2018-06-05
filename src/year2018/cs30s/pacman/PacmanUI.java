@@ -448,7 +448,7 @@ public class PacmanUI extends javax.swing.JFrame
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         this.dispose();
         Example.gamesPlayed++;
-        Example.menu();
+        Example.menu2018();
     }//GEN-LAST:event_formWindowClosing
 
 
