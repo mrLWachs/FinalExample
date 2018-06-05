@@ -3,8 +3,8 @@
 package mainpackage;
 
 /** required imports */
-import year2018.cs30s.findprize.FindPrizes;
-import year2018.cs30s.login.LogIn;
+import year2018.cs40s.findprize.FindPrizes;
+import year2018.cs40s.login.LogIn;
 import year2018.cs30s.moregaming.frogger.FroggerGUI;
 import year2018.cs30s.moregaming.snake.SnakeUI;
 import year2018.cs30s.moregaming.spaceinvaders.SpaceInvadersGUI;
@@ -40,14 +40,20 @@ public class Example
     public static final String    ICON                = MEDIA_PATH + "icon.png";
     public static final String    SOUND               = MEDIA_PATH + "Ding.wav";   
     public static final String    DATA_FILE           = MEDIA_PATH + "data.txt";
+        
+    private static final String[] EXAMPLE_OPTIONS   = { "Computer Science 30S",
+                                                        "Computer Science 40S",
+                                                        "Exit" };
+    private static final String[] CS30S_OPTIONS     = { "Pacman", 
+                                                        "Frogger",
+                                                        "Space Invaders", 
+                                                        "Snake",
+                                                        "Return" };
+    private static final String[] CS40S_OPTIONS     = { "Login", 
+                                                        "Find Prizes",
+                                                        "PokeDex",
+                                                        "Return" };
     
-    private static final String[] OPTIONS             = { "Login", 
-                                                          "Pacman", 
-                                                          "Find Prizes", 
-                                                          "Frogger",
-                                                          "Space Invaders", 
-                                                          "Snake",
-                                                          "Exit" };
     public static int         gamesPlayed = 0;
     public static int         totalPoints = 0;
     public static String      dialogText  = "";    
@@ -89,17 +95,39 @@ public class Example
     public static void menu() {
         dialogText = "You have played " + gamesPlayed + " total games, and "
                    + "earned " + totalPoints + " total points!\n\nChoose an "
-                   + "example from 2018 in Computer Science 30S or 32SIB...";
-        String choice = dialog.buttons(dialogText, OPTIONS);
-        if      (choice.equals(OPTIONS[0])) new LogIn();
-        else if (choice.equals(OPTIONS[1])) new PacmanUI();
-        else if (choice.equals(OPTIONS[2])) new FindPrizes();
-        else if (choice.equals(OPTIONS[3])) new FroggerGUI();
-        else if (choice.equals(OPTIONS[4])) new SpaceInvadersGUI();
-        else if (choice.equals(OPTIONS[5])) new SnakeUI();
-        else                                end(); 
+                   + "example from 2018 in Computer Science 30S (or 32SIB) "
+                   + "or 40S (or 42SIB)...";
+        String choice = dialog.buttons(dialogText, EXAMPLE_OPTIONS);
+        if      (choice.equals(EXAMPLE_OPTIONS[0])) menuCS30S();
+        else if (choice.equals(EXAMPLE_OPTIONS[1])) menuCS40S();
+        else                                        end(); 
     }
     
+    /**
+     * The menu for the Computer Science 30S examples
+     */
+    public static void menuCS30S() {
+        dialogText = "Choose a Computer Science 30S example...";
+        String choice = dialog.buttons(dialogText, CS30S_OPTIONS);
+        if      (choice.equals(CS30S_OPTIONS[0])) new PacmanUI();
+        else if (choice.equals(CS30S_OPTIONS[1])) new FroggerGUI();
+        else if (choice.equals(CS30S_OPTIONS[2])) new SpaceInvadersGUI();
+        else if (choice.equals(CS30S_OPTIONS[3])) new SnakeUI();
+        else                                      menu(); 
+    }
+    
+    /**
+     * The menu for the Computer Science 40S examples
+     */
+    public static void menuCS40S() {
+        dialogText = "Choose a Computer Science 40S example...";
+        String choice = dialog.buttons(dialogText, CS40S_OPTIONS);
+        if      (choice.equals(CS40S_OPTIONS[0])) new LogIn();
+        else if (choice.equals(CS40S_OPTIONS[1])) new FindPrizes();
+        else if (choice.equals(CS40S_OPTIONS[2])) { /* new Pokedex(); */ }
+        else                                      menu(); 
+    }
+        
     /**
      * Main method for the project
      * 

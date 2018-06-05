@@ -1,6 +1,6 @@
 
 /** required package class namespace */
-package year2018.cs30s.login;
+package year2018.cs40s.login;
 
 /** required imports */
 import mainpackage.Example;

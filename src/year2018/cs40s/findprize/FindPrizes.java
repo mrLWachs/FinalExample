@@ -1,6 +1,6 @@
 
 /** required package class namespace */
-package year2018.cs30s.findprize;
+package year2018.cs40s.findprize;
 
 /**
  * FindPrizes.java - the main starting class for the find prizes game
