@@ -22,7 +22,8 @@ public class Frog extends GameCharacter
     private Log[]   logs;
     private Home    home;
     private Water   water;
-    private boolean onLog;
+    private boolean onLog;    
+    private Engine  engine;
     
     
     /**
@@ -34,14 +35,16 @@ public class Frog extends GameCharacter
      * @param water the water object associated with this object
      * @param logs the log objects associated with this object
      */
-    public Frog(Image image, Wall[] walls, Home home, Water water, Log[] logs) {
+    public Frog(Image image, Wall[] walls, Home home, Water water, 
+                Log[] logs, Engine engine) {
         super(image, Directions.STOP, Constants.FROGGER_MOVE_AMOUNT,
               Constants.FROGGER_TIMER_DELAY, Constants.FROGGER_MOVE_DIRECTIONS);
-        this.walls = walls;             // associate parameter with property
-        this.home  = home;              // associate parameter with property
-        this.water = water;             // associate parameter with property
-        this.logs  = logs;              // associate parameter with property
-        onLog = false;                  // assume frog is not on a log
+        this.engine = engine;
+        this.walls  = walls;             // associate parameter with property
+        this.home   = home;              // associate parameter with property
+        this.water  = water;             // associate parameter with property
+        this.logs   = logs;              // associate parameter with property
+        onLog       = false;             // assume frog is not on a log
         setDebug(Constants.FROGGER_TEXT, Constants.FROGGER_COLOR);
     }
 
@@ -84,7 +87,7 @@ public class Frog extends GameCharacter
      */
     private void checkWater() {
         if (isColliding(water) && onLog == false) {
-            water.splash();
+            engine.shutDown();
         }
     }
 

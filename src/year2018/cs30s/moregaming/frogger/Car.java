@@ -3,6 +3,7 @@
 package year2018.cs30s.moregaming.frogger;
 
 /** required imports */
+import mainpackage.Example;
 import year2018.cs30s.gametools.GameCharacter;
 import year2018.cs30s.gametools.Directions;
 import year2018.cs30s.gametools.Image;
@@ -18,7 +19,8 @@ public class Car extends GameCharacter
 {
     
     private Frog   frog;
-    private Wall[] walls;
+    private Wall[] walls;     
+    private Engine engine;
 
     /**
      * Constructor for the class sets class data
@@ -27,11 +29,12 @@ public class Car extends GameCharacter
      * @param frog the frog object associated with this object
      * @param walls the wall objects associated with this object
      */
-    public Car(Image image, Frog frog, Wall[] walls) {
+    public Car(Image image, Frog frog, Wall[] walls, Engine engine) {
         super(image, Directions.STOP, Constants.CAR_MOVE_AMOUNT,
               Constants.CAR_TIMER_DELAY, Constants.CAR_MOVE_DIRECTIONS);
-        this.frog  = frog;              // associate parameter with property
-        this.walls = walls;             // associate parameter with property
+        this.engine = engine;
+        this.frog   = frog;              // associate parameter with property
+        this.walls  = walls;             // associate parameter with property
         randomDirection();              // start a random direction
         setDebug(Constants.CAR_TEXT, Constants.CAR_COLOR);  // debug mode
     }
@@ -64,7 +67,7 @@ public class Car extends GameCharacter
      */
     private void checkFrog() {
         if (isColliding(frog)) {
-            System.exit(0);
+            engine.shutDown();
         }
     }
 

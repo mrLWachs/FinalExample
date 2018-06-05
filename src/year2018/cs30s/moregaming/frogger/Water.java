@@ -26,7 +26,4 @@ public class Water extends GameObject
         setDebug(Constants.WATER_TEXT, Constants.WATER_COLOR);
     }
 
-    void splash() {
-    }
-
 }

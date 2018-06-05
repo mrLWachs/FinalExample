@@ -17,9 +17,10 @@ import year2018.cs30s.gametools.Image;
 public class EnemyBullet extends GameCharacter
 {
     
-    private HeroShip    heroShip;   
-    private Wall[]      walls;
-    private Base[]      bases;    
+    private HeroShip heroShip;   
+    private Wall[]   walls;
+    private Base[]   bases; 
+    private Engine   engine;
     
     /** is this ship firing or not */
     public  boolean isFiring;
@@ -32,12 +33,13 @@ public class EnemyBullet extends GameCharacter
      * @param bases the base objects associated with this object
      */
     public EnemyBullet(Image image, HeroShip heroShip, Wall[] walls, 
-                       Base[] bases) {
+                       Base[] bases, Engine engine) {
         super(image, 
               Directions.STOP,
               Constants.ENEMY_BULLET_MOVE_AMOUNT,
               Constants.ENEMY_BULLET_TIMER_DELAY,
               Constants.ENEMY_BULLET_MOVE_DIRECTIONS);
+        this.engine   = engine;
         this.heroShip = heroShip;
         this.walls    = walls;
         this.bases    = bases;
@@ -73,7 +75,7 @@ public class EnemyBullet extends GameCharacter
     /** checks for collision with the hero ship and reacts */
     private void checkHero() {
         if (isColliding(heroShip)) {
-            System.exit(0);
+            engine.shutDown();
         }
     }
 

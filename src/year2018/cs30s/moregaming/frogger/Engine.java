@@ -4,6 +4,7 @@ package year2018.cs30s.moregaming.frogger;
 
 /** required imports */
 import java.awt.event.KeyEvent;
+import mainpackage.Example;
 import year2018.cs30s.gametools.Image;
 
 /**
@@ -23,6 +24,8 @@ public class Engine
     private Car[]      cars;
     private Log[]      logs;
     private Wall[]     walls;
+    private FroggerGUI ui;
+    
     
     /**
      * Constructor for the class sets class data
@@ -37,7 +40,8 @@ public class Engine
      */
     public Engine(Image backgroundImage, Image frogImage, Image waterImage, 
                   Image homeImage, Image[] carImages, Image[] logImages, 
-                  Image[] wallImages) {    
+                  Image[] wallImages, FroggerGUI ui) {  
+        this.ui    = ui;
         background = new Background(backgroundImage);
         home       = new Home(homeImage);
         water      = new Water(waterImage);   
@@ -50,9 +54,9 @@ public class Engine
         for (int i = 0; i < logs.length; i++) {
             logs[i] = new Log(logImages[i],walls);
         }
-        frog = new Frog(frogImage,walls,home,water,logs); 
+        frog = new Frog(frogImage,walls,home,water,logs,this); 
         for (int i = 0; i < cars.length; i++) {
-            cars[i] = new Car(carImages[i],frog,walls);
+            cars[i] = new Car(carImages[i],frog,walls,this);
         }        
     }
 
@@ -71,5 +75,15 @@ public class Engine
     public void keyRelease() {
         frog.keyRelease();
     }
-
+    
+    public void shutDown() {
+        frog.shutDown();
+        for (int i = 0; i < cars.length; i++) {
+            cars[i].shutDown();
+        }
+        ui.dispose();
+        Example.gamesPlayed++;
+        Example.menu();
+    }
+    
 }

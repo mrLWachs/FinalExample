@@ -49,7 +49,8 @@ public class FroggerGUI extends javax.swing.JFrame
                 homeImage,
                 carImages,
                 logImages,
-                wallImages);
+                wallImages,
+                this);
         Example.frameTool.init(this, 
                 Constants.FROGGER_UI_TITLE, 
                 Constants.FROGGER_UI_WIDTH, 

@@ -56,7 +56,8 @@ public class SpaceInvadersGUI extends javax.swing.JFrame
                 baseImages,
                 enemyShipImages,
                 enemyBulletImages,
-                wallImages);        
+                wallImages,
+                this);        
         Example.frameTool.init(this, 
                 Constants.SPACE_INVADERS_UI_TITLE, 
                 Constants.SPACE_INVADERS_UI_WIDTH, 

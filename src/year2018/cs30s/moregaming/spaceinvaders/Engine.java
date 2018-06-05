@@ -4,6 +4,7 @@ package year2018.cs30s.moregaming.spaceinvaders;
 
 /** required imports */
 import java.awt.event.KeyEvent;
+import mainpackage.Example;
 import year2018.cs30s.gametools.Image;
 
 /**
@@ -16,14 +17,14 @@ import year2018.cs30s.gametools.Image;
 public class Engine 
 {
 
-    private Background    background;
-    private HeroShip      heroShip;
-    private HeroBullet    heroBullet;
-    private Base[]        bases;
-    private EnemyShip[]   enemyShips;
-    private EnemyBullet[] enemyBullets;
-    private Wall[]        walls;
-       
+    private Background       background;
+    private HeroShip         heroShip;
+    private HeroBullet       heroBullet;
+    private Base[]           bases;
+    private EnemyShip[]      enemyShips;
+    private EnemyBullet[]    enemyBullets;
+    private Wall[]           walls;
+    private SpaceInvadersGUI ui;
     
     /**
      * constructor for the class sets class data
@@ -38,7 +39,8 @@ public class Engine
     public Engine(Image backgroundImage, Image heroShipImage, 
                   Image heroBulletImage, Image[] baseImages, 
                   Image[] enemyShipImages, Image[] enemyBulletImages, 
-                  Image[] wallImages) {
+                  Image[] wallImages, SpaceInvadersGUI ui) {
+        this.ui      = ui;
         background   = new Background(backgroundImage);        
         walls        = new Wall[wallImages.length];
         bases        = new Base[baseImages.length];
@@ -53,7 +55,7 @@ public class Engine
         heroShip = new HeroShip(heroShipImage,walls);
         for (int i = 0; i < enemyBullets.length; i++) {
             enemyBullets[i] = new EnemyBullet(enemyBulletImages[i],
-                    heroShip,walls,bases);
+                    heroShip,walls,bases,this);
         }          
         for (int i = 0; i < enemyShips.length; i++) {
             enemyShips[i] = new EnemyShip(enemyShipImages[i],
@@ -72,4 +74,18 @@ public class Engine
         heroShip.keyPress(event);
     }
 
+    public void shutDown() {
+        heroShip.shutDown();
+        heroBullet.shutDown();
+        for (int i = 0; i < enemyShips.length; i++) {
+            enemyShips[i].shutDown();
+        }
+        for (int i = 0; i < enemyBullets.length; i++) {
+            enemyBullets[i].shutDown();
+        }
+        ui.dispose();
+        Example.gamesPlayed++;
+        Example.menu();
+    }
+    
 }

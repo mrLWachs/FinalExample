@@ -208,4 +208,10 @@ public abstract class GameCharacter extends GameObject
         coordinate.direction = Directions.STOP;
     }
     
+    public void shutDown() {
+        image.hide();
+        timer.stop();
+        isAlive = false;
+    }
+    
 }

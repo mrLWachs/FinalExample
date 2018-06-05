@@ -33,13 +33,14 @@ public class Example
     public static final String    ICON                = MEDIA_PATH + "icon.png";
     public static final String    SOUND               = MEDIA_PATH + "Ding.wav";   
     public static final String    DATA_FILE           = MEDIA_PATH + "data.txt";
-    private static final String[] OPTIONS             = {   "Login", 
-                                                            "Pacman", 
-                                                            "Find Prizes", 
-                                                            "Frogger",
-                                                            "Space Invaders", 
-                                                            "Snake",
-                                                            "Exit" };
+    
+    private static final String[] OPTIONS             = { "Login", 
+                                                          "Pacman", 
+                                                          "Find Prizes", 
+                                                          "Frogger",
+                                                          "Space Invaders", 
+                                                          "Snake",
+                                                          "Exit" };
     public static int         gamesPlayed = 0;
     public static int         totalPoints = 0;
     public static String      dialogText  = "";    

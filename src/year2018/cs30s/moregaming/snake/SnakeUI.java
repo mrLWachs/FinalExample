@@ -72,12 +72,9 @@ public class SnakeUI extends JFrame
     /**  sets the gUI properties of the frame */
     private void setFrame() {
         this.getContentPane().setLayout(null);
-        final JFrame frame = this;
         this.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent evt) {
-                frame.dispose();
-                Example.gamesPlayed++;
-                Example.menu();
+                close();
             }
         });
         Example.frameTool.init(this, 
@@ -92,6 +89,12 @@ public class SnakeUI extends JFrame
                 Example.SNAKE_ICON);
     }
 
+    private void close() {
+        this.dispose();
+        Example.gamesPlayed++;
+        Example.menu();
+    }
+    
     /** sets the keyboard to listen to events */
     private void setKeyListener() {
         this.addKeyListener(new KeyListener() {
@@ -130,7 +133,7 @@ public class SnakeUI extends JFrame
             startGame();
         }
         else { 
-            System.exit(0);
+            close();
         }
     }
         
