@@ -2,10 +2,9 @@
 /** required package class namespace */
 package year2018.cs40s.pokedex.userinterfaces;
 
+/** required imports */
 import mainpackage.Example;
 import year2018.cs40s.pokedex.applicationmanager.UIEngine;
-
-/** required imports */
 
 /**
  * MainUI.java - the main user interface for the application

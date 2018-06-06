@@ -8,6 +8,7 @@ import year2018.cs40s.login.LogIn;
 import year2018.cs30s.moregaming.frogger.FroggerGUI;
 import year2018.cs30s.moregaming.snake.SnakeUI;
 import year2018.cs30s.moregaming.spaceinvaders.SpaceInvadersGUI;
+import year2018.cs30s.other.OtherUI;
 import year2018.cs30s.pacman.PacmanUI;
 import year2018.cs30s.tools.Dialogs;
 import year2018.cs30s.tools.FileHandler;
@@ -38,13 +39,15 @@ public class Example
                                                             "SpaceInvaders.png";
     public static final String    SNAKE_ICON          = MEDIA_PATH + 
                                                             "Snake.png";
+    public static final String    OTHER_ICON          = MEDIA_PATH + 
+                                                            "examples.png";
+    
     public static final String    ICON                = MEDIA_PATH + "icon.png";
     public static final String    SOUND               = MEDIA_PATH + "Ding.wav";   
     public static final String    DATA_FILE           = MEDIA_PATH + "data.txt";
         
     private static final String[] YEAR_OPTIONS      = { "2017-2018",
-                                                        "2016-2017",
-                                                        "2015-2016",
+                                                        "Past years",
                                                         "Exit" };
     
     private static final String[] EXAMPLE_OPTIONS   = { "Computer Science 30S",
@@ -54,6 +57,7 @@ public class Example
                                                         "Frogger",
                                                         "Space Invaders", 
                                                         "Snake",
+                                                        "Other",
                                                         "Return" };
     private static final String[] CS40S_OPTIONS     = { "Login", 
                                                         "Find Prizes",
@@ -103,8 +107,10 @@ public class Example
         dialogText = "Choose a year to see examples from...";        
         String choice = dialog.choose(dialogText, YEAR_OPTIONS);
         if      (choice.equals(YEAR_OPTIONS[0])) menu2018();
-        else if (choice.equals(YEAR_OPTIONS[1])) menu2018();
-        else if (choice.equals(YEAR_OPTIONS[2])) menu2018();
+        else if (choice.equals(YEAR_OPTIONS[1])) {
+            new Dialogs().output("Not yet prepared", "Examples");
+            firstMenu();
+        }
         else                                     end(); 
     }
     
@@ -132,6 +138,7 @@ public class Example
         else if (choice.equals(CS30S_OPTIONS[1])) new FroggerGUI();
         else if (choice.equals(CS30S_OPTIONS[2])) new SpaceInvadersGUI();
         else if (choice.equals(CS30S_OPTIONS[3])) new SnakeUI();
+        else if (choice.equals(CS30S_OPTIONS[4])) new OtherUI();
         else                                      menu2018(); 
     }
     

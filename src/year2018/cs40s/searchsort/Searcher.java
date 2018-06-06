@@ -2,9 +2,8 @@
 /** required package class namespace */
 package year2018.cs40s.searchsort;
 
-import year2018.cs40s.collections.LinkedList;
-
 /** required imports */
+import year2018.cs40s.collections.LinkedList;
 
 /**
  * Searcher.java - useful methods for searching through arrays and lists
@@ -23,7 +22,7 @@ public class Searcher <T extends Comparable<T>>
 
     /**
      * An implementation of a linear search (sequential search)
-     * algorithm. It will find the first occurance of an item
+     * algorithm. It will find the first occurrence of an item
      * in the LinkedList and return the index where it found it, or a 
      * -1 if not found
      * 
@@ -43,7 +42,7 @@ public class Searcher <T extends Comparable<T>>
     
     /**
      * An implementation of a linear search (sequential search)
-     * algorithm. It will find the first occurance of an item
+     * algorithm. It will find the first occurrence of an item
      * in the LinkedList and return the index where it found it, or a 
      * -1 if not found
      * 
@@ -57,7 +56,7 @@ public class Searcher <T extends Comparable<T>>
     }
     
     /**
-     * Recursive method to find the first occurance of an item
+     * Recursive method to find the first occurrence of an item
      * in the LinkedList and return the index where it found it, or a 
      * -1 if not found
      * 
@@ -74,7 +73,7 @@ public class Searcher <T extends Comparable<T>>
     
     /**
      * An implementation of a binary search (sequential search)
-     * algorithm. It will find the first occurance of an item
+     * algorithm. It will find the first occurrence of an item
      * in the LinkedList and return the index where it found it, or a 
      * -1 if not found
      * 
@@ -97,7 +96,7 @@ public class Searcher <T extends Comparable<T>>
     
     /**
      * An implementation of a binary search (sequential search)
-     * algorithm. It will find the first occurance of an item
+     * algorithm. It will find the first occurrence of an item
      * in the LinkedList and return the index where it found it, or a 
      * -1 if not found
      * 

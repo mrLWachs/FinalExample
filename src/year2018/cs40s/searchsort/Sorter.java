@@ -2,10 +2,8 @@
 /** required package class namespace */
 package year2018.cs40s.searchsort;
 
-import year2018.cs40s.collections.LinkedList;
-
-
 /** required imports */
+import year2018.cs40s.collections.LinkedList;
 
 /**
  * Sorter.java - useful methods for sorting arrays and LinkedLists

@@ -5,9 +5,12 @@ package year2018.cs30s.tools;
 /** required imports */
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Frame;
 import java.awt.Toolkit;
+import java.awt.Window;
 import java.io.File;
 import javax.swing.ImageIcon;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
@@ -28,7 +31,7 @@ public class FrameTools
      * @param frame the frame to set the icon to
      * @param iconFileName the file name for the icon 
      */
-    public void setIcon(JFrame frame, String iconFileName) {
+    public void setIcon(Window frame, String iconFileName) {
         if (frame == null) return;
         if (iconFileName == null) return;       
         FileHandler tool = new FileHandler(iconFileName);
@@ -95,7 +98,7 @@ public class FrameTools
      * @param frame the frame to center on the screen
      * @param isCenterScreen should be center screen (true) or not (false)
      */
-    public void setCenterScreen(JFrame frame, boolean isCenterScreen) {
+    public void setCenterScreen(Window frame, boolean isCenterScreen) {
         if (isCenterScreen) frame.setLocationRelativeTo(null);
     }
     
@@ -142,6 +145,26 @@ public class FrameTools
         setBackground(frame, background);
         setIcon(frame, iconFileName);
         frame.setVisible(true);
+    }
+    
+    /**
+     * Initializes a JFrame to the set parameter values
+     * 
+     * @param dialog the JDialog to initialize
+     * @param title the frame's title
+     * @param width the frame's width
+     * @param height the frame's height
+     * @param isCenterScreen is the frame center screen (true) or not (false)
+     * @param iconFileName the file name for the frame icon
+     */
+    public void startup(JDialog dialog, String title, int width, int height,
+                        boolean isCenterScreen, String iconFileName) {
+        if (dialog == null) return;
+        dialog.setTitle(title);
+        dialog.setSize(width, height);
+        setCenterScreen(dialog,isCenterScreen);
+        setIcon(dialog, iconFileName);
+        dialog.setVisible(true);
     }
     
 }
