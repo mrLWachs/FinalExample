@@ -3,7 +3,8 @@
 package year2018.cs40s.pokedex.userinterfaces;
 
 /** required imports */
-import mainpackage.Example;
+import mainpackage.Examples2018;
+import mainpackage.MainClass;
 import year2018.cs40s.pokedex.applicationmanager.UIEngine;
 
 /**
@@ -288,8 +289,8 @@ public class MainUI extends javax.swing.JFrame
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         this.dispose();
-        Example.gamesPlayed++;
-        Example.menu2018();
+        MainClass.gamesPlayed++;
+        Examples2018.menu();
     }//GEN-LAST:event_formWindowClosing
 
     /** 

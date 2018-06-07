@@ -2,7 +2,7 @@
 /** required package class namespace */
 package year2018.cs30s.other;
 
-import static mainpackage.Example.MEDIA_PATH;
+import static mainpackage.MainClass.MEDIA_PATH;
 import year2018.cs30s.tools.FrameTools;
 
 /**
@@ -15,9 +15,9 @@ import year2018.cs30s.tools.FrameTools;
 public class CustomInputUI extends javax.swing.JDialog 
 {
 
-    private final int     DIALOG_UI_WIDTH  = 265;
-    private final int     DIALOG_UI_HEIGHT = 150;
-    public  final String  OTHER_ICON      = MEDIA_PATH + "examples.png";
+    private final int    DIALOG_UI_WIDTH  = 265;
+    private final int    DIALOG_UI_HEIGHT = 150;
+    public  final String DIALOG_UI_ICON   = MEDIA_PATH + "examples.png";
     
     
     /**  Default constructor for the class, creates new form CustomInput */
@@ -27,7 +27,7 @@ public class CustomInputUI extends javax.swing.JDialog
         initComponents();
         jLabel1.setText(text);
         new FrameTools().startup(this, title, 
-                DIALOG_UI_WIDTH, DIALOG_UI_HEIGHT, true, OTHER_ICON);
+                DIALOG_UI_WIDTH, DIALOG_UI_HEIGHT, true, DIALOG_UI_ICON);
     }
 
     /** 

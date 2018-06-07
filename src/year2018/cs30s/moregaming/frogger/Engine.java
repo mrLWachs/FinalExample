@@ -4,7 +4,8 @@ package year2018.cs30s.moregaming.frogger;
 
 /** required imports */
 import java.awt.event.KeyEvent;
-import mainpackage.Example;
+import mainpackage.Examples2018;
+import mainpackage.MainClass;
 import year2018.cs30s.gametools.Image;
 
 /**
@@ -78,7 +79,7 @@ public class Engine
     
     /**
      * Shut down the Frogger game and all game characters and return to main 
- application menu2018
+ application menu
      */
     public void shutDown() {
         frog.shutDown();                            // shut down frog
@@ -89,8 +90,8 @@ public class Engine
             logs[i].shutDown();                     // shut down log        
         }
         ui.dispose();                               // dispose of frame
-        Example.gamesPlayed++;                      // increment games played
-        Example.menu2018();                             // show main app menu2018
+        MainClass.gamesPlayed++;                      // increment games played
+        Examples2018.menu();                             // show main app menu
     }
     
 }

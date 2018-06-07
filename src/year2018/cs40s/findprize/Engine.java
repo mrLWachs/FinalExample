@@ -5,7 +5,7 @@ package year2018.cs40s.findprize;
 /** required imports */
 import java.awt.event.KeyEvent;
 import javax.swing.JLabel;
-import mainpackage.Example;
+import mainpackage.MainClass;
 
 /**
  * Engine.java - the logic connected to the user interface that runs game logic
@@ -94,7 +94,7 @@ public class Engine
                 prizes[totalPrizes] = new Location(grid,Globals.PRIZE_COLOR,
                                                    Globals.PRIZE_TEXT);
                 totalPrizes++;                  // total prizes increases
-                Example.totalPoints++;
+                MainClass.totalPoints++;
                 return;                         // leave method
             }
             else {

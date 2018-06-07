@@ -3,7 +3,8 @@
 package year2018.cs30s.moregaming.frogger;
 
 /** required imports */
-import mainpackage.Example;
+import mainpackage.Examples2018;
+import mainpackage.MainClass;
 import year2018.cs30s.gametools.Image;
 
 /**
@@ -50,13 +51,13 @@ public class FroggerGUI extends javax.swing.JFrame
                 logImages,
                 wallImages,
                 this);
-        Example.frameTool.startup(this, 
+        MainClass.frameTool.startup(this, 
                 Constants.FROGGER_UI_TITLE, 
                 Constants.FROGGER_UI_WIDTH, 
                 Constants.FROGGER_UI_HEIGHT, 
                 false, true, false, false,
                 Constants.FROGGER_UI_BACK_COLOR,
-                Example.FROGGER_ICON);
+                Examples2018.FROGGER_ICON);
     }
 
     // <editor-fold defaultstate="collapsed" desc="NetBeans Visual Editor Generated Code">  
@@ -186,8 +187,8 @@ public class FroggerGUI extends javax.swing.JFrame
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         this.dispose();
-        Example.gamesPlayed++;
-        Example.menu2018();
+        MainClass.gamesPlayed++;
+        Examples2018.menu();
     }//GEN-LAST:event_formWindowClosing
 
     // <editor-fold defaultstate="collapsed" desc="NetBeans Visual Editor Generated Code">  

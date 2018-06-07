@@ -5,7 +5,7 @@ package year2018.cs30s.tools;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import static mainpackage.Example.MEDIA_PATH;
+import static mainpackage.MainClass.MEDIA_PATH;
 
 /**
  * ImageTools.java - description here...

@@ -4,7 +4,8 @@ package year2018.cs30s.other;
 
 import java.awt.Color;
 import javax.swing.JOptionPane;
-import mainpackage.Example;
+import mainpackage.Examples2018;
+import mainpackage.MainClass;
 
 /**
  * Constants.java - description here...
@@ -20,6 +21,6 @@ public class Constants
     public static final Color  OTHER_UI_BACK_COLOR    = 
                                         new JOptionPane().getBackground();
     public static final String OTHER_UI_TITLE         = "Other Examples";
-    public static final String OTHER_UI_ICON          = Example.OTHER_ICON;    
+    public static final String OTHER_UI_ICON          = Examples2018.OTHER_ICON;    
 
 }

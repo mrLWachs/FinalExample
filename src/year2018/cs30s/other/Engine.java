@@ -6,8 +6,9 @@ import java.awt.event.KeyEvent;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import mainpackage.Example;
-import static mainpackage.Example.MEDIA_PATH;
+import mainpackage.Examples2018;
+import mainpackage.MainClass;
+import static mainpackage.MainClass.MEDIA_PATH;
 import year2018.cs30s.tools.Dialogs;
 import year2018.cs30s.tools.ImageLabel;
 import year2018.cs30s.tools.ImageTools;
@@ -125,8 +126,8 @@ public class Engine
 
     public void closeWindow() {
         otherUIFrame.dispose();
-        Example.gamesPlayed++;
-        Example.menu2018();
+        MainClass.gamesPlayed++;
+        Examples2018.menu();
     }
 
     public void keypress(KeyEvent event) {

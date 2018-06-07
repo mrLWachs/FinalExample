@@ -4,7 +4,8 @@ package year2018.cs30s.pacman;
 
 /** required imports */
 import java.awt.event.KeyEvent;
-import mainpackage.Example;
+import mainpackage.Examples2018;
+import mainpackage.MainClass;
 import year2018.cs30s.gametools.Image;
 
 /**
@@ -61,7 +62,7 @@ public class Engine
     
     /**
      * Shut down the Pacman game and all game characters and return 
- to main application menu2018
+ to main application menu
      */
     public void shutDown() {
         pacman.shutDown();
@@ -69,8 +70,8 @@ public class Engine
             ghosts[i].shutDown();
         }
         ui.dispose();
-        Example.gamesPlayed++;
-        Example.menu2018();
+        MainClass.gamesPlayed++;
+        Examples2018.menu();
     }
 
 }

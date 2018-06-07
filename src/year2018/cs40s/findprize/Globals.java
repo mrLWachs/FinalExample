@@ -8,7 +8,8 @@ import java.awt.Font;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
-import mainpackage.Example;
+import mainpackage.Examples2018;
+import mainpackage.MainClass;
 
 /**
  * Globals.java - game global variables, constants and static methods for the 
@@ -32,9 +33,9 @@ public class Globals
                                                                             20;
     private static final String  MAIN_TITLE              = "Main Screen"; 
     private static final String  MAIN_ICON_FILE          = 
-                                                    Example.FIND_PRIZES_ICON; 
+                                                    Examples2018.FIND_PRIZES_ICON; 
     private static final String  NEXT_ICON_FILE          = 
-                                                    Example.FIND_PRIZES_ICON;     
+                                                    Examples2018.FIND_PRIZES_ICON;     
     public static final  int     NEXT_FRAME_WIDTH        = 300;
     public static final  int     NEXT_FRAME_HEIGHT       = 150;   
     private static final String  NEXT_TITLE              = "Next Screen";
@@ -74,12 +75,12 @@ public class Globals
     public static void initFrame(int screen, JFrame frame) {
         frame.getContentPane().setLayout(null);
         if (screen == MAIN_SCREEN) {    
-            Example.frameTool.startup(frame, MAIN_TITLE, MAIN_FRAME_WIDTH, 
+            MainClass.frameTool.startup(frame, MAIN_TITLE, MAIN_FRAME_WIDTH, 
                     MAIN_FRAME_HEIGHT, false, true, false, false, 
                     MAIN_BACKGROUND_COLOR, MAIN_ICON_FILE); 
         }
         else if (screen == NEXT_SCREEN) {
-            Example.frameTool.startup(frame, NEXT_TITLE, NEXT_FRAME_WIDTH, 
+            MainClass.frameTool.startup(frame, NEXT_TITLE, NEXT_FRAME_WIDTH, 
                     NEXT_FRAME_HEIGHT, false, true, false, true, 
                     NEXT_BACKGROUND_COLOR, NEXT_ICON_FILE);
             
@@ -108,14 +109,14 @@ public class Globals
     }
     
     /**
-     * Closing th4 find prizes example returns to the main application menu2018
+     * Closing th4 find prizes example returns to the main application menu
      * 
      * @param frame the current frame to close 
      */
     private static void close(JFrame frame) {
         frame.dispose();
-        Example.gamesPlayed++;
-        Example.menu2018();
+        MainClass.gamesPlayed++;
+        Examples2018.menu();
     }
         
 }

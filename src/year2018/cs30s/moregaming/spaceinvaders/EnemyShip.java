@@ -9,7 +9,7 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
-import mainpackage.Example;
+import mainpackage.MainClass;
 import year2018.cs30s.gametools.Image;
 
 /**
@@ -71,7 +71,7 @@ public class EnemyShip extends GameCharacter
      * When this enemy ship is killed and removed from the game 
      */
     public void kill() {
-        Example.totalPoints++;
+        MainClass.totalPoints++;
         shootTimer.stop();
         hide();
     }

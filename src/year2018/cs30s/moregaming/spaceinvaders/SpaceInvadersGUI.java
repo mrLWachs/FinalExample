@@ -3,7 +3,8 @@
 package year2018.cs30s.moregaming.spaceinvaders;
 
 /** required imports */
-import mainpackage.Example;
+import mainpackage.Examples2018;
+import mainpackage.MainClass;
 import year2018.cs30s.gametools.Image;
 
 /**
@@ -60,7 +61,7 @@ public class SpaceInvadersGUI extends javax.swing.JFrame
                 enemyBulletImages,
                 wallImages,
                 this);        
-        Example.frameTool.startup(this, 
+        MainClass.frameTool.startup(this, 
                 Constants.SPACE_INVADERS_UI_TITLE, 
                 Constants.SPACE_INVADERS_UI_WIDTH, 
                 Constants.SPACE_INVADERS_UI_HEIGHT, 
@@ -69,7 +70,7 @@ public class SpaceInvadersGUI extends javax.swing.JFrame
                 false,
                 false,
                 Constants.SPACE_INVADERS_UI_BACK_COLOR,
-                Example.SPACE_INVADERS_ICON);
+                Examples2018.SPACE_INVADERS_ICON);
     }
 
     // <editor-fold defaultstate="collapsed" desc="NetBeans Visual Editor Generated Code">  
@@ -248,8 +249,8 @@ public class SpaceInvadersGUI extends javax.swing.JFrame
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         this.dispose();
-        Example.gamesPlayed++;
-        Example.menu2018();
+        MainClass.gamesPlayed++;
+        Examples2018.menu();
     }//GEN-LAST:event_formWindowClosing
 
     // <editor-fold defaultstate="collapsed" desc="NetBeans Visual Editor Generated Code">  

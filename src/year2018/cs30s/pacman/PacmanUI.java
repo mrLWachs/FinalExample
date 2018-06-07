@@ -3,7 +3,8 @@
 package year2018.cs30s.pacman;
 
 /** required imports */
-import mainpackage.Example;
+import mainpackage.Examples2018;
+import mainpackage.MainClass;
 import year2018.cs30s.gametools.Image;
 
 /**
@@ -67,7 +68,7 @@ public class PacmanUI extends javax.swing.JFrame
             new Image(jLabel16)
         };                
         engine = new Engine(pacman,ghosts,dots,walls,this);        
-        Example.frameTool.startup(this, 
+        MainClass.frameTool.startup(this, 
                 Constants.PACMAN_UI_TITLE, 
                 Constants.PACMAN_UI_WIDTH, 
                 Constants.PACMAN_UI_HEIGHT, 
@@ -76,7 +77,7 @@ public class PacmanUI extends javax.swing.JFrame
                 false,
                 false,
                 Constants.PACMAN_UI_BACK_COLOR,
-                Example.PACMAN_ICON);
+                Examples2018.PACMAN_ICON);
     }
 
     /** 
@@ -447,8 +448,8 @@ public class PacmanUI extends javax.swing.JFrame
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         this.dispose();
-        Example.gamesPlayed++;
-        Example.menu2018();
+        MainClass.gamesPlayed++;
+        Examples2018.menu();
     }//GEN-LAST:event_formWindowClosing
 
 

@@ -3,7 +3,7 @@
 package year2018.cs30s.pacman;
 
 /** required imports */
-import mainpackage.Example;
+import mainpackage.MainClass;
 import year2018.cs30s.gametools.GameObject;
 import year2018.cs30s.gametools.Image;
 
@@ -31,7 +31,7 @@ public class Dot extends GameObject
      * When a dot gets eaten by Pacman
      */
     public void getEaten() {
-        Example.totalPoints++;
+        MainClass.totalPoints++;
         hide();
     }
     

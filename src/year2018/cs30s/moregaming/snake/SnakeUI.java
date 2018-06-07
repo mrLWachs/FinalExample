@@ -16,7 +16,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import javax.swing.border.Border;
-import mainpackage.Example;
+import mainpackage.Examples2018;
+import mainpackage.MainClass;
 import year2018.cs30s.tools.Numbers;
 
 /**
@@ -81,18 +82,18 @@ public class SnakeUI extends JFrame
                 close();
             }
         });
-        Example.frameTool.startup(this, FORM_TITLE, FORM_WIDTH, FORM_HEIGHT, 
+        MainClass.frameTool.startup(this, FORM_TITLE, FORM_WIDTH, FORM_HEIGHT, 
                 false, true, false, false, FORM_BACKGROUND_COLOR,
-                Example.SNAKE_ICON);
+                Examples2018.SNAKE_ICON);
     }
 
     /**
-     * Closes this example and returns to the main application menu2018
+     * Closes this example and returns to the main application menu
      */
     private void close() {
         this.dispose();
-        Example.gamesPlayed++;
-        Example.menu2018();
+        MainClass.gamesPlayed++;
+        Examples2018.menu();
     }
     
     /** 
@@ -277,7 +278,7 @@ public class SnakeUI extends JFrame
             snake[HEAD].column == powerUp.column) {            
             growSnake();
             newPowerUp();
-            Example.totalPoints++;
+            MainClass.totalPoints++;
             return true;
         }
         return false;

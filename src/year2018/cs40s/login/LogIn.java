@@ -3,7 +3,8 @@
 package year2018.cs40s.login;
 
 /** required imports */
-import mainpackage.Example;
+import mainpackage.Examples2018;
+import mainpackage.MainClass;
 
 /**
  * LogIn.java - the login user interface to log in
@@ -21,9 +22,9 @@ public class LogIn extends javax.swing.JFrame
     public LogIn() {
         initComponents();               
         Security.init(jLabel1,jButton1);        // initialize the security 
-        Example.frameTool.startup(this, this.getTitle(), this.getWidth(), 
+        MainClass.frameTool.startup(this, this.getTitle(), this.getWidth(), 
                                this.getHeight(), false, true, false, false, 
-                               this.getBackground(), Example.LOGIN_ICON);    
+                               this.getBackground(), Examples2018.LOGIN_ICON);    
     }
 
     /** 
@@ -112,16 +113,16 @@ public class LogIn extends javax.swing.JFrame
     }//GEN-LAST:event_jTextField1KeyPressed
    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Example.totalPoints++;
+        MainClass.totalPoints++;
         this.dispose();
-        Example.gamesPlayed++;
-        Example.menu2018();
+        MainClass.gamesPlayed++;
+        Examples2018.menu();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         this.dispose();
-        Example.gamesPlayed++;
-        Example.menu2018();
+        MainClass.gamesPlayed++;
+        Examples2018.menu();
     }//GEN-LAST:event_formWindowClosing
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
