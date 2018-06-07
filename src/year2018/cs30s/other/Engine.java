@@ -2,9 +2,15 @@
 /** required package class namespace */
 package year2018.cs30s.other;
 
+import java.awt.event.KeyEvent;
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import mainpackage.Example;
+import static mainpackage.Example.MEDIA_PATH;
 import year2018.cs30s.tools.Dialogs;
+import year2018.cs30s.tools.ImageLabel;
+import year2018.cs30s.tools.ImageTools;
 
 /**
  * Engine.java - description here...
@@ -16,17 +22,20 @@ import year2018.cs30s.tools.Dialogs;
 public class Engine 
 {
 
-    private JButton customUserInputButton;
-    private JButton getIntegerButton;
-    private JButton dropdownButton;
-    private JButton multipleButtonButton;
-    private JButton rotateImageButton;
-    private JButton resizeImageButton;
-    private JLabel customDialogsLabel;
-    private JLabel customImageLabel;
-    private JLabel imageLabel;
-    private OtherUI otherUIFrame;
-    private Dialogs dialog;
+    private JButton    customUserInputButton;
+    private JButton    getIntegerButton;
+    private JButton    dropdownButton;
+    private JButton    multipleButtonButton;
+    private JButton    rotateImageButton;
+    private JButton    resizeImageButton;
+    private JLabel     customDialogsLabel;
+    private JLabel     customImageLabel;
+    private JLabel     imageLabel;
+    private OtherUI    otherUIFrame;
+    private Dialogs    dialog;
+    private ImageTools tool;    
+    private boolean    isRotating;
+    private ImageLabel rotatingImage;
     
     
     public Engine(JButton resizeImageButton, 
@@ -49,7 +58,9 @@ public class Engine
         this.customImageLabel      = customImageLabel;
         this.imageLabel            = imageLabel;
         this.otherUIFrame          = otherUIFrame;   
-        dialog = new Dialogs(Constants.OTHER_UI_TITLE, otherUIFrame);
+        dialog     = new Dialogs(Constants.OTHER_UI_TITLE, otherUIFrame);
+        tool       = new ImageTools();
+        isRotating = false;
     }
 
     public void customUserInput() {        
@@ -90,15 +101,53 @@ public class Engine
     }
 
     public void rotateImage() {
-        
+        dialog.output("The image will be changed!\n\n"
+                + "Use the up/down arrow keys on the keyboard to "
+                + "rotate the image!\n\n"
+                + "Press escape to return to the original image", 
+                Constants.OTHER_UI_TITLE);        
+        tool.changeImage(imageLabel, MEDIA_PATH + "arrow.jpg",true);   
+        int x = imageLabel.getX();
+        int y = imageLabel.getY();
+        int w = imageLabel.getWidth();
+        int h = imageLabel.getHeight();
+        imageLabel.setVisible(false);
+        rotatingImage = new ImageLabel(imageLabel,x,y,w,h);        
+        otherUIFrame.getContentPane().add(rotatingImage);
+        rotatingImage.setBorder(BorderFactory.createEtchedBorder());
+        rotatingImage.setBounds(x, y, w, h);
+        isRotating = true;
     }
 
     public void resizeImage() {
-        
+        tool.resizeImage(imageLabel); 
     }
 
     public void closeWindow() {
-        
+        otherUIFrame.dispose();
+        Example.gamesPlayed++;
+        Example.menu2018();
+    }
+
+    public void keypress(KeyEvent event) {
+        if (event.getKeyCode() == KeyEvent.VK_ESCAPE) {
+            imageLabel.setVisible(true);
+            tool.changeImage(imageLabel, MEDIA_PATH + 
+                    "computerScience.jpg",false);
+            rotatingImage.setVisible(false);
+        }        
+        if (isRotating) {            
+            if (event.getKeyCode() == KeyEvent.VK_UP) {
+                double rotation = rotatingImage.getRotation();
+                rotation += 1.0;
+                rotatingImage.turn(rotation);
+            }
+            else if (event.getKeyCode() == KeyEvent.VK_DOWN) {
+                double rotation = rotatingImage.getRotation();
+                rotation -= 1.0;
+                rotatingImage.turn(rotation);
+            }
+        }
     }
 
 }

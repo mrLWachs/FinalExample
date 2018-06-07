@@ -3,6 +3,7 @@
 package year2018.cs30s.other;
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
 import mainpackage.Example;
 
 /**
@@ -16,7 +17,8 @@ public class Constants
 {
     public static final int    OTHER_UI_WIDTH         = 517;
     public static final int    OTHER_UI_HEIGHT        = 370;
-    public static final Color  OTHER_UI_BACK_COLOR    = Color.white;
+    public static final Color  OTHER_UI_BACK_COLOR    = 
+                                        new JOptionPane().getBackground();
     public static final String OTHER_UI_TITLE         = "Other Examples";
     public static final String OTHER_UI_ICON          = Example.OTHER_ICON;    
 

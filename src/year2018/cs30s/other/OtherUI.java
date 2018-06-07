@@ -55,6 +55,11 @@ public class OtherUI extends javax.swing.JFrame
                 formWindowClosing(evt);
             }
         });
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
         jLabel1.setText("Custom Dialogs:");
@@ -66,6 +71,7 @@ public class OtherUI extends javax.swing.JFrame
         jLabel2.setBounds(260, 20, 220, 14);
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media/computerScience.jpg"))); // NOI18N
         jLabel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(jLabel3);
         jLabel3.setBounds(260, 150, 220, 170);
@@ -121,6 +127,11 @@ public class OtherUI extends javax.swing.JFrame
                 jButton6ActionPerformed(evt);
             }
         });
+        jButton6.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jButton6KeyPressed(evt);
+            }
+        });
         getContentPane().add(jButton6);
         jButton6.setBounds(260, 50, 220, 40);
 
@@ -154,6 +165,14 @@ public class OtherUI extends javax.swing.JFrame
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         engine.closeWindow();
     }//GEN-LAST:event_formWindowClosing
+
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+        engine.keypress(evt);
+    }//GEN-LAST:event_formKeyPressed
+
+    private void jButton6KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton6KeyPressed
+        engine.keypress(evt);
+    }//GEN-LAST:event_jButton6KeyPressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
