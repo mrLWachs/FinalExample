@@ -5,6 +5,7 @@ package mainpackage;
 import year2018.cs30s.moregaming.frogger.FroggerGUI;
 import year2018.cs30s.moregaming.snake.SnakeUI;
 import year2018.cs30s.moregaming.spaceinvaders.SpaceInvadersGUI;
+import year2018.cs30s.moregaming.survivor.SurvivorUI;
 import year2018.cs30s.other.OtherUI;
 import year2018.cs30s.pacman.PacmanUI;
 import year2018.cs40s.findprize.FindPrizes;
@@ -25,6 +26,7 @@ public class Examples2018
                                                            "Frogger",
                                                            "Space Invaders", 
                                                            "Snake",
+                                                           "Survivor",
                                                            "Other",
                                                            "Return" };
     private static final String[]  CS40S_OPTIONS       = { "Login", 
@@ -76,7 +78,8 @@ public class Examples2018
         else if (choice.equals(CS30S_OPTIONS[1])) new FroggerGUI();
         else if (choice.equals(CS30S_OPTIONS[2])) new SpaceInvadersGUI();
         else if (choice.equals(CS30S_OPTIONS[3])) new SnakeUI();
-        else if (choice.equals(CS30S_OPTIONS[4])) new OtherUI();
+        else if (choice.equals(CS30S_OPTIONS[4])) new SurvivorUI();        
+        else if (choice.equals(CS30S_OPTIONS[5])) new OtherUI();
         else                                      MainClass.menu(); 
     }
     
