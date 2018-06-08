@@ -18,21 +18,21 @@ public class Constants
     public static final int    HERO_TIMER_DELAY             = 100;
     public static final int    HERO_MOVE_AMOUNT             = 10;
     public static final int    HERO_MOVE_DIRECTIONS         = 
-                                                    Directions.EIGHT_DIRECTIONS;
+                                                    Directions.FOUR_DIRECTIONS;
     public static final String HERO_TEXT                    = "HERO";
     public static final Color  HERO_COLOR                   = Color.blue; 
     
     public static final int    PROJECTILE_TIMER_DELAY       = 10;
     public static final int    PROJECTILE_MOVE_AMOUNT       = 5;
     public static final int    PROJECTILE_MOVE_DIRECTIONS   = 
-                                                    Directions.EIGHT_DIRECTIONS;
+                                                    Directions.FOUR_DIRECTIONS;
     public static final String PROJECTILE_TEXT              = "";
     public static final Color  PROJECTILE_COLOR             = Color.black;  
         
     public static final int    ENEMY_TIMER_DELAY            = 100;
     public static final int    ENEMY_MOVE_AMOUNT            = 10;
     public static final int    ENEMY_MOVE_DIRECTIONS        = 
-                                                    Directions.EIGHT_DIRECTIONS;
+                                                    Directions.FOUR_DIRECTIONS;
     public static final String ENEMY_TEXT                   = "ENEMY";
     public static final Color  ENEMY_COLOR                  = Color.orange; 
     
