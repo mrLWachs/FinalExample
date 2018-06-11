@@ -1,5 +1,5 @@
 
-/** required package */
+/** required package class namespace */
 package year2018.cs30s.tools;
 
 /** required imports */
@@ -11,29 +11,28 @@ import java.awt.geom.AffineTransform;
 import javax.swing.Icon;
 
 /**
- * RotatableIcon.java - allows you to change the orientation of an Icon by rotating
- the Icon before it is painted
- * @author Mr. Wachs' Computer Science Student (login: lwachs)
- * @since 11-Jun-2015
- * @version 1.0
+ * RotatableIcon.java - allows you to change the orientation of an Icon by 
+ * rotating the Icon before it is painted
+ *
+ * @author Mr. Wachs
+ * @since May 28, 2018 
  * @instructor Mr. Wachs
  */
 public class RotatableIcon implements Icon 
 {
 
-    /** enumeration for the class directions */
-    public enum Rotate {
-        DOWN,
-        UP,
-        UPSIDE_DOWN,
-        ABOUT_CENTER;
-    }    
-    private Icon icon;
+    /** 
+     * Enumeration for the class directions 
+     */
+    public enum Rotate { DOWN, UP, UPSIDE_DOWN, ABOUT_CENTER; }    
+    
+    private Icon   icon;
     private Rotate rotate;
     private double degrees;
 
     /**
-     * Convenience constructor to create a RotatedIcon that is rotated DOWN.
+     * Constructor to create a RotatedIcon that is rotated DOWN
+     * 
      * @param icon the Icon to rotate
      */
     public RotatableIcon(Icon icon) {
@@ -41,7 +40,8 @@ public class RotatableIcon implements Icon
     }
 
     /**
-     * Create a RotatedIcon
+     * Constructor that creates a RotatedIcon
+     * 
      * @param icon the Icon to rotate
      * @param rotate the direction of rotation
      */
@@ -52,7 +52,8 @@ public class RotatableIcon implements Icon
 
     /**
      * Create a RotatedIcon. The icon will rotate about its center. This
-     * constructor will automatically set the Rotate enum to ABOUT_CENTER.
+     * constructor will automatically set the Rotate enum to ABOUT_CENTER
+     * 
      * @param icon the Icon to rotate
      * @param degrees the degrees of rotation
      */
@@ -63,6 +64,7 @@ public class RotatableIcon implements Icon
 
     /**
      * Gets the Icon to be rotated
+     * 
      * @return the Icon to be rotated
      */
     public Icon getIcon() {
@@ -71,6 +73,7 @@ public class RotatableIcon implements Icon
 
     /**
      * Gets the Rotate enum which indicates the direction of rotation
+     * 
      * @return the Rotate enum
      */
     public Rotate getRotate() {
@@ -79,6 +82,7 @@ public class RotatableIcon implements Icon
 
     /**
      * Gets the degrees of rotation. Only used for Rotate.ABOUT_CENTER
+     * 
      * @return the degrees of rotation
      */
     public double getDegrees() {
@@ -89,6 +93,7 @@ public class RotatableIcon implements Icon
      * Set the degrees of rotation. Only used for Rotate.ABOUT_CENTER. This
      * method only sets the degrees of rotation, it will not cause the Icon to
      * be repainted
+     * 
      * @param degrees the degrees of rotation
      */
     public void setDegrees(double degrees) {
@@ -96,7 +101,8 @@ public class RotatableIcon implements Icon
     }
 
     /**
-     * Gets the width of this icon.
+     * Gets the width of this icon
+     * 
      * @return the width of the icon in pixels.
      */
     @Override
@@ -105,9 +111,9 @@ public class RotatableIcon implements Icon
             double radians = Math.toRadians(degrees);
             double sin     = Math.abs(Math.sin(radians));
             double cos     = Math.abs(Math.cos(radians));
-            int w          = icon.getIconWidth();
-            int h          = icon.getIconHeight();
-            int width      = (int) Math.floor(w * cos + h * sin);
+            int    w       = icon.getIconWidth();
+            int    h       = icon.getIconHeight();
+            int    width   = (int) Math.floor(w * cos + h * sin);
             return width;
         } 
         else if (rotate == Rotate.UPSIDE_DOWN) {
@@ -120,6 +126,7 @@ public class RotatableIcon implements Icon
 
     /**
      * Gets the height of this icon
+     * 
      * @return the height of the icon in pixels
      */
     @Override
@@ -128,9 +135,9 @@ public class RotatableIcon implements Icon
             double radians = Math.toRadians(degrees);
             double sin     = Math.abs(Math.sin(radians));
             double cos     = Math.abs(Math.cos(radians));
-            int w          = icon.getIconWidth();
-            int h          = icon.getIconHeight();
-            int height     = (int) Math.floor(h * cos + w * sin);
+            int    w       = icon.getIconWidth();
+            int    h       = icon.getIconHeight();
+            int    height  = (int) Math.floor(h * cos + w * sin);
             return height;
         } 
         else if (rotate == Rotate.UPSIDE_DOWN) {
@@ -143,6 +150,7 @@ public class RotatableIcon implements Icon
 
     /**
      * Paint the icons of this compound icon at the specified location
+     * 
      * @param component The component on which the icon is painted
      * @param graphics the graphics context
      * @param x the X coordinate of the icon's top-left corner

@@ -2,32 +2,40 @@
 /** required package class namespace */
 package year2018.cs30s.other;
 
+/** required imports */
 import static mainpackage.MainClass.MEDIA_PATH;
 import year2018.cs30s.tools.FrameTools;
 
 /**
- * CustomInputUI.java - description here...
+ * CustomInputUI.java - the custom user dialog designed
  *
- * @author lawrence.wachs 
- * @since Jun 6, 2018 
+ * @author Mr. Wachs
+ * @since May 28, 2018 
  * @instructor Mr. Wachs
  */
 public class CustomInputUI extends javax.swing.JDialog 
 {
 
     private final int    DIALOG_UI_WIDTH  = 265;
-    private final int    DIALOG_UI_HEIGHT = 150;
-    public  final String DIALOG_UI_ICON   = MEDIA_PATH + "examples.png";
+    private final int    DIALOG_UI_HEIGHT = 150;    
+    private final String DIALOG_UI_ICON   = MEDIA_PATH + "examples.png";
     
     
-    /**  Default constructor for the class, creates new form CustomInput */
-    public CustomInputUI(java.awt.Frame parent, boolean modal, 
-                         String text, String title) {
+    /**
+     * Constructor for the class sets class properties to the parameters
+     * 
+     * @param parent the JFrame to parent (center) the dialog to
+     * @param modal to have the dialog on top (true) or not (false)
+     * @param text the text to display in the dialog
+     * @param title the title on top of the dialog
+     */
+    public CustomInputUI(java.awt.Frame parent, boolean modal, String text, 
+                         String title) {
         super(parent, modal);
         initComponents();
-        jLabel1.setText(text);
-        new FrameTools().startup(this, title, 
-                DIALOG_UI_WIDTH, DIALOG_UI_HEIGHT, true, DIALOG_UI_ICON);
+        jLabel1.setText(text);                  // put text into the label
+        new FrameTools().startup(this, title, DIALOG_UI_WIDTH, 
+                                 DIALOG_UI_HEIGHT, true, DIALOG_UI_ICON);
     }
 
     /** 

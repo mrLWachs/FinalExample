@@ -45,7 +45,7 @@ public class Constants
     public static final String GOAL_TEXT                    = "GOAL";
     public static final Color  GOAL_COLOR                   = Color.yellow; 
     
-    public static final String SPAWN_POINT_TEXT             = "GOAL";
+    public static final String SPAWN_POINT_TEXT             = "SPAWN";
     public static final Color  SPAWN_POINT_COLOR            = Color.pink; 
     
     public static final int    SPAWN_TIMER_DELAY            = 2000;

@@ -5,7 +5,6 @@ package year2018.cs30s.tools;
 /** required imports */
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Frame;
 import java.awt.Toolkit;
 import java.awt.Window;
 import java.io.File;

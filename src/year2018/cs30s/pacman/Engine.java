@@ -61,17 +61,17 @@ public class Engine
     }
     
     /**
-     * Shut down the Pacman game and all game characters and return 
- to main application menu
+     * Shut down the Pacman game and all game characters and return to main 
+     * application menu
      */
     public void shutDown() {
-        pacman.shutDown();
-        for (int i = 0; i < ghosts.length; i++) {
-            ghosts[i].shutDown();
+        pacman.shutDown();                      // shut down pacman
+        for (int i = 0; i < ghosts.length; i++) {   // traverse ghosts
+            ghosts[i].shutDown();               // shut down all ghosts
         }
-        ui.dispose();
-        MainClass.gamesPlayed++;
-        Examples2018.menu();
+        ui.dispose();                           // displose of user interface
+        MainClass.gamesPlayed++;                // increment games played
+        Examples2018.menu();                    // return to menu
     }
 
 }

@@ -19,7 +19,7 @@ public class MainClass
 {
 
     public  static final String   MEDIA_PATH      = "/media/";  
-    public  static final String   ICON            = MEDIA_PATH + "icon.png";
+    public  static final String   APP_ICON        = MEDIA_PATH + "icon.png";
     public  static final String   SOUND           = MEDIA_PATH + "Ding.wav";   
     public  static final String   DATA_FILE       = MEDIA_PATH + "data.txt";
         

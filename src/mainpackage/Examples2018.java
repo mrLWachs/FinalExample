@@ -2,6 +2,9 @@
 /** required package class namespace */
 package mainpackage;
 
+/** required imports */
+import static mainpackage.MainClass.gamesPlayed;
+import static mainpackage.MainClass.totalPoints;
 import year2018.cs30s.moregaming.frogger.FroggerGUI;
 import year2018.cs30s.moregaming.snake.SnakeUI;
 import year2018.cs30s.moregaming.spaceinvaders.SpaceInvadersGUI;
@@ -13,10 +16,11 @@ import year2018.cs40s.login.LogIn;
 import year2018.cs40s.pokedex.PokeDexStart;
 
 /**
- * Examples2018.java - description here...
+ * Examples2018.java - The in class example done and requested for the 
+ * 2017-2018 school year
  *
- * @author Mr. Wachs (login: lawrence.wachs)
- * @since Jun 7, 2018 
+ * @author Mr. Wachs
+ * @since May 28, 2018 
  * @instructor Mr. Wachs
  */
 public class Examples2018 
@@ -50,6 +54,9 @@ public class Examples2018
     public static final String    FIND_PRIZES_ICON    = MainClass.MEDIA_PATH + 
                                                             "FindPrizes.png";
         
+    /** 
+     * Default constructor for the class
+     */
     public Examples2018() {
         menu();
     }
@@ -58,7 +65,9 @@ public class Examples2018
      * The main application menu for the various examples
      */
     public static void menu() {
-        String text = "Choose an example from 2018 in Computer "
+        String text = "You have played " + gamesPlayed + " total "
+                    + "games, and earned " + totalPoints + " total "
+                    + "points!\n\nChoose an example from 2018 in Computer "
                     + "Science 30S (or 32SIB) or 40S (or 42SIB)...";
         String choice = MainClass.dialog.buttons(text, 
                                                  MainClass.EXAMPLE_OPTIONS);
@@ -72,7 +81,9 @@ public class Examples2018
      * The menu for the Computer Science 30S examples
      */
     private static void menuCS30S() {
-        String text = "Choose a Computer Science 30S example...";
+        String text = "You have played " + gamesPlayed + " total "
+                    + "games, and earned " + totalPoints + " total "
+                    + "points!\n\nChoose a Computer Science 30S example...";
         String choice = MainClass.dialog.buttons(text, CS30S_OPTIONS);
         if      (choice.equals(CS30S_OPTIONS[0])) new PacmanUI();
         else if (choice.equals(CS30S_OPTIONS[1])) new FroggerGUI();
@@ -87,7 +98,9 @@ public class Examples2018
      * The menu for the Computer Science 40S examples
      */
     private static void menuCS40S() {
-        String text = "Choose a Computer Science 40S example...";
+        String text = "You have played " + gamesPlayed + " total "
+                    + "games, and earned " + totalPoints + " total "
+                    + "points!\n\nChoose a Computer Science 40S example...";
         String choice = MainClass.dialog.buttons(text, CS40S_OPTIONS);
         if      (choice.equals(CS40S_OPTIONS[0])) new LogIn();
         else if (choice.equals(CS40S_OPTIONS[1])) new FindPrizes();

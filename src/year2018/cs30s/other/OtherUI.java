@@ -2,13 +2,14 @@
 /** required package class namespace */
 package year2018.cs30s.other;
 
+/** required imports */
 import year2018.cs30s.tools.FrameTools;
 
 /**
- * OtherUI.java - description here...
+ * OtherUI.java - the user interface for the other examples
  *
- * @author lawrence.wachs 
- * @since Jun 6, 2018 
+ * @author Mr. Wachs
+ * @since May 28, 2018 
  * @instructor Mr. Wachs
  */
 public class OtherUI extends javax.swing.JFrame 
@@ -16,7 +17,9 @@ public class OtherUI extends javax.swing.JFrame
 
     private Engine engine;
     
-    /**  Default constructor for the class, creates new form OtherUI */
+    /**  
+     * Default constructor for the class, creates new form OtherUI 
+     */
     public OtherUI() {
         initComponents();
         engine = new Engine(jButton1,jButton2,jButton3,jButton4,jButton5,
