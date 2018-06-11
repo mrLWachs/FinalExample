@@ -2,14 +2,15 @@
 /** required package class namespace */
 package year2018.cs30s.moregaming.survivor;
 
+/** required imports */
 import year2018.cs30s.gametools.GameCharacter;
 import year2018.cs30s.gametools.Image;
 
 /**
- * Projectile.java - description here...
+ * Projectile.java - represents a projectile in the survivor game
  *
- * @author Mr. Wachs (login: lawrence.wachs)
- * @since Jun 7, 2018 
+ * @author Mr. Wachs
+ * @since May 28, 2018 
  * @instructor Mr. Wachs
  */
 public class Projectile extends GameCharacter
@@ -18,6 +19,14 @@ public class Projectile extends GameCharacter
     private Wall[]     walls;
     private SpawnPoint spawnPoint;
     
+    /**
+     * Constructor for the class sets class data to the parameters
+     * 
+     * @param image the image associated with the game character
+     * @param spawnPoint the spawn point object to associate with
+     * @param walls the walls objects to associate with
+     * @param direction the direction to move the projectile
+     */
     public Projectile(Image image, SpawnPoint spawnPoint, Wall[] walls, 
                       int direction) {
         super(image,
@@ -30,6 +39,9 @@ public class Projectile extends GameCharacter
         setDebug(Constants.PROJECTILE_TEXT, Constants.PROJECTILE_COLOR);
     }
 
+    /** 
+     * The actions that this game character performs 
+     */
     @Override
     public void action() {
         move();
@@ -38,6 +50,9 @@ public class Projectile extends GameCharacter
         redraw();
     }
 
+    /** 
+     * Checks for collisions with walls and reacts 
+     */
     private void checkWalls() {
         for (int i = 0; i < walls.length; i++) {
             if (isColliding(walls[i])) {
@@ -48,15 +63,18 @@ public class Projectile extends GameCharacter
         }
     }
 
+    /** 
+     * Checks for collisions with all enemies and reacts 
+     */
     private void checkEnemies() {
-        for (int i = 0; i < spawnPoint.enemies.size(); i++) {
-            Enemy enemy = spawnPoint.enemies.get(i);
-            if (isColliding(enemy)) {
-                spawnPoint.enemies.remove(enemy);
-                enemy.hide();
-                enemy.shutDown();
-                hide();
-                shutDown();
+        for (int i = 0; i < spawnPoint.enemies.size(); i++) {   // traverse 
+            Enemy enemy = spawnPoint.enemies.get(i);    // get en enemy
+            if (isColliding(enemy)) {               // collision with enemy
+                spawnPoint.enemies.remove(enemy);   // remove enemy from list
+                enemy.hide();                       // hide enemy
+                enemy.shutDown();                   // shut down enemy
+                hide();                             // hide projectile
+                shutDown();                         // shut down projectile
                 return;
             }
         }

@@ -2,7 +2,7 @@
 /** required package class namespace */
 package year2018.cs30s.moregaming.survivor;
 
-
+/** required imports */
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -12,10 +12,10 @@ import year2018.cs30s.gametools.GameObject;
 import year2018.cs30s.gametools.Image;
 
 /**
- * SpawnPoint.java - description here...
+ * SpawnPoint.java - represents the spawn point in the survivor game.
  *
- * @author Mr. Wachs (login: lawrence.wachs)
- * @since Jun 7, 2018 
+ * @author Mr. Wachs
+ * @since May 28, 2018 
  * @instructor Mr. Wachs
  */
 public class SpawnPoint extends GameObject
@@ -28,7 +28,15 @@ public class SpawnPoint extends GameObject
     private Timer            spawnTimer;
     public  ArrayList<Enemy> enemies;
     
-    
+    /**
+     * Constructor for the class sets class data to the parameters
+     * 
+     * @param image the image associated with the game character
+     * @param hero the hero object to associate with
+     * @param walls the walls objects to associate with
+     * @param survivorUI the user interface to associate with
+     * @param engine the game engine to associate with 
+     */
     public SpawnPoint(Image image, Hero hero, Wall[] walls, 
                       SurvivorUI survivorUI, Engine engine) {
         super(image);        
@@ -48,6 +56,9 @@ public class SpawnPoint extends GameObject
         setDebug(Constants.SPAWN_POINT_TEXT, Constants.SPAWN_POINT_COLOR);
     }
 
+    /**
+     * Shuts down all enemies and the spawning timer
+     */
     public void shutDown() {
         for (int i = 0; i < enemies.size(); i++) {
             enemies.get(i).shutDown();
@@ -55,12 +66,22 @@ public class SpawnPoint extends GameObject
         spawnTimer.stop();
     }
     
+    /**
+     * Spawns a new enemy at the spawn point
+     */
     public void spawnEnemy() {
-        Image enemyImage = createImage();
-        Enemy enemy = new Enemy(enemyImage, hero, walls, engine);
-        enemies.add(enemy);
+        if (isClear()) {
+            Image enemyImage = createImage();
+            Enemy enemy = new Enemy(enemyImage, hero, walls, engine, enemies);
+            enemies.add(enemy);
+        }
     }
     
+    /**
+     * Create a new image for the created enemy
+     * 
+     * @return a image for the projectile image
+     */
     private Image createImage() {
         JLabel label = new JLabel();
         survivorUI.getContentPane().add(label);
@@ -71,6 +92,23 @@ public class SpawnPoint extends GameObject
         label.setBounds(x, y, w, h); 
         Image image = new Image(label);
         return image;
+    }
+
+    /**
+     * Determines if the spawn point enemy is clear of any enemies to spawn
+     * a new enemy
+     * 
+     * @return the spawn area is clear (true) or not (false)
+     */
+    private boolean isClear() {
+        if (enemies == null) return true;           // no enemies to check
+        for (int i = 0; i < enemies.size(); i++) {  // traverse enemies
+            Enemy enemy = enemies.get(i);           // get an enemy
+            if (enemy.isColliding(this)) {          // collision with enemy
+                return false;                       // not clear
+            }
+        }
+        return true;                                // coast is clear
     }
 
 }

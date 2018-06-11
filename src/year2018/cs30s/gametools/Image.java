@@ -4,6 +4,7 @@ package year2018.cs30s.gametools;
 
 /** required imports */
 import java.awt.Color;
+import java.awt.Font;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import static javax.swing.SwingConstants.CENTER;
@@ -49,6 +50,8 @@ public class Image
         if (picture.getIcon() != null) {
             picture.setIcon(null);
         }
+        Font font = new Font("Arial Narrow", Font.PLAIN, 10);
+        picture.setFont(font);
     } 
     
     /**

@@ -2,6 +2,7 @@
 /** required package class namespace */
 package year2018.cs30s.moregaming.survivor;
 
+/** required imports */
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
@@ -12,10 +13,10 @@ import mainpackage.Examples2018;
 import mainpackage.MainClass;
 
 /**
- * SurvivorUI.java - description here...
+ * SurvivorUI.java - the user interface for the survivor game
  *
- * @author Mr. Wachs (login: lawrence.wachs)
- * @since Jun 8, 2018 
+ * @author Mr. Wachs
+ * @since May 28, 2018 
  * @instructor Mr. Wachs
  */
 public class SurvivorUI extends JFrame 
@@ -44,10 +45,11 @@ public class SurvivorUI extends JFrame
     private JLabel jLabel8;
     private JLabel jLabel9;
     
-    
+    /**
+     * Default constructor for the class
+     */
     public SurvivorUI() {
-        initComponents();        
-        
+        initComponents();     
         JLabel[] walls  = {
             jLabel1,jLabel10,jLabel12,jLabel13,jLabel14,jLabel15,jLabel18,
             jLabel19,jLabel2,jLabel20,jLabel21,jLabel22,jLabel3,jLabel4,
@@ -55,8 +57,7 @@ public class SurvivorUI extends JFrame
         };
         JLabel goal       = jLabel17;
         JLabel hero       = jLabel16;
-        JLabel spawnPoint = jLabel23;
-                
+        JLabel spawnPoint = jLabel23;                
         engine = new Engine(hero,goal,spawnPoint,walls,this);        
         MainClass.frameTool.startup(this, 
                 Constants.SURVIVOR_UI_TITLE, 
@@ -70,10 +71,11 @@ public class SurvivorUI extends JFrame
                 Examples2018.SPACE_INVADERS_ICON);
     }
 
-    private void initComponents() {
-        
-        // instantiate objects
-        jLabel1 = new JLabel();
+    /**
+     * Initializes all user interface components
+     */
+    private void initComponents() {     
+        jLabel1 = new JLabel();                 // instantiate objects
         jLabel2 = new JLabel();
         jLabel3 = new JLabel();
         jLabel4 = new JLabel();
@@ -94,12 +96,8 @@ public class SurvivorUI extends JFrame
         jLabel21 = new JLabel();
         jLabel22 = new JLabel();
         jLabel23 = new JLabel();
-        
-        // set layout
-        getContentPane().setLayout(null);
-        
-        // add listeners        
-        addWindowListener(new WindowAdapter() {
+        getContentPane().setLayout(null);       // set layout
+        addWindowListener(new WindowAdapter() { // add listeners  
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
             }
@@ -108,10 +106,8 @@ public class SurvivorUI extends JFrame
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 formKeyPressed(evt);
             }
-        });
-        
-        // add components to containter
-        getContentPane().add(jLabel1);
+        });        
+        getContentPane().add(jLabel1);          // add components to containter
         getContentPane().add(jLabel2);
         getContentPane().add(jLabel3);
         getContentPane().add(jLabel4);
@@ -131,8 +127,7 @@ public class SurvivorUI extends JFrame
         getContentPane().add(jLabel20);
         getContentPane().add(jLabel21);
         getContentPane().add(jLabel22);
-        getContentPane().add(jLabel23);
-        
+        getContentPane().add(jLabel23);        
         // set component properties
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -154,8 +149,7 @@ public class SurvivorUI extends JFrame
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        
+        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);                        
         jLabel1.setText("W");
         jLabel2.setText("W");
         jLabel3.setText("W");
@@ -176,8 +170,7 @@ public class SurvivorUI extends JFrame
         jLabel20.setText("W");
         jLabel21.setText("W");
         jLabel22.setText("W");
-        jLabel23.setText("S");
-        
+        jLabel23.setText("S");        
         jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jLabel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jLabel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -198,8 +191,7 @@ public class SurvivorUI extends JFrame
         jLabel20.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jLabel21.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jLabel22.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jLabel23.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        
+        jLabel23.setBorder(javax.swing.BorderFactory.createEtchedBorder());        
         jLabel1.setBounds(410, 250, 220, 20);
         jLabel2.setBounds(10, 10, 20, 680);
         jLabel3.setBounds(760, 10, 20, 680);
@@ -220,16 +212,25 @@ public class SurvivorUI extends JFrame
         jLabel20.setBounds(30, 340, 70, 20);
         jLabel21.setBounds(410, 270, 20, 180);
         jLabel22.setBounds(360, 430, 60, 20);
-        jLabel23.setBounds(50, 610, 40, 40);
-        
+        jLabel23.setBounds(50, 610, 40, 40);        
         // frame close operation
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     }
     
+    /**
+     * The Frame window closing event
+     * 
+     * @param evt the window event from the Frame
+     */
     private void formWindowClosing(WindowEvent evt) {
         engine.shutDown();
     }
         
+    /**
+     * The key press user event 
+     * 
+     * @param evt the key event from the user
+     */
     private void formKeyPressed(KeyEvent evt) {
         engine.keypress(evt);
     }

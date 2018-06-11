@@ -2,7 +2,7 @@
 /** required package class namespace */
 package year2018.cs30s.moregaming.survivor;
 
-
+/** required imports */
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.JLabel;
@@ -12,10 +12,10 @@ import year2018.cs30s.gametools.GameCharacter;
 import year2018.cs30s.gametools.Image;
 
 /**
- * Hero.java - description here...
+ * Hero.java - represents the hero of the survivor game
  *
- * @author Mr. Wachs (login: lawrence.wachs)
- * @since Jun 7, 2018 
+ * @author Mr. Wachs
+ * @since May 28, 2018 
  * @instructor Mr. Wachs
  */
 public class Hero extends GameCharacter
@@ -30,6 +30,15 @@ public class Hero extends GameCharacter
     private ArrayList<Projectile> projectiles;
 
     
+    /**
+     * Constructor for the class sets class data to the parameters
+     * 
+     * @param image the image associated with the game character
+     * @param walls the walls objects to associate with
+     * @param goal the goal object to associate with
+     * @param survivorUI the user interface to associate with
+     * @param engine the game engine to associate with 
+     */
     public Hero(Image image, Wall[] walls, Goal goal, SurvivorUI survivorUI, 
                 Engine engine) {
         super(image, 
@@ -45,6 +54,9 @@ public class Hero extends GameCharacter
         setDebug(Constants.HERO_TEXT, Constants.HERO_COLOR);
     }
 
+    /** 
+     * The actions that this game character performs 
+     */
     @Override
     public void action() {
         move();
@@ -53,6 +65,9 @@ public class Hero extends GameCharacter
         redraw();
     }
 
+    /** 
+     * Checks for collisions with walls and reacts 
+     */
     private void checkWalls() {
         for (int i = 0; i < walls.length; i++) {
             if (isColliding(walls[i])) {
@@ -62,6 +77,9 @@ public class Hero extends GameCharacter
         }
     }
 
+    /** 
+     * Checks for collisions with the goal and reacts 
+     */
     private void checkGoal() {
         if (isColliding(goal)) {
             MainClass.totalPoints++;
@@ -69,10 +87,20 @@ public class Hero extends GameCharacter
         }
     }
 
+    /**
+     * Associates this object to the spawn point object
+     * 
+     * @param spawnPoint the spawn point object to connect to
+     */
     public void connectTo(SpawnPoint spawnPoint) {
         this.spawnPoint = spawnPoint;
     }
     
+    /**
+     * The user keyboard action to react to
+     * 
+     * @param event the keyboard event 
+     */
     public void keyPress(KeyEvent event) {
         super.keyPress(event);
         if (event.getKeyCode() == KeyEvent.VK_SPACE) {
@@ -83,6 +111,11 @@ public class Hero extends GameCharacter
         }
     }
 
+    /**
+     * Create a new image for the created projectile
+     * 
+     * @return a image for the projectile image
+     */
     private Image createImage() {
         JLabel label = new JLabel();
         survivorUI.getContentPane().add(label);

@@ -78,8 +78,8 @@ public class Engine
     }
 
     /**
-     * Shut down the Space Invaders game and all game characters and return 
- to main application menu
+     * Shut down the Space Invaders game and all game characters and return
+     * to main application menu
      */
     public void shutDown() {
         heroShip.shutDown();

@@ -32,6 +32,7 @@ public class Constants
     public static final int    ENEMY_MOVE_AMOUNT            = 20;
     public static final int    ENEMY_MOVE_DIRECTIONS        = 
                                                     Directions.TWO_DIRECTIONS;
+    
     public static final String ENEMY_TEXT                   = "ENEMY";
     public static final Color  ENEMY_COLOR                  = Color.white;  
     public static final int    ENEMY_BULLET_TIMER_DELAY     = 10;
