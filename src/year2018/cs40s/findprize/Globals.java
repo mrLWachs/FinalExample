@@ -32,10 +32,10 @@ public class Globals
     public static final  int     GRID_SIZE               = MAIN_FRAME_WIDTH / 
                                                                             20;
     private static final String  MAIN_TITLE              = "Main Screen"; 
-    private static final String  MAIN_ICON_FILE          = 
-                                                    Examples2018.FIND_PRIZES_ICON; 
-    private static final String  NEXT_ICON_FILE          = 
-                                                    Examples2018.FIND_PRIZES_ICON;     
+    private static final String  MAIN_ICON_FILE          = MainClass.MEDIA_PATH + 
+                                                            "FindPrizes.png"; 
+    private static final String  NEXT_ICON_FILE          = MainClass.MEDIA_PATH + 
+                                                            "FindPrizes.png";     
     public static final  int     NEXT_FRAME_WIDTH        = 300;
     public static final  int     NEXT_FRAME_HEIGHT       = 150;   
     private static final String  NEXT_TITLE              = "Next Screen";

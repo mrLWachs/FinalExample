@@ -23,7 +23,7 @@ public class Goal extends GameObject
      */
     public Goal(Image image) {
         super(image);
-        setDebug(Constants.GOAL_TEXT, Constants.GOAL_COLOR);
+//        setDebug(Constants.GOAL_TEXT, Constants.GOAL_COLOR);
     }
 
 }

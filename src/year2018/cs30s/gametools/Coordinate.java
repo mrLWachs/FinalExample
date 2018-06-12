@@ -23,6 +23,18 @@ public class Coordinate
     private Image hitbox;                      // the Image hitbox image
     
     /**
+     * Default constructor for the class 
+     */
+    public Coordinate() {
+        hitbox             = null;             // assign parameter to property
+        direction          = Directions.STOP;   // set movement to stop
+        amount             = Directions.STOP;
+        numberOfDirections = Directions.STOP;
+        x = y = width = height;
+        recalculate();
+    }
+    
+    /**
      * Constructor for the class sets class properties
      * 
      * @param image the JLabel hitbox image
@@ -360,6 +372,30 @@ public class Coordinate
         landOn(target);
         x = target.right + 1;  
         recalculate();
+    }
+    
+    
+    public boolean isAbove(Coordinate target) {
+        if (bottom < target.top) return true;
+        return false;
+    }
+    
+    
+    public boolean isBelow(Coordinate target) {
+        if (top > target.bottom) return true;
+        return false;
+    }
+    
+    
+    public boolean isRightOf(Coordinate target) {
+        if (left > target.right) return true;
+        return false;
+    }
+    
+    
+    public boolean isLeftOf(Coordinate target) {
+        if (right < target.left) return true;
+        return false;
     }
     
 }

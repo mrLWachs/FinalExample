@@ -59,7 +59,7 @@ public class MediaPlayer
      * Stops any playing audio clip 
      */
     public void stop() {
-        clip.stop();
+        if (clip != null) clip.stop();
     }
 
     /**
@@ -73,7 +73,7 @@ public class MediaPlayer
             URI uri                      = url.toURI();
             File file                    = new File(uri);
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
-            Clip clip                    = AudioSystem.getClip();
+            clip                         = AudioSystem.getClip();
             clip.open(audioStream);
             clip.start();
             return "playing sound file";

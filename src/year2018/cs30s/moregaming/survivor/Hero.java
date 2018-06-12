@@ -5,7 +5,6 @@ package year2018.cs30s.moregaming.survivor;
 /** required imports */
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
-import javax.swing.JLabel;
 import mainpackage.MainClass;
 import year2018.cs30s.gametools.Directions;
 import year2018.cs30s.gametools.GameCharacter;
@@ -21,12 +20,11 @@ import year2018.cs30s.gametools.Image;
 public class Hero extends GameCharacter
 {
     
-    private Wall[]     walls;
-    private Goal       goal;
-    private Engine     engine;
-    private SpawnPoint spawnPoint;
-    private SurvivorUI survivorUI;
-    
+    private Wall[]                walls;
+    private Goal                  goal;
+    private Engine                engine;
+    private Spawner               spawners;
+    private SurvivorUI            survivorUI;    
     private ArrayList<Projectile> projectiles;
 
     
@@ -51,7 +49,6 @@ public class Hero extends GameCharacter
         this.engine     = engine;
         this.survivorUI = survivorUI;
         projectiles     = new ArrayList<>();
-        setDebug(Constants.HERO_TEXT, Constants.HERO_COLOR);
     }
 
     /** 
@@ -88,12 +85,12 @@ public class Hero extends GameCharacter
     }
 
     /**
-     * Associates this object to the spawn point object
+     * Associates this object to the spawner object
      * 
-     * @param spawnPoint the spawn point object to connect to
+     * @param spawners the spawners object to connect to
      */
-    public void connectTo(SpawnPoint spawnPoint) {
-        this.spawnPoint = spawnPoint;
+    public void connectTo(Spawner spawners) {
+        this.spawners = spawners;
     }
     
     /**
@@ -104,28 +101,26 @@ public class Hero extends GameCharacter
     public void keyPress(KeyEvent event) {
         super.keyPress(event);
         if (event.getKeyCode() == KeyEvent.VK_SPACE) {
-            Image projectileImage = createImage();
-            Projectile projectile = new Projectile(projectileImage,spawnPoint,
+            int w = coordinate.width  / 2;
+            int h = coordinate.height / 2;
+            int x = coordinate.x + w / 2;
+            int y = coordinate.y + h / 2;
+            Image projectileImage = engine.createImage(x,y,w,h,
+                    Constants.PROJECTILE_IMAGE);
+            Projectile projectile = new Projectile(projectileImage,spawners,
                                                    walls,coordinate.direction);
             projectiles.add(projectile);
         }
     }
 
-    /**
-     * Create a new image for the created projectile
-     * 
-     * @return a image for the projectile image
-     */
-    private Image createImage() {
-        JLabel label = new JLabel();
-        survivorUI.getContentPane().add(label);
-        int w = coordinate.width / 2;
-        int h = coordinate.height / 2;
-        int x = coordinate.x + w / 2;
-        int y = coordinate.y + h / 2;        
-        label.setBounds(x, y, w, h);
-        Image image = new Image(label);
-        return image;
+    public void shutDown() {
+        super.shutDown();
+        for (int i = 0; i < projectiles.size(); i++) {
+            Projectile projectile = projectiles.get(i);    // get an enemy 
+            projectile.hide();                       // hide enemy
+            projectile.shutDown();                   // shut down enemy
+        }
+        projectiles.clear();
     }
-
+    
 }

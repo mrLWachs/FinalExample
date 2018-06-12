@@ -77,7 +77,7 @@ public class PacmanUI extends javax.swing.JFrame
                 false,
                 false,
                 Constants.PACMAN_UI_BACK_COLOR,
-                Examples2018.PACMAN_ICON);
+                Constants.PACMAN_UI_ICON);
     }
 
     /** 

@@ -30,6 +30,8 @@ import year2018.cs30s.tools.Numbers;
 public class SnakeUI extends JFrame
 {
     
+    private final String SNAKE_ICON            = MainClass.MEDIA_PATH + 
+                                                 "Snake.png";
     private final int    FORM_WIDTH            = 1200;
     private final int    FORM_HEIGHT           = 800;
     private final int    FORM_WIDTH_ADJUST     = 50;
@@ -84,7 +86,7 @@ public class SnakeUI extends JFrame
         });
         MainClass.frameTool.startup(this, FORM_TITLE, FORM_WIDTH, FORM_HEIGHT, 
                 false, true, false, false, FORM_BACKGROUND_COLOR,
-                Examples2018.SNAKE_ICON);
+                SNAKE_ICON);
     }
 
     /**

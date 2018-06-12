@@ -57,7 +57,7 @@ public class FroggerGUI extends javax.swing.JFrame
                 Constants.FROGGER_UI_HEIGHT, 
                 false, true, false, false,
                 Constants.FROGGER_UI_BACK_COLOR,
-                Examples2018.FROGGER_ICON);
+                Constants.FROGGER_UI_ICON);
     }
 
     // <editor-fold defaultstate="collapsed" desc="NetBeans Visual Editor Generated Code">  

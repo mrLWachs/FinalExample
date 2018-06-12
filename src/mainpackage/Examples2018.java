@@ -32,27 +32,13 @@ public class Examples2018
                                                            "Snake",
                                                            "Survivor",
                                                            "Other",
-                                                           "Return" };
+                                                           "Choose year",
+                                                           "Exit" };
     private static final String[]  CS40S_OPTIONS       = { "Login", 
                                                            "Find Prizes",
                                                            "PokeDex",
-                                                           "Return" };
-    
-    public  static final String    FROGGER_ICON        = MainClass.MEDIA_PATH + 
-                                                            "Frogger.png";
-    public  static final String    PACMAN_ICON         = MainClass.MEDIA_PATH + 
-                                                            "Pacman.png";
-    public  static final String    SPACE_INVADERS_ICON = MainClass.MEDIA_PATH + 
-                                                            "SpaceInvaders.png";
-    public  static final String    SNAKE_ICON          = MainClass.MEDIA_PATH + 
-                                                            "Snake.png";
-    public  static final String    OTHER_ICON          = MainClass.MEDIA_PATH + 
-                                                            "examples.png";
-
-    public static final String    LOGIN_ICON          = MainClass.MEDIA_PATH + 
-                                                            "Login.png";
-    public static final String    FIND_PRIZES_ICON    = MainClass.MEDIA_PATH + 
-                                                            "FindPrizes.png";
+                                                           "Choose year",
+                                                           "Exit" };
         
     /** 
      * Default constructor for the class
@@ -91,7 +77,8 @@ public class Examples2018
         else if (choice.equals(CS30S_OPTIONS[3])) new SnakeUI();
         else if (choice.equals(CS30S_OPTIONS[4])) new SurvivorUI();        
         else if (choice.equals(CS30S_OPTIONS[5])) new OtherUI();
-        else                                      MainClass.menu(); 
+        else if (choice.equals(CS30S_OPTIONS[6])) MainClass.menu();
+        else                                      MainClass.end();
     }
     
     /**
@@ -105,7 +92,8 @@ public class Examples2018
         if      (choice.equals(CS40S_OPTIONS[0])) new LogIn();
         else if (choice.equals(CS40S_OPTIONS[1])) new FindPrizes();
         else if (choice.equals(CS40S_OPTIONS[2])) new PokeDexStart();
-        else                                      MainClass.menu(); 
+        else if (choice.equals(CS40S_OPTIONS[3])) MainClass.menu();
+        else                                      MainClass.end(); 
     }
     
 }

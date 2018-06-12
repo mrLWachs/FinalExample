@@ -16,6 +16,8 @@ import mainpackage.MainClass;
 public class LogIn extends javax.swing.JFrame 
 {
     
+    private final String LOGIN_ICON = MainClass.MEDIA_PATH + "Login.png";
+    
     /**
      * Default constructor for the class
      */
@@ -24,7 +26,7 @@ public class LogIn extends javax.swing.JFrame
         Security.init(jLabel1,jButton1);        // initialize the security 
         MainClass.frameTool.startup(this, this.getTitle(), this.getWidth(), 
                                this.getHeight(), false, true, false, false, 
-                               this.getBackground(), Examples2018.LOGIN_ICON);    
+                               this.getBackground(), LOGIN_ICON);    
     }
 
     /** 

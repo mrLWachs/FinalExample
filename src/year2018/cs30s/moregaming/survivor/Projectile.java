@@ -5,6 +5,7 @@ package year2018.cs30s.moregaming.survivor;
 /** required imports */
 import year2018.cs30s.gametools.GameCharacter;
 import year2018.cs30s.gametools.Image;
+import year2018.cs30s.tools.MediaPlayer;
 
 /**
  * Projectile.java - represents a projectile in the survivor game
@@ -16,27 +17,30 @@ import year2018.cs30s.gametools.Image;
 public class Projectile extends GameCharacter
 {
 
-    private Wall[]     walls;
-    private SpawnPoint spawnPoint;
+    private Wall[]      walls;
+    private Spawner     spawner;
+    private MediaPlayer player;
+    
     
     /**
      * Constructor for the class sets class data to the parameters
      * 
      * @param image the image associated with the game character
-     * @param spawnPoint the spawn point object to associate with
+     * @param spawners the spawners object to associate with
      * @param walls the walls objects to associate with
      * @param direction the direction to move the projectile
      */
-    public Projectile(Image image, SpawnPoint spawnPoint, Wall[] walls, 
+    public Projectile(Image image, Spawner spawners, Wall[] walls, 
                       int direction) {
         super(image,
               direction, 
               Constants.PROJECTILE_MOVE_AMOUNT, 
               Constants.PROJECTILE_TIMER_DELAY, 
               Constants.PROJECTILE_MOVE_DIRECTIONS);           
-        this.walls      = walls;
-        this.spawnPoint = spawnPoint;        
-        setDebug(Constants.PROJECTILE_TEXT, Constants.PROJECTILE_COLOR);
+        this.walls   = walls;
+        this.spawner = spawners;        
+        player = new MediaPlayer();
+        player.playWav(Constants.PROJECTILE_SOUND_FILE);
     }
 
     /** 
@@ -46,7 +50,7 @@ public class Projectile extends GameCharacter
     public void action() {
         move();
         checkWalls();
-        checkEnemies();
+        spawner.check(this);
         redraw();
     }
 
@@ -63,21 +67,9 @@ public class Projectile extends GameCharacter
         }
     }
 
-    /** 
-     * Checks for collisions with all enemies and reacts 
-     */
-    private void checkEnemies() {
-        for (int i = 0; i < spawnPoint.enemies.size(); i++) {   // traverse 
-            Enemy enemy = spawnPoint.enemies.get(i);    // get en enemy
-            if (isColliding(enemy)) {               // collision with enemy
-                spawnPoint.enemies.remove(enemy);   // remove enemy from list
-                enemy.hide();                       // hide enemy
-                enemy.shutDown();                   // shut down enemy
-                hide();                             // hide projectile
-                shutDown();                         // shut down projectile
-                return;
-            }
-        }
+    public void shutDown() {
+        super.shutDown();
+        player.stop();
     }
-
+    
 }

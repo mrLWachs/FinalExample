@@ -65,18 +65,7 @@ public abstract class GameCharacter extends GameObject
         if (!isAlive) return;                       // no need for this action
         coordinate.move();
     }
-    
-    /**
-     * Determines if this game character is colliding with a game object
-     * 
-     * @param target the game object to check for collision with
-     * @return it is colliding (true) or not (false)
-     */
-    public boolean isColliding(GameObject target) {
-        if (!target.isAlive) return false;                      // do not check
-        return coordinate.isOverlapping(target.coordinate);
-    }
-    
+        
     /**
      * Positions the game character correctly against (sticks to) the target
      * 

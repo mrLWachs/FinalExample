@@ -28,6 +28,9 @@ public class Image
      */
     public Image(JLabel label) {
         picture = label;
+        picture.setBorder(null); 
+        picture.setText("");
+        picture.setOpaque(false);
     }
     
     /**
@@ -38,7 +41,7 @@ public class Image
      * @param background the background color of the image
      */
     public void setDebug(String text, Color background) {
-        picture.setBorder(BorderFactory.createEtchedBorder());  
+        setBorder(true);
         if (text != null)  {
             picture.setText(text);
             picture.setHorizontalAlignment(CENTER);
@@ -50,7 +53,7 @@ public class Image
         if (picture.getIcon() != null) {
             picture.setIcon(null);
         }
-        Font font = new Font("Arial Narrow", Font.PLAIN, 10);
+        Font font = new Font("Arial Narrow", Font.PLAIN, 8);
         picture.setFont(font);
     } 
     
@@ -121,6 +124,11 @@ public class Image
      */
     public Color getBackground() {
         return picture.getBackground();
+    }
+    
+    public void setBorder(boolean haveBorder) {
+        if (haveBorder) picture.setBorder(BorderFactory.createEtchedBorder()); 
+        else            picture.setBorder(null); 
     }
     
 }

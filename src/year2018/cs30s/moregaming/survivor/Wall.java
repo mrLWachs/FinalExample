@@ -24,6 +24,7 @@ public class Wall extends GameObject
     public Wall(Image image) {
         super(image);        
         setDebug(Constants.WALL_TEXT, Constants.WALL_COLOR);
+        setBorder(false);
     }
 
 }

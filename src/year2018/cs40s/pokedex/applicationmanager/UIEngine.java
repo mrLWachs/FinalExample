@@ -3,12 +3,19 @@
 package year2018.cs40s.pokedex.applicationmanager;
 
 /** required imports */
+import java.io.File;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
+import mainpackage.MainClass;
 import year2018.cs40s.io.Dialogs;
 
 /**
@@ -40,6 +47,8 @@ public class UIEngine
     private PokeDex pokeDex;                                // Pokédex manager
     private DefaultListModel<String> listModel;             // used for listbox
     private Dialogs dialog;                                 // used for dialogs
+    
+    private final String POKEMON_UI_ICON = MainClass.MEDIA_PATH + "pokemon.png";
     
     
     /**
@@ -92,7 +101,18 @@ public class UIEngine
         pokeDex   = new PokeDex(dialog);                    // create Pokédex
         listModel = new DefaultListModel<String>();         // set list box
         this.list.setModel(listModel);              
-        updateList();                                       // update list box
+        updateList();                                       // update list box        
+         try {
+            URL       url  = getClass().getResource(POKEMON_UI_ICON);
+            URI       uri  = url.toURI();
+            File      file = new File(uri);
+            String    path = file.getAbsolutePath();
+            ImageIcon icon = new ImageIcon(path);
+            frame.setIconImage(icon.getImage());
+        }
+        catch (URISyntaxException ex) {
+            System.out.println("URI error");
+        } 
         frame.setLocationRelativeTo(null);                  // center frame
     }
 

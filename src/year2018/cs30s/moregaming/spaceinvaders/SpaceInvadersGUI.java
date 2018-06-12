@@ -70,7 +70,7 @@ public class SpaceInvadersGUI extends javax.swing.JFrame
                 false,
                 false,
                 Constants.SPACE_INVADERS_UI_BACK_COLOR,
-                Examples2018.SPACE_INVADERS_ICON);
+                Constants.SPACE_INVADERS_UI_ICON);
     }
 
     // <editor-fold defaultstate="collapsed" desc="NetBeans Visual Editor Generated Code">  
