@@ -248,9 +248,7 @@ public class SpaceInvadersGUI extends javax.swing.JFrame
     }//GEN-LAST:event_formKeyPressed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        this.dispose();
-        MainClass.gamesPlayed++;
-        Examples2018.menu();
+        engine.shutDown();
     }//GEN-LAST:event_formWindowClosing
 
     // <editor-fold defaultstate="collapsed" desc="NetBeans Visual Editor Generated Code">  

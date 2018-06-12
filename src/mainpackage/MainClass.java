@@ -44,7 +44,7 @@ public class MainClass
      * Starting the examples application, open saved data from the data file
      */
     private static void start() {
-        mediaPlayer.playWav(SOUND);                     // play sound file
+        mediaPlayer.playWAV(SOUND);                     // play sound file
         String[] data = fileHandler.read();             // read data from file
         if (data != null && data.length > 0) {          // if data is valid
             gamesPlayed = Integer.parseInt(data[0]);    // get games played
@@ -62,7 +62,7 @@ public class MainClass
         data[1] = "" + gamesPlayed;         // then all array data
         data[2] = "" + totalPoints;
         fileHandler.write(data);            // write array to data file
-        mediaPlayer.playWav(SOUND);         // play sound file
+        mediaPlayer.playWAV(SOUND);         // play sound file
         System.exit(0);                     // exit application
     }
 

@@ -86,6 +86,7 @@ public class HeroBullet extends GameCharacter
                 bases[i].kill();
                 isFiring = false;
                 hide();
+                return;
             }
         }
     }
@@ -99,6 +100,7 @@ public class HeroBullet extends GameCharacter
                 enemyShips[i].kill();
                 isFiring = false;
                 hide();
+                return;
             }
         }
     }
@@ -111,6 +113,7 @@ public class HeroBullet extends GameCharacter
             if (isColliding(walls[i])) {
                 isFiring = false;
                 hide();
+                return;
             }
         }
     }

@@ -19,11 +19,11 @@ import year2018.cs30s.gametools.Image;
 public class SpawnPoint extends GameObject
 {
 
-    private Hero    hero;
-    private Wall[]  walls;
-    private Engine  engine;
-    private Spawner spawner;
-    private Timer   spawnTimer;
+    private Hero        hero;
+    private Wall[]      walls;
+    private Engine      engine;
+    private EnemyMaster enemyMaster;
+    private Timer       spawnTimer;
     
     /**
      * Constructor for the class sets class data to the parameters
@@ -32,24 +32,23 @@ public class SpawnPoint extends GameObject
      * @param hero the hero object to associate with
      * @param walls the walls objects to associate with
      * @param engine the game engine to associate with 
-     * @param spawner 
+     * @param enemyMaster the enemy master to associate with 
      */
     public SpawnPoint(Image image, Hero hero, Wall[] walls, Engine engine,
-                      Spawner spawner) {
+                      EnemyMaster enemyMaster) {
         super(image);        
-        this.hero    = hero;
-        this.walls   = walls;
-        this.engine  = engine; 
-        this.spawner = spawner;
-        spawnTimer   = new Timer(Constants.SPAWN_TIMER_DELAY, 
+        this.hero        = hero;                // set properties to parameters
+        this.walls       = walls;
+        this.engine      = engine; 
+        this.enemyMaster = enemyMaster;
+        spawnTimer       = new Timer(Constants.SPAWN_TIMER_DELAY, 
                                new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 spawnEnemy();
             }
         });
-        spawnTimer.start();
-//        setDebug(Constants.SPAWN_POINT_TEXT, Constants.SPAWN_POINT_COLOR);
+        spawnTimer.start();                     // start spawning timer
     }
 
     /**
@@ -63,15 +62,11 @@ public class SpawnPoint extends GameObject
      * Spawns a new enemy at the spawn point
      */
     public void spawnEnemy() {
-        if (isClear()) {
-            int x = coordinate.x;
-            int y = coordinate.y;
-            int w = coordinate.width;
-            int h = coordinate.height;
-            Image enemyImage = engine.createImage(x,y,w,h,
-                                                  Constants.ENEMY_IMAGE);
-            Enemy enemy = new Enemy(enemyImage, hero, walls, engine, spawner);
-            spawner.enemies.add(enemy);
+        if (isClear()) {            // location is clear to create a spawn spot
+            Image enemyImage = engine.createImage(coordinate.x,coordinate.y,
+                    coordinate.width,coordinate.height,Constants.ENEMY_IMAGE);
+            Enemy enemy = new Enemy(enemyImage,hero,walls,engine,enemyMaster);
+            enemyMaster.enemies.add(enemy);             // add new enemy to list
         }
     }
 
@@ -82,14 +77,14 @@ public class SpawnPoint extends GameObject
      * @return the spawn area is clear (true) or not (false)
      */
     private boolean isClear() {
-        if (spawner.enemies == null) return true;           // no enemies to check
-        for (int i = 0; i < spawner.enemies.size(); i++) {  // traverse enemies
-            Enemy enemy = spawner.enemies.get(i);           // get an enemy
-            if (enemy.isColliding(this)) {          // collision with enemy
-                return false;                       // not clear
+        if (enemyMaster.enemies == null) return true;   // no enemies to check
+        for (int i = 0; i < enemyMaster.enemies.size(); i++) {  // traverse enemies
+            Enemy enemy = enemyMaster.enemies.get(i);   // get an enemy
+            if (enemy.isColliding(this)) {              // collision with enemy
+                return false;                           // not clear
             }
         }
-        return true;                                // coast is clear
+        return true;                                    // coast is clear
     }
 
 }

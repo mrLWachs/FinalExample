@@ -67,7 +67,7 @@ public class MediaPlayer
      * 
      * @param filename the relative class path to the file (*.wav) to play
      */
-    public String playWav(String filename) {
+    public String playWAV(String filename) {
         try {      
             URL url                      = getClass().getResource(filename); 
             URI uri                      = url.toURI();

@@ -50,6 +50,7 @@ public class Log extends GameCharacter
         for (int i = 0; i < walls.length; i++) {
             if (isColliding(walls[i])) {
                 bounceOff(walls[i]);
+                return;
             }
         }
     }

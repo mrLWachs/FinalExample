@@ -122,7 +122,7 @@ public class Engine
                     + "escape to return to the original image", 
                       Constants.OTHER_UI_TITLE);        
         tool.changeImage(imageLabel, MEDIA_PATH + "arrow.jpg",true);   
-        int x = imageLabel.getX();                  // get image dimensions
+        int x = imageLabel.getX();              // get image dimensions
         int y = imageLabel.getY();
         int w = imageLabel.getWidth();
         int h = imageLabel.getHeight();

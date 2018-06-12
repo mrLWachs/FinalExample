@@ -28,7 +28,7 @@ public class Image
      */
     public Image(JLabel label) {
         picture = label;
-        picture.setBorder(null); 
+        setBorder(false); 
         picture.setText("");
         picture.setOpaque(false);
     }
@@ -126,6 +126,11 @@ public class Image
         return picture.getBackground();
     }
     
+    /**
+     * Sets a border around the image (or not)
+     * 
+     * @param haveBorder should have a border (true) or not (false)
+     */
     public void setBorder(boolean haveBorder) {
         if (haveBorder) picture.setBorder(BorderFactory.createEtchedBorder()); 
         else            picture.setBorder(null); 

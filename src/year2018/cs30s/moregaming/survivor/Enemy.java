@@ -25,7 +25,7 @@ public class Enemy extends GameCharacter
     private Wall[]      walls;
     private Hero        hero;
     private Engine      engine;
-    private Spawner     spawner;
+    private EnemyMaster enemyMaster;
     private MediaPlayer player;
     private Timer       tracker;
     
@@ -42,31 +42,31 @@ public class Enemy extends GameCharacter
      * @param hero the hero object to associate with
      * @param walls the walls objects to associate with
      * @param engine the game engine to associate with
-     * @param enemies the list of enemy objects to associate with
+     * @param enemyMaster the enemy master object to associate with
      */
     public Enemy(Image image, Hero hero, Wall[] walls, Engine engine, 
-                 Spawner spawner) {
+                 EnemyMaster enemyMaster) {
         super(image, 
               Directions.STOP,
               Constants.ENEMY_MOVE_AMOUNT,
               Constants.ENEMY_TIMER_DELAY,
               Constants.ENEMY_MOVE_DIRECTIONS);
-        this.walls   = walls;               // connect parameter to property
-        this.hero    = hero;
-        this.engine  = engine;
-        this.spawner = spawner;        
-        player = new MediaPlayer();
-        number = spawner.enemies.size();
-        tracker = new Timer(Constants.ENEMY_TRACKER_TIMER_DELAY, 
+        this.walls       = walls;           // connect parameters to properties
+        this.hero        = hero;
+        this.engine      = engine;
+        this.enemyMaster = enemyMaster;        
+        player           = new MediaPlayer();           // create media player
+        number           = enemyMaster.enemies.size();  // assign number
+        tracker          = new Timer(Constants.ENEMY_TRACKER_TIMER_DELAY, 
                             new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 trackHero();
             }
         });
-        tracker.start();
+        tracker.start();                    // start hero tracking timer
         randomDirection();                  // start in a random direction
-        player.playWav(Constants.SPAWN_ENEMY_SOUND_FILE);
+        player.playWAV(Constants.SPAWN_ENEMY_SOUND_FILE);   // play spawn sound
     }
 
     /** 
@@ -107,11 +107,11 @@ public class Enemy extends GameCharacter
      * Checks for collisions with other enemies and reacts 
      */
     private void checkOtherEnemies() {
-        if (spawner.enemies == null) return;                // no enemies yet
-        for (int i = 0; i < spawner.enemies.size(); i++) {  // traverse enemies
-            Enemy enemy = spawner.enemies.get(i);           // get an enemy
-            if (enemy.equals(this) == false) {      // not colliding with self
-                if (isColliding(enemy)) {           // collision
+        if (enemyMaster.enemies == null) return;     // no enemies yet
+        for (int i = 0; i < enemyMaster.enemies.size(); i++) {  // traverse
+            Enemy enemy = enemyMaster.enemies.get(i);   // get an enemy
+            if (enemy.equals(this) == false) {          // not hiting self
+                if (isColliding(enemy)) {               // collision
                     bounceOff(enemy);
                     randomDirection();
                     return;
@@ -131,22 +131,36 @@ public class Enemy extends GameCharacter
         else                             return false;
     }
 
+    /**
+     * Tracks the hero on the vertical plane and moves toward the hero
+     */
     private void trackHeroVertially() {
         if      (hero.isAbove(this)) coordinate.direction = Directions.UP;
         else if (hero.isBelow(this)) coordinate.direction = Directions.DOWN;
     }
     
+    /**
+     * Tracks the hero on the horizontal plane and moves toward the hero
+     */
     private void trackHeroHorizontally() {
         if      (hero.isRightOf(this)) coordinate.direction = Directions.RIGHT;
         else if (hero.isLeftOf(this))  coordinate.direction = Directions.LEFT;
     }
 
+    /**
+     * Tracks the hero and randomly decides to track vertically or 
+     * horizontally, then moves toward the hero
+     */
     private void trackHero() {
         int chance = Numbers.random(1, 2);
         if      (chance == 1) trackHeroVertially();
         else if (chance == 2) trackHeroHorizontally();
     }
     
+    /**
+     * Shuts down the game character and all related timers and media players
+     */
+    @Override
     public void shutDown() {
         super.shutDown();
         player.stop();

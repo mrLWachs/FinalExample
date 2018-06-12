@@ -20,12 +20,12 @@ import year2018.cs30s.tools.ImageTools;
 public class Engine 
 {
 
-    private Hero       hero;
-    private Goal       goal;
-    private Wall[]     walls;
-    private SurvivorUI survivorUI;
-    private Spawner    spawner;
-    private ImageTools imageTool;
+    private Hero        hero;
+    private Goal        goal;
+    private Wall[]      walls;
+    private SurvivorUI  survivorUI;
+    private EnemyMaster enemyMaster;
+    private ImageTools  imageTool;
     
     /**
      * Constructor for the class sets class data to the parameters
@@ -47,19 +47,19 @@ public class Engine
         for (int i = 0; i < walls.length; i++) {
             walls[i] = new Wall(new Image(wallLabels[i]));
         }
-        goal    = new Goal(goalImage);
-        hero    = new Hero(heroImage,walls,goal,survivorUI,this);        
-        spawner = new Spawner(hero,goal,walls,survivorUI,this);        
-        hero.connectTo(spawner);        
+        goal        = new Goal(goalImage);
+        hero        = new Hero(heroImage,walls,goal,survivorUI,this);        
+        enemyMaster = new EnemyMaster(hero,goal,walls,survivorUI,this);        
+        hero.connectTo(enemyMaster);        
     }
 
     /**
-     * Shut down the Space Invaders game and all game characters and return
+     * Shut down the survivor game and all game characters and return
      * to main application menu
      */
     public void shutDown() {
         hero.shutDown();
-        spawner.shutDown();        
+        enemyMaster.shutDown();        
         survivorUI.dispose();
         MainClass.gamesPlayed++;
         Examples2018.menu();
@@ -81,15 +81,16 @@ public class Engine
      * @param y the y coordinate to create the image in the container
      * @param w the width coordinate to create the image in the container
      * @param h the height coordinate to create the image in the container
+     * @param imageFile the file path to the image file
      * @return a image for a created object 
      */
     public Image createImage(int x, int y, int w, int h, String imageFile) {
-        JLabel label = new JLabel();
-        survivorUI.getContentPane().add(label);  
-        label.setSize(w, h);        
-        imageTool.changeImage(label, imageFile, true);
-        label.setBounds(x, y, w, h);
-        Image image = new Image(label);
+        JLabel label = new JLabel();                // instantiate label
+        survivorUI.getContentPane().add(label);     // add to container
+        label.setSize(w, h);                        // set initial size
+        imageTool.changeImage(label, imageFile, true);  // change image
+        label.setBounds(x, y, w, h);                // position in container
+        Image image = new Image(label);             // create image object
         return image;
     }
     

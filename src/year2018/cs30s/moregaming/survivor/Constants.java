@@ -48,6 +48,7 @@ public class Constants
                                             MainClass.MEDIA_PATH + "goal.png";
     public static final String SPAWN_POINT_IMAGE            = 
                                         MainClass.MEDIA_PATH + "spawnPoint.png";
+    public static final int    SPAWN_POINT_BUFFER           = 10;
     public static final String SPAWN_ENEMY_SOUND_FILE       = 
                                         MainClass.MEDIA_PATH + "spawn.wav";
     public static final int    SPAWN_TIMER_DELAY            = 3500;

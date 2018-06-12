@@ -53,7 +53,7 @@ public class Constants
     public static final int    SPACE_INVADERS_UI_HEIGHT     = 720;
     public static final Color  SPACE_INVADERS_UI_BACK_COLOR = Color.black;
     public static final String SPACE_INVADERS_UI_TITLE      = "Space Invaders";
-    public static final String SPACE_INVADERS_UI_ICON       = MainClass.MEDIA_PATH + 
-                                                              "SpaceInvaders.png";
+    public static final String SPACE_INVADERS_UI_ICON       = 
+                                    MainClass.MEDIA_PATH + "SpaceInvaders.png";
 
 }

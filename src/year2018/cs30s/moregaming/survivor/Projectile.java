@@ -18,7 +18,7 @@ public class Projectile extends GameCharacter
 {
 
     private Wall[]      walls;
-    private Spawner     spawner;
+    private EnemyMaster enemyMaster;
     private MediaPlayer player;
     
     
@@ -30,17 +30,17 @@ public class Projectile extends GameCharacter
      * @param walls the walls objects to associate with
      * @param direction the direction to move the projectile
      */
-    public Projectile(Image image, Spawner spawners, Wall[] walls, 
+    public Projectile(Image image, EnemyMaster enemyMaster, Wall[] walls, 
                       int direction) {
         super(image,
               direction, 
               Constants.PROJECTILE_MOVE_AMOUNT, 
               Constants.PROJECTILE_TIMER_DELAY, 
               Constants.PROJECTILE_MOVE_DIRECTIONS);           
-        this.walls   = walls;
-        this.spawner = spawners;        
-        player = new MediaPlayer();
-        player.playWav(Constants.PROJECTILE_SOUND_FILE);
+        this.walls       = walls;           // connect parameters to properties
+        this.enemyMaster = enemyMaster;        
+        player           = new MediaPlayer();           // create media player
+        player.playWAV(Constants.PROJECTILE_SOUND_FILE);    // play spawn sound
     }
 
     /** 
@@ -50,7 +50,7 @@ public class Projectile extends GameCharacter
     public void action() {
         move();
         checkWalls();
-        spawner.check(this);
+        enemyMaster.check(this);
         redraw();
     }
 
@@ -67,6 +67,9 @@ public class Projectile extends GameCharacter
         }
     }
 
+    /**
+     * Shuts down the game character and all related timers and media players
+     */
     public void shutDown() {
         super.shutDown();
         player.stop();

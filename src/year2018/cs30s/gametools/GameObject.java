@@ -2,6 +2,7 @@
 /** required package class namespace */
 package year2018.cs30s.gametools;
 
+/** required imports */
 import java.awt.Color;
 
 /**
@@ -38,14 +39,9 @@ public class GameObject
      * @param height the height coordinate
      */
     public GameObject(int x, int y, int width, int height) {
-        this.image        = null;                     // assign parameter to property
-        coordinate        = new Coordinate();     // assign parameter to property
-        coordinate.x      = x;
-        coordinate.y      = y;
-        coordinate.width  = width;
-        coordinate.height = height;        
-        coordinate.recalculate();
-        isAlive           = true;                      // set object to be alive
+        this.image = null;                      // set image to null
+        coordinate = new Coordinate(x,y,width,height);
+        isAlive    = true;                      // set object to be alive
     }
     
     /**
@@ -106,26 +102,51 @@ public class GameObject
         return image.getBackground();
     }
     
-    
+    /**
+     * Checks if the current game object is above the passed one
+     * 
+     * @param target the game object to see if we are above
+     * @return we are above (true) or not (false)
+     */
     public boolean isAbove(GameObject target) {
         return coordinate.isAbove(target.coordinate);
     }
     
-    
+    /**
+     * Checks if the current game object is below the passed one
+     * 
+     * @param target the game object to see if we are below
+     * @return we are above (true) or not (false)
+     */
     public boolean isBelow(GameObject target) {
         return coordinate.isBelow(target.coordinate);
     }
     
-    
+    /**
+     * Checks if the current game object is right of the passed one
+     * 
+     * @param target the game object to see if we are right of
+     * @return we are above (true) or not (false)
+     */
     public boolean isRightOf(GameObject target) {
         return coordinate.isRightOf(target.coordinate);
     }
     
-    
+    /**
+     * Checks if the current game object is left of the passed one
+     * 
+     * @param target the game object to see if we are left of
+     * @return we are above (true) or not (false)
+     */
     public boolean isLeftOf(GameObject target) {
         return coordinate.isLeftOf(target.coordinate);
     }
     
+    /**
+     * Sets a border around the game object hitbox (or not)
+     * 
+     * @param haveBorder should have a border (true) or not (false)
+     */
     public void setBorder(boolean haveBorder) {
         image.setBorder(haveBorder);
     }

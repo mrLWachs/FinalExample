@@ -26,11 +26,26 @@ public class Coordinate
      * Default constructor for the class 
      */
     public Coordinate() {
-        hitbox             = null;             // assign parameter to property
+        this(0,0,0,0);
+    }
+    
+    /**
+     * Constructor for the class sets class properties
+     * 
+     * @param x the x value coordinate
+     * @param y the y value coordinate
+     * @param width the width value coordinate
+     * @param height the height value coordinate 
+     */
+    public Coordinate(int x, int y, int width, int height) {
+        hitbox             = null;              // set image to null
         direction          = Directions.STOP;   // set movement to stop
         amount             = Directions.STOP;
         numberOfDirections = Directions.STOP;
-        x = y = width = height;
+        this.x      = x;                    // assign parameters to properties
+        this.y      = y;
+        this.width  = width;
+        this.height = height;
         recalculate();
     }
     
@@ -144,32 +159,36 @@ public class Coordinate
      * Moves all coordinate data up
      */    
     public void moveUp() {
-        y = y - amount;             // move y coordinate towards origin point
-        recalculate();              // recalculate other coordinate data
+        direction = Directions.UP;      // assign direction
+        y = y - amount;                 // move y towards origin point
+        recalculate();                  // recalculate other coordinate data
     }
     
     /**
      * Moves all coordinate data down
      */
     public void moveDown() {
-        y = y + amount;             // move y coordinate away from origin point
-        recalculate();              // recalculate other coordinate data
+        direction = Directions.DOWN;    // assign direction
+        y = y + amount;                 // move y away from origin point
+        recalculate();                  // recalculate other coordinate data
     }
     
     /**
      * Moves all coordinate data left
      */
     public void moveLeft() {
-        x = x - amount;             // move x coordinate towards origin point
-        recalculate();              // recalculate other coordinate data
+        direction = Directions.LEFT;    // assign direction
+        x = x - amount;                 // move x towards origin point
+        recalculate();                  // recalculate other coordinate data
     }
     
     /**
      * Moves all coordinate data right
      */
     public void moveRight() {
-        x = x + amount;             // move x coordinate away from origin point
-        recalculate();              // recalculate other coordinate data
+        direction = Directions.RIGHT;   // assign direction
+        x = x + amount;                 // move x away from origin point
+        recalculate();                  // recalculate other coordinate data
     }
     
     /**
@@ -177,6 +196,7 @@ public class Coordinate
      */
     public void moveNorth() {
         moveUp();
+        direction = Directions.NORTH;   // assign direction
     }
     
     /**
@@ -184,6 +204,7 @@ public class Coordinate
      */
     public void moveSouth() {
         moveDown();
+        direction = Directions.SOUTH;   // assign direction
     }
     
     /**
@@ -191,6 +212,7 @@ public class Coordinate
      */
     public void moveEast() {
         moveRight();
+        direction = Directions.EAST;    // assign direction
     }
     
     /**
@@ -198,6 +220,7 @@ public class Coordinate
      */
     public void moveWest() {
         moveLeft();
+        direction = Directions.WEST;    // assign direction
     }
     
     /**
@@ -206,6 +229,7 @@ public class Coordinate
     public void moveNorthEast() {
         moveNorth();
         moveEast();
+        direction = Directions.NORTH_EAST;  // assign direction
     }
     
     /**
@@ -214,6 +238,7 @@ public class Coordinate
     public void moveNorthWest() {
         moveNorth();
         moveWest();
+        direction = Directions.NORTH_WEST;  // assign direction
     }
 
     /**
@@ -222,6 +247,7 @@ public class Coordinate
     public void moveSouthEast() {
         moveSouth();
         moveEast();
+        direction = Directions.SOUTH_EAST;  // assign direction
     }
     
     /**
@@ -230,6 +256,7 @@ public class Coordinate
     public void moveSouthWest() {
         moveSouth();
         moveWest();
+        direction = Directions.SOUTH_WEST;  // assign direction
     }
     
     /**
@@ -374,25 +401,45 @@ public class Coordinate
         recalculate();
     }
     
-    
+    /**
+     * Checks if the current set of coordinates is above the passed set
+     * 
+     * @param target the coordinates to see if we are above
+     * @return we are above (true) or not (false)
+     */
     public boolean isAbove(Coordinate target) {
         if (bottom < target.top) return true;
         return false;
     }
     
-    
+    /**
+     * Checks if the current set of coordinates is below the passed set
+     * 
+     * @param target the coordinates to see if we are below
+     * @return we are above (true) or not (false)
+     */
     public boolean isBelow(Coordinate target) {
         if (top > target.bottom) return true;
         return false;
     }
     
-    
+    /**
+     * Checks if the current set of coordinates is right of the passed set
+     * 
+     * @param target the coordinates to see if we are right of
+     * @return we are above (true) or not (false)
+     */
     public boolean isRightOf(Coordinate target) {
         if (left > target.right) return true;
         return false;
     }
     
-    
+    /**
+     * Checks if the current set of coordinates is left of the passed set
+     * 
+     * @param target the coordinates to see if we are left of
+     * @return we are above (true) or not (false)
+     */
     public boolean isLeftOf(Coordinate target) {
         if (right < target.left) return true;
         return false;

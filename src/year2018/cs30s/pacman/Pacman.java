@@ -56,6 +56,7 @@ public class Pacman extends GameCharacter
         for (int i = 0; i < walls.length; i++) {
             if (isColliding(walls[i])) {
                 stickTo(walls[i]);
+                return;
             }
         }
     }
@@ -67,6 +68,7 @@ public class Pacman extends GameCharacter
         for (int i = 0; i < dots.length; i++) {
             if (isColliding(dots[i])) {
                 dots[i].getEaten();
+                return;
             }
         }
     }

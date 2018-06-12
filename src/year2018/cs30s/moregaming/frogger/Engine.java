@@ -79,7 +79,7 @@ public class Engine
     
     /**
      * Shut down the Frogger game and all game characters and return to main 
- application menu
+     * application menu
      */
     public void shutDown() {
         frog.shutDown();                            // shut down frog
@@ -90,8 +90,8 @@ public class Engine
             logs[i].shutDown();                     // shut down log        
         }
         ui.dispose();                               // dispose of frame
-        MainClass.gamesPlayed++;                      // increment games played
-        Examples2018.menu();                             // show main app menu
+        MainClass.gamesPlayed++;                    // increment games played
+        Examples2018.menu();                        // show main app menu
     }
     
 }

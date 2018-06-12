@@ -61,6 +61,7 @@ public class Ghost extends GameCharacter
             if (isColliding(walls[i])) {
                 bounceOff(walls[i]);
                 randomDirection();
+                return;
             }
         }
     }

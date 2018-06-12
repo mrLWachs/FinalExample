@@ -97,6 +97,7 @@ public class EnemyBullet extends GameCharacter
                 bases[i].kill();
                 isFiring = false;
                 hide();
+                return;
             }
         }
     }
@@ -109,6 +110,7 @@ public class EnemyBullet extends GameCharacter
             if (isColliding(walls[i])) {
                 isFiring = false;
                 hide();
+                return;
             }
         }
     }

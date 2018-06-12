@@ -23,7 +23,7 @@ public class Hero extends GameCharacter
     private Wall[]                walls;
     private Goal                  goal;
     private Engine                engine;
-    private Spawner               spawners;
+    private EnemyMaster           enemyMaster;
     private SurvivorUI            survivorUI;    
     private ArrayList<Projectile> projectiles;
 
@@ -44,11 +44,11 @@ public class Hero extends GameCharacter
               Constants.HERO_MOVE_AMOUNT,
               Constants.HERO_TIMER_DELAY,
               Constants.HERO_MOVE_DIRECTIONS);
-        this.walls      = walls;
+        this.walls      = walls;            // connect parameters to properties
         this.goal       = goal;
         this.engine     = engine;
         this.survivorUI = survivorUI;
-        projectiles     = new ArrayList<>();
+        projectiles     = new ArrayList<>();    // create list
     }
 
     /** 
@@ -87,10 +87,10 @@ public class Hero extends GameCharacter
     /**
      * Associates this object to the spawner object
      * 
-     * @param spawners the spawners object to connect to
+     * @param enemyMaster the enemy master object to connect to
      */
-    public void connectTo(Spawner spawners) {
-        this.spawners = spawners;
+    public void connectTo(EnemyMaster enemyMaster) {
+        this.enemyMaster = enemyMaster;
     }
     
     /**
@@ -107,20 +107,24 @@ public class Hero extends GameCharacter
             int y = coordinate.y + h / 2;
             Image projectileImage = engine.createImage(x,y,w,h,
                     Constants.PROJECTILE_IMAGE);
-            Projectile projectile = new Projectile(projectileImage,spawners,
+            Projectile projectile = new Projectile(projectileImage,enemyMaster,
                                                    walls,coordinate.direction);
             projectiles.add(projectile);
         }
     }
 
+    /**
+     * Shuts down the game character and all related timers and media players
+     */
+    @Override
     public void shutDown() {
         super.shutDown();
-        for (int i = 0; i < projectiles.size(); i++) {
-            Projectile projectile = projectiles.get(i);    // get an enemy 
-            projectile.hide();                       // hide enemy
-            projectile.shutDown();                   // shut down enemy
+        for (int i = 0; i < projectiles.size(); i++) {  // traverse projectiles
+            Projectile projectile = projectiles.get(i); // get a projectile
+            projectile.hide();                          // hide projectile
+            projectile.shutDown();                      // shut down projectile
         }
-        projectiles.clear();
+        projectiles.clear();                            // clear list
     }
     
 }

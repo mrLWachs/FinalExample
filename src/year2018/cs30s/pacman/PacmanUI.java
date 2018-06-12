@@ -3,7 +3,6 @@
 package year2018.cs30s.pacman;
 
 /** required imports */
-import mainpackage.Examples2018;
 import mainpackage.MainClass;
 import year2018.cs30s.gametools.Image;
 
@@ -447,11 +446,8 @@ public class PacmanUI extends javax.swing.JFrame
     }//GEN-LAST:event_formKeyPressed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        this.dispose();
-        MainClass.gamesPlayed++;
-        Examples2018.menu();
+        engine.shutDown();
     }//GEN-LAST:event_formWindowClosing
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
