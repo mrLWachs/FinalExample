@@ -162,5 +162,18 @@ public class Dialogs
         JOptionPane.showMessageDialog(parent, area, title, 
                 JOptionPane.PLAIN_MESSAGE, null);
     }
+
+    /**
+     * Dialog confirm with yes/no buttons, the message and the title
+     * 
+     * @param message the text to display in the dialog
+     * @return user selected yes (true) or not (false)
+     */
+    public boolean yesNo(String message) {
+        int result = JOptionPane.showConfirmDialog(parent, message, dialogTitle, 
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null);
+        if (result == JOptionPane.YES_OPTION) return true;
+        else                                  return false;        
+    }
     
 }

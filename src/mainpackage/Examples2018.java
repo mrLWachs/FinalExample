@@ -5,10 +5,11 @@ package mainpackage;
 /** required imports */
 import static mainpackage.MainClass.gamesPlayed;
 import static mainpackage.MainClass.totalPoints;
-import year2018.cs30s.moregaming.frogger.FroggerGUI;
-import year2018.cs30s.moregaming.snake.SnakeUI;
-import year2018.cs30s.moregaming.spaceinvaders.SpaceInvadersGUI;
-import year2018.cs30s.moregaming.survivor.SurvivorUI;
+import year2018.cs30s.frogger.FroggerGUI;
+import year2018.cs30s.snake.SnakeUI;
+import year2018.cs30s.spaceinvaders.SpaceInvadersGUI;
+import year2018.cs30s.survivor.SurvivorUI;
+import year2018.cs30s.uno.UnoUI;
 import year2018.cs30s.other.OtherUI;
 import year2018.cs30s.pacman.PacmanUI;
 import year2018.cs40s.findprize.FindPrizes;
@@ -31,6 +32,7 @@ public class Examples2018
                                                            "Space Invaders", 
                                                            "Snake",
                                                            "Survivor",
+                                                           "Uno",
                                                            "Other",
                                                            "Choose year",
                                                            "Exit" };
@@ -75,9 +77,10 @@ public class Examples2018
         else if (choice.equals(CS30S_OPTIONS[1])) new FroggerGUI();
         else if (choice.equals(CS30S_OPTIONS[2])) new SpaceInvadersGUI();
         else if (choice.equals(CS30S_OPTIONS[3])) new SnakeUI();
-        else if (choice.equals(CS30S_OPTIONS[4])) new SurvivorUI();        
-        else if (choice.equals(CS30S_OPTIONS[5])) new OtherUI();
-        else if (choice.equals(CS30S_OPTIONS[6])) MainClass.menu();
+        else if (choice.equals(CS30S_OPTIONS[4])) new SurvivorUI(); 
+        else if (choice.equals(CS30S_OPTIONS[5])) new UnoUI();
+        else if (choice.equals(CS30S_OPTIONS[6])) new OtherUI();
+        else if (choice.equals(CS30S_OPTIONS[7])) MainClass.menu();
         else                                      MainClass.end();
     }
     
