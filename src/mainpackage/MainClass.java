@@ -7,6 +7,7 @@ import year2018.cs30s.tools.Dialogs;
 import year2018.cs30s.tools.FileHandler;
 import year2018.cs30s.tools.FrameTools;
 import year2018.cs30s.tools.MediaPlayer;
+import year2019.cs40s.systemfilemanager.FileToolsUI;
 
 /**
  * MainClass.java - the main class for the project
@@ -23,7 +24,8 @@ public class MainClass
     public  static final String   SOUND           = MEDIA_PATH + "Ding.wav";   
     public  static final String   DATA_FILE       = MEDIA_PATH + "data.txt";
         
-    private static final String[] YEAR_OPTIONS    = { "2017-2018",
+    private static final String[] YEAR_OPTIONS    = { "2018-2019",
+                                                      "2017-2018",
                                                       "Past years",
                                                       "Exit" };    
     public static final String[]  EXAMPLE_OPTIONS = { "Computer Science 30S",
@@ -75,8 +77,9 @@ public class MainClass
                     + "points!\n\nChoose a year to see examples from...";     
         String choice = dialog.choose(text,YEAR_OPTIONS);
         if      (choice == null || choice.equals("")) menu();
-        if      (choice.equals(YEAR_OPTIONS[0]))      new Examples2018();
-        else if (choice.equals(YEAR_OPTIONS[1]))      new ExamplesPastYears();
+        if      (choice.equals(YEAR_OPTIONS[0]))      new Examples2019();
+        else if (choice.equals(YEAR_OPTIONS[1]))      new Examples2018();        
+        else if (choice.equals(YEAR_OPTIONS[2]))      new ExamplesPastYears();
         else                                          end(); 
     }
             
@@ -85,7 +88,7 @@ public class MainClass
      * 
      * @param args the command line arguments
      */
-    public static void main(String[] args) {        
+    public static void main(String[] args) { 
         start();
     }
 
