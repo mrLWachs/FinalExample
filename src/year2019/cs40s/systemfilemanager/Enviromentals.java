@@ -17,8 +17,8 @@ import mainpackage.MainClass;
 public class Enviromentals 
 {
 
-    private static final Color  DEFAULT_BACKGROUND_COLOR         = new JOptionPane().getBackground();
-    private static final Color  DEFAULT_FOREGROUND_COLOR         = new JOptionPane().getForeground();   
+    private static final Color  DEFAULT_BACKGROUND_COLOR        = new JOptionPane().getBackground();
+    private static final Color  DEFAULT_FOREGROUND_COLOR        = new JOptionPane().getForeground();   
     public  static       Color  DIALOG_BACKGROUND_COLOR         = DEFAULT_BACKGROUND_COLOR;
     public  static       Color  DIALOG_FOREGROUND_COLOR         = DEFAULT_FOREGROUND_COLOR;  
     public  static       String APP_TITLE                       = "Operating System File Tools";
