@@ -1,12 +1,8 @@
-/*
- *  Mr. Wachs' classes - Java Computer Science learning file LogicController.java
- *  for project FileRenamer on 12-Sep-2018 at 9:00:05 AM by lawrence.wachs
- */
-
 
 /** required package class namespace */
 package year2019.cs40s.systemfilemanager;
 
+/** required imports */
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -17,9 +13,9 @@ import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 
-
 /**
- * LogicController.java - the logic controller for the user interface controller
+ * LogicController.java - the logic controller for the user interface for this
+ * application
  *
  * @author Mr. Wachs 
  * @since 12-Sep-2018 

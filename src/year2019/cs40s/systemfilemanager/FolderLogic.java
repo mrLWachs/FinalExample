@@ -1,14 +1,15 @@
+
 /** required package class namespace */
 package year2019.cs40s.systemfilemanager;
 
+/** required imports */
 import java.io.File;
 import javax.swing.JFileChooser;
 import year2018.cs40s.io.Dialogs;
 
 
-
 /**
- * LogicController.java - 
+ * LogicController.java - the logic for copying a folder structure
  *
  * @author Mr. Wachs 
  * @since 13-Sep-2018 
@@ -17,13 +18,17 @@ public class FolderLogic
 {
 
     private JFileChooser  chooser;
-    private FileToolsUI        userInterface;
+    private FileToolsUI   userInterface;
     private File          targetFolder;
     private File          destinationFolder;
     private Dialogs       dialog;
     private FolderBuilder folderBuilder;
     
-    
+    /**
+     * Constructor for the class sets class properties
+     * 
+     * @param userInterface the user interface for the application
+     */
     public FolderLogic(FileToolsUI userInterface) {
         this.userInterface = userInterface;
         chooser = new JFileChooser();           
@@ -40,6 +45,11 @@ public class FolderLogic
         folderBuilder = new FolderBuilder();
     }
     
+    /**
+     * Selects the target folder to copy the folder structure from
+     * 
+     * @return the result of the operation message
+     */
     public String selectTarget() {
         chooser.setDialogTitle(Enviromentals.SELECT_TARGET_DIALOG_TITLE);
         chooser.showOpenDialog(userInterface);
@@ -49,6 +59,11 @@ public class FolderLogic
         else return "...";
     }
 
+    /**
+     * Selects the destination folder to copy the folder structure into
+     * 
+     * @return the result of the operation message 
+     */
     public String selectDestination() {
         chooser.setDialogTitle(Enviromentals.SELECT_DESTINATION_DIALOG_TITLE);
         chooser.showOpenDialog(userInterface);
@@ -58,6 +73,12 @@ public class FolderLogic
         else return "...";
     }
 
+    /**
+     * Error checks the user's dialog selections to make sure the folders 
+     * selected are valid
+     * 
+     * @return selections are valid (true) or not (false)
+     */
     private String check() {
         String output = "";
         if (targetFolder == null) output = "Target folder      ->null";
@@ -69,6 +90,12 @@ public class FolderLogic
         return output;
     }
     
+    /**
+     * Builds the initial folder structure to copy from
+     * 
+     * @param output the current message state 
+     * @return the result of the operation message 
+     */
     private String buildSubFolderStructure(String output) {
         output += "\nI will now start to build the sub-folder structure...";
         dialog.show(output);        
@@ -77,6 +104,12 @@ public class FolderLogic
         return output;
     }
 
+    /**
+     * Copies the target folder structure over to the destination folder
+     * 
+     * @param output the current message state
+     * @return the result of the operation message 
+     */
     private String copyOverFolderStructure(String output) {
         output += "\nI will now copy over the folder structure!";
         dialog.show(output);

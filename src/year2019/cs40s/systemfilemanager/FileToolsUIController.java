@@ -12,7 +12,8 @@ import year2018.cs30s.tools.FrameTools;
 
 
 /**
- * FileToolsUIController.java - 
+ * FileToolsUIController.java - the user interface controller for the 
+ * application
  *
  * @author Mr. Wachs 
  * @since 21-Sep-2018 
@@ -41,6 +42,27 @@ public class FileToolsUIController
     private RenamerLogic renamerLogic;
     
     
+    /**
+     * Constructor for the class sets class properties
+     * 
+     * @param selectFolderButton UI button
+     * @param selectClassListButton UI button
+     * @param executeButton UI button
+     * @param selectTargetFolderButton UI button
+     * @param selectDestinationFolderButton UI button
+     * @param applicationTitleLabel UI label
+     * @param executeLabel UI label
+     * @param fileDuplicatorPanel UI panel
+     * @param fileCopierPanel UI panel
+     * @param fileDuplicatorTextArea UI text area
+     * @param informationTextArea UI text area
+     * @param fileCopierTextArea UI text area
+     * @param folderCopierDestinationTextArea UI text area
+     * @param folderCopierTargetTextArea UI text area
+     * @param fileDuplicatorClassListTextArea UI text area
+     * @param fileDuplicatorTargetTextArea UI text area
+     * @param userInterface the user interface form
+     */
     public FileToolsUIController(
             JButton selectFolderButton, 
             JButton selectClassListButton, 
@@ -88,32 +110,49 @@ public class FileToolsUIController
                 Enviromentals.UI_ICON);                
     }
     
-    
+    /**
+     * Select the destination folder for folder copy structure with a dialog
+     */
     public void selectDestination() {
         String result = folderLogic.selectDestination();
         folderCopierDestinationTextArea.setText(result);
     }
 
+    /**
+     * Select the target folder for folder copy structure with a dialog
+     */
     public void selectTarget() {
         String result = folderLogic.selectTarget();
         folderCopierTargetTextArea.setText(result);
     }
 
+    /**
+     * Select folder and file for duplication
+     */
     public void selectFileAndFolder() {
         String result = renamerLogic.selectFileAndFolder();
         fileDuplicatorTargetTextArea.setText(result);
     }
 
+    /**
+     * Execute file duplication process
+     */
     public void execute() {
         String result = renamerLogic.execute();
         executeLabel.setText(result);
     }
 
+    /**
+     * Select class list for duplication
+     */
     public void selectClassList() {
         String result = renamerLogic.selectClassList();
         fileDuplicatorClassListTextArea.setText(result);
     }
 
+    /**
+     * The form is shutting down
+     */
     public void shutDown() {
         userInterface.dispose();
         mainpackage.MainClass.gamesPlayed++;
