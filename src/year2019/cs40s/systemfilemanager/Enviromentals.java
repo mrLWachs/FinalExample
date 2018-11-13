@@ -6,7 +6,7 @@ package year2019.cs40s.systemfilemanager;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JOptionPane;
-import mainpackage.MainClass;
+import mainpackage.MainConstants;
 
 
 
@@ -38,7 +38,7 @@ public class Enviromentals
     public  static       String TEXT_FILE_CHOOSER_TITLE         
             = "Choose text file to use";
     public  static       String UI_ICON                         
-            = MainClass.MEDIA_PATH + "tools.png";
+            = MainConstants.MEDIA_PATH + "tools.png";
     public  static       int    UI_WIDTH                        = 1030;
     public  static       int    UI_HEIGHT                       = 660;        
     public  static       int    DIALOG_TYPE                     

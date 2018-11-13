@@ -18,6 +18,7 @@ import javax.swing.Timer;
 import javax.swing.border.Border;
 import mainpackage.Examples2018;
 import mainpackage.MainClass;
+import mainpackage.MainConstants;
 import year2018.cs30s.tools.Numbers;
 
 /**
@@ -30,7 +31,7 @@ import year2018.cs30s.tools.Numbers;
 public class SnakeUI extends JFrame
 {
     
-    private final String SNAKE_ICON            = MainClass.MEDIA_PATH + 
+    private final String SNAKE_ICON            = MainConstants.MEDIA_PATH + 
                                                  "Snake.png";
     private final int    FORM_WIDTH            = 1200;
     private final int    FORM_HEIGHT           = 800;

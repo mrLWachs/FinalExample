@@ -5,6 +5,7 @@ package year2018.cs40s.login;
 /** required imports */
 import mainpackage.Examples2018;
 import mainpackage.MainClass;
+import mainpackage.MainConstants;
 
 /**
  * LogIn.java - the login user interface to log in
@@ -16,7 +17,7 @@ import mainpackage.MainClass;
 public class LogIn extends javax.swing.JFrame 
 {
     
-    private final String LOGIN_ICON = MainClass.MEDIA_PATH + "Login.png";
+    private final String LOGIN_ICON = MainConstants.MEDIA_PATH + "Login.png";
     
     /**
      * Default constructor for the class

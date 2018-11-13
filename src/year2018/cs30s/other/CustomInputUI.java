@@ -3,7 +3,7 @@
 package year2018.cs30s.other;
 
 /** required imports */
-import static mainpackage.MainClass.MEDIA_PATH;
+import mainpackage.MainConstants;
 import year2018.cs30s.tools.FrameTools;
 
 /**
@@ -18,7 +18,8 @@ public class CustomInputUI extends javax.swing.JDialog
 
     private final int    DIALOG_UI_WIDTH  = 265;
     private final int    DIALOG_UI_HEIGHT = 150;    
-    private final String DIALOG_UI_ICON   = MEDIA_PATH + "examples.png";
+    private final String DIALOG_UI_ICON   = MainConstants.MEDIA_PATH + 
+            "examples.png";
     
     
     /**

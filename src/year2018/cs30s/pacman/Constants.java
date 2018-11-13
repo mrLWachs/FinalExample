@@ -4,7 +4,7 @@ package year2018.cs30s.pacman;
 
 /** required imports */
 import java.awt.Color;
-import mainpackage.MainClass;
+import mainpackage.MainConstants;
 import year2018.cs30s.gametools.Directions;
 
 /**
@@ -37,7 +37,7 @@ public class Constants
     public static final int    PACMAN_UI_HEIGHT        = 700;
     public static final Color  PACMAN_UI_BACK_COLOR    = Color.black;
     public static final String PACMAN_UI_TITLE         = "Pacman";
-    public static final String PACMAN_UI_ICON          = MainClass.MEDIA_PATH + 
-                                                         "Pacman.png";
+    public static final String PACMAN_UI_ICON          = 
+            MainConstants.MEDIA_PATH + "Pacman.png";
         
 }

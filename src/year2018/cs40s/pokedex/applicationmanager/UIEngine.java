@@ -4,7 +4,6 @@ package year2018.cs40s.pokedex.applicationmanager;
 
 /** required imports */
 import java.io.File;
-import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -15,7 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
-import mainpackage.MainClass;
+import mainpackage.MainConstants;
 import year2018.cs40s.io.Dialogs;
 
 /**
@@ -48,7 +47,8 @@ public class UIEngine
     private DefaultListModel<String> listModel;             // used for listbox
     private Dialogs dialog;                                 // used for dialogs
     
-    private final String POKEMON_UI_ICON = MainClass.MEDIA_PATH + "pokemon.png";
+    private final String POKEMON_UI_ICON = MainConstants.MEDIA_PATH + 
+            "pokemon.png";
     
     
     /**

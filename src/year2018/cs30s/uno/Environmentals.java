@@ -7,7 +7,7 @@ import java.awt.Color;
 import java.awt.Font;
 import javax.swing.BorderFactory;
 import javax.swing.border.Border;
-import mainpackage.MainClass;
+import mainpackage.MainConstants;
 
 /**
  * Environmentals.java - game constant and variable values for the uno game
@@ -23,7 +23,7 @@ public class Environmentals
     public static final int     UNO_UI_HEIGHT     = 640;
     public static final Color   UNO_UI_BACK_COLOR = Color.white;
     public static final String  UNO_UI_TITLE      = "Uno";
-    public static final String  UNO_UI_ICON       = MainClass.MEDIA_PATH + 
+    public static final String  UNO_UI_ICON       = MainConstants.MEDIA_PATH + 
                                                                     "uno.png";
     public static String        CARD_FONT         = "Times New Roman"; 
     public static int           CARD_FONT_SIZE    = 11;

@@ -25,7 +25,7 @@ public class ExamplesPastYears
         String text = "You have played " + gamesPlayed + " total "
                     + "games, and earned " + totalPoints + " total "
                     + "points!\n\nThese example are not yet prepared..";  
-        new Dialogs().output(text, MainClass.APP_TITLE);
+        new Dialogs().output(text, MainConstants.APP_TITLE);
         MainClass.menu();
     }
     

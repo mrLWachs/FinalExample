@@ -10,6 +10,7 @@ import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 import mainpackage.Examples2018;
 import mainpackage.MainClass;
+import mainpackage.MainConstants;
 
 /**
  * Globals.java - game global variables, constants and static methods for the 
@@ -32,10 +33,10 @@ public class Globals
     public static final  int     GRID_SIZE               = MAIN_FRAME_WIDTH / 
                                                                             20;
     private static final String  MAIN_TITLE              = "Main Screen"; 
-    private static final String  MAIN_ICON_FILE          = MainClass.MEDIA_PATH + 
-                                                            "FindPrizes.png"; 
-    private static final String  NEXT_ICON_FILE          = MainClass.MEDIA_PATH + 
-                                                            "FindPrizes.png";     
+    private static final String  MAIN_ICON_FILE          = 
+            MainConstants.MEDIA_PATH + "FindPrizes.png"; 
+    private static final String  NEXT_ICON_FILE          = 
+            MainConstants.MEDIA_PATH + "FindPrizes.png";     
     public static final  int     NEXT_FRAME_WIDTH        = 300;
     public static final  int     NEXT_FRAME_HEIGHT       = 150;   
     private static final String  NEXT_TITLE              = "Next Screen";

@@ -4,7 +4,7 @@ package year2018.cs30s.frogger;
 
 /** required imports */
 import java.awt.Color;
-import mainpackage.MainClass;
+import mainpackage.MainConstants;
 import year2018.cs30s.gametools.Directions;
 
 /**
@@ -48,7 +48,7 @@ public class Constants
     public static final int    FROGGER_UI_HEIGHT       = 720;
     public static final Color  FROGGER_UI_BACK_COLOR   = Color.black;
     public static final String FROGGER_UI_TITLE        = "Frogger";
-    public static final String FROGGER_UI_ICON         = MainClass.MEDIA_PATH + 
+    public static final String FROGGER_UI_ICON         = MainConstants.MEDIA_PATH + 
                                                          "Frogger.png";
     
 }

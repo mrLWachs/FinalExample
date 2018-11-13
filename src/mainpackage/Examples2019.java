@@ -5,6 +5,7 @@ package mainpackage;
 /** required imports */
 import static mainpackage.MainClass.gamesPlayed;
 import static mainpackage.MainClass.totalPoints;
+import year2019.cs30s.email.Emailer;
 import year2019.cs40s.bufferedimages.BufferedImagesMain;
 import year2019.cs40s.systemfilemanager.FileToolsUI;
 
@@ -19,7 +20,7 @@ import year2019.cs40s.systemfilemanager.FileToolsUI;
 public class Examples2019
 {
         
-    private static final String[]  CS30S_OPTIONS       = { "Nothing yet...",
+    private static final String[]  CS30S_OPTIONS       = { "Emailer",
                                                            "Choose year",
                                                            "Exit" };
     private static final String[]  CS40S_OPTIONS       = { "File Tools",
@@ -38,27 +39,34 @@ public class Examples2019
      * The main application menu for the various examples
      */
     public static void menu() {
-        String text = "You have played " + gamesPlayed + " total "
-                    + "games, and earned " + totalPoints + " total "
-                    + "points!\n\nChoose an example from 2019 in Computer "
-                    + "Science 30S (or 32SIB) or 40S (or 42SIB)...";
+        String text = MainConstants.MENU_PROMPT_1 + gamesPlayed + 
+                      MainConstants.MENU_PROMPT_2 + totalPoints + 
+                      MainConstants.MENU_PROMPT_3 +  
+                      MainConstants.MENU_PROMPT_4 + "2019 " +
+                      MainConstants.MENU_PROMPT_5;
         String choice = MainClass.dialog.buttons(text, 
-                                                 MainClass.EXAMPLE_OPTIONS);
-        if      (choice.equals(MainClass.EXAMPLE_OPTIONS[0])) menuCS30S();
-        else if (choice.equals(MainClass.EXAMPLE_OPTIONS[1])) menuCS40S();
-        else if (choice.equals(MainClass.EXAMPLE_OPTIONS[2])) MainClass.menu();         
-        else                                                  MainClass.end();
+                                                 MainConstants.EXAMPLE_OPTIONS);
+        if      (choice.equals(MainConstants.EXAMPLE_OPTIONS[0])) 
+            menuCS30S();
+        else if (choice.equals(MainConstants.EXAMPLE_OPTIONS[1])) 
+            menuCS40S();
+        else if (choice.equals(MainConstants.EXAMPLE_OPTIONS[2])) 
+            MainClass.menu();         
+        else                                                  
+            MainClass.end();
      }
      
     /**
      * The menu for the Computer Science 30S examples
      */
     private static void menuCS30S() {
-        String text = "You have played " + gamesPlayed + " total "
-                    + "games, and earned " + totalPoints + " total "
-                    + "points!\n\nChoose a Computer Science 30S example...";
+        String text = MainConstants.MENU_PROMPT_1 + gamesPlayed + 
+                      MainConstants.MENU_PROMPT_2 + totalPoints + 
+                      MainConstants.MENU_PROMPT_3 + 
+                      MainConstants.MENU_PROMPT_6;
         String choice = MainClass.dialog.buttons(text, CS30S_OPTIONS);
-        if      (choice.equals(CS30S_OPTIONS[1])) MainClass.menu();
+        if      (choice.equals(CS30S_OPTIONS[0])) new Emailer();
+        else if (choice.equals(CS30S_OPTIONS[1])) MainClass.menu();
         else                                      MainClass.end();
     }
     
@@ -66,9 +74,10 @@ public class Examples2019
      * The menu for the Computer Science 40S examples
      */
     private static void menuCS40S() {
-        String text = "You have played " + gamesPlayed + " total "
-                    + "games, and earned " + totalPoints + " total "
-                    + "points!\n\nChoose a Computer Science 40S example...";
+        String text = MainConstants.MENU_PROMPT_1 + gamesPlayed + 
+                      MainConstants.MENU_PROMPT_2 + totalPoints + 
+                      MainConstants.MENU_PROMPT_3 + 
+                      MainConstants.MENU_PROMPT_7;
         String choice = MainClass.dialog.buttons(text, CS40S_OPTIONS);
         if      (choice.equals(CS40S_OPTIONS[0])) new FileToolsUI();
         else if (choice.equals(CS40S_OPTIONS[1])) new BufferedImagesMain();

@@ -9,7 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import mainpackage.Examples2018;
 import mainpackage.MainClass;
-import static mainpackage.MainClass.MEDIA_PATH;
+import mainpackage.MainConstants;
 import year2018.cs30s.tools.Dialogs;
 import year2018.cs30s.tools.ImageLabel;
 import year2018.cs30s.tools.ImageTools;
@@ -121,7 +121,8 @@ public class Engine
                     + "keys on the keyboard to rotate the image!\n\nPress "
                     + "escape to return to the original image", 
                       Constants.OTHER_UI_TITLE);        
-        tool.changeImage(imageLabel, MEDIA_PATH + "arrow.jpg",true);   
+        tool.changeImage(imageLabel, MainConstants.MEDIA_PATH + "arrow.jpg",
+                true);   
         int x = imageLabel.getX();              // get image dimensions
         int y = imageLabel.getY();
         int w = imageLabel.getWidth();
@@ -158,7 +159,7 @@ public class Engine
     public void keypress(KeyEvent event) {
         if (event.getKeyCode() == KeyEvent.VK_ESCAPE) {     // escape key
             imageLabel.setVisible(true);                    // make visible
-            tool.changeImage(imageLabel, MEDIA_PATH + 
+            tool.changeImage(imageLabel, MainConstants.MEDIA_PATH + 
                              "computerScience.jpg",false);  // change image
             rotatingImage.setVisible(false);                // make invisble
         }        

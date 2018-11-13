@@ -19,34 +19,23 @@ import year2019.cs40s.systemfilemanager.FileToolsUI;
 public class MainClass 
 {
 
-    public  static final String   MEDIA_PATH      = "/media/";  
-    public  static final String   APP_ICON        = MEDIA_PATH + "icon.png";
-    public  static final String   SOUND           = MEDIA_PATH + "Ding.wav";   
-    public  static final String   DATA_FILE       = MEDIA_PATH + "data.txt";
-        
-    private static final String[] YEAR_OPTIONS    = { "2018-2019",
-                                                      "2017-2018",
-                                                      "Past years",
-                                                      "Exit" };    
-    public static final String[]  EXAMPLE_OPTIONS = { "Computer Science 30S",
-                                                      "Computer Science 40S",
-                                                      "Choose year",
-                                                      "Exit" };
-    public static final String    APP_TITLE       = "Mr. Wachs Examples...";
+
         
     public static int         gamesPlayed = 0;
     public static int         totalPoints = 0;   
     public static MediaPlayer mediaPlayer = new MediaPlayer();   
-    public static Dialogs     dialog      = new Dialogs(APP_TITLE);
+    public static Dialogs     dialog      = 
+            new Dialogs(MainConstants.APP_TITLE);
     public static FrameTools  frameTool   = new FrameTools();
-    public static FileHandler fileHandler = new FileHandler(DATA_FILE);
+    public static FileHandler fileHandler = 
+            new FileHandler(MainConstants.DATA_FILE);
     
     
     /**
      * Starting the examples application, open saved data from the data file
      */
     private static void start() {
-        mediaPlayer.playWAV(SOUND);                     // play sound file
+        mediaPlayer.playWAV(MainConstants.SOUND);           // play sound file
         String[] data = fileHandler.read();             // read data from file
         if (data != null && data.length > 0) {          // if data is valid
             gamesPlayed = Integer.parseInt(data[0]);    // get games played
@@ -64,7 +53,7 @@ public class MainClass
         data[1] = "" + gamesPlayed;         // then all array data
         data[2] = "" + totalPoints;
         fileHandler.write(data);            // write array to data file
-        mediaPlayer.playWAV(SOUND);         // play sound file
+        mediaPlayer.playWAV(MainConstants.SOUND);         // play sound file
         System.exit(0);                     // exit application
     }
 
@@ -72,14 +61,18 @@ public class MainClass
      * The main application menu for the various examples
      */
     public static void menu() {
-        String text = "You have played " + gamesPlayed + " total "
-                    + "games, and earned " + totalPoints + " total "
-                    + "points!\n\nChoose a year to see examples from...";     
-        String choice = dialog.choose(text,YEAR_OPTIONS);
+        String text = MainConstants.MENU_PROMPT_1 + gamesPlayed + 
+                      MainConstants.MENU_PROMPT_2 + totalPoints + 
+                      MainConstants.MENU_PROMPT_3 +
+                      MainConstants.MENU_PROMPT_8;
+        String choice = dialog.choose(text,MainConstants.YEAR_OPTIONS);
         if      (choice == null || choice.equals("")) menu();
-        if      (choice.equals(YEAR_OPTIONS[0]))      new Examples2019();
-        else if (choice.equals(YEAR_OPTIONS[1]))      new Examples2018();        
-        else if (choice.equals(YEAR_OPTIONS[2]))      new ExamplesPastYears();
+        if      (choice.equals(MainConstants.YEAR_OPTIONS[0])) 
+            new Examples2019();
+        else if (choice.equals(MainConstants.YEAR_OPTIONS[1])) 
+            new Examples2018();        
+        else if (choice.equals(MainConstants.YEAR_OPTIONS[2])) 
+            new ExamplesPastYears();
         else                                          end(); 
     }
             

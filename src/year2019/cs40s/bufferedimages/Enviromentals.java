@@ -5,7 +5,7 @@ package year2019.cs40s.bufferedimages;
 /** required imports */
 import java.awt.Color;
 import javax.swing.JOptionPane;
-import mainpackage.MainClass;
+import mainpackage.MainConstants;
 
 
 /**
@@ -24,7 +24,7 @@ public class Enviromentals
     public  static       String APP_TITLE                       
             = "Buffered Images Example";
     public  static       String UI_ICON                         
-            = MainClass.MEDIA_PATH + "tools.png";
+            = MainConstants.MEDIA_PATH + "tools.png";
     public  static       int    UI_WIDTH                        = 900;
     public  static       int    UI_HEIGHT                       = 700;    
 
