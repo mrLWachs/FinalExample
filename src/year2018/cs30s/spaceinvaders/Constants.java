@@ -5,6 +5,7 @@ package year2018.cs30s.spaceinvaders;
 /** required imports */
 import java.awt.Color;
 import mainpackage.MainClass;
+import mainpackage.MainConstants;
 import year2018.cs30s.gametools.Directions;
 
 /**
@@ -54,6 +55,6 @@ public class Constants
     public static final Color  SPACE_INVADERS_UI_BACK_COLOR = Color.black;
     public static final String SPACE_INVADERS_UI_TITLE      = "Space Invaders";
     public static final String SPACE_INVADERS_UI_ICON       = 
-                                    MainClass.MEDIA_PATH + "SpaceInvaders.png";
+                                    MainConstants.MEDIA_PATH + "SpaceInvaders.png";
 
 }

@@ -15,9 +15,7 @@ public class Emailer
 {
 
    public Emailer() {
-       JOptionPane.showMessageDialog(null, "write me!");
-       
-       
+       new UserInterface();
    }
 
 }

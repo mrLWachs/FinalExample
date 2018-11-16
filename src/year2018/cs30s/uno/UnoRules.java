@@ -249,14 +249,10 @@ public class UnoRules
 
     public void message(String text) {        
         if (player != null) {
-            player.informationLabel.setBackground(
-                    Environmentals.UNO_UI_BACK_COLOR);
-            opponents[OPPONENT_1].informationLabel.setBackground(
-                    Environmentals.UNO_UI_BACK_COLOR);
-            opponents[OPPONENT_2].informationLabel.setBackground(
-                    Environmentals.UNO_UI_BACK_COLOR);
-            opponents[OPPONENT_3].informationLabel.setBackground(
-                    Environmentals.UNO_UI_BACK_COLOR);
+            player.informationLabel.setBackground(Environmentals.UNO_UI_BACK_COLOR);
+            opponents[OPPONENT_1].informationLabel.setBackground(Environmentals.UNO_UI_BACK_COLOR);
+            opponents[OPPONENT_2].informationLabel.setBackground(Environmentals.UNO_UI_BACK_COLOR);
+            opponents[OPPONENT_3].informationLabel.setBackground(Environmentals.UNO_UI_BACK_COLOR);
             if (nextTurn != PLAYER) {
                 opponent.informationLabel.setBackground(Color.yellow);
             }
