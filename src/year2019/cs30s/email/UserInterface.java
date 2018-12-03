@@ -1,15 +1,10 @@
-/*
- *  Mr. Wachs' classes - Java Computer Science learning file UserInterface.java
- *  for project FinalExamples on 16-Nov-2018 at 11:58:34 AM by lawrence.wachs
- */
-
 
 /** required package class namespace */
 package year2019.cs30s.email;
 
 
 /**
- * UserInterface.java - 
+ * UserInterface.java - the user interface model for the email application
  *
  * @author Mr. Wachs 
  * @since 16-Nov-2018 
@@ -22,9 +17,12 @@ public class UserInterface extends javax.swing.JFrame
     /** Creates new form UserInterface */
     public UserInterface() {
         initComponents();
-        manager = new UIManager(jTextArea1,jTextField1,jTextField2,jTextField3,this);
+        manager = new UIManager(jTextArea1,jPasswordField1,jTextField1,
+                jTextField2,jTextField3,this);
     }
 
+    // <editor-fold defaultstate="collapsed" desc="NetBeans Generated Code">   
+    
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -43,6 +41,8 @@ public class UserInterface extends javax.swing.JFrame
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jPasswordField1 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -51,11 +51,11 @@ public class UserInterface extends javax.swing.JFrame
         getContentPane().add(jLabel2);
         jLabel2.setBounds(10, 10, 70, 20);
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(70, 10, 250, 20);
+        jTextField1.setBounds(80, 10, 240, 20);
 
         jLabel3.setText("To:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(10, 40, 70, 20);
+        jLabel3.setBounds(10, 70, 70, 20);
 
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,20 +63,20 @@ public class UserInterface extends javax.swing.JFrame
             }
         });
         getContentPane().add(jTextField2);
-        jTextField2.setBounds(70, 40, 250, 20);
+        jTextField2.setBounds(80, 70, 240, 20);
 
         jLabel4.setText("Subject:");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(10, 70, 70, 20);
+        jLabel4.setBounds(10, 100, 70, 20);
         getContentPane().add(jTextField3);
-        jTextField3.setBounds(70, 70, 250, 20);
+        jTextField3.setBounds(80, 100, 240, 20);
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(10, 100, 310, 140);
+        jScrollPane1.setBounds(10, 130, 310, 140);
 
         jButton1.setText("SEND");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -85,7 +85,13 @@ public class UserInterface extends javax.swing.JFrame
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(10, 250, 310, 40);
+        jButton1.setBounds(10, 280, 310, 40);
+
+        jLabel5.setText("Password:");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(10, 40, 70, 20);
+        getContentPane().add(jPasswordField1);
+        jPasswordField1.setBounds(80, 40, 240, 20);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -94,15 +100,21 @@ public class UserInterface extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
+    // </editor-fold>
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         manager.send();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    // <editor-fold defaultstate="collapsed" desc="NetBeans Generated Code"> 
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
@@ -110,4 +122,7 @@ public class UserInterface extends javax.swing.JFrame
     private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 
+    
+    // </editor-fold> 
+    
 }
