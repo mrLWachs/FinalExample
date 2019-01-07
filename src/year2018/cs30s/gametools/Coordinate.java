@@ -83,11 +83,11 @@ public class Coordinate
      * Updates the current location of the coordinates box in its container
      */
     public void update() {
-        x      = hitbox.getX();             // get x coordinate from hitbox
-        y      = hitbox.getY();             // get y coordinate from hitbox
-        width  = hitbox.getWidth();         // get width coordinate from hitbox
-        height = hitbox.getHeight();        // get height coordinate from hitbox
-        recalculate();                      // recalculate other needed data
+        x      = hitbox.getX();         // get x coordinate from hitbox
+        y      = hitbox.getY();         // get y coordinate from hitbox
+        width  = hitbox.getWidth();     // get width coordinate from hitbox
+        height = hitbox.getHeight();    // get height coordinate from hitbox
+        recalculate();                  // recalculate other needed data
     }
 
     /**
@@ -315,10 +315,14 @@ public class Coordinate
      * @param target the coordinate data to stick to
      */
     public void stickTo(Coordinate target) {
-        if      (direction == Directions.UP)    y = target.y + target.height + 1;
-        else if (direction == Directions.DOWN)  y = target.y - height        - 1;
-        else if (direction == Directions.RIGHT) x = target.x - width         - 1;
-        else if (direction == Directions.LEFT)  x = target.x + target.width  + 1;
+        if      (direction == Directions.UP)    
+                                            y = target.y + target.height + 1;
+        else if (direction == Directions.DOWN)  
+                                            y = target.y - height        - 1;
+        else if (direction == Directions.RIGHT) 
+                                            x = target.x - width         - 1;
+        else if (direction == Directions.LEFT)  
+                                            x = target.x + target.width  + 1;
         recalculate();
     }
     

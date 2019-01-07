@@ -8,6 +8,7 @@
 package year2019.cs40s.bufferedimages;
 
 import java.awt.event.KeyEvent;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 
@@ -25,12 +26,12 @@ public class GameManager
     private Wall[] walls;
     
     
-    public GameManager(JLabel heroLabel, JLabel[] wallLabels) {
+    public GameManager(JLabel heroLabel, JLabel[] wallLabels, JFrame frame) {
         walls = new Wall[wallLabels.length];
         for (int i = 0; i < wallLabels.length; i++) {
             walls[i] = new Wall(wallLabels[i]);
         }
-        hero = new Hero(heroLabel);
+        hero = new Hero(heroLabel,frame);
     }
 
     public void keyPress(KeyEvent evt) {

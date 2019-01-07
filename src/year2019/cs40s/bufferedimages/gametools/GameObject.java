@@ -22,7 +22,7 @@ public class GameObject
     /**
      * Visual picture image used on a user interface
      */
-    protected Image image;
+    protected GameImage image;
     
     /**
      * Flag determines if this object is alive in a game
@@ -49,7 +49,7 @@ public class GameObject
      * 
      * @param image picture image used on a user interface
      */
-    public GameObject(Image image) {
+    public GameObject(GameImage image) {
         this.image = image;                     // assign parameter to property
         coordinate = new Coordinate(image);     // assign parameter to property
         isAlive    = true;                      // set object to be alive
@@ -90,7 +90,7 @@ public class GameObject
      * @param background the background color of the image
      */
     public void setDebug(String text, Color background) {
-        image.setDebug(text, background);
+//        image.setDebug(text, background);
     }
     
     /**
@@ -148,7 +148,7 @@ public class GameObject
      * @param haveBorder should have a border (true) or not (false)
      */
     public void setBorder(boolean haveBorder) {
-        image.setBorder(haveBorder);
+//        image.setBorder(haveBorder);
     }
     
 }

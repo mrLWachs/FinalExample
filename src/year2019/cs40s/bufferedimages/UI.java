@@ -19,8 +19,8 @@ public class UI extends javax.swing.JFrame
     /** Creates new form UI */
     public UI() {
         initComponents();
-        JLabel[] wallLabels = {jLabel1,jLabel2,jLabel3,jLabel4};
-        manager = new UIManager(jLabel5,wallLabels,this);
+        JLabel[] wallLabels = {jLabel2,jLabel3,jLabel4,jLabel5};
+        manager = new UIManager(jLabel1,wallLabels,this);
     }
 
     /** This method is called from within the constructor to

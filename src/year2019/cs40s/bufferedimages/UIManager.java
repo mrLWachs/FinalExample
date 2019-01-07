@@ -33,7 +33,7 @@ public class UIManager
         this.heroLabel     = heroLabel;
         this.wallLabels    = wallLabels;
         this.userInterface = userInterface;  
-        gameManager        = new GameManager(heroLabel,wallLabels);
+        gameManager        = new GameManager(heroLabel,wallLabels,userInterface);
         new FrameTools().startup(
                 userInterface, 
                 Enviromentals.APP_TITLE, 

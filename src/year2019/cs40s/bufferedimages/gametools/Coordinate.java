@@ -21,7 +21,7 @@ public class Coordinate
                left,right,top,bottom,
                amount,direction, numberOfDirections;
     
-    private Image hitbox;                      // the Image hitbox image
+    private GameImage hitbox;                      // the Image hitbox image
     
     /**
      * Default constructor for the class 
@@ -55,7 +55,7 @@ public class Coordinate
      * 
      * @param image the JLabel hitbox image
      */
-    public Coordinate(Image image) {
+    public Coordinate(GameImage image) {
         hitbox             = image;             // assign parameter to property
         direction          = Directions.STOP;   // set movement to stop
         amount             = Directions.STOP;
@@ -71,7 +71,7 @@ public class Coordinate
      * @param amount the starting amount of movement
      * @param numberOfDirections the number of directions defined
      */
-    public Coordinate(Image image, int direction, int amount, 
+    public Coordinate(GameImage image, int direction, int amount, 
                       int numberOfDirections) {
         hitbox         = image;                 // assign parameter to property
         this.direction = direction;             // assign parameter to property
@@ -84,6 +84,7 @@ public class Coordinate
      * Updates the current location of the coordinates box in its container
      */
     public void update() {
+        if (hitbox == null) return;
         x      = hitbox.getX();             // get x coordinate from hitbox
         y      = hitbox.getY();             // get y coordinate from hitbox
         width  = hitbox.getWidth();         // get width coordinate from hitbox

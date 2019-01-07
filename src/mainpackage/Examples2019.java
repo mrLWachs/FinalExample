@@ -7,6 +7,7 @@ import static mainpackage.MainClass.gamesPlayed;
 import static mainpackage.MainClass.totalPoints;
 import year2019.cs30s.email.EmailMain;
 import year2019.cs40s.bufferedimages.BufferedImagesMain;
+import year2019.cs40s.genericgame.Game;
 import year2019.cs40s.systemfilemanager.FileToolsUI;
 
 /**
@@ -25,6 +26,7 @@ public class Examples2019
                                                            "Exit" };
     private static final String[]  CS40S_OPTIONS       = { "File Tools",
                                                            "Buffered Images",
+                                                           "Generic Game",
                                                            "Choose year",
                                                            "Exit" };
         
@@ -81,7 +83,8 @@ public class Examples2019
         String choice = MainClass.dialog.buttons(text, CS40S_OPTIONS);
         if      (choice.equals(CS40S_OPTIONS[0])) new FileToolsUI();
         else if (choice.equals(CS40S_OPTIONS[1])) new BufferedImagesMain();
-        else if (choice.equals(CS40S_OPTIONS[2])) MainClass.menu();
+        else if (choice.equals(CS40S_OPTIONS[2])) new Game();
+        else if (choice.equals(CS40S_OPTIONS[3])) MainClass.menu();
         else                                      MainClass.end(); 
     }
     

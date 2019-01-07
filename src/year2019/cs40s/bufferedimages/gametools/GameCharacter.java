@@ -29,7 +29,7 @@ public abstract class GameCharacter extends GameObject
      * @param delay the delay in milliseconds of the character's timer
      * @param numberOfDirections the number of directions defined
      */
-    public GameCharacter(Image image, int direction, int amount, int delay,
+    public GameCharacter(GameImage image, int direction, int amount, int delay,
                          int numberOfDirections) {
         super(image);                               // build game object
         super.coordinate = new Coordinate(image, direction, amount,
@@ -55,7 +55,7 @@ public abstract class GameCharacter extends GameObject
      */
     public void redraw() {
         if (!isAlive) return;                       // no need for this action
-        image.redraw(coordinate);
+        image.redraw();
     }
     
     /**
