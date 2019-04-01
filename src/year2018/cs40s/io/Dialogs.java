@@ -24,11 +24,11 @@ import javax.swing.JTextArea;
 public class Dialogs
 {
 
-    private final Font DEFAULT_FONT
+    public static final Font DEFAULT_FONT
             = new JOptionPane().getFont();
-    private final Color DEFAULT_BACKGROUND_COLOR
+    public static final Color DEFAULT_BACKGROUND_COLOR
             = new JOptionPane().getBackground();
-    private final Color DEFAULT_FOREGROUND_COLOR
+    public static final Color DEFAULT_FOREGROUND_COLOR
             = new JOptionPane().getForeground();
     private final String DEFAULT_TITLE = "";
     private final Component DEFAULT_COMPONENT = null;
