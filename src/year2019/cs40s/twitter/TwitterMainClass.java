@@ -1,8 +1,3 @@
-/*
- *  Mr. Wachs' classes - Java Computer Science learning file MainClass.java
- *  for project FinalExamples on 22-Mar-2019 at 3:25:03 PM by lawrence.wachs
- */
-
 
 /** required package class namespace */
 package year2019.cs40s.twitter;
