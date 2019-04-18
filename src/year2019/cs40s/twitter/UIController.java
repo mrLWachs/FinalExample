@@ -20,10 +20,11 @@ import javax.swing.JTextField;
 import javax.swing.JToggleButton;
 import javax.swing.Timer;
 import javax.swing.border.TitledBorder;
-import year2018.cs40s.io.Dialogs;
+
 
 /**
- * UIController.java - 
+ * UIController.java - the controller class (based on MVC model) for the 
+ * application user interface
  *
  * @author Mr. Wachs 
  * @since 12-Mar-2019 
@@ -61,11 +62,16 @@ public class UIController
     private int              counter;
     
     
-    
+    /**
+     * Default constructor for the class, sets class properties
+     * 
+     * @param controls an array of all user interface control objects 
+     * @param ui the user interface (view)
+     */
     public UIController(JComponent[] controls, UIView ui) {
         this.controls            = controls;
         this.ui                  = ui;
-        
+        // associate all objects inthe array
         createReportFileButton   = (JButton)      this.controls[0];
         clearButton              = (JButton)      this.controls[1];
         addButton                = (JButton)      this.controls[2];
@@ -87,18 +93,18 @@ public class UIController
         twitterUserTextbox       = (JTextField)   this.controls[18];
         addWatchWordTextbox      = (JTextField)   this.controls[19];
         startStopToggleButton    = (JToggleButton)this.controls[20];
-        
+        // instantiate all list models
         allTweetDataListModel    = new DefaultListModel();
         watchWordListModel       = new DefaultListModel();
         relevantTweetsListModel  = new DefaultListModel();
-        
+        // set list models to the UI list box controls
         allTweetDataListbox.setModel(   allTweetDataListModel   );
         watchWordListbox.setModel(      watchWordListModel      );
         relevantTweetsListbox.setModel( relevantTweetsListModel );
-        
+        // associate model objects with their defaults
         UIModel.twitterUser = UIModel.DEFAULT_TWITTER_USER;
         UIModel.watchWords  = UIModel.DEFAULT_WATCH_WORDS;
-        
+        // instantiate the Twitter reader object
         UIModel.twitterReader = new TwitterReader(
                         allTweetDataListbox, 
                         relevantTweetsListbox, 
@@ -106,10 +112,10 @@ public class UIController
                         relevantTweetsScrollPane, 
                         allTweetDataListModel, 
                         relevantTweetsListModel);
-        
+        // instantiate a UI icon
         ImageIcon icon = new ImageIcon(
                 getClass().getResource(UIModel.APP_ICON_PATH));
-        
+        // instantiate the dialogs used by the application
         UIModel.dialog = new Dialogs(
                 ui, 
                 JOptionPane.PLAIN_MESSAGE, 
@@ -118,18 +124,18 @@ public class UIController
                 Dialogs.DEFAULT_BACKGROUND_COLOR,
                 Dialogs.DEFAULT_FOREGROUND_COLOR, 
                 UIModel.APP_TITLE);
-        
+        // instantiate the web page builder object
         UIModel.webPageBuilder = new WebPageBuilder(UIModel.dialog, ui);
-        
+        // assign all UI controls the font and colors
         for (JComponent control : controls) {
             control.setFont(UIModel.CONTROL_FONT);
             control.setBackground(UIModel.CONTROL_BACKGROUND);
             control.setForeground(UIModel.DEFAULT_FOREGROUND_COLOR);            
         }
-        
+        // assign progress bar control the font and colors
         loadingProgressbar.setBackground(UIModel.CONTROL_BACKGROUND);
         loadingProgressbar.setForeground(UIModel.DEFAULT_FOREGROUND_COLOR);
-        
+        // assign control borders the font and colors
         ((TitledBorder)allTweetDataPanel.getBorder()).setTitleFont(
                 UIModel.PANEL_BORDER_FONT);
         ((TitledBorder)relevantTweetDataPanel.getBorder()).setTitleFont(
@@ -142,15 +148,15 @@ public class UIController
                 UIModel.DEFAULT_FOREGROUND_COLOR);
         ((TitledBorder)tweetCommandsPanel.getBorder()).setTitleColor(
                 UIModel.DEFAULT_FOREGROUND_COLOR);
-        
+        // set the text for the Twitter user from the default
         twitterUserTextbox.setText(UIModel.twitterUser);     
-                
+        // set all the watch words from the model into the list box control        
         for (int i = 0; i < UIModel.watchWords.size(); i++) {
             watchWordListModel.addElement(UIModel.watchWords.get(i));
         }
         int lastIndex = watchWordListModel.getSize() - 1;
         watchWordListbox.ensureIndexIsVisible(lastIndex);
-                
+        // instantiate the timer control        
         timer = new Timer(UIModel.TIMER_DELAY, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -158,6 +164,7 @@ public class UIController
             }
         });
         counter = 0;
+        // set the properties of the user interface view
         this.ui.setIconImage(icon.getImage());
         this.ui.setBackground(UIModel.CONTROL_BACKGROUND);
         this.ui.getContentPane().setBackground(UIModel.CONTROL_BACKGROUND);
@@ -168,6 +175,10 @@ public class UIController
         this.ui.setVisible(true);
     }
 
+    /**
+     * Creates the report file of the data the user interface for the 
+     * application has generated as a web page file
+     */
     public void createReportFile() {
         if (UIModel.twitterReader.hasData()) {
             UIModel.webPageBuilder.build();
@@ -181,6 +192,10 @@ public class UIController
         }
     }
 
+    /**
+     * Starts and stops the user interface progress bar and periodically
+     * keeps updating the Twitter data (if a change has occurred)
+     */
     public void startStop() {        
         if (UIModel.watchWords.isEmpty() ||
             twitterUserTextbox.getText() == null ||
@@ -219,6 +234,9 @@ public class UIController
         }
     }
 
+    /**
+     * Adds the user entered word into the list of watch words
+     */
     public void addWord() {
         String word = addWatchWordTextbox.getText();
         if (word == null || word.equals("")) {            
@@ -232,6 +250,9 @@ public class UIController
         }        
     }
 
+    /**
+     * Removes the user selected word from the list of watch words
+     */
     public void removeWord() {
         String word = watchWordListbox.getSelectedValue();
         if (word == null) {
@@ -244,12 +265,23 @@ public class UIController
         }        
     }
 
+    /**
+     * Clears out the list of watch words completely
+     */
     public void clearWords() {
         watchWordListModel.removeAllElements();
         UIModel.watchWords.clear();
         addWatchWordTextbox.setText("");
     }
     
+    /**
+     * Adds the passed value to the passed list box and moves the focus of the
+     * list box to the newly added value
+     * 
+     * @param list the list of values used by the list box
+     * @param model the model used by the list box
+     * @param value the value to add to the list box
+     */
     private void addAndSelect(JList list, DefaultListModel model, 
             String value) {
         model.addElement(value);
@@ -258,6 +290,10 @@ public class UIController
         list.setSelectedIndex(lastIndex);
     }
     
+    /**
+     * The tick event by the timer to advance the progress bar and periodically 
+     * update the Twitter data
+     */
     private void tick() {       
         int delay  = Randomizer.generate(
                 UIModel.LOW_PROGESSBAR_DELAY, 

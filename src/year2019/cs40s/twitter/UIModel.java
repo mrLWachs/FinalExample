@@ -5,12 +5,11 @@ package year2019.cs40s.twitter;
 /** required imports */
 import java.awt.Color;
 import java.awt.Font;
-import year2018.cs40s.collections.LinkedList;
-import year2018.cs40s.io.Dialogs;
 
 
 /**
- * UIModel.java - 
+ * UIModel.java - the model class (based on MVC model) for the 
+ * application user interface
  *
  * @author Mr. Wachs 
  * @since 12-Mar-2019 
@@ -72,6 +71,6 @@ public class UIModel
     public static TwitterReader            twitterReader;
     public static WebPageBuilder           webPageBuilder;
     public static Dialogs                  dialog;
+    public static FileHandler              fileHandler;
     
-
 }

@@ -7,7 +7,8 @@ import javax.swing.JComponent;
 
 
 /**
- * UIView.java - 
+ * UIView.java - the view class (based on MVC model) for the 
+ * application user interface
  *
  * @author Mr. Wachs 
  * @since 12-Mar-2019 
@@ -17,7 +18,10 @@ public class UIView extends javax.swing.JFrame
 
     private UIController engine;
     
-    /** Creates new form UI */
+    /** 
+     * Default constructor for the class, sets class properties, it creates a
+     * new form UI 
+     */
     public UIView() {
         initComponents();        
         JComponent[] controls = {
