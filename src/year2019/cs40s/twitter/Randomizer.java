@@ -2,10 +2,6 @@
 /** required package class namespace */
 package year2019.cs40s.twitter;
 
-/** required imports */
-import year2018.cs40s.collections.LinkedList;
-
-
 /**
  * Random.java - useful tools for generating random items
  * @author Mr. Wachs 
