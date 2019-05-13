@@ -2,6 +2,8 @@
 /** required package class namespace */
 package year2019.cs40s.namepicker;
 
+import java.awt.Font;
+
 
 /**
  * MainClass.java - 
@@ -23,6 +25,15 @@ public class NamePicker
 
     public static void main(String[] args) {
         new NamePicker();
+        
+        int i = 1;
+        for (Font font : MainView.allFonts) {
+            System.out.println(i + " name:  " + font.getName());
+            System.out.println(i + " size:  " + font.getSize());
+            System.out.println(i + " style: " + font.getStyle());            
+            i++;
+        }
+        
     }
     
 }

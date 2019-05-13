@@ -1,8 +1,3 @@
-/*
- *  Mr. Wachs' classes - Java Computer Science learning file MainUI.java
- *  for project FinalExamples on 12-Apr-2019 at 8:58:06 AM by lawrence.wachs
- */
-
 
 /** required package class namespace */
 package year2019.cs40s.namepicker;
@@ -23,13 +18,15 @@ public class MainModel extends javax.swing.JFrame
     public MainModel() {
         initComponents();
         controller = new MainController(
-                this,
-                jButton1,jButton10,jButton11,
-                jButton2,jButton3,jButton4,jButton5,
-                jButton6,jButton7,jButton8,jButton9,
-                jLabel1,jLabel2,jList1,jList2,jMenu2,
-                jMenuBar2,jMenuItem1,jMenuItem2,
-                jPanel1,jPanel2,jScrollPane1,jScrollPane2        
+                this,addNameUnchosenButton,chosenNamesListBox,chosenNamesPanel,
+                chosenNamesScrollPane,clearListChosenButton,
+                clearListUnchosenButton,drawNameButton,exitMenuItem,
+                fileMenu,instructionsLabel,mainMenuBar,moveBackChosenButton,
+                openListChosenButton,openListUnchosenButton,
+                removeNameChosenButton,removeSelectedUnchosenButton,
+                saveListChosenButton,saveListUnchosenButton,settingsMenuItem,
+                titleLabel,unchosenNamesListBox,unchosenNamesPanel,
+                unchosenNamesScrollPane        
         );
     }
 
@@ -42,161 +39,161 @@ public class MainModel extends javax.swing.JFrame
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
-        jButton2 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jButton11 = new javax.swing.JButton();
-        jMenuBar2 = new javax.swing.JMenuBar();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        chosenNamesPanel = new javax.swing.JPanel();
+        chosenNamesScrollPane = new javax.swing.JScrollPane();
+        chosenNamesListBox = new javax.swing.JList<>();
+        removeNameChosenButton = new javax.swing.JButton();
+        clearListChosenButton = new javax.swing.JButton();
+        openListChosenButton = new javax.swing.JButton();
+        saveListChosenButton = new javax.swing.JButton();
+        moveBackChosenButton = new javax.swing.JButton();
+        unchosenNamesPanel = new javax.swing.JPanel();
+        unchosenNamesScrollPane = new javax.swing.JScrollPane();
+        unchosenNamesListBox = new javax.swing.JList<>();
+        clearListUnchosenButton = new javax.swing.JButton();
+        addNameUnchosenButton = new javax.swing.JButton();
+        saveListUnchosenButton = new javax.swing.JButton();
+        removeSelectedUnchosenButton = new javax.swing.JButton();
+        openListUnchosenButton = new javax.swing.JButton();
+        titleLabel = new javax.swing.JLabel();
+        instructionsLabel = new javax.swing.JLabel();
+        drawNameButton = new javax.swing.JButton();
+        mainMenuBar = new javax.swing.JMenuBar();
+        fileMenu = new javax.swing.JMenu();
+        settingsMenuItem = new javax.swing.JMenuItem();
+        exitMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Chosen Names List"));
-        jPanel1.setLayout(null);
+        chosenNamesPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Chosen Names List"));
+        chosenNamesPanel.setLayout(null);
 
-        jList2.setModel(new javax.swing.AbstractListModel<String>() {
+        chosenNamesListBox.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane2.setViewportView(jList2);
+        chosenNamesScrollPane.setViewportView(chosenNamesListBox);
 
-        jPanel1.add(jScrollPane2);
-        jScrollPane2.setBounds(10, 30, 350, 230);
+        chosenNamesPanel.add(chosenNamesScrollPane);
+        chosenNamesScrollPane.setBounds(10, 30, 350, 230);
 
-        jButton2.setText("Remove Selected Name from Chosen");
-        jPanel1.add(jButton2);
-        jButton2.setBounds(10, 320, 350, 40);
+        removeNameChosenButton.setText("Remove Selected Name from Chosen");
+        chosenNamesPanel.add(removeNameChosenButton);
+        removeNameChosenButton.setBounds(10, 320, 350, 40);
 
-        jButton5.setText("Clear List");
-        jPanel1.add(jButton5);
-        jButton5.setBounds(10, 470, 350, 40);
+        clearListChosenButton.setText("Clear List");
+        chosenNamesPanel.add(clearListChosenButton);
+        clearListChosenButton.setBounds(10, 470, 350, 40);
 
-        jButton9.setText("Open List from File");
-        jPanel1.add(jButton9);
-        jButton9.setBounds(10, 420, 350, 40);
+        openListChosenButton.setText("Open List from File");
+        chosenNamesPanel.add(openListChosenButton);
+        openListChosenButton.setBounds(10, 420, 350, 40);
 
-        jButton6.setText("Save List to File");
-        jPanel1.add(jButton6);
-        jButton6.setBounds(10, 370, 350, 40);
+        saveListChosenButton.setText("Save List to File");
+        chosenNamesPanel.add(saveListChosenButton);
+        saveListChosenButton.setBounds(10, 370, 350, 40);
 
-        jButton10.setText("Move Selected Name Back to Unchosen");
-        jPanel1.add(jButton10);
-        jButton10.setBounds(10, 270, 350, 40);
+        moveBackChosenButton.setText("Move Selected Name Back to Unchosen");
+        chosenNamesPanel.add(moveBackChosenButton);
+        moveBackChosenButton.setBounds(10, 270, 350, 40);
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(400, 170, 370, 520);
+        getContentPane().add(chosenNamesPanel);
+        chosenNamesPanel.setBounds(400, 170, 370, 520);
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Unchosen Names List"));
-        jPanel2.setLayout(null);
+        unchosenNamesPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Unchosen Names List"));
+        unchosenNamesPanel.setLayout(null);
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        unchosenNamesListBox.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList1);
+        unchosenNamesScrollPane.setViewportView(unchosenNamesListBox);
 
-        jPanel2.add(jScrollPane1);
-        jScrollPane1.setBounds(10, 30, 350, 230);
+        unchosenNamesPanel.add(unchosenNamesScrollPane);
+        unchosenNamesScrollPane.setBounds(10, 30, 350, 230);
 
-        jButton1.setText("Clear List");
-        jPanel2.add(jButton1);
-        jButton1.setBounds(10, 470, 350, 40);
+        clearListUnchosenButton.setText("Clear List");
+        unchosenNamesPanel.add(clearListUnchosenButton);
+        clearListUnchosenButton.setBounds(10, 470, 350, 40);
 
-        jButton3.setText("Add Name To Unchosen List");
-        jPanel2.add(jButton3);
-        jButton3.setBounds(10, 320, 350, 40);
+        addNameUnchosenButton.setText("Add Name To Unchosen List");
+        unchosenNamesPanel.add(addNameUnchosenButton);
+        addNameUnchosenButton.setBounds(10, 320, 350, 40);
 
-        jButton4.setText("Save List to File");
-        jPanel2.add(jButton4);
-        jButton4.setBounds(10, 370, 350, 40);
+        saveListUnchosenButton.setText("Save List to File");
+        unchosenNamesPanel.add(saveListUnchosenButton);
+        saveListUnchosenButton.setBounds(10, 370, 350, 40);
 
-        jButton7.setText("Remove Selected Name from Unchosen");
-        jPanel2.add(jButton7);
-        jButton7.setBounds(10, 270, 350, 40);
+        removeSelectedUnchosenButton.setText("Remove Selected Name from Unchosen");
+        unchosenNamesPanel.add(removeSelectedUnchosenButton);
+        removeSelectedUnchosenButton.setBounds(10, 270, 350, 40);
 
-        jButton8.setText("Open List from File");
-        jPanel2.add(jButton8);
-        jButton8.setBounds(10, 420, 350, 40);
+        openListUnchosenButton.setText("Open List from File");
+        unchosenNamesPanel.add(openListUnchosenButton);
+        openListUnchosenButton.setBounds(10, 420, 350, 40);
 
-        getContentPane().add(jPanel2);
-        jPanel2.setBounds(20, 170, 370, 520);
+        getContentPane().add(unchosenNamesPanel);
+        unchosenNamesPanel.setBounds(20, 170, 370, 520);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
-        jLabel1.setText("Name Picker");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(30, 10, 740, 50);
+        titleLabel.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        titleLabel.setText("Name Picker");
+        getContentPane().add(titleLabel);
+        titleLabel.setBounds(30, 10, 740, 50);
 
-        jLabel2.setText("The unchosen list of names on the left is all names not yet chosen. You can add and remove names from this list. As well, you can save this list to a file, or open a previously saved list from a file. The list of names on the right are the names that have been randomly drawn from the list on the left. Once a name is in the chosen list, it cannot be drawn again (even if it appears multiple times in the unchosen list). This list can also be altered, saved or opened. Click the draw name button to draw a name each time.");
-        jLabel2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(30, 60, 740, 100);
+        instructionsLabel.setText("The unchosen list of names on the left is all names not yet chosen. You can add and remove names from this list. As well, you can save this list to a file, or open a previously saved list from a file. The list of names on the right are the names that have been randomly drawn from the list on the left. Once a name is in the chosen list, it cannot be drawn again (even if it appears multiple times in the unchosen list). This list can also be altered, saved or opened. Click the draw name button to draw a name each time.");
+        instructionsLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        getContentPane().add(instructionsLabel);
+        instructionsLabel.setBounds(30, 60, 740, 100);
 
-        jButton11.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
-        jButton11.setText("DRAW NAME");
-        getContentPane().add(jButton11);
-        jButton11.setBounds(200, 700, 360, 60);
+        drawNameButton.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        drawNameButton.setText("DRAW NAME");
+        getContentPane().add(drawNameButton);
+        drawNameButton.setBounds(200, 700, 360, 60);
 
-        jMenu2.setText("File");
+        fileMenu.setText("File");
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem2.setText("Settings");
-        jMenu2.add(jMenuItem2);
+        settingsMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        settingsMenuItem.setText("Settings");
+        fileMenu.add(settingsMenuItem);
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem1.setText("Exit");
-        jMenu2.add(jMenuItem1);
+        exitMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
+        exitMenuItem.setText("Exit");
+        fileMenu.add(exitMenuItem);
 
-        jMenuBar2.add(jMenu2);
+        mainMenuBar.add(fileMenu);
 
-        setJMenuBar(jMenuBar2);
+        setJMenuBar(mainMenuBar);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JList<String> jList2;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JButton addNameUnchosenButton;
+    private javax.swing.JList<String> chosenNamesListBox;
+    private javax.swing.JPanel chosenNamesPanel;
+    private javax.swing.JScrollPane chosenNamesScrollPane;
+    private javax.swing.JButton clearListChosenButton;
+    private javax.swing.JButton clearListUnchosenButton;
+    private javax.swing.JButton drawNameButton;
+    private javax.swing.JMenuItem exitMenuItem;
+    private javax.swing.JMenu fileMenu;
+    private javax.swing.JLabel instructionsLabel;
+    private javax.swing.JMenuBar mainMenuBar;
+    private javax.swing.JButton moveBackChosenButton;
+    private javax.swing.JButton openListChosenButton;
+    private javax.swing.JButton openListUnchosenButton;
+    private javax.swing.JButton removeNameChosenButton;
+    private javax.swing.JButton removeSelectedUnchosenButton;
+    private javax.swing.JButton saveListChosenButton;
+    private javax.swing.JButton saveListUnchosenButton;
+    private javax.swing.JMenuItem settingsMenuItem;
+    private javax.swing.JLabel titleLabel;
+    private javax.swing.JList<String> unchosenNamesListBox;
+    private javax.swing.JPanel unchosenNamesPanel;
+    private javax.swing.JScrollPane unchosenNamesScrollPane;
     // End of variables declaration//GEN-END:variables
 
 }
