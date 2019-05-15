@@ -7,6 +7,8 @@ import year2018.cs30s.tools.Dialogs;
 import year2018.cs30s.tools.FileHandler;
 import year2018.cs30s.tools.FrameTools;
 import year2018.cs30s.tools.MediaPlayer;
+import year2019.cs30s.animations.AnimationsMain;
+import year2019.cs40s.awards.AwardsMain;
 import year2019.cs40s.systemfilemanager.FileToolsUI;
 
 /**
@@ -82,7 +84,12 @@ public class MainClass
      * @param args the command line arguments
      */
     public static void main(String[] args) { 
-        start();
+        
+        new AnimationsMain();
+        
+//        new AwardsMain();
+        
+        //start();
     }
 
 }
