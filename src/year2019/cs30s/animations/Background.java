@@ -17,6 +17,7 @@ public class Background extends GameObject
 
     public Background(JLabel label) {
         super(label);
+        super.gameImage.debug(Globals.BACKGROUND_TEXT,Globals.BACKGROUND_COLOR);
     }
 
 }

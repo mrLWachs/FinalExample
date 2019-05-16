@@ -47,18 +47,18 @@ public class Engine
     }
 
     public void keyPress(KeyEvent event) {
-        hero.keyPress(event);
+        hero.keypress(event);
     }
 
     private void initialize() {
-        Objective objective = new Objective(objectiveLabel);
-        Background background = new Background(backgroundLabel);
-        Wall[] walls = new Wall[wallLabels.length];
+        objective = new Objective(objectiveLabel);
+        background = new Background(backgroundLabel);
+        walls = new Wall[wallLabels.length];
         for (int i = 0; i < walls.length; i++) {
             walls[i] = new Wall(wallLabels[i]);
         }
-        Hero hero = new Hero(heroLabel,walls,objective);
-        Enemy[] enemies = new Enemy[enemyLabels.length];
+        hero = new Hero(heroLabel,walls,objective);
+        enemies = new Enemy[enemyLabels.length];
         for (int i = 0; i < enemies.length; i++) {
             enemies[i] = new Enemy(enemyLabels[i],walls,hero);
         }      
