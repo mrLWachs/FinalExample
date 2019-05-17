@@ -5,13 +5,13 @@ package year2019.cs30s.animations.gametools;
 
 
 /**
- * Coordinate.java - stores data on position and movement as well as methods 
+ * Coordinates.java - stores data on position and movement as well as methods 
  * to move those values
  *
  * @author Mr. Wachs 
  * @since 17-Dec-2018 
  */
-public class Coordinate 
+public class Coordinates 
 {
     
     /** 
@@ -31,7 +31,7 @@ public class Coordinate
      * @param amount the starting amount of movement
      * @param direction the starting direction of movement
      */
-    public Coordinate(int x, int y, int width, int height, 
+    public Coordinates(int x, int y, int width, int height, 
                       int amount, int direction) {
         this.x         = x;
         this.y         = y;

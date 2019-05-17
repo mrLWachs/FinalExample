@@ -13,7 +13,7 @@ package year2019.cs30s.animations.gametools;
 public class Mover 
 {
     
-    private Coordinate source; 
+    private Coordinates source; 
     private int numberOfDirections;
 
     /**
@@ -22,7 +22,7 @@ public class Mover
      * @param coordinates the coordinate data to assign to this class
      * @param numberOfDirections the number of movements in this game
      */
-    public Mover(Coordinate coordinates, int numberOfDirections) {
+    public Mover(Coordinates coordinates, int numberOfDirections) {
         this.source             = coordinates;
         this.numberOfDirections = numberOfDirections;
     }

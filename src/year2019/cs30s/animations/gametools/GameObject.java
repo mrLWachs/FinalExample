@@ -20,7 +20,7 @@ public class GameObject
     /** Flag determines if this object is alive in a game */
     public boolean isAlive;
     /** Coordinates to store data on position and movement */    
-    public Coordinate coordinates;
+    public Coordinates coordinates;
     /** Various methods to move the game object */
     public Mover mover;
     /** Various methods to detect collision for the game object */
@@ -49,7 +49,7 @@ public class GameObject
     public GameObject(JLabel image, int amount, int direction, 
                   int numberOfDirections) {
         gameImage   = new GameImage(image);
-        coordinates = new Coordinate(image.getX(), image.getY(),
+        coordinates = new Coordinates(image.getX(), image.getY(),
                                       image.getWidth(), image.getHeight(), 
                                       amount, direction);
         mover       = new Mover(coordinates,numberOfDirections);

@@ -15,7 +15,7 @@ import java.awt.event.KeyEvent;
 public class UserInput 
 {
 
-    private Coordinate source;
+    private Coordinates source;
     private int numberOfDirections;
     
     
@@ -25,7 +25,7 @@ public class UserInput
      * @param source the coordinate data to assign to this class
      * @param numberOfDirections the number of movements in this game
      */
-    public UserInput(Coordinate source, int numberOfDirections) {
+    public UserInput(Coordinates source, int numberOfDirections) {
         this.source             = source;
         this.numberOfDirections = numberOfDirections;        
     }

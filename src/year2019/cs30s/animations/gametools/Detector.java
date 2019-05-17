@@ -13,15 +13,15 @@ package year2019.cs30s.animations.gametools;
 public class Detector 
 {
 
-    private Coordinate source;    
-    private Coordinate target;
+    private Coordinates source;    
+    private Coordinates target;
     
     /**
      * Constructor for the class, sets class properties
      * 
      * @param coordinates the coordinate data to assign to this class
      */
-    public Detector(Coordinate coordinates) {
+    public Detector(Coordinates coordinates) {
         this.source = coordinates;
     }
     

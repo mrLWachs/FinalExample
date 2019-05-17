@@ -13,8 +13,8 @@ package year2019.cs30s.animations.gametools;
 public class Reactor 
 {
     
-    private Coordinate source;
-    private Coordinate target;
+    private Coordinates source;
+    private Coordinates target;
     private int        numberOfDirections;
     private Detector   detector;
     
@@ -25,7 +25,7 @@ public class Reactor
      * @param coordinates the coordinate data to assign to this class
      * @param numberOfDirections the number of movements in this game
      */
-    public Reactor(Coordinate coordinates, int numberOfDirections, Detector detector) {
+    public Reactor(Coordinates coordinates, int numberOfDirections, Detector detector) {
         this.source             = coordinates;
         this.numberOfDirections = numberOfDirections;
         this.detector           = detector;
