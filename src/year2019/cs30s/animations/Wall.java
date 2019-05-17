@@ -16,7 +16,7 @@ public class Wall extends GameObject
 {
     public Wall(JLabel label) {
         super(label);
-        super.gameImage.debug(Globals.WALL_TEXT,Globals.WALL_COLOR);
+//        super.gameImage.debug(Globals.WALL_TEXT,Globals.WALL_COLOR);
     }
 
 }
