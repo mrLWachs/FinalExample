@@ -2,17 +2,10 @@
 /** required package class namespace */
 package year2019.cs30s.animations.gametools;
 
-/** required imports */
-import year2019.cs40s.collections.LinkedList;
 import java.awt.Color;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-import javax.swing.Timer;
+
+/** required imports */
 
 
 /**
@@ -25,8 +18,104 @@ import javax.swing.Timer;
 public class GameImage 
 {
 
-
+    private Animation[] animations;
+    private JLabel label;
+    private Picturebox picturebox;
+    private int currentIndex;
     
     
+    public GameImage(JLabel label, Animation[] animations) {
+        this.label = label;
+        this.animations = animations;
+        for (int i = 0; i < animations.length; i++) {
+            animations[i].stop();
+        }
+        currentIndex = 0;
+        animations[currentIndex].run();
+    }
+    
+    public GameImage(JLabel label) {
+        this.label = label;
+        picturebox = new Picturebox(label);
+    }
+    
+    public GameImage(JLabel label, String text, Color background) {
+        this.label = label;
+        picturebox = new Picturebox(label, text, background);
+    }
+    
+    public void animate(int index) {
+        animations[currentIndex].stop();
+        animations[index].run();
+        currentIndex = index;
+    }
+    
+    public void update(Coordinates coordinates) {
+        picturebox.update(coordinates);
+    }
         
+    public Coordinates getCoordinates() {
+        return picturebox.getCoordinates();
+    }
+    
+    public void redraw(Coordinates coordinates) {
+        picturebox.redraw(coordinates);
+    }
+
+    public void hide() {
+        picturebox.hide();
+    }
+
+    public void show() {
+        picturebox.show();
+    }
+    
+    public void resize(int width, int height) {
+        picturebox.resize(width, height);
+    }
+    
+    public void setImage(String imageFile) {
+        picturebox.setImage(imageFile);
+    }
+    
+    public void setDebug(String text, Color background) {
+        picturebox.setDebug(text, background);
+    }
+    
+    public void resizeToContainer() {
+        picturebox.resizeToContainer();
+    }
+    
+    public void run(int index) {
+        animations[index].run();
+    }
+    
+    public void stop(int index) {
+        animations[index].stop();
+    }
+    
+    public void restart(int index) {
+        animations[index].restart();
+    }
+    
+    public void setLoop(int index, boolean shouldLoop) {
+        animations[index].setLoop(shouldLoop);
+    }
+    
+    public void setDelay(int index, int delay) {
+        animations[index].setDelay(delay);
+    }
+    
+    private void setImageFiles(int index, String[] imageFiles) {
+        animations[index].setImageFiles(imageFiles);
+    }
+    
+    public int getFPS(int index) {
+        return animations[index].getFPS();
+    }
+    
+    public boolean isRunning(int index) {
+        return animations[index].isRunning();
+    }
+    
 }

@@ -37,7 +37,7 @@ public abstract class GameCharacter extends GameObject
     public GameCharacter(JLabel image, int amount, int direction, int delay, 
             int numberOfDirections) {
         super(image, amount, direction, numberOfDirections);
-        input = new UserInput(coordinates, numberOfDirections);
+        input = new UserInput(super.coordinates, numberOfDirections);
         timer = new Timer(delay, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

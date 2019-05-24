@@ -111,15 +111,15 @@ public class MainUIView extends javax.swing.JFrame
 
         jButton11.setText("See All Current Courses");
         jPanel1.add(jButton11);
-        jButton11.setBounds(10, 180, 230, 50);
+        jButton11.setBounds(10, 180, 250, 50);
 
         jButton12.setText("See Full Award List");
         jPanel1.add(jButton12);
-        jButton12.setBounds(240, 180, 230, 50);
+        jButton12.setBounds(260, 180, 250, 50);
 
         jButton1.setText("Manage Award Rules");
         jPanel1.add(jButton1);
-        jButton1.setBounds(470, 180, 230, 50);
+        jButton1.setBounds(510, 180, 250, 50);
 
         jLabel5.setText("Instructions here...");
         jPanel1.add(jLabel5);

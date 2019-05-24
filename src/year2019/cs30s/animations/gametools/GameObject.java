@@ -48,7 +48,7 @@ public class GameObject
      */
     public GameObject(JLabel image, int amount, int direction, 
                   int numberOfDirections) {
-//        gameImage   = new GameImage(image);
+        gameImage   = new GameImage(image);
         coordinates = new Coordinates(image.getX(), image.getY(),
                                       image.getWidth(), image.getHeight(), 
                                       amount, direction);
@@ -62,19 +62,14 @@ public class GameObject
      * Updates the current location of the coordinates for the image
      */
     public void update() {
-//        coordinates.x      = gameImage.image.getX();
-//        coordinates.y      = gameImage.image.getY();
-//        coordinates.width  = gameImage.image.getWidth();
-//        coordinates.height = gameImage.image.getHeight();
-        coordinates.recalculate();
+        gameImage.update(coordinates);
     }
     
     /**
      * Re-positions the image in it's container based on game character's data
      */
     public void redraw() {
-//        gameImage.image.setBounds(coordinates.x, coordinates.y, 
-//                               coordinates.width, coordinates.height);
+        gameImage.redraw(coordinates);
     }
     
     /**
@@ -82,7 +77,7 @@ public class GameObject
      */
     public void spawn() {
         isAlive = true;
-//        gameImage.image.setVisible(isAlive);
+        gameImage.show();
     }
     
     /**
@@ -90,7 +85,7 @@ public class GameObject
      */
     public void despawn() {
         isAlive = false;
-//        gameImage.image.setVisible(isAlive);
+        gameImage.hide();
     }
    
 }

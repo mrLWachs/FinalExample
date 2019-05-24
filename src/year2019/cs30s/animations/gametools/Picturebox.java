@@ -21,32 +21,40 @@ import javax.swing.SwingConstants;
 public class Picturebox 
 {
 
-    private JLabel picturebox;
+    private JLabel label;
+    private String imageFile;
     
-    public Picturebox(JLabel picturebox) {
-        this.picturebox = picturebox;
+    public Picturebox(JLabel label) {
+        this.label = label;
         setDebug("", Color.white);
         resizeToContainer();
     }
     
-    public Picturebox(JLabel picturebox, String imageFile) {
-        this.picturebox = picturebox;
+    public Picturebox(JLabel label, String imageFile) {
+        this.label = label;
         setImage(imageFile);
-        resizeToContainer();
     }
     
-    public Picturebox(JLabel picturebox, String text, Color background) {
-        this.picturebox = picturebox;
+    public Picturebox(JLabel label, String text, Color background) {
+        this.label = label;
         setDebug(text,background);
-        resizeToContainer();
+    }
+        
+    public void show() {
+        if (imageFile != null) {
+            ImageIcon icon = new ImageIcon(getClass().getResource(imageFile));
+            label.setIcon(icon);
+        }
+        label.setVisible(true);
     }
     
-    public void setVisisble(boolean state) {
-        picturebox.setVisible(state);
+    public void hide() {
+        label.setIcon(null);
+        label.setVisible(false);
     }
     
     public void resize(int width, int height) {
-        picturebox.setSize(width, height);
+        label.setSize(width, height);
         resizeToContainer();
     }
     
@@ -54,29 +62,30 @@ public class Picturebox
      * Resizes the image inside the label to match the size of the label
      */
     public void resizeToContainer() {
-        int       w             = picturebox.getWidth();
-        int       h             = picturebox.getHeight();
-        ImageIcon originalIcon  = (ImageIcon)picturebox.getIcon();
+        int       w             = label.getWidth();
+        int       h             = label.getHeight();
+        ImageIcon originalIcon  = (ImageIcon)label.getIcon();
+        if (originalIcon == null) return;
         Image     originalImage = originalIcon.getImage();        
         Image     newImage      = originalImage.getScaledInstance(w,h,
                                                           Image.SCALE_SMOOTH);
         ImageIcon newIcon       = new ImageIcon(newImage); 
-        picturebox.setIcon(newIcon);  
+        label.setIcon(newIcon);  
     }
     
     public Coordinates getCoordinates() {
-        int x = picturebox.getX();
-        int y = picturebox.getY();
-        int w = picturebox.getWidth();
-        int h = picturebox.getHeight();
+        int x = label.getX();
+        int y = label.getY();
+        int w = label.getWidth();
+        int h = label.getHeight();
         return new Coordinates(x, y, w, h, 0, 0);
     }
     
     public void update(Coordinates coordinates) {
-        coordinates.x      = picturebox.getX();
-        coordinates.y      = picturebox.getY();
-        coordinates.width  = picturebox.getWidth();
-        coordinates.height = picturebox.getHeight();
+        coordinates.x      = label.getX();
+        coordinates.y      = label.getY();
+        coordinates.width  = label.getWidth();
+        coordinates.height = label.getHeight();
         coordinates.recalculate();
     }
         
@@ -85,7 +94,7 @@ public class Picturebox
         int y = coordinates.y;
         int w = coordinates.width;
         int h = coordinates.height;
-        picturebox.setBounds(x, y, w, h);
+        label.setBounds(x, y, w, h);
     }
     
     /**
@@ -95,8 +104,8 @@ public class Picturebox
      * @param imageFile the new image file to change the label to
      */
     public void setImage(String imageFile) {
-        ImageIcon icon = new ImageIcon(getClass().getResource(imageFile));
-        picturebox.setIcon(icon);
+        this.imageFile = imageFile;
+        show();
         resizeToContainer();        
     }
     
@@ -108,14 +117,14 @@ public class Picturebox
      * @param background the background color of the image
      */
     public void setDebug(String text, Color background) {
-        picturebox.setBorder(BorderFactory.createEtchedBorder());        
-        picturebox.setIcon(null);
-        picturebox.setOpaque(true);
-        picturebox.setBackground(background);
-        picturebox.setForeground(Color.white);
-        picturebox.setHorizontalAlignment(SwingConstants.CENTER);
-        picturebox.setFont(new Font("Arial Narrow",Font.BOLD,8));
-        picturebox.setText(text);    
+        label.setBorder(BorderFactory.createEtchedBorder());        
+        label.setIcon(null);
+        label.setOpaque(true);
+        label.setBackground(background);
+        label.setForeground(Color.white);
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        label.setFont(new Font("Arial Narrow",Font.BOLD,8));
+        label.setText(text);    
     }
         
 }
