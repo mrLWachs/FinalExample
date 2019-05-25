@@ -17,7 +17,7 @@ public class Objective extends GameObject
 
     public Objective(JLabel label) {
         super(label);
-//        super.gameImage.debug(Globals.OBJECTIVE_TEXT,Globals.OBJECTIVE_COLOR);
+        super.gameImage.debug(Globals.OBJECTIVE_TEXT,Globals.OBJECTIVE_COLOR);
     }
     
 }

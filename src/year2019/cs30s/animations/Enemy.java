@@ -27,7 +27,7 @@ public class Enemy extends GameCharacter
         this.walls = walls;
         this.hero  = hero;
         mover.randomDirection();
-//        super.gameImage.debug(Globals.ENEMY_TEXT,Globals.ENEMY_COLOR);
+        super.gameImage.debug(Globals.ENEMY_TEXT,Globals.ENEMY_COLOR);
     }
 
     @Override

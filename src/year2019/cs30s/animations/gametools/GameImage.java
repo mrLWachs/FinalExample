@@ -2,10 +2,9 @@
 /** required package class namespace */
 package year2019.cs30s.animations.gametools;
 
+/** required imports */
 import java.awt.Color;
 import javax.swing.JLabel;
-
-/** required imports */
 
 
 /**
@@ -78,7 +77,7 @@ public class GameImage
         picturebox.setImage(imageFile);
     }
     
-    public void setDebug(String text, Color background) {
+    public void debug(String text, Color background) {
         picturebox.setDebug(text, background);
     }
     

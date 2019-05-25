@@ -30,7 +30,7 @@ public class Hero extends GameCharacter
                 Globals.HERO_DIRECTIONS);
         this.walls     = walls;
         this.objective = objective;
-//        super.gameImage.debug(Globals.HERO_TEXT,Globals.HERO_COLOR);
+        super.gameImage.debug(Globals.HERO_TEXT,Globals.HERO_COLOR);
     }
 
     @Override
