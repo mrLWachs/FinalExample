@@ -23,6 +23,7 @@ public class Picturebox
 
     private JLabel label;
     private String imageFile;
+    private ImageIcon icon;
     
     public Picturebox(JLabel label) {
         this.label = label;
@@ -41,10 +42,7 @@ public class Picturebox
     }
         
     public void show() {
-        if (imageFile != null) {
-            ImageIcon icon = new ImageIcon(getClass().getResource(imageFile));
-            label.setIcon(icon);
-        }
+        if (imageFile != null) label.setIcon(icon);
         label.setVisible(true);
     }
     
@@ -69,8 +67,8 @@ public class Picturebox
         Image     originalImage = originalIcon.getImage();        
         Image     newImage      = originalImage.getScaledInstance(w,h,
                                                           Image.SCALE_SMOOTH);
-        ImageIcon newIcon       = new ImageIcon(newImage); 
-        label.setIcon(newIcon);  
+        icon                    = new ImageIcon(newImage); 
+        label.setIcon(icon);  
     }
     
     public Coordinates getCoordinates() {
@@ -105,8 +103,12 @@ public class Picturebox
      */
     public void setImage(String imageFile) {
         this.imageFile = imageFile;
+        label.setBorder(null);
+        label.setOpaque(false);
+        icon = new ImageIcon(getClass().getResource(imageFile));
+        label.setIcon(icon);
         show();
-        resizeToContainer();        
+//        resizeToContainer();        
     }
     
     /**
@@ -117,14 +119,30 @@ public class Picturebox
      * @param background the background color of the image
      */
     public void setDebug(String text, Color background) {
-        label.setBorder(BorderFactory.createEtchedBorder());        
-        label.setIcon(null);
-        label.setOpaque(true);
-        label.setBackground(background);
-        label.setForeground(Color.white);
+        setColor(background);
+        label.setBorder(BorderFactory.createEtchedBorder());
         label.setHorizontalAlignment(SwingConstants.CENTER);
         label.setFont(new Font("Arial Narrow",Font.BOLD,8));
         label.setText(text);    
     }
-        
+    
+    public void setColor(Color color) {
+        label.setBorder(null);        
+        label.setIcon(null);
+        label.setOpaque(true);
+        label.setBackground(color);
+        label.setForeground(invert(color));
+        label.setText("");
+    }
+    
+    private Color invert(Color color) {
+        int r = color.getRed();
+        int g = color.getGreen();
+        int b = color.getBlue();
+        r = 255 - r;
+        g = 255 - g;
+        b = 255 - b;
+        return new Color(r,g,b);
+    }
+            
 }

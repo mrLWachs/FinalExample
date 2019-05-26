@@ -48,13 +48,12 @@ public class GameObject
      */
     public GameObject(JLabel image, int amount, int direction, 
                   int numberOfDirections) {
-        gameImage             = new GameImage(image);
-        coordinates           = gameImage.getCoordinates();
-        coordinates.direction = direction;
-        coordinates.amount    = amount;
-        mover                 = new Mover(coordinates,numberOfDirections);
-        detector              = new Detector(coordinates);
-        reactor               = new Reactor(coordinates,numberOfDirections,detector); 
+        gameImage   = new GameImage(image);
+        coordinates = gameImage.getCoordinates();
+        mover       = new Mover(coordinates,numberOfDirections);
+        detector    = new Detector(coordinates);
+        reactor     = new Reactor(coordinates,numberOfDirections,detector); 
+        gameImage.setMovement(direction,amount,coordinates);
         spawn();
     } 
         

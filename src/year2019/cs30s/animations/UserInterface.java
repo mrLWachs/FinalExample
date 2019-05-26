@@ -31,7 +31,7 @@ public class UserInterface extends javax.swing.JFrame
         JLabel[] enemies = {
             enemy1Label,enemy2Label
         };
-        engine = new Engine(heroLabel,objectiveLabel,walls,enemies,
+        engine = new Engine(heroLabel,objectiveLabel,prizeLabel,walls,enemies,
                 backgroundLabel,this);
     }
 
@@ -58,6 +58,7 @@ public class UserInterface extends javax.swing.JFrame
         wall08Label = new javax.swing.JLabel();
         wall09Label = new javax.swing.JLabel();
         wall10Label = new javax.swing.JLabel();
+        prizeLabel = new javax.swing.JLabel();
         backgroundLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -72,25 +73,25 @@ public class UserInterface extends javax.swing.JFrame
         heroLabel.setText("HERO");
         heroLabel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(heroLabel);
-        heroLabel.setBounds(860, 60, 60, 60);
+        heroLabel.setBounds(800, 70, 50, 50);
 
         enemy1Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         enemy1Label.setText("ENEMY");
         enemy1Label.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(enemy1Label);
-        enemy1Label.setBounds(80, 80, 110, 100);
+        enemy1Label.setBounds(70, 70, 110, 100);
 
         enemy2Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         enemy2Label.setText("ENEMY");
         enemy2Label.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(enemy2Label);
-        enemy2Label.setBounds(820, 490, 110, 100);
+        enemy2Label.setBounds(220, 500, 110, 100);
 
         objectiveLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         objectiveLabel.setText("OBJECTIVE");
         objectiveLabel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(objectiveLabel);
-        objectiveLabel.setBounds(70, 530, 80, 70);
+        objectiveLabel.setBounds(60, 530, 80, 70);
 
         wall01Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         wall01Label.setText("WALL");
@@ -126,31 +127,37 @@ public class UserInterface extends javax.swing.JFrame
         wall06Label.setText("WALL");
         wall06Label.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(wall06Label);
-        wall06Label.setBounds(160, 450, 210, 40);
+        wall06Label.setBounds(160, 450, 620, 40);
 
         wall07Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         wall07Label.setText("WALL");
         wall07Label.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(wall07Label);
-        wall07Label.setBounds(330, 370, 40, 120);
+        wall07Label.setBounds(230, 240, 40, 250);
 
         wall08Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         wall08Label.setText("WALL");
         wall08Label.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(wall08Label);
-        wall08Label.setBounds(610, 170, 40, 120);
+        wall08Label.setBounds(430, 150, 40, 150);
 
         wall09Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         wall09Label.setText("WALL");
         wall09Label.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(wall09Label);
-        wall09Label.setBounds(610, 170, 210, 40);
+        wall09Label.setBounds(430, 150, 140, 40);
 
         wall10Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         wall10Label.setText("WALL");
         wall10Label.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(wall10Label);
-        wall10Label.setBounds(780, 10, 40, 200);
+        wall10Label.setBounds(530, 10, 40, 180);
+
+        prizeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        prizeLabel.setText("PRIZE");
+        prizeLabel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(prizeLabel);
+        prizeLabel.setBounds(460, 80, 40, 40);
 
         backgroundLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         backgroundLabel.setText("BACKGROUND");
@@ -171,6 +178,7 @@ public class UserInterface extends javax.swing.JFrame
     private javax.swing.JLabel enemy2Label;
     private javax.swing.JLabel heroLabel;
     private javax.swing.JLabel objectiveLabel;
+    private javax.swing.JLabel prizeLabel;
     private javax.swing.JLabel wall01Label;
     private javax.swing.JLabel wall02Label;
     private javax.swing.JLabel wall03Label;

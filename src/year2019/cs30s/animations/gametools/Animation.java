@@ -34,8 +34,8 @@ public class Animation
         if (errorCheck(label,imageFiles)) { 
             this.label = label;
             setDelay(delay);
-            setLoop(shouldLoop);  
-            setImageFiles(imageFiles);      
+            setLoop(shouldLoop);
+            setImageFiles(imageFiles);  
         }
     }
     
@@ -61,15 +61,13 @@ public class Animation
     
     public void setDelay(int delay) {
         this.delay = delay;
-        setTimer();
+        if (timer != null) setTimer();
     }
     
     public void setImageFiles(String[] imageFiles) {
-        if (imageFiles != null) {
-            setFrames();
-            setTimer();
-        }        
         this.imageFiles = imageFiles;
+        setFrames();
+        setTimer();       
     }
     
     public int getFPS() {
@@ -82,7 +80,7 @@ public class Animation
         
     private void tick() {
         frames[currentFrame].hide();                        // hide current
-        if (currentFrame <= lastFrame) currentFrame++;      // cycle through
+        if (currentFrame < lastFrame)  currentFrame++;      // cycle through
         else {
             if (shouldLoop)            currentFrame = 0;    // restart frames
             else                       stop();              // stop animation
@@ -107,14 +105,13 @@ public class Animation
     }
 
     private void setTimer() {
-        fps = delay / frames.length;        
+        fps = delay / frames.length;
         timer = new Timer(fps, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 tick();
             }
         });
-        run();
     }
 
     private void setFrames() {

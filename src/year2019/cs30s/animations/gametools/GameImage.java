@@ -25,12 +25,7 @@ public class GameImage
     
     public GameImage(JLabel label, Animation[] animations) {
         this.label = label;
-        this.animations = animations;
-        for (int i = 0; i < animations.length; i++) {
-            animations[i].stop();
-        }
-        currentIndex = 0;
-        animations[currentIndex].run();
+        if (animations != null) setAnimations(animations);
     }
     
     public GameImage(JLabel label) {
@@ -43,9 +38,18 @@ public class GameImage
         picturebox = new Picturebox(label, text, background);
     }
     
+    public void setAnimations(Animation[] animations) {
+        this.animations = animations;
+        for (int i = 0; i < animations.length; i++) {
+            animations[i].stop();
+        }
+        currentIndex = 0;
+        animations[currentIndex].run();
+    }
+    
     public void animate(int index) {
-        animations[currentIndex].stop();
-        animations[index].run();
+        stop(currentIndex);
+        run(index);
         currentIndex = index;
     }
     
@@ -61,6 +65,12 @@ public class GameImage
         picturebox.redraw(coordinates);
     }
 
+    public void setMovement(int direction, int amount, 
+                            Coordinates coordinates) {
+        coordinates.direction = direction;
+        coordinates.amount = amount;
+    }
+    
     public void hide() {
         picturebox.hide();
     }
