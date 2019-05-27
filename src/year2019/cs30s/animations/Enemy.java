@@ -3,6 +3,7 @@
 package year2019.cs30s.animations;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import year2019.cs30s.animations.gametools.GameCharacter;
 
 
@@ -17,15 +18,17 @@ public class Enemy extends GameCharacter
     
     private Wall[] walls;
     private Hero   hero;
+    private Engine engine;
     
-    public Enemy(JLabel label, Wall[] walls, Hero hero) {
+    public Enemy(JLabel label, Wall[] walls, Hero hero, Engine engine) {
         super(label, 
                 Globals.ENEMY_AMOUNT, 
                 Globals.ENEMY_DIRECTION, 
                 Globals.ENEMY_DELAY, 
                 Globals.ENEMY_DIRECTIONS);
-        this.walls = walls;
-        this.hero  = hero;
+        this.walls  = walls;
+        this.hero   = hero;
+        this.engine = engine;
         mover.randomDirection();
         super.gameImage.debug(Globals.ENEMY_TEXT,Globals.ENEMY_COLOR);
     }
@@ -41,9 +44,15 @@ public class Enemy extends GameCharacter
             }
         }
         if (detector.isOverLapping(hero)) {         // colliding with hero
-            System.exit(0);                         // end application
+            loseGame();
         }
         redraw();                                   // re draw hero
+    }
+
+    private void loseGame() {
+        hero.despawn();
+        JOptionPane.showMessageDialog(null, "You lose\n\nPoints = " + engine.points);
+        System.exit(0);
     }
     
 }

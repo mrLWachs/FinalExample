@@ -46,7 +46,7 @@ public class Globals
     
     public static String MEDIA_PATH       = "/year2019/cs30s/animations/media/";
     
-    public static String DATA_FILE        = MEDIA_PATH + "data.txt";
+    public static String DATA_FILE        = MEDIA_PATH + "animationData.txt";
     
     public static String[] PACMAN_RIGHT_IMAGES  = {
         MEDIA_PATH + "right01.png",

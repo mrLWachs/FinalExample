@@ -72,6 +72,7 @@ public class GameImage
     }
     
     public void hide() {
+        stopAll();
         picturebox.hide();
     }
 
@@ -93,6 +94,13 @@ public class GameImage
     
     public void resizeToContainer() {
         picturebox.resizeToContainer();
+    }
+    
+    public void stopAll() {
+        if (animations == null) return;
+        for (int i = 0; i < animations.length; i++) {
+            animations[i].stop();
+        }
     }
     
     public void run(int index) {

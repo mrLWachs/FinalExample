@@ -43,12 +43,13 @@ public class FileHandler
     public String[] read() {
         try {
             File           file   = convertToFile(filename);
+            System.out.println(file.toPath());
             FileReader     reader = new FileReader(file);
             BufferedReader buffer = new BufferedReader(reader);
             String         line   = buffer.readLine();
             if (line == null) return null;
             int            length = Integer.parseInt(line);
-            String[]       lines  = new String[length-1];
+            String[]       lines  = new String[length];
             for (int i = 0; i < lines.length; i++) {
                 lines[i]   = buffer.readLine();
             }
@@ -71,9 +72,12 @@ public class FileHandler
      */
     public void write(String[] data) {
         try {
-            File        file    = convertToFile(filename);
+            File        file    = convertToFile(filename); //new File(filename); //
+            System.out.println(file.toPath());
+            if (!file.exists()) file.createNewFile();
             FileWriter  writer  = new FileWriter(file);
             PrintWriter printer = new PrintWriter(writer);
+            printer.println(data.length);
             for (int i = 0; i < data.length; i++) {
                 printer.println(data[i]);
             }

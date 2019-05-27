@@ -4,6 +4,7 @@ package year2019.cs30s.animations;
 
 import java.awt.event.KeyEvent;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import year2019.cs30s.animations.gametools.Animation;
 import year2019.cs30s.animations.gametools.GameCharacter;
 import year2019.cs40s.genericgame.gametools.Directions;
@@ -20,14 +21,14 @@ public class Hero extends GameCharacter
 
     private Wall[]    walls;
     private Objective objective;
-    private Prize     prize;
+    private Prize[]   prizes;
     private Engine    engine;
     
     
     /**
      * Default constructor for the class, sets class properties
      */
-    public Hero(JLabel label, Wall[] walls, Objective objective, Prize prize,
+    public Hero(JLabel label, Wall[] walls, Objective objective, Prize[] prizes,
                 Engine engine) {
         super(label, 
                 Globals.HERO_AMOUNT, 
@@ -36,7 +37,7 @@ public class Hero extends GameCharacter
                 Globals.HERO_DIRECTIONS);
         this.walls     = walls;
         this.objective = objective;
-        this.prize     = prize;
+        this.prizes    = prizes;
         this.engine    = engine;
         
         int animateDelay = 300;
@@ -69,13 +70,16 @@ public class Hero extends GameCharacter
                 mover.stop();
                 animateImages();
             }
+        }        
+        for (int i = 0; i < prizes.length; i++) {        // traverse walls
+            if (detector.isOverLapping(prizes[i])) {
+                engine.media.playWAV(Globals.PACMAN_SOUND);
+                engine.points++;
+                prizes[i].despawn();
+            }
         }
         if (detector.isOverLapping(objective)) {    // colliding with objective
-            System.exit(0);                         // end application
-        }
-        if (detector.isOverLapping(prize)) {
-            engine.media.playWAV(Globals.PACMAN_SOUND);
-            prize.despawn();
+            winGame();
         }
         redraw();                                   // re draw hero
     }
@@ -86,6 +90,15 @@ public class Hero extends GameCharacter
         else if (coordinates.direction == Directions.UP)    gameImage.animate(3);
         else if (coordinates.direction == Directions.DOWN)  gameImage.animate(4);
         else if (coordinates.direction == Directions.STOP)  gameImage.animate(0);        
+    }
+
+    private void winGame() {
+        despawn();
+        String[] data = new String[1];
+        data[0] = "Total points " + engine.points;
+        engine.file.write(data);
+        JOptionPane.showMessageDialog(null, "You win\n\n" + data[0]);
+        System.exit(0);                         // end application
     }
 
 }
