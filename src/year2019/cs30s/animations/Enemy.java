@@ -3,7 +3,6 @@
 package year2019.cs30s.animations;
 
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import year2019.cs30s.animations.gametools.GameCharacter;
 
 
@@ -51,7 +50,7 @@ public class Enemy extends GameCharacter
 
     private void loseGame() {
         hero.despawn();
-        JOptionPane.showMessageDialog(null, "You lose\n\nPoints = " + engine.points);
+        engine.dialog.show("You lose\n\nPoints = " + engine.points);
         System.exit(0);
     }
     

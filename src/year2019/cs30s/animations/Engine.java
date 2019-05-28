@@ -4,7 +4,7 @@ package year2019.cs30s.animations;
 
 import java.awt.event.KeyEvent;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
+import year2019.cs30s.animations.gametools.Dialogs;
 import year2019.cs30s.animations.gametools.FileHandler;
 import year2019.cs30s.animations.gametools.MediaPlayer;
 
@@ -36,6 +36,7 @@ public class Engine
     
     public MediaPlayer media;
     public FileHandler file;
+    public Dialogs     dialog;
     public int         points;
     
     
@@ -77,12 +78,13 @@ public class Engine
         for (int i = 0; i < enemies.length; i++) {
             enemies[i] = new Enemy(enemyLabels[i],walls,hero,this);
         }      
-        media = new MediaPlayer();
-        file  = new FileHandler(Globals.DATA_FILE);
+        media  = new MediaPlayer();
+        file   = new FileHandler(Globals.DATA_FILE);
+        dialog = new Dialogs(Globals.UI_TITLE, userInterface);
         
         String data[] = file.read();
         if (data != null) {
-            JOptionPane.showMessageDialog(null, "Last game\n\n" + data[0]);
+            dialog.show("Last game\n\n" + data[0]);
         }
         
         userInterface.setSize(Globals.UI_WIDTH, Globals.UI_HEIGHT);

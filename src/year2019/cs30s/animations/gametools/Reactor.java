@@ -3,12 +3,11 @@
 package year2019.cs30s.animations.gametools;
 
 
-
 /**
  * Reactor.java - methods to react to collisions in various ways
  *
  * @author Mr. Wachs 
- * @since 17-Dec-2018 
+ * @since 14-May-2019
  */
 public class Reactor 
 {
@@ -25,7 +24,9 @@ public class Reactor
      * @param coordinates the coordinate data to assign to this class
      * @param numberOfDirections the number of movements in this game
      */
-    public Reactor(Coordinates coordinates, int numberOfDirections, Detector detector) {
+    public Reactor(Coordinates coordinates, 
+                   int numberOfDirections, 
+                   Detector detector) {
         this.source             = coordinates;
         this.numberOfDirections = numberOfDirections;
         this.detector           = detector;

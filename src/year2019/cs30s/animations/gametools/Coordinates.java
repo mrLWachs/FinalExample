@@ -3,20 +3,17 @@
 package year2019.cs30s.animations.gametools;
 
 
-
 /**
  * Coordinates.java - stores data on position and movement as well as methods 
  * to move those values
  *
  * @author Mr. Wachs 
- * @since 17-Dec-2018 
+ * @since 14-May-2019  
  */
 public class Coordinates 
 {
     
-    /** 
-     * Property data tracking an object's location and movement 
-     */
+    /** Property data tracking an object's location and movement */
     public int x, y, width, height, left, right, top, bottom, 
                centerX, centerY, amount, direction;
 
@@ -41,10 +38,23 @@ public class Coordinates
         this.direction = direction;
         recalculate();
     }
-
+    
     /**
-     * Recalculates needed movement data
+     * Constructor for the class, sets class properties
+     *  
+     * @param amount the starting amount of movement
+     * @param direction the starting direction of movement
      */
+    public Coordinates(int amount, int direction) {
+        this(0,0,0,0,amount,direction);
+    }
+    
+    /** Default constructor for the class, sets class properties */
+    public Coordinates() {
+        this(0,0,0,0,0,0);
+    }
+
+    /** Recalculates needed movement data */
     public void recalculate() {
         left    = x;
         top     = y;

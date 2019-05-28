@@ -21,7 +21,7 @@ public class Globals
     public static int    UI_HEIGHT        = 688;
     public static String UI_TITLE         = "Gaming Demo..."; 
     public static String BACKGROUND_TEXT  = "Background";
-    public static Color  BACKGROUND_COLOR = new Color(17,17,15);// new Color(17,12,4) ; //Color.BLACK;
+    public static Color  BACKGROUND_COLOR = Color.BLACK;
     public static String WALL_TEXT        = "Wall";
     public static Color  WALL_COLOR       = Color.BLUE;
     public static String OBJECTIVE_TEXT   = "Objective";

@@ -10,23 +10,23 @@ import javax.swing.JLabel;
  * GameObject.java - represents a typical object in a game
  *
  * @author Mr. Wachs 
- * @since 17-Dec-2018 
+ * @since 14-May-2019 
  */
 public class GameObject 
 {
-
-    /** The image used for this game object */
-    public GameImage gameImage;    
-    /** Flag determines if this object is alive in a game */
-    public boolean isAlive;
+    
     /** Coordinates to store data on position and movement */    
     public Coordinates coordinates;
+    /** The image used for this game object */
+    public GameImage gameImage;
     /** Various methods to move the game object */
     public Mover mover;
     /** Various methods to detect collision for the game object */
     public Detector detector;
     /** Various methods to react to collision for the game object */
-    public Reactor reactor;
+    public Reactor reactor;    
+    /** Flag determines if this object is alive in a game */
+    public boolean isAlive;
     
         
     /**
@@ -46,42 +46,36 @@ public class GameObject
      * @param direction the direction the game character will move
      * @param numberOfDirections the number of directions defined
      */
-    public GameObject(JLabel image, int amount, int direction, 
-                  int numberOfDirections) {
+    public GameObject(JLabel image, 
+                      int amount, 
+                      int direction, 
+                      int numberOfDirections) {
+        coordinates = new Coordinates(amount, direction);        
         gameImage   = new GameImage(image);
-        coordinates = gameImage.getCoordinates();
+        gameImage.update(coordinates);
         mover       = new Mover(coordinates,numberOfDirections);
         detector    = new Detector(coordinates);
         reactor     = new Reactor(coordinates,numberOfDirections,detector); 
-        gameImage.setMovement(direction,amount,coordinates);
         spawn();
     } 
         
-    /**
-     * Updates the current location of the coordinates for the image
-     */
+    /** Updates the current location of the coordinates for the image */
     public void update() {
         gameImage.update(coordinates);
     }
     
-    /**
-     * Re-positions the image in it's container based on game character's data
-     */
+    /** Re-positions image in it's container based on game character's data */
     public void redraw() {
         gameImage.redraw(coordinates);
     }
     
-    /**
-     * Spawns the game object, makes it alive and visible
-     */
+    /** Spawns the game object, makes it alive and visible */
     public void spawn() {
         isAlive = true;
         gameImage.show();
     }
     
-    /**
-     * De-spawns the game object, makes it not alive and invisible
-     */
+    /** De-spawns the game object, makes it not alive and invisible */
     public void despawn() {
         isAlive = false;
         gameImage.hide();

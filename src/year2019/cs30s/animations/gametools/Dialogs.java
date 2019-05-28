@@ -1,179 +1,274 @@
-
 /** required package class namespace */
 package year2019.cs30s.animations.gametools;
 
 /** required imports */
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
+import java.io.File;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JDialog;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
+
 /**
- * Dialogs.java - a collection of useful methods for user dialog boxes
- * 
+ * Dialogs.java - a collection of useful methods for working with dialogs
+ *
  * @author Mr. Wachs
- * @since May 28, 2018 
- * @instructor Mr. Wachs
+ * @since 14-May-2019  
  */
-public class Dialogs 
+public class Dialogs
 {
-    /** 
-     * The title to appear on the dialog 
-     */
+
+    public static final Font DEFAULT_FONT
+            = new JOptionPane().getFont();
+    public static final Color DEFAULT_BACKGROUND_COLOR
+            = new JOptionPane().getBackground();
+    public static final Color DEFAULT_FOREGROUND_COLOR
+            = new JOptionPane().getForeground();
+    private final String DEFAULT_TITLE = "";
+    private final Component DEFAULT_COMPONENT = null;
+    private final ImageIcon DEFAULT_ICON = null;
+    private final int DEFAULT_TYPE
+            = JOptionPane.PLAIN_MESSAGE;
+    private final int DEFAULT_OPTION_TYPE
+            = JOptionPane.YES_NO_OPTION;
+
+    private JTextArea area;
+
+    /** Font used for displaying in the dialogs */
+    public Font font;
+    /** Background color used for displaying in the dialogs */
+    public Color backgroundColor;
+    /** Foreground (text) color used for displaying in the dialogs */
+    public Color foregroundColor;
+    /** Top dialog title used */
     public String dialogTitle;
-    
-    /** 
-     * The parent frame to parent the dialog to 
-     */
-    public JFrame parent;
+    /** Frame or other component the dialog parents (centers) with */
+    public Component parent;
+    /** Type of icon used in the dialogs */
+    public int type;
+    /** Type of button options used in the dialogs */
+    public int optionType;
+    /** Custom icon (image) used in the dialogs */
+    public Icon icon;
 
     
-    /** 
-     * Default constructor for the class 
-     */
-    public Dialogs() {
-        this("",null);
-    }
-    
     /**
-     * Constructor sets class data
-     * 
-     * @param dialogTitle the title to appear on the dialog
+     * Class constructor sets class properties
+     *
+     * @param dialogTitle The title used on any dialog in the class
      */
     public Dialogs(String dialogTitle) {
-        this(dialogTitle,null);
-    }
-    
-    /**
-     * Constructor sets class data
-     * 
-     * @param dialogTitle the title to appear on the dialog
-     * @param parent the parent frame to parent the dialog to
-     */
-    public Dialogs(String dialogTitle, JFrame parent) {
+        defaults();
         this.dialogTitle = dialogTitle;
-        this.parent      = parent;
+        this.parent = null;
+        init();
     }
-    
+
     /**
-     * Shows a dialog with a drop down of choices
-     * 
-     * @param text to display in the dialog
-     * @param choices to display in the drop down
-     * @return the choice the user selects
+     * Class constructor sets class properties
+     *
+     * @param dialogTitle The title used on any dialog in the class
+     * @param parent the component to parent the dialogs to
      */
-    public String choose(String text, String[] choices) {        
-        JTextArea area = new JTextArea(text);
-        Font font = new Font("Arial",Font.BOLD,12);
-        Color background = new Color(238,238,238);
-        area.setFont(font);
-        area.setBackground(background);
-        Object object = JOptionPane.showInputDialog(parent, area, dialogTitle,
-                JOptionPane.PLAIN_MESSAGE, null, choices, choices[0]);
-        if (object == null) return null;
-        else                return object.toString();        
+    public Dialogs(String dialogTitle, Component parent) {
+        defaults();
+        this.dialogTitle = dialogTitle;
+        this.parent = parent;
+        init();
     }
-    
+
     /**
-     * Shows a dialog with a series of buttons
-     * 
-     * @param text to display in the dialog
-     * @param buttonTexts the text on the various buttons
-     * @return the text of the button that was clicked
+     * Class constructor sets passed properties
+     *
+     * @param font font used in dialogs
+     * @param backgroundColor background color used in dialogs
+     * @param foregroundColor foreground (text) color used in dialogs
+     * @param dialogTitle top dialog title used
      */
-    public String buttons(String text, String[] buttonTexts) {
-        int result = JOptionPane.showOptionDialog(null, text, dialogTitle,
-                JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, 
-                buttonTexts, buttonTexts[0]);
-        if (result == -1) return "";
-        return buttonTexts[result];
+    public Dialogs(Font font,
+                   Color backgroundColor,
+                   Color foregroundColor,
+                   String dialogTitle) {
+        defaults();
+        this.font = font;
+        this.backgroundColor = backgroundColor;
+        this.foregroundColor = foregroundColor;
+        this.dialogTitle = dialogTitle;
+        init();
     }
-        
+
     /**
-     * Gets user input as a integer with dialog box with error checking
-     * 
-     * @param text the text to display in the dialog
-     * @param title the title of the dialog
-     * @return the integer the user entered
+     * Class constructor sets passed properties
+     *
+     * @param parent frame the dialog parents (centers) with
+     * @param type type of icon used in the dialogs
+     * @param icon custom icon (image) used in the dialogs
+     * @param font font used in dialogs
+     * @param backgroundColor background color used in dialogs
+     * @param foregroundColor foreground (text) color used in dialogs
+     * @param dialogTitle top dialog title used
      */
-    public int getInteger(String text, String title) {
-        String error = "";
-        while (true) {                        // get the initial user input
-            String user = JOptionPane.showInputDialog(null,
-                    error + text, title, JOptionPane.PLAIN_MESSAGE);     
-            if (user == null) { // hit cancel or red X
-                error = "Please enter a proper number\n";
-            }
-            else if (user.equals("")) { // hit ok without typing
-                error = "Please enter something\n";
-            }
-            else { // typed in something other than a valid int
-                boolean valid = true;
-                for (int i = 0; i < user.length(); i++) {
-                    // travel through characters in string, get each 
-                    char character = user.charAt(i);
-                    if (Character.isDigit(character) == false) {
-                        error = "Please do not enter non numeric "
-                                + "characters\n";
-                        i = user.length();
-                        valid = false;
-                    }
-                }
-                if (valid == true) { // passes all checks:
-                    int number = Integer.parseInt(user);
-                    return number;    
-                }
-            }
-        }
+    public Dialogs(Component parent,
+                   int type,
+                   Icon icon,
+                   Font font,
+                   Color backgroundColor,
+                   Color foregroundColor,
+                   String dialogTitle) {
+        defaults();
+        this.parent = parent;
+        this.type = type;
+        this.icon = icon;
+        this.font = font;
+        this.backgroundColor = backgroundColor;
+        this.foregroundColor = foregroundColor;
+        this.dialogTitle = dialogTitle;
+        init();
     }
-    
+
     /**
-     * Dialog with a drop down display for the user to select from
-     * 
-     * @param text the text to display in the dialog
-     * @param title the title of the dialog
-     * @param options all the options to show in the drop down
-     * @return the drop down option the user selects
+     * Outputs the passed text in a dialog
+     *
+     * @param text the text to display
      */
-    public String dropdown(String text, String title, 
-                                   String[] options) { 
-        Object object = JOptionPane.showInputDialog(null,text,title,
-                JOptionPane.PLAIN_MESSAGE,null,options,options[0]);
-        while (object == null) {
-            object = JOptionPane.showInputDialog(null,text,title,
-                    JOptionPane.PLAIN_MESSAGE,null,options,options[0]);
+    public void show(String text) {
+        area.setText(text);
+        JOptionPane.showMessageDialog(parent, area, dialogTitle, type, icon);
+    }
+
+    /**
+     * Outputs the passed text in a dialog, and gets typed user input
+     *
+     * @param text the text to display
+     * @return the text the user types in
+     */
+    public String input(String text) {
+        area.setText(text);
+        Object object = JOptionPane.showInputDialog(parent, area,
+                dialogTitle, type, icon, null, null);
+        if (object == null) {
+            return null;
         }
         return object.toString();
     }
-    
+
     /**
-     * Dialog output of the message and title
-     * 
-     * @param message the text to display in the dialog
-     * @param title the title of the dialog
+     * Outputs the passed text in a dialog and a set of choices in a drop down
+     * selection area
+     *
+     * @param choices the choices to display for the user
+     * @param text the text to display
+     * @return the choice the user selects from the drop down
      */
-    public void output(String message, String title) {
-        JTextArea area = new JTextArea(message);
-        Font font = new Font("Arial",Font.BOLD,12);
-        Color background = new Color(238,238,238);
-        area.setFont(font);
-        area.setBackground(background);
-        JOptionPane.showMessageDialog(parent, area, title, 
-                JOptionPane.PLAIN_MESSAGE, null);
+    public String options(String[] choices, String text) {
+        area.setText(text);
+        Object object = JOptionPane.showInputDialog(parent, area,
+                dialogTitle, type, icon, choices, choices[0]);
+        if (object == null) return null;
+        return object.toString();
     }
 
     /**
-     * Dialog confirm with yes/no buttons, the message and the title
-     * 
-     * @param message the text to display in the dialog
-     * @return user selected yes (true) or not (false)
+     * Outputs the passed text in a dialog and two 'yes' and 'no' buttons for
+     * the user to click on
+     *
+     * @param text the text to display
+     * @return true if they clicked 'yes' or false for 'no'
      */
-    public boolean yesNo(String message) {
-        int result = JOptionPane.showConfirmDialog(parent, message, dialogTitle, 
-                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null);
-        if (result == JOptionPane.YES_OPTION) return true;
-        else                                  return false;        
+    public boolean question(String text) {
+        area.setText(text);
+        return JOptionPane.showConfirmDialog(parent,area,dialogTitle,
+                optionType,type, icon) == JOptionPane.YES_OPTION;
     }
-    
+
+    /**
+     * Outputs the passed text in a dialog and creates buttons with the text
+     * from the choices on each for the user to click on
+     *
+     * @param choices the text choices for each button
+     * @param text the text to display
+     * @return the text on which button the user clicked on
+     */
+    public String choices(String[] choices, String text) {
+        area.setText(text);
+        int value = JOptionPane.showOptionDialog(parent,
+                area, dialogTitle, optionType, type,
+                icon, choices, choices[0]);
+        return choices[value];
+    }
+
+    /**
+     * Open file dialog parented to the passed frame
+     *
+     * @param frame the frame to parent to
+     * @return the file object selected (or a null)
+     */
+    public File openFile(JFrame frame) {
+        JFileChooser chooser = new JFileChooser(dialogTitle);
+        chooser.showOpenDialog(frame);
+        return chooser.getSelectedFile();
+    }
+
+    /**
+     * Save file dialog parented to the passed frame
+     *
+     * @param frame the frame to parent to
+     * @return the file object selected (or a null)
+     */
+    public File saveFile(JFrame frame) {
+        JFileChooser chooser = new JFileChooser(dialogTitle);
+        chooser.showSaveDialog(frame);
+        return chooser.getSelectedFile();
+    }
+
+    /**
+     * Open file dialog parented to the passed frame
+     *
+     * @param frame the frame to parent to
+     * @return the file object selected (or a null)
+     */
+    public File openFileFrame(JDialog frame) {
+        JFileChooser chooser = new JFileChooser(dialogTitle);
+        chooser.showOpenDialog(frame);
+        return chooser.getSelectedFile();
+    }
+
+    /**
+     * Save file dialog parented to the passed frame
+     *
+     * @param frame the frame to parent to
+     * @return the file object selected (or a null)
+     */
+    public File saveFileFrame(JDialog frame) {
+        JFileChooser chooser = new JFileChooser(dialogTitle);
+        chooser.showSaveDialog(frame);
+        return chooser.getSelectedFile();
+    }
+
+    /** Sets class properties to default values */
+    private void defaults() {
+        this.font            = DEFAULT_FONT;
+        this.backgroundColor = DEFAULT_BACKGROUND_COLOR;
+        this.foregroundColor = DEFAULT_FOREGROUND_COLOR;
+        this.dialogTitle     = DEFAULT_TITLE;
+        this.parent          = DEFAULT_COMPONENT;
+        this.type            = DEFAULT_TYPE;
+        this.optionType      = DEFAULT_OPTION_TYPE;
+        this.icon            = DEFAULT_ICON;
+        this.area            = new JTextArea();
+    }
+
+    /** Initializes the text area for the dialogs */
+    private void init() {
+        area.setFont(font);
+        area.setBackground(backgroundColor);
+        area.setForeground(foregroundColor);
+    }
+
 }

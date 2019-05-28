@@ -15,6 +15,7 @@
             <word>Pokemon</word>
             <word>spawners</word>
             <word>tweets</word>
+            <word>wav</word>
         </spellchecker-wordlist>
     </configuration>
 </project>

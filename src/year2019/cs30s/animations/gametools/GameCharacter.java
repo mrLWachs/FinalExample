@@ -14,7 +14,7 @@ import javax.swing.Timer;
  * GameCharacter.java - representation of a character in a game 
  *
  * @author Mr. Wachs 
- * @since 17-Dec-2018 
+ * @since 14-May-2019 
  */
 public abstract class GameCharacter extends GameObject
 {
@@ -34,8 +34,11 @@ public abstract class GameCharacter extends GameObject
      * @param delay the delay in milliseconds of the character's timer
      * @param numberOfDirections the number of directions defined
      */
-    public GameCharacter(JLabel image, int amount, int direction, int delay, 
-            int numberOfDirections) {
+    public GameCharacter(JLabel image, 
+                         int amount, 
+                         int direction, 
+                         int delay, 
+                         int numberOfDirections) {
         super(image, amount, direction, numberOfDirections);
         input = new UserInput(super.coordinates, numberOfDirections);
         timer = new Timer(delay, new ActionListener() {
@@ -47,9 +50,7 @@ public abstract class GameCharacter extends GameObject
         timer.start();
     }
     
-    /**
-     * The abstract action this character does in it's timer
-     */
+    /** The abstract action this character does in it's timer */
     public abstract void action();
         
     /**

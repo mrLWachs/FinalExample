@@ -4,7 +4,6 @@ package year2019.cs30s.animations;
 
 import java.awt.event.KeyEvent;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import year2019.cs30s.animations.gametools.Animation;
 import year2019.cs30s.animations.gametools.GameCharacter;
 import year2019.cs40s.genericgame.gametools.Directions;
@@ -97,7 +96,7 @@ public class Hero extends GameCharacter
         String[] data = new String[1];
         data[0] = "Total points " + engine.points;
         engine.file.write(data);
-        JOptionPane.showMessageDialog(null, "You win\n\n" + data[0]);
+        engine.dialog.show("You win\n\n" + data[0]);
         System.exit(0);                         // end application
     }
 

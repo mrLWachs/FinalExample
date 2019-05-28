@@ -10,7 +10,7 @@ import java.awt.event.KeyEvent;
  * UserInput.java - methods to detect user inputs in various ways
  *
  * @author Mr. Wachs 
- * @since 18-Dec-2018 
+ * @since 14-May-2019 
  */
 public class UserInput 
 {

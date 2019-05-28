@@ -3,12 +3,11 @@
 package year2019.cs30s.animations.gametools;
 
 
-
 /**
  * Detector.java - methods to detect collision detection in various ways
  *
  * @author Mr. Wachs 
- * @since 17-Dec-2018 
+ * @since 14-May-2019  
  */
 public class Detector 
 {

@@ -79,7 +79,7 @@ public class UserInterface extends javax.swing.JFrame
         heroLabel.setText("HERO");
         heroLabel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(heroLabel);
-        heroLabel.setBounds(800, 70, 50, 50);
+        heroLabel.setBounds(860, 80, 50, 50);
 
         enemy1Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         enemy1Label.setText("ENEMY");

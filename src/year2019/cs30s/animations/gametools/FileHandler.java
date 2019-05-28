@@ -13,12 +13,12 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 
+
 /**
  * FileHandler.java - various methods for saving and opening files
  *
  * @author Mr. Wachs
- * @since May 28, 2018 
- * @instructor Mr. Wachs
+ * @since 14-May-2019 
  */
 public class FileHandler 
 {
@@ -41,28 +41,27 @@ public class FileHandler
      * @return a string array of all the lines from the file 
      */
     public String[] read() {
-        try {
-            File           file   = convertToFile(filename);
-            System.out.println(file.toPath());
-            FileReader     reader = new FileReader(file);
-            BufferedReader buffer = new BufferedReader(reader);
-            String         line   = buffer.readLine();
-            if (line == null) return null;
-            int            length = Integer.parseInt(line);
-            String[]       lines  = new String[length];
-            for (int i = 0; i < lines.length; i++) {
-                lines[i]   = buffer.readLine();
+        try {                                                   // error trap
+            File           file   = convertToFile(filename);    // create file
+            FileReader     reader = new FileReader(file);       // create reader
+            BufferedReader buffer = new BufferedReader(reader); // create buffer
+            String         line   = buffer.readLine();          // read a line
+            if (line == null) return null;                      // file empty
+            int            length = Integer.parseInt(line);     // array size
+            String[]       lines  = new String[length];         // create array
+            for (int i = 0; i < lines.length; i++) {            // traverse
+                lines[i] = buffer.readLine();                   // reaed lines
             }
-            buffer.close();
-            return lines;
+            buffer.close();                                     // close file
+            return lines;                                       // return array
         }
-        catch (IOException e) {
+        catch (IOException e) {                                 // no file
             System.out.println("I/O error");
         }
-        catch (NullPointerException e) {
+        catch (NullPointerException e) {                        // read a null
             System.out.println("Read Null error");
         }
-        return null;
+        return null;                                            // error caught
     }
 
     /**
@@ -71,22 +70,20 @@ public class FileHandler
      * @param data string array to write to the file
      */
     public void write(String[] data) {
-        try {
-            File        file    = convertToFile(filename); //new File(filename); //
-            System.out.println(file.toPath());
-            if (!file.exists()) file.createNewFile();
-            FileWriter  writer  = new FileWriter(file);
-            PrintWriter printer = new PrintWriter(writer);
-            printer.println(data.length);
-            for (int i = 0; i < data.length; i++) {
-                printer.println(data[i]);
+        try {                                               // error trap
+            File        file    = convertToFile(filename);  // create file
+            FileWriter  writer  = new FileWriter(file);     // create writer
+            PrintWriter printer = new PrintWriter(writer);  // create printer
+            printer.println(data.length);                   // write array size
+            for (int i = 0; i < data.length; i++) {         // traverse array
+                printer.println(data[i]);                   // write array index
             }
-            printer.close();
+            printer.close();                                // close file
         }
-        catch (IOException e) {
+        catch (IOException e) {                             // no file
             System.out.println("I/O error");
         }
-        catch (NullPointerException e) {
+        catch (NullPointerException e) {                    // read a null
             System.out.println("Write Null error");
         }
     }
@@ -98,20 +95,20 @@ public class FileHandler
      * @return a file object converted from the file name string 
      */
     public File convertToFile(String filename) {
-        try {
-            URL  url  = getClass().getResource(filename);
-            URI  uri  = url.toURI();
-            File file = new File(uri);
-            if (!file.exists()) file.createNewFile();
-            return file;
+        try {                                               // error trap
+            URL  url  = getClass().getResource(filename);   // convert to URL
+            URI  uri  = url.toURI();                        // convert to URI
+            File file = new File(uri);                      // create file
+            if (!file.exists()) file.createNewFile();       // create new file
+            return file;                                    // return new file
         }
-        catch (URISyntaxException ex) {
+        catch (URISyntaxException ex) {                     // URI error caught
             System.out.println("URI error");
         } 
-        catch (IOException ex) {
+        catch (IOException ex) {                            // file path error
             System.out.println("I/O error");
         }
-        return null;
+        return null;                                        // error caught
     }
     
 }

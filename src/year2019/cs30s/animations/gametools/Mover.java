@@ -3,12 +3,11 @@
 package year2019.cs30s.animations.gametools;
 
 
-
 /**
  * Mover.java - methods to move a game object in various ways
  *
  * @author Mr. Wachs 
- * @since 17-Dec-2018 
+ * @since 14-May-2019 
  */
 public class Mover 
 {
@@ -16,6 +15,7 @@ public class Mover
     private Coordinates source; 
     private int numberOfDirections;
 
+    
     /**
      * Constructor for the class, sets class properties
      * 

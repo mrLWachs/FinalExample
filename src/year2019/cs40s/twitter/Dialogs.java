@@ -3,8 +3,8 @@ package year2019.cs40s.twitter;
 
 /** required imports */
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Font;
+import java.awt.Frame;
 import java.io.File;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -13,6 +13,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
+
 
 /**
  * Dialogs.java - a collection of useful methods for working with dialogs
@@ -31,7 +32,7 @@ public class Dialogs
     public static final Color DEFAULT_FOREGROUND_COLOR
             = new JOptionPane().getForeground();
     private final String DEFAULT_TITLE = "";
-    private final Component DEFAULT_COMPONENT = null;
+    private final Frame DEFAULT_COMPONENT = null;
     private final ImageIcon DEFAULT_ICON = null;
     private final int DEFAULT_TYPE
             = JOptionPane.PLAIN_MESSAGE;
@@ -59,7 +60,7 @@ public class Dialogs
     /**
      * Frame or other component the dialog parents (centers) with
      */
-    public Component parent;
+    public Frame parent;
     /**
      * Type of icon used in the dialogs
      */
@@ -91,7 +92,7 @@ public class Dialogs
      * @param dialogTitle The title used on any dialog in the class
      * @param parent the component to parent the dialogs to
      */
-    public Dialogs(String dialogTitle, Component parent) {
+    public Dialogs(String dialogTitle, Frame parent) {
         defaults();
         this.dialogTitle = dialogTitle;
         this.parent = parent;
@@ -129,7 +130,7 @@ public class Dialogs
      * @param foregroundColor foreground (text) color used in dialogs
      * @param dialogTitle top dialog title used
      */
-    public Dialogs(Component parent,
+    public Dialogs(Frame parent,
                    int type,
                    Icon icon,
                    Font font,

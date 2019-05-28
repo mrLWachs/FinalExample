@@ -14,12 +14,12 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
+
 /**
  * MediaPlayer.java - a collection of useful methods for playing media files
  *
  * @author Mr. Wachs
- * @since May 28, 2018 
- * @instructor Mr. Wachs
+ * @since 14-May-2019 
  */
 public class MediaPlayer 
 {
@@ -27,6 +27,7 @@ public class MediaPlayer
     private AudioInputStream audioStream;
     private Clip             clip;
 
+    
     /**
      * Plays the passed file object WAV file as audio
      * 
@@ -55,9 +56,7 @@ public class MediaPlayer
         } 
     }
 
-    /** 
-     * Stops any playing audio clip 
-     */
+    /** Stops any playing audio clip */
     public void stop() {
         if (clip != null) clip.stop();
     }
