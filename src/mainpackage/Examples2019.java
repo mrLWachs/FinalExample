@@ -5,6 +5,7 @@ package mainpackage;
 /** required imports */
 import static mainpackage.MainClass.gamesPlayed;
 import static mainpackage.MainClass.totalPoints;
+import year2019.cs30s.animations.AnimationsMain;
 import year2019.cs30s.email.EmailMain;
 import year2019.cs40s.bufferedimages.BufferedImagesMain;
 import year2019.cs40s.genericgame.Game;
@@ -23,6 +24,7 @@ public class Examples2019
 {
         
     private static final String[]  CS30S_OPTIONS       = { "Emailer",
+                                                           "Animated Game",
                                                            "Choose year",
                                                            "Exit" };
     private static final String[]  CS40S_OPTIONS       = { "File Tools",
@@ -70,7 +72,8 @@ public class Examples2019
                       MainConstants.MENU_PROMPT_6;
         String choice = MainClass.dialog.buttons(text, CS30S_OPTIONS);
         if      (choice.equals(CS30S_OPTIONS[0])) new EmailMain();
-        else if (choice.equals(CS30S_OPTIONS[1])) MainClass.menu();
+        else if (choice.equals(CS30S_OPTIONS[1])) new AnimationsMain();
+        else if (choice.equals(CS30S_OPTIONS[2])) MainClass.menu();
         else                                      MainClass.end();
     }
     
