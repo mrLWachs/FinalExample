@@ -3,7 +3,6 @@
 package year2019.cs30s.animations;
 
 
-
 /**
  * AnimationsMain.java - 
  *
@@ -18,10 +17,6 @@ public class AnimationsMain
      */
     public AnimationsMain() {
         UserInterface ui = new UserInterface();
-    }
-
-    public static void main(String[] args) {
-        new AnimationsMain();
     }
 
 }

@@ -7,6 +7,7 @@ import static mainpackage.MainClass.gamesPlayed;
 import static mainpackage.MainClass.totalPoints;
 import year2019.cs30s.animations.AnimationsMain;
 import year2019.cs30s.email.EmailMain;
+import year2019.cs40s.awards.AwardsMain;
 import year2019.cs40s.bufferedimages.BufferedImagesMain;
 import year2019.cs40s.genericgame.Game;
 import year2019.cs40s.systemfilemanager.FileToolsUI;
@@ -31,6 +32,7 @@ public class Examples2019
                                                            "Buffered Images",
                                                            "Generic Game",
                                                            "Twitter Reader",
+                                                           "Awards",
                                                            "Choose year",
                                                            "Exit" };
         
@@ -89,8 +91,9 @@ public class Examples2019
         if      (choice.equals(CS40S_OPTIONS[0])) new FileToolsUI();
         else if (choice.equals(CS40S_OPTIONS[1])) new BufferedImagesMain();
         else if (choice.equals(CS40S_OPTIONS[2])) new Game();
-        else if (choice.equals(CS40S_OPTIONS[3])) new TwitterMainClass();
-        else if (choice.equals(CS40S_OPTIONS[4])) MainClass.menu();
+        else if (choice.equals(CS40S_OPTIONS[3])) new TwitterMainClass();        
+        else if (choice.equals(CS40S_OPTIONS[4])) new AwardsMain();
+        else if (choice.equals(CS40S_OPTIONS[5])) MainClass.menu();
         else                                      MainClass.end(); 
     }
     

@@ -6,7 +6,6 @@ package year2019.cs40s.awards;
 import year2019.cs40s.awards.userinterfaces.UIManager;
 
 
-
 /**
  * AwardsMain.java - 
  *
@@ -22,8 +21,5 @@ public class AwardsMain
     public AwardsMain() {
         new UIManager();
     }
-
-    public static void main(String[] args) {
-        new AwardsMain();
-    }
+    
 }
