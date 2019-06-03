@@ -4,7 +4,7 @@ package year2019.cs30s.animations;
 
 
 /**
- * AnimationsMain.java - 
+ * AnimationsMain.java - the main class for this game example
  *
  * @author Mr. Wachs 
  * @since 14-May-2019 

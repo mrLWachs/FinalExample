@@ -1,15 +1,14 @@
 
-
 /** required package class namespace */
 package year2019.cs30s.animations;
 
+/** required imports */
 import java.awt.Color;
 import year2019.cs30s.animations.gametools.Directions;
 
 
-
 /**
- * Globals.java - 
+ * Globals.java - global environmental constants for the game
  *
  * @author Mr. Wachs 
  * @since 15-May-2019 
@@ -28,26 +27,20 @@ public class Globals
     public static Color  OBJECTIVE_COLOR  = Color.GREEN;
     public static String PRIZE_TEXT       = "Prize";
     public static Color  PRIZE_COLOR      = Color.ORANGE;
-    
-    
     public static String ENEMY_TEXT       = "Enemy";
     public static Color  ENEMY_COLOR      = Color.RED;
     public static int    ENEMY_AMOUNT     = 1;
     public static int    ENEMY_DIRECTION  = Directions.STOP;
     public static int    ENEMY_DELAY      = 10;
-    public static int    ENEMY_DIRECTIONS = Directions.FOUR_DIRECTIONS;
-    
+    public static int    ENEMY_DIRECTIONS = Directions.FOUR_DIRECTIONS;    
     public static String HERO_TEXT        = "Hero";
     public static Color  HERO_COLOR       = Color.BLACK;
     public static int    HERO_AMOUNT      = 1;
     public static int    HERO_DIRECTION   = Directions.STOP;
     public static int    HERO_DELAY       = 10;
-    public static int    HERO_DIRECTIONS  = Directions.FOUR_DIRECTIONS;
-    
-    public static String MEDIA_PATH       = "/year2019/cs30s/animations/media/";
-    
-    public static String DATA_FILE        = MEDIA_PATH + "animationData.txt";
-    
+    public static int    HERO_DIRECTIONS  = Directions.FOUR_DIRECTIONS;    
+    public static String MEDIA_PATH       = "/year2019/cs30s/animations/media/";    
+    public static String DATA_FILE        = MEDIA_PATH + "animationData.txt";    
     public static String[] PACMAN_RIGHT_IMAGES  = {
         MEDIA_PATH + "right01.png",
         MEDIA_PATH + "right02.png",
@@ -60,8 +53,7 @@ public class Globals
         MEDIA_PATH + "right09.png",
         MEDIA_PATH + "right10.png",
         MEDIA_PATH + "right11.png"
-    };
-    
+    };    
     public static String[] PACMAN_DOWN_IMAGES  = {
         MEDIA_PATH + "down01.png",
         MEDIA_PATH + "down02.png",
@@ -74,8 +66,7 @@ public class Globals
         MEDIA_PATH + "down09.png",
         MEDIA_PATH + "down10.png",
         MEDIA_PATH + "down11.png"
-    };
-    
+    };    
     public static String[] PACMAN_LEFT_IMAGES  = {
         MEDIA_PATH + "left01.png",
         MEDIA_PATH + "left02.png",
@@ -88,8 +79,7 @@ public class Globals
         MEDIA_PATH + "left09.png",
         MEDIA_PATH + "left10.png",
         MEDIA_PATH + "left11.png"
-    };
-    
+    };    
     public static String[] PACMAN_UP_IMAGES  = {
         MEDIA_PATH + "up01.png",
         MEDIA_PATH + "up02.png",
@@ -102,13 +92,11 @@ public class Globals
         MEDIA_PATH + "up09.png",
         MEDIA_PATH + "up10.png",
         MEDIA_PATH + "up11.png"
-    };
-    
+    };    
     public static String[] PACMAN_IDOLE_IMAGES  = {
         MEDIA_PATH + "idle01.png",
         MEDIA_PATH + "idle02.png"
-    };
-    
+    };    
     public static String PACMAN_SOUND = MEDIA_PATH + "pacman_chomp.wav";
     
 }

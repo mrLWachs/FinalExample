@@ -1,17 +1,13 @@
-/*
- *  Mr. Wachs' classes - Java Computer Science learning file UserInterface.java
- *  for project FinalExamples on 15-May-2019 at 12:15:28 PM by lawrence.wachs
- */
-
 
 /** required package class namespace */
 package year2019.cs30s.animations;
 
+/** required imports */
 import javax.swing.JLabel;
 
 
 /**
- * UserInterface.java - 
+ * UserInterface.java - the user interface for the game
  *
  * @author Mr. Wachs 
  * @since 15-May-2019 
@@ -27,7 +23,7 @@ public class UserInterface extends javax.swing.JFrame
         JLabel[] walls = {
             wall01Label,wall02Label,wall03Label,wall04Label,wall05Label,
             wall06Label,wall07Label,wall08Label,wall09Label,wall10Label
-        };
+        };                          // put images into an array
         JLabel[] enemies = {
             enemy1Label,enemy2Label
         };
