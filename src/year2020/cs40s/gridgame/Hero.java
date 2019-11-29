@@ -11,14 +11,12 @@ public class Hero
     private int      row;
     private int      column;
     private Boundry  boundry;
-    private Grid     grid;
     
     
-    public Hero(Location[][] locations, Grid grid) {
+    public Hero(Location[][] locations) {
         this.locations = locations;
         this.row       = locations.length    / 2;
         this.column    = locations[0].length / 2;
-        this.grid      = grid;
         boundry = new Boundry(locations);
         this.locations[row][column].type = Types.HERO;
         redraw();
@@ -33,26 +31,14 @@ public class Hero
     }
 
     public void keyPress(KeyEvent event) {
-        if (event.getKeyCode() == KeyEvent.VK_ESCAPE) System.exit(0);
         int row    = this.row;
         int column = this.column;
-        if (event.getKeyCode() == KeyEvent.VK_UP) {
-            row--;
-            grid.setTitle("Moving up...");
-        }
-        else if (event.getKeyCode() == KeyEvent.VK_DOWN) {
-            row++;
-            grid.setTitle("Moving down...");
-        }
-        else if (event.getKeyCode() == KeyEvent.VK_LEFT) {
-            column--;
-            grid.setTitle("Moving left...");
-        }
-        else if (event.getKeyCode() == KeyEvent.VK_RIGHT) {
-            column++;
-            grid.setTitle("Moving right...");
-        }
-        if (boundry.inside(row,column)) move(row,column);        
+        if      (event.getKeyCode() == KeyEvent.VK_ESCAPE) System.exit(0);
+        else if (event.getKeyCode() == KeyEvent.VK_UP)     row--;
+        else if (event.getKeyCode() == KeyEvent.VK_DOWN)   row++;
+        else if (event.getKeyCode() == KeyEvent.VK_LEFT)   column--;
+        else if (event.getKeyCode() == KeyEvent.VK_RIGHT)  column++;
+        if (boundry.inside(row,column))                    move(row,column);        
     }
 
     public void redraw() {

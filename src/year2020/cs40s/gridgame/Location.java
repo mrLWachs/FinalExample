@@ -10,8 +10,10 @@ public class Location
     public int type;
     public Tile tile;
     
-    public Location(int row, int column, int x, int y, 
-                    int tileWidth, int tileHeight, int type, Grid grid) {
+    public Location(int row, int column, 
+                    int x, int y, 
+                    int tileWidth, int tileHeight, 
+                    int type, Grid grid) {
         this.row    = row;
         this.column = column;   
         this.type   = type;

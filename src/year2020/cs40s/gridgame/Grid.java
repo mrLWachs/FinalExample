@@ -11,7 +11,7 @@ import javax.swing.JFrame;
 public class Grid extends JFrame
 {
     
-    private final double SCALE_FACTOR = 0.02;
+    private final double SCALE_FACTOR = 0.04;
         
     private int frameWidth;
     private int frameHeight;    
@@ -40,7 +40,7 @@ public class Grid extends JFrame
         rows        = frameHeight / tileHeight;
         columns     = frameWidth  / tileWidth;
         setTiles();
-        hero        = new Hero(locations,this);
+        hero        = new Hero(locations);
     }
     
     private void setFrame() {

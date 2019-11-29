@@ -12,6 +12,7 @@ public class Types
     public static int    GROUND        = 0;
     public static int    HERO          = 1;
     public static int    BOUNDRY       = 3;
+    
     public static Color  HERO_IMAGE    = Color.BLUE;
     public static Color  GROUND_IMAGE  = Color.GREEN;
     public static Color  BOUNDRY_IMAGE = Color.RED;
