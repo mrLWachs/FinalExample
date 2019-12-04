@@ -9,21 +9,19 @@ package year2020.cs40s.gridgameadvanced;
  * @author Mr. Wachs
  * @since Nov. 29, 2019, 2:34:13 p.m.
  */
-public class UIView extends javax.swing.JFrame 
+public class UserInterface extends javax.swing.JFrame 
 {
 
-    private UIModel      model;
-    private UIController controller;
+    private Engine engine;
     
     
     /** 
      * Default constructor, creates new form UI 
      */
-    public UIView() {
+    public UserInterface() {
         initComponents();
-        model = new UIModel(jLabel1,jLabel2,jList1,jPanel1,
+        engine = new Engine(jLabel1,jLabel2,jLabel3,jList1,jPanel1,
                             jPanel2,jScrollPane1,this);
-        controller = new UIController(model,this);
     }
 
     // <editor-fold defaultstate="collapsed" desc="NetBeans Generated Code"> 
@@ -41,10 +39,16 @@ public class UIView extends javax.swing.JFrame
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
         jLabel1.setText("Large Map:");
@@ -56,6 +60,11 @@ public class UIView extends javax.swing.JFrame
         jLabel2.setBounds(10, 10, 400, 20);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPanel1KeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -72,17 +81,18 @@ public class UIView extends javax.swing.JFrame
         jPanel1.setBounds(430, 30, 610, 700);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPanel2KeyPressed(evt);
+            }
+        });
+        jPanel2.setLayout(null);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 396, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 296, Short.MAX_VALUE)
-        );
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("H");
+        jLabel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel2.add(jLabel3);
+        jLabel3.setBounds(180, 140, 30, 30);
 
         getContentPane().add(jPanel2);
         jPanel2.setBounds(10, 30, 400, 300);
@@ -92,6 +102,11 @@ public class UIView extends javax.swing.JFrame
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        jList1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jList1KeyPressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(jList1);
 
         getContentPane().add(jScrollPane1);
@@ -100,9 +115,26 @@ public class UIView extends javax.swing.JFrame
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jPanel2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel2KeyPressed
+        engine.keypress(evt);
+    }//GEN-LAST:event_jPanel2KeyPressed
+
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+        engine.keypress(evt);
+    }//GEN-LAST:event_formKeyPressed
+
+    private void jPanel1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel1KeyPressed
+        engine.keypress(evt);
+    }//GEN-LAST:event_jPanel1KeyPressed
+
+    private void jList1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jList1KeyPressed
+        engine.keypress(evt);
+    }//GEN-LAST:event_jList1KeyPressed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

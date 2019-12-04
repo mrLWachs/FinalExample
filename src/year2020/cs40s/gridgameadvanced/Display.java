@@ -3,6 +3,7 @@
 package year2020.cs40s.gridgameadvanced;
 
 import javax.swing.JPanel;
+import year2020.cs40s.gridgameadvanced.matrix.SmallMatrix;
 
  
 /**
@@ -17,13 +18,12 @@ public class Display
     private JPanel panel;
     private Map    map;
     
+    public SmallMatrix matrix;
     
-    public Display(JPanel panel) {
+    
+    public Display(JPanel panel, Map map) {
         this.panel = panel;
-    }
-
-    public void set(Map map) {
-        this.map = map;
+        this.map   = map;
     }
 
     public void update() {
