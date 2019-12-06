@@ -97,6 +97,7 @@ public class GameImage
       
     /** Shows (makes visible) the GameImage in the container */
     public void show() {
+        if (label == null) return;
         if (imageFile != null) label.setIcon(icon); // checks for an image
         label.setVisible(true);                     // make label visible
     }
@@ -138,6 +139,7 @@ public class GameImage
      */
     public void update(Coordinates coordinates) {
         if (coordinates == null) coordinates = new Coordinates();
+        if (label == null) return;
         coordinates.x      = label.getX();
         coordinates.y      = label.getY();
         coordinates.width  = label.getWidth();
