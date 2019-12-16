@@ -12,6 +12,10 @@ package year2019.cs40s.bufferedimages;
 public class BufferedImagesMain 
 {
 
+    public static void main(String[] args) {
+        new BufferedImagesMain();
+    }
+    
     public BufferedImagesMain() {
         new UI();
     }
