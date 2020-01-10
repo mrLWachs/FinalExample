@@ -32,10 +32,11 @@ public class MainConstants
     public  static final String   SOUND           = MEDIA_PATH + "Ding.wav";   
     public  static final String   DATA_FILE       = MEDIA_PATH + "data.txt";
         
-    public static final String[] YEAR_OPTIONS    = { "2018-2019",
-                                                      "2017-2018",
-                                                      "Past years",
-                                                      "Exit" };    
+    public static final String[] YEAR_OPTIONS    = { "2019-2020",
+                                                     "2018-2019",
+                                                     "2017-2018",                                                     
+                                                     "Past years",
+                                                     "Exit" };    
     public static final String[]  EXAMPLE_OPTIONS = { "Computer Science 30S",
                                                       "Computer Science 40S",
                                                       "Choose year",
