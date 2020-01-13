@@ -73,7 +73,7 @@ public class MainClass
         else if (choice.equals(MainConstants.YEAR_OPTIONS[2])) 
             new Examples2018();        
         else if (choice.equals(MainConstants.YEAR_OPTIONS[3])) 
-            new ExamplesPastYears();
+            new ExamplesOther();
         else                                          end(); 
     }
             
