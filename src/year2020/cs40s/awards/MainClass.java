@@ -3,7 +3,6 @@
 package year2020.cs40s.awards;
 
 import year2020.cs40s.awards.data.DataStructures;
-import year2020.cs40s.awards.userinterfaces.LoadingView;
 import year2020.cs40s.awards.userinterfaces.MainUIView;
 
 
@@ -23,7 +22,7 @@ public class MainClass
      */
     public static void main(String[] args) {
         DataStructures.initialize();
-        MainUIView mainUI = new MainUIView();
+        MainUIView mainUI = new MainUIView(); 
     }
 
 }
