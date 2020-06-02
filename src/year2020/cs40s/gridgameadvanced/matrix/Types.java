@@ -2,6 +2,8 @@
 /** required package class namespace */
 package year2020.cs40s.gridgameadvanced.matrix;
 
+import year2018.cs30s.tools.Numbers;
+
  
 /**
  * Types.java - description
@@ -24,4 +26,11 @@ public class Types
         true
     };
     
+    public static int random() {
+        if      (Numbers.random(1, 20) == 1) return ROCK;
+        else if (Numbers.random(1, 10) == 1) return WATER;
+        else if (Numbers.random(1, 5)  == 1) return SAND;
+        else                                 return GRASS;        
+    }
+        
 }

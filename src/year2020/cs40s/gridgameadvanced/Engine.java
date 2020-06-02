@@ -28,7 +28,7 @@ public class Engine
     private JPanel           displayPanel;
     private JScrollPane      statusScrollPane1;
     private DefaultListModel listModel;
-    private UserInterface           view;
+    private UserInterface    view;
     private JComponent[]     components;
     private Display          display;
     private Map              map;
@@ -51,11 +51,14 @@ public class Engine
         this.mapPanel          = mapPanel;
         this.displayPanel      = displayPanel;
         this.statusScrollPane1 = statusScrollPane1;
-        this.view              = view;     
+        this.view              = view;   
         setFrame();
         setComponents();
         setObjects();
-        update("Starting up...");
+        Updater.update("Setting up application interface...");
+        Updater.update("Setting up application controls...");
+        Updater.update("Setting up application map objects...");
+        Updater.update("Starting up...");
     }
 
     private void setFrame() {
@@ -98,19 +101,15 @@ public class Engine
     }
     
     private void setObjects() {
+        Updater.init(statusList, listModel, statusScrollPane1);
         map     = new Map(mapPanel);
         display = new Display(displayPanel,map);
-        hero    = new Hero(heroLabel,display);
-    }
-    
-    public void update(String message) {
-        display.update();
-        map.update();
-        listModel.addElement(message);
+        hero    = new Hero(heroLabel,display);        
     }
 
     public void keypress(KeyEvent event) {
         hero.keypress(event);
+        view.requestFocus();
     }
 
 }

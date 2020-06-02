@@ -7,9 +7,6 @@ import year2018.cs30s.tools.Dialogs;
 import year2018.cs30s.tools.FileHandler;
 import year2018.cs30s.tools.FrameTools;
 import year2018.cs30s.tools.MediaPlayer;
-import year2019.cs30s.animations.AnimationsMain;
-import year2019.cs40s.awards.AwardsMain;
-import year2019.cs40s.systemfilemanager.FileToolsUI;
 
 /**
  * MainClass.java - the main class for the project
@@ -70,11 +67,13 @@ public class MainClass
         String choice = dialog.choose(text,MainConstants.YEAR_OPTIONS);
         if      (choice == null || choice.equals("")) menu();
         if      (choice.equals(MainConstants.YEAR_OPTIONS[0])) 
-            new Examples2019();
+            new Examples2020();
         else if (choice.equals(MainConstants.YEAR_OPTIONS[1])) 
-            new Examples2018();        
+            new Examples2019(); 
         else if (choice.equals(MainConstants.YEAR_OPTIONS[2])) 
-            new ExamplesPastYears();
+            new Examples2018();        
+        else if (choice.equals(MainConstants.YEAR_OPTIONS[3])) 
+            new ExamplesOther();
         else                                          end(); 
     }
             
