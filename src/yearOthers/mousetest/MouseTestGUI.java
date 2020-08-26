@@ -1,5 +1,7 @@
 package yearOthers.mousetest;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.MouseEvent;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -24,12 +26,16 @@ public class MouseTestGUI extends javax.swing.JFrame {
 
     /** Creates new form MouseTestGUI */
     public MouseTestGUI() {
-        setEnvironmentals();
+//        setEnvironmentals();
         
         initComponents();
         setEnvironmentals();
         setDataStructures();
         setVisible(true);
+        
+//        this.setSize(605,497);
+//        this.setVisible(true);
+        
     }
 
     /** This method is called from within the constructor to
@@ -61,14 +67,6 @@ public class MouseTestGUI extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         fraBackground.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        fraBackground.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                fraBackgroundMousePressed(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                fraBackgroundMouseReleased(evt);
-            }
-        });
         fraBackground.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 fraBackgroundMouseDragged(evt);
@@ -77,29 +75,37 @@ public class MouseTestGUI extends javax.swing.JFrame {
                 fraBackgroundMouseMoved(evt);
             }
         });
+        fraBackground.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                fraBackgroundMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                fraBackgroundMouseReleased(evt);
+            }
+        });
         fraBackground.setLayout(null);
 
         lblMouse.setBackground(new java.awt.Color(255, 255, 102));
         lblMouse.setForeground(new java.awt.Color(255, 102, 102));
         lblMouse.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         fraBackground.add(lblMouse);
-        lblMouse.setBounds(230, 170, 120, 100);
+        lblMouse.setBounds(290, 220, 120, 100);
         fraBackground.add(jButton1);
-        jButton1.setBounds(290, 130, 20, 20);
+        jButton1.setBounds(290, 130, 50, 50);
         fraBackground.add(jButton2);
-        jButton2.setBounds(80, 50, 20, 20);
+        jButton2.setBounds(80, 50, 50, 50);
         fraBackground.add(jButton3);
-        jButton3.setBounds(320, 380, 20, 20);
+        jButton3.setBounds(320, 380, 50, 50);
         fraBackground.add(jButton4);
-        jButton4.setBounds(160, 180, 20, 20);
+        jButton4.setBounds(160, 180, 50, 50);
         fraBackground.add(jButton5);
-        jButton5.setBounds(510, 250, 20, 20);
+        jButton5.setBounds(510, 250, 50, 50);
         fraBackground.add(jButton6);
-        jButton6.setBounds(100, 300, 20, 20);
+        jButton6.setBounds(100, 300, 50, 50);
         fraBackground.add(jButton7);
-        jButton7.setBounds(500, 70, 20, 20);
+        jButton7.setBounds(500, 70, 50, 50);
         fraBackground.add(jButton8);
-        jButton8.setBounds(360, 40, 20, 20);
+        jButton8.setBounds(360, 40, 50, 50);
 
         getContentPane().add(fraBackground);
         fraBackground.setBounds(0, 0, 600, 470);
@@ -124,7 +130,7 @@ public class MouseTestGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_fraBackgroundMouseMoved
 
     private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
-        resizeForm();
+//        resizeForm();
     }//GEN-LAST:event_formComponentResized
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -146,7 +152,7 @@ public class MouseTestGUI extends javax.swing.JFrame {
      * sets the look and feel of the GUI
      */
     private void setDataStructures() {
-        FormTools.setGUI(this,605,497,"Mouse Drag Test",true,fraBackground);
+        FormTools.setGUI(this,800,600,"Mouse Drag Test",true,fraBackground);
         
         resizeForm();
         mouseDown();
@@ -162,8 +168,8 @@ public class MouseTestGUI extends javax.swing.JFrame {
         buttons[6] = jButton7; buttons[7] = jButton8;
         startingX = 0;
         startingY = 0;
-        blackImage = new ImageIcon(getClass().getResource("/yearOthers/mousetest/black.png"));
-        whiteImage = new ImageIcon(getClass().getResource("/yearOthers/mousetest/white.png"));
+//        blackImage = new ImageIcon(getClass().getResource("/yearOthers/mousetest/black.png"));
+//        whiteImage = new ImageIcon(getClass().getResource("/yearOthers/mousetest/white.png"));
     }
 
     /**
@@ -181,25 +187,46 @@ public class MouseTestGUI extends javax.swing.JFrame {
     private void setRandomLocations() {        
         int length = buttons.length;
         Coordinates buttonsData[] = new Coordinates[length];
+        System.out.println(length + " locations to set...");
+        final int SIZE = 40;
+        for (int i = 0; i < buttons.length; i++) {            
+            buttons[i].setSize(SIZE, SIZE);
+            buttons[i].setOpaque(true);
+            buttons[i].setBackground(Color.white);
+            buttons[i].setForeground(Color.black);
+            buttons[i].setFont(new Font("Arial Narrow",Font.PLAIN,8));
+            buttons[i].setText("" + i);
+        }
+        
+        
+        
         for (int i = 0; i < buttons.length; i++) {
             boolean isValid = true;
             int x = 0, y = 0;
             do {
-                int lowX = 0;
-                int highX = this.getWidth() - buttons[i].getWidth() - 100;
-                int lowY = 0;
-                int highY = this.getHeight() - buttons[i].getHeight() - 200;
+                int lowX  = 0;
+                int lowY  = 0;
+                int highX = this.getWidth()  - buttons[i].getWidth(); //  - 300;
+                int highY = this.getHeight() - buttons[i].getHeight(); // - 400;
                 x = Toolbox.randomInteger(lowX,highX);
                 y = Toolbox.randomInteger(lowY,highY);
+                buttons[i].setLocation(x,y);
                 buttonsData[i] = new Coordinates(buttons[i]);
                 isValid = true;
                 for (int j = 0; j < i; j++) {
-                    if (buttonsData[i].isCollidingWith(buttonsData[j]))
+                    if (buttonsData[i].isCollidingWith(buttonsData[j])) {
                         isValid = false;
+                        j = i;
+                        System.out.println("\t~~~ " + i  + " colliding with " + j);
+                    }
                 }
             } while(isValid == false);
-            buttons[i].setLocation(x,y);
-            buttons[i].setIcon(blackImage); 
+            
+            System.out.println("setting location " + i + " - at (" + x + "," + y + ")");
+            
+//            buttons[i].setLocation(x,y);
+//            buttons[i].setIcon(blackImage); 
+            
         }
     }
 
@@ -255,11 +282,17 @@ public class MouseTestGUI extends javax.swing.JFrame {
      * @param button
      */
     private void selectButton(int button) {
-        if (buttons[button].getIcon() == blackImage) {
-            buttons[button].setIcon(whiteImage);
+//        if (buttons[button].getIcon() == blackImage) {
+        if (buttons[button].getBackground().equals(Color.black)) { 
+            buttons[button].setBackground(Color.white);
+            buttons[button].setForeground(Color.black);
+//            buttons[button].setIcon(whiteImage);
         }
-        else if (buttons[button].getIcon() == whiteImage) {
-            buttons[button].setIcon(blackImage);
+//        else if (buttons[button].getIcon() == whiteImage) {
+        else if (buttons[button].getBackground().equals(Color.white)) {    
+            buttons[button].setBackground(Color.black);
+            buttons[button].setForeground(Color.white);
+//            buttons[button].setIcon(blackImage);
         }
     }
 

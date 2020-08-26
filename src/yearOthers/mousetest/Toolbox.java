@@ -157,7 +157,7 @@ public abstract class Toolbox
         double rnd = Math.random();
         double L = (double)low;
         double H = (double)high;
-        double random = (H - L + 1) * rnd + L;
+        double random = (H - L + 1d) * rnd + L;
         int answer = (int)random;
         return answer;
     }

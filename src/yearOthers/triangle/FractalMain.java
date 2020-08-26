@@ -16,5 +16,9 @@ public class FractalMain
         fractalOptionsGUI.initGUI();
         fractalLogic.setLogic();
     }
+    
+    public static void main(String[] args) {
+        new FractalMain();
+    }
 
 }
