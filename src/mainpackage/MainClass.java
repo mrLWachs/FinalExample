@@ -83,9 +83,9 @@ public class MainClass
      * @param args the command line arguments
      */
     public static void main(String[] args) { 
-//        start();
+        start();
         
-        year2020.cs40s.awards.MainClass.main(args);
+//        year2020.cs40s.awards.MainClass.main(args);
         
     }
 
