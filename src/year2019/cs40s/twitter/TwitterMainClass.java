@@ -33,4 +33,8 @@ public class TwitterMainClass
         new UIView();
     }
     
+    public static void main(String[] args) {
+        new TwitterMainClass();
+    }
+    
 }

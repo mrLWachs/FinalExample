@@ -18,6 +18,11 @@ public class UIModel
 {
 
     public static final String[] DEFAULT_WATCH_WORDS_ARRAY = {
+          "Computer",
+          "Science",
+          "Education",
+          "Digital",
+          "Literacy",
           "Amazon",
           "Bezos",
           "Toyota",
@@ -36,10 +41,10 @@ public class UIModel
           "Facebook",
           "Twitter"
         };
-    public static final String             CONSUMER_KEY             = "L53C1tMeHNPfINBYOCheQZGEb";
-    public static final String             CONSUMER_SECRET          = "lGnLjH9W71BvDIyUkraksHbb5bfhrbhHWP5xBDZiZgrUNoM2js";
-    public static final String             ACCESS_TOKEN             = "803783491-je22x5xXKYPJN6VhYDOL0MNjjwBt1PVmWIyWowCF";
-    public static final String             ACCESS_TOKEN_SECRET      = "ukWcU4j66gLqCWNvlDPdUso9jtlj3rGghwInqsS61K3iD";    
+    public static final String             CONSUMER_KEY             = "xLjs04s6ME3uzLuM86wgYdRgo"; //L53C1tMeHNPfINBYOCheQZGEb";
+    public static final String             CONSUMER_SECRET          = "LmFjU3528FD4NdgmjpCaEjOlcIBksEL4mwnX3QyMiWPxQ9BhlR"; //lGnLjH9W71BvDIyUkraksHbb5bfhrbhHWP5xBDZiZgrUNoM2js";
+    public static final String             ACCESS_TOKEN             = "803783491-zoR4YZD0vqFqRWcqgIAyIycbsxwkXSwTBC0a8uV7"; //803783491-je22x5xXKYPJN6VhYDOL0MNjjwBt1PVmWIyWowCF";
+    public static final String             ACCESS_TOKEN_SECRET      = "ovf7eEY9rONttwGnib6hYw9CKV1hIpowJEh3V4LIGLk2U"; // ukWcU4j66gLqCWNvlDPdUso9jtlj3rGghwInqsS61K3iD";    
     public static final String             FILE_NAME                = System.getProperty("user.dir") + "\\page.html";    
     public static final Font               DEFAULT_FONT             = new Font("Helvetica Neue", Font.PLAIN, 12);
     public static final Color              DEFAULT_BACKGROUND_COLOR = new Color(29,161,242);
@@ -51,7 +56,7 @@ public class UIModel
     public static final int                APP_HEIGHT               = 750;
     public static final Font               PANEL_BORDER_FONT        = DEFAULT_FONT;
     public static final int                TIMER_DELAY              = 100;
-    public static final String             DEFAULT_TWITTER_USER     = "realDonaldTrump";    
+    public static final String             DEFAULT_TWITTER_USER     = "MrWachs"; // realDonaldTrump";    
     public static final LinkedList<String> DEFAULT_WATCH_WORDS      = new LinkedList<>(DEFAULT_WATCH_WORDS_ARRAY);    
     public static final int                LOW_PROGESSBAR_DELAY     = 10;
     public static final int                HIGH_PROGESSBAR_DELAY    = 500;

@@ -149,12 +149,13 @@ public class TwitterReader
                 statuses.addAll(twitter.getUserTimeline(
                         UIModel.twitterUser, page));
                 if (statuses.size() == size) {
-                    System.out.println(ERROR_TIME_OUT);
+                    System.out.println("#02: " + ERROR_TIME_OUT);
                     break;
                 }
             } 
             catch (TwitterException e) {
-                System.out.println(ERROR_TWITTER);
+                System.out.println("#01: " + ERROR_TWITTER + " -> " + 
+                        e.getErrorMessage());
             }
         }
         return statuses;
