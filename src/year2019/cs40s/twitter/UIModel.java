@@ -23,6 +23,11 @@ public class UIModel
           "Education",
           "Digital",
           "Literacy",
+          "Social",
+          "Media"
+        };
+          
+          /*
           "Amazon",
           "Bezos",
           "Toyota",
@@ -41,6 +46,9 @@ public class UIModel
           "Facebook",
           "Twitter"
         };
+    */
+    
+    
     public static final String             CONSUMER_KEY             = "xLjs04s6ME3uzLuM86wgYdRgo"; //L53C1tMeHNPfINBYOCheQZGEb";
     public static final String             CONSUMER_SECRET          = "LmFjU3528FD4NdgmjpCaEjOlcIBksEL4mwnX3QyMiWPxQ9BhlR"; //lGnLjH9W71BvDIyUkraksHbb5bfhrbhHWP5xBDZiZgrUNoM2js";
     public static final String             ACCESS_TOKEN             = "803783491-zoR4YZD0vqFqRWcqgIAyIycbsxwkXSwTBC0a8uV7"; //803783491-je22x5xXKYPJN6VhYDOL0MNjjwBt1PVmWIyWowCF";
