@@ -60,6 +60,12 @@ public class FileToolsUI extends javax.swing.JFrame
         jTextArea7 = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
+        jPanel4 = new javax.swing.JPanel();
+        jButton9 = new javax.swing.JButton();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        jTextArea12 = new javax.swing.JTextArea();
+        jScrollPane14 = new javax.swing.JScrollPane();
+        jTextArea14 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -158,7 +164,7 @@ public class FileToolsUI extends javax.swing.JFrame
             }
         });
         jPanel2.add(jButton4);
-        jButton4.setBounds(10, 150, 440, 70);
+        jButton4.setBounds(10, 130, 440, 50);
 
         jButton5.setText("Select Target Folder (with subfolders) to copy");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -167,7 +173,7 @@ public class FileToolsUI extends javax.swing.JFrame
             }
         });
         jPanel2.add(jButton5);
-        jButton5.setBounds(10, 70, 440, 70);
+        jButton5.setBounds(10, 70, 440, 50);
 
         jScrollPane4.setBorder(null);
         jScrollPane4.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -194,7 +200,7 @@ public class FileToolsUI extends javax.swing.JFrame
         jScrollPane6.setViewportView(jTextArea6);
 
         jPanel2.add(jScrollPane6);
-        jScrollPane6.setBounds(460, 150, 530, 70);
+        jScrollPane6.setBounds(460, 130, 530, 50);
 
         jTextArea7.setBackground(java.awt.SystemColor.menu);
         jTextArea7.setColumns(20);
@@ -204,10 +210,10 @@ public class FileToolsUI extends javax.swing.JFrame
         jScrollPane7.setViewportView(jTextArea7);
 
         jPanel2.add(jScrollPane7);
-        jScrollPane7.setBounds(460, 70, 530, 70);
+        jScrollPane7.setBounds(460, 70, 530, 50);
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(10, 390, 1000, 230);
+        jPanel2.setBounds(10, 590, 1000, 190);
 
         jScrollPane2.setBorder(null);
         jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -226,6 +232,48 @@ public class FileToolsUI extends javax.swing.JFrame
         getContentPane().add(jScrollPane2);
         jScrollPane2.setBounds(20, 70, 980, 40);
 
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("File and Folder Creator"));
+        jPanel4.setLayout(null);
+
+        jButton9.setText("Start Process");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton9);
+        jButton9.setBounds(10, 100, 190, 80);
+
+        jScrollPane12.setBorder(null);
+        jScrollPane12.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane12.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
+        jTextArea12.setEditable(false);
+        jTextArea12.setBackground(java.awt.SystemColor.menu);
+        jTextArea12.setColumns(20);
+        jTextArea12.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTextArea12.setLineWrap(true);
+        jTextArea12.setRows(5);
+        jTextArea12.setText("This tool will select a text file which represents a list of all students in the class. Then the user will select multiple files (hold CTRL or SHIFT to select multiple files) that the tool will make copies of and then fill the sub-folders this tool will be creating with those file copies (the original files will remain untouched). This tool will also rename the beginning of each of those files to match the name of the students. Then the user will select a parent folder which represents the top folder that will be used to be filled with a number of sub-folders (one for each student in the list - named after the student names) and the file copies. ");
+        jTextArea12.setWrapStyleWord(true);
+        jScrollPane12.setViewportView(jTextArea12);
+
+        jPanel4.add(jScrollPane12);
+        jScrollPane12.setBounds(10, 30, 980, 60);
+
+        jTextArea14.setBackground(java.awt.SystemColor.menu);
+        jTextArea14.setColumns(20);
+        jTextArea14.setFont(new java.awt.Font("Monospaced", 0, 10)); // NOI18N
+        jTextArea14.setRows(5);
+        jTextArea14.setText("...");
+        jScrollPane14.setViewportView(jTextArea14);
+
+        jPanel4.add(jScrollPane14);
+        jScrollPane14.setBounds(210, 100, 780, 80);
+
+        getContentPane().add(jPanel4);
+        jPanel4.setBounds(10, 390, 1000, 190);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -241,10 +289,6 @@ public class FileToolsUI extends javax.swing.JFrame
         controller.selectClassList();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        controller.selectDestination();
-    }//GEN-LAST:event_jButton4ActionPerformed
-
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         controller.selectTarget();
     }//GEN-LAST:event_jButton5ActionPerformed
@@ -253,17 +297,29 @@ public class FileToolsUI extends javax.swing.JFrame
         controller.shutDown();
     }//GEN-LAST:event_formWindowClosing
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        controller.selectDestination();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        FolderSystem folderSystem = new FolderSystem(jTextArea14);
+    }//GEN-LAST:event_jButton9ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane12;
+    private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane6;
@@ -271,6 +327,8 @@ public class FileToolsUI extends javax.swing.JFrame
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea12;
+    private javax.swing.JTextArea jTextArea14;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea4;
     private javax.swing.JTextArea jTextArea6;

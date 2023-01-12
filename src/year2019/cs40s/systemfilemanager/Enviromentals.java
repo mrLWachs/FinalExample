@@ -40,7 +40,7 @@ public class Enviromentals
     public  static       String UI_ICON                         
             = MainConstants.MEDIA_PATH + "tools.png";
     public  static       int    UI_WIDTH                        = 1030;
-    public  static       int    UI_HEIGHT                       = 660;        
+    public  static       int    UI_HEIGHT                       = 830;        
     public  static       int    DIALOG_TYPE                     
             = JOptionPane.PLAIN_MESSAGE;
     public  static       Font   DIALOG_FONT                     
