@@ -65,16 +65,14 @@ public class MainClass
                       MainConstants.MENU_PROMPT_3 +
                       MainConstants.MENU_PROMPT_8;
         String choice = dialog.choose(text,MainConstants.YEAR_OPTIONS);
-        if      (choice == null || choice.equals("")) menu();
-        if      (choice.equals(MainConstants.YEAR_OPTIONS[0])) 
-            new Examples2020();
-        else if (choice.equals(MainConstants.YEAR_OPTIONS[1])) 
-            new Examples2019(); 
-        else if (choice.equals(MainConstants.YEAR_OPTIONS[2])) 
-            new Examples2018();        
-        else if (choice.equals(MainConstants.YEAR_OPTIONS[3])) 
-            new ExamplesOther();
-        else                                          end(); 
+        if      (choice == null || choice.equals(""))          menu();
+        if      (choice.equals(MainConstants.YEAR_OPTIONS[0])) new Examples2022();
+        else if (choice.equals(MainConstants.YEAR_OPTIONS[1])) new Examples2021(); 
+        else if (choice.equals(MainConstants.YEAR_OPTIONS[2])) new Examples2020();        
+        else if (choice.equals(MainConstants.YEAR_OPTIONS[3])) new Examples2019();        
+        else if (choice.equals(MainConstants.YEAR_OPTIONS[3])) new Examples2018();        
+        else if (choice.equals(MainConstants.YEAR_OPTIONS[3])) new ExamplesOther();        
+        else                                                   end(); 
     }
             
     /**
@@ -84,9 +82,6 @@ public class MainClass
      */
     public static void main(String[] args) { 
         start();
-        
-//        year2020.cs40s.awards.MainClass.main(args);
-        
     }
 
 }

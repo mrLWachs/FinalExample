@@ -21,7 +21,7 @@ public class MainClass
      *
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public MainClass() {
         Globals.start();                        // Start the app logic
         new WelcomeUI();                        // Display first screen
     }
