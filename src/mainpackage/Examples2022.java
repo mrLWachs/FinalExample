@@ -18,9 +18,13 @@ import static mainpackage.MainClass.totalPoints;
 public class Examples2022
 {
         
-    private static final String[]  CS30S_OPTIONS       = { "Choose year",
+    private static final String[]  CS30S_OPTIONS       = { "Matrix Images",
+                                                           "Web Page Opener",
+                                                           "Choose year",
                                                            "Exit" };
-    private static final String[]  CS40S_OPTIONS       = { "Minesweeper",
+    private static final String[]  CS40S_OPTIONS       = { "Minesweeper",                                                            
+                                                           "Clicky Pictures",
+                                                           "Timed Dialogs",
                                                            "Choose year",
                                                            "Exit" };
         
@@ -61,7 +65,9 @@ public class Examples2022
                       MainConstants.MENU_PROMPT_3 + 
                       MainConstants.MENU_PROMPT_6;
         String choice = MainClass.dialog.buttons(text, CS30S_OPTIONS);
-        if      (choice.equals(CS30S_OPTIONS[0])) MainClass.menu();
+        if      (choice.equals(CS30S_OPTIONS[0])) new year2022.cs30s.matriximages.MatrixImages();
+        else if (choice.equals(CS30S_OPTIONS[1])) new year2022.cs30s.webpageopener.WebPageOpener();
+        else if (choice.equals(CS30S_OPTIONS[2])) MainClass.menu();
         else                                      MainClass.end();
     }
     
@@ -75,7 +81,9 @@ public class Examples2022
                       MainConstants.MENU_PROMPT_7;
         String choice = MainClass.dialog.buttons(text, CS40S_OPTIONS);
         if      (choice.equals(CS40S_OPTIONS[0])) new year2022.cs40s.minesweeper.game.MineSweeper();
-        else if (choice.equals(CS40S_OPTIONS[1])) MainClass.menu();
+        else if (choice.equals(CS40S_OPTIONS[1])) new year2022.cs40s.clickypictures.ClickyPictures();
+        else if (choice.equals(CS40S_OPTIONS[2])) new year2022.cs40s.timeddialogs.TimedDialogs();
+        else if (choice.equals(CS40S_OPTIONS[3])) MainClass.menu();
         else                                      MainClass.end(); 
     }
     
