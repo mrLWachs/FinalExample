@@ -70,8 +70,8 @@ public class MainClass
         else if (choice.equals(MainConstants.YEAR_OPTIONS[1])) new Examples2021(); 
         else if (choice.equals(MainConstants.YEAR_OPTIONS[2])) new Examples2020();        
         else if (choice.equals(MainConstants.YEAR_OPTIONS[3])) new Examples2019();        
-        else if (choice.equals(MainConstants.YEAR_OPTIONS[3])) new Examples2018();        
-        else if (choice.equals(MainConstants.YEAR_OPTIONS[3])) new ExamplesOther();        
+        else if (choice.equals(MainConstants.YEAR_OPTIONS[4])) new Examples2018();        
+        else if (choice.equals(MainConstants.YEAR_OPTIONS[5])) new ExamplesOther();        
         else                                                   end(); 
     }
             
