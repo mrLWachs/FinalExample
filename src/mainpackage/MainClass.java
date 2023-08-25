@@ -34,7 +34,7 @@ public class MainClass
      * Starting the examples application, open saved data from the data file
      */
     private static void start() {
-        mediaPlayer.playWAV(MainConstants.SOUND);           // play sound file
+        mediaPlayer.playWAV(MainConstants.SOUND);// play sound file
         String[] data = fileHandler.read();             // read data from file
         if (data != null && data.length > 0) {          // if data is valid
             gamesPlayed = Integer.parseInt(data[0]);    // get games played
